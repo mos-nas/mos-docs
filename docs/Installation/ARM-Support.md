@@ -100,7 +100,7 @@ MOS supports persistent `modprobe.d` configurations via:
 ```
 
 :::tip
-For detailed instructions, see the [Persistent Package Installation](/docs/Advanced-Usage/Persistent-Package-Installation#custom-kernel-module-configuration-modprobed) documentation.
+For detailed instructions, see the [Kernel Module Configuration](/docs/Advanced-Usage/Kernel-Module-Configuration) documentation.
 :::
 
 ---

@@ -126,16 +126,7 @@ This is because MOS reconstructs the root filesystem from the compressed base im
 - **Reboot** to apply installations
 - Direct **`apt install`** does **not** persist
 
----
-
-## ✅ Summary
-
-- **Persistent packages** go to `/boot/optional/packages`
-- Use **`apt download`** to fetch `.deb` files
-- **Reboot** to apply installations
-- Direct **`apt install`** does **not** persist
-
-For system packages and kernel module configurations that must survive reboots, always use the appropriate `/boot/optional/` directory.
+For system packages that must survive reboots, always use `/boot/optional/packages`.
 
 ---
 

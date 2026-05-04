@@ -83,6 +83,28 @@ MOS should now boot on your ARM device!
 
 ---
 
+## 📦 Custom Kernel Module Configuration (Optional)
+
+Some ARM boards require specific kernel module parameters to function correctly (e.g., disabling certain features, enabling hardware-specific options).
+
+MOS supports persistent `modprobe.d` configurations via:
+
+```
+/boot/optional/modprobe.d/<your-config>.conf
+```
+
+**Example:**
+
+```
+/boot/optional/modprobe.d/ahci-mask.conf
+```
+
+:::tip
+For detailed instructions, see the [Persistent Package Installation](/docs/Advanced-Usage/Persistent-Package-Installation#custom-kernel-module-configuration-modprobed) documentation.
+:::
+
+---
+
 ## 💾 Post-Installation (Optional)
 
 After successful boot, you can install MOS to disk:

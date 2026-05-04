@@ -108,6 +108,7 @@ const sidebars = {
         { type: 'doc', id: 'Advanced-Usage/Docker-Local-Host-Access-Shim', label: 'Docker Local Host Access' },
         { type: 'doc', id: 'Advanced-Usage/Disable-MD5-Verification', label: 'Disable MD5 Verification' },
         { type: 'doc', id: 'Advanced-Usage/Early-Boot-Script', label: 'Early Boot Script' },
+        { type: 'doc', id: 'Advanced-Usage/Persistent-Package-Installation', label: 'Persistent Package Installation' },
       ],
     },
     {

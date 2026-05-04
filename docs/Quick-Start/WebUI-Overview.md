@@ -189,7 +189,7 @@ Not all plugins support dashboard widgets. Only plugins that provide widget supp
 
 ---
 
-## 🔐 Login Rate Limits
+## 🔐 Login Rate Limits {#login-rate-limits}
 
 The WebUI implements rate limits for the login area to protect the system from brute-force attacks.
 

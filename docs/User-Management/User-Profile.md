@@ -122,7 +122,7 @@ When MFA is enabled, the login process requires an additional step:
 3. Click **Verify** to complete login
 
 :::warning Rate Limits Apply
-Failed MFA code attempts count toward the [login rate limits](./../Quick-Start/WebUI-Overview#login-rate-limits). After exceeding the configured maximum attempts (default: 5), your account will be temporarily blocked.
+Failed MFA code attempts count toward the [login rate limits](../Quick-Start/WebUI-Overview#login-rate-limits). After exceeding the configured maximum attempts (default: 5), your account will be temporarily blocked.
 :::
 
 ### Using a Recovery Code

@@ -87,25 +87,26 @@ Use fixed schedules for system tasks to avoid unnecessary load.
 
 ### Command
 
-Defines the command that will be executed.
+Defines a single command that will be executed.
+
+:::tip
+- Use the **Command** field only for single commands
+- For scripts or multi-step operations, leave this field empty and use the **Script** field instead
+- If both fields are provided, the command takes precedence
+:::
 
 :::note
 - Commands are executed with system privileges
 - Absolute paths are recommended
-- If no command is provided and only a script path is defined, the command is created automatically
 :::
 
 **Example:**
 
-`bash /boot/optional/scripts/cron/test_script.sh > /dev/null 2>&1`
-
-This ensures:
-- The script is executed reliably
-- No stdout or stderr output is written unless explicitly handled inside the script
+`/usr/bin/nvidia-persistenced --verbose`
 
 **Examples:**
-- `/usr/bin/apt update`
-- `/usr/local/bin/backup.sh`
+- `/usr/bin/nvidia-persistenced --verbose`
+- `/usr/sbin/zpool scrub tank`
 - `/usr/bin/find /var/log -type f -mtime +7 -delete`
 
 ---

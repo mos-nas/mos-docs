@@ -7,7 +7,7 @@ sidebar_position: 4
 
 MOS is designed to run from a compressed, read-only root filesystem (rootfs). Any changes made to the system via `apt install` or similar commands will be lost after a reboot, as the root filesystem is rebuilt from the compressed image on every startup.
 
-To install additional packages that persist across reboots, MOS provides a dedicated directory for custom `.deb` packages.
+To install additional packages that persist across reboots, MOS provides a dedicated directory for optional Debian packages.
 
 ---
 
@@ -128,67 +128,11 @@ This is because MOS reconstructs the root filesystem from the compressed base im
 
 ---
 
-## 🔧 Custom Kernel Module Configuration (modprobe.d)
-
-In addition to custom packages, MOS supports persistent kernel module configurations via custom `modprobe.d` files. This is especially useful for ARM users who may need to apply specific module parameters for their hardware.
-
-### Directory
-
-Place your custom modprobe configuration files in:
-
-```
-/boot/optional/modprobe.d/
-```
-
-### File Format
-
-Files must use the `.conf` extension and follow standard modprobe.d syntax:
-
-```
-/boot/optional/modprobe.d/<your-config>.conf
-```
-
-**Example:**
-
-```
-/boot/optional/modprobe.d/ahci-mask.conf
-```
-
-### Contents
-
-Each `.conf` file can contain standard modprobe options:
-
-```
-# Example: Disable a specific feature for the ahci driver
-options ahci ahci_mask=0x0
-```
-
-```
-# Example: Set module parameters
-options snd-hda-intel power_save=0
-```
-
-:::note
-- Configuration files are loaded during early boot
-- Only `.conf` files in `/boot/optional/modprobe.d/` are applied
-- Multiple configuration files can be placed in this directory
-:::
-
-:::tip ARM Users
-Custom modprobe configurations are commonly needed on ARM boards to:
-- Enable or disable specific hardware features
-- Apply board-specific driver parameters
-- Work around compatibility issues with certain kernels
-:::
-
----
-
 ## ✅ Summary
 
 - **Persistent packages** go to `/boot/optional/packages`
-- **Persistent modprobe configs** go to `/boot/optional/modprobe.d/`
 - Use **`apt download`** to fetch `.deb` files
-- **Reboot** to apply installations and configurations
+- **Reboot** to apply installations
 - Direct **`apt install`** does **not** persist
 
 For system packages and kernel module configurations that must survive reboots, always use the appropriate `/boot/optional/` directory.

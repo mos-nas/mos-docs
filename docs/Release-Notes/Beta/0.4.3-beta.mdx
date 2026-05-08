@@ -1,0 +1,51 @@
+---
+title: 0.4.3-beta
+sidebar_label: 🧪 0.4.3-beta
+sidebar_position: 2
+---
+
+# 0.4.3-beta
+
+:::tip Download
+Download this release on the [GitHub Releases](https://github.com/ich777/mos-releases/releases/tag/0.4.3-beta) page.
+:::
+
+:::danger Security Fix
+This release fixes a critical **dirty frag exploit** vulnerability. All users are strongly encouraged to upgrade immediately.
+:::
+
+## System
+
+- Recommended Kernel: **6.18.28**
+- Update Docker to **v29.4.3**
+- **NFS fully implemented** — complete support for NFS remote mounts with improved naming scheme, timeout handling, and UI integration
+- Fix/change naming scheme for NFS shares in `/mnt/remotes/REMOTE/`
+- Fix for NFS
+- Change naming scheme for NFS shares
+- Add timeout to NFS mount commands
+- Correct terminology in Zswap configuration for consistency
+
+## Frontend
+
+- Update display of Tailscale and Netbird status in the navigation bar
+- Add support for displaying Tailscale and Netbird status in the navigation bar
+- Add conditional display for domain field in SMB dialogs
+- Change status indicator color for remotes from red to blue
+- Add support for NFS and update input fields for remote mounts
+- Fix error when opening terminal for running containers
+- Extend terminal functionality with custom shell and improve Docker attributes
+- Add status indicator for cron jobs and update translations
+- Add support for compose templates and improve error handling
+- Update remote display with a table and improve dialogs
+- Change input field for NFS mapping to dropdown selection
+- Extend memory display with swap information and update translations
+- Add clipboard functionality and update UI elements for MFA
+
+## Docker
+
+- Add key `default_shell` to docker/mos/containers
+
+## LXC
+
+- Improve validation for `lxcSettings` in `openCreateBackupDialog`
+- Fix `lxcBackup`

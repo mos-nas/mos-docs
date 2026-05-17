@@ -55,8 +55,8 @@ const config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'release-0.4.3-beta',
-      content: '🚀 <strong>MOS 0.4.3-beta is out!</strong> — Kernel 6.18.28, 🛡️ Dirty frag exploit fix, 📁 NFS fully implemented, 🐳 Docker v29.4.3 &nbsp;<a href="https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.3-beta" style="color:#ffffff;">Release Notes →</a>',
+      id: 'release-0.4.4-beta',
+      content: '🚀 <strong>MOS 0.4.4-beta is out!</strong> — Kernel 6.18.29, 🛡️ Multi-arch compatibility, 📁 MergerFS v2.42.0, 🐳 Docker no_autoupdate Option &nbsp;<a href="https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.4-beta" style="color:#ffffff;">Release Notes →</a>',
       backgroundColor: '#fa9725',
       textColor: '#ffffff',
       isCloseable: true,

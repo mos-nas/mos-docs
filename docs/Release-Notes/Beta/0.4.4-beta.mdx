@@ -1,0 +1,57 @@
+---
+title: 0.4.4-beta
+sidebar_label: 🧪 0.4.4-beta
+sidebar_position: 1
+---
+
+# 0.4.4-beta
+
+ :::tip Download
+ Download this release on the [GitHub Releases](https://github.com/ich777/mos-releases/releases/tag/0.4.4-beta) page.
+ :::
+
+## System
+
+- Recommended Kernel: **6.18.29**
+- Update MergerFS to **v2.42.0**
+- Update mos-notify to **v0.1.5**
+- Added multi-architecture compatibility to Netbird init.d
+- Added multi-architecture compatibility to Tailscale init.d
+- Added notification persistence
+- Added stop for notification init.d service
+- Added verbose argument to notify service
+- Applied logic fixes for DOCKER_CONFIG
+- Made sure to update remote Docker SHA correctly on update
+- Hide output from prune
+- Cleanup untagged Docker images after running mos-update_containers
+- Made sure to display no messages depending if no_autoupdate is true and where the update was triggered for Docker updates
+- Added no_autoupdate to Docker container updates
+- Fixed issue possibly getting wrong Docker index
+- Made sure to save sha256_remote if it is an existing container, do not overwrite it
+- Added no_autoupdate to Docker deploy
+- Added a few more diagnostic files to diagnostics
+- Made sure to restart mos-notify only if config from providers changes
+- Fixed issue with shares being written incorrectly
+- Added key persist_notifications to mos/settings/system endpoints
+- Added mos/settings/notification endpoints
+
+## Frontend
+
+- Fixed issue with messages in Docker websocket
+- Fixed issue with no_autoupdate not working correctly in websocket
+- Fixed issue with not updating local SHA on force update from Compose Stacks
+- Added no_autoupdate to Docker
+- Added no_autoupdate to Compose
+- Fixed issue with handling Docker Compose YAML files not correctly in MOS Hub if extension is yml instead of yaml
+- Improved layout of IPv4 settings in network interfaces
+- Added support for MTU settings in network interfaces
+- Fixed IP addresses in ports and removed warning
+- Added support for persistent notifications
+- Added notification settings and updated UI for provider management
+- Added new options for creating Docker containers and compose stacks and updated UI
+- Added support for "force update stack" option and improved error handling in multiple components
+- Added support for "no auto update" option in Docker forms
+
+## Docker
+
+- Added key `default_shell` to docker/mos/containers

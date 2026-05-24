@@ -289,7 +289,7 @@ Defines how the compose stack appears in the MOS Hub.
   "description": "Brief description of the application",
   "icon": "https://example.com/icon.png",
   "webui": "http://{IP}:8080",
-  "category": "Media"
+  "category": [ "Media" ]
 }
 ```
 
@@ -448,9 +448,25 @@ Plugin templates use a different structure than Docker templates.
 
 - **category**  
   Array of categories. Common options:
-  - `Driver` – Hardware drivers
-  - `Utility` – System utilities
-  - `Tool` – Special-purpose tools
+
+| Category | Description |
+|---|---|
+| `AI` | Artificial Intelligence applications |
+| `Backup` | Backup and recovery tools |
+| `Crypto` | Cryptocurrency and blockchain applications |
+| `Downloader` | Download and upload tools |
+| `Driver` | Hardware drivers (GPU, TPU, TV tuners) |
+| `Game Server` | Game server applications |
+| `Home Automation` | Smart home and automation tools |
+| `Hosting` | Web hosting and server applications |
+| `Media` | Media servers and streaming applications |
+| `Monitoring` | System monitoring and logging tools |
+| `Network` | Network services and tools |
+| `Productivity` | Productivity and office applications |
+| `Security` | Security and firewall tools |
+| `System` | System utilities and tools |
+| `Utilities` | General purpose utilities |
+| `Misc` | Miscellaneous applications |
 
 - **repository**  
   GitHub repository URL for the plugin installation source.

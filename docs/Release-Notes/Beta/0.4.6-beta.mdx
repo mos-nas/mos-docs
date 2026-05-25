@@ -1,0 +1,36 @@
+---
+title: 0.4.6-beta
+sidebar_label: 🧪 0.4.6-beta
+sidebar_position: 1
+---
+
+# 0.4.6-beta
+
+:::tip Download
+Download this release on the [GitHub Releases](https://github.com/ich777/mos-releases/releases/tag/0.4.6-beta) page.
+:::
+
+## System
+
+- Recommended Kernel: **6.18.33**
+- Update Docker to **v29.5.2**
+- Update EDK2 to **v202605**
+- Add `acs-overrides_iommu` Patch to Kernel
+- Enable `CONFIG_EXT4_FS_SECURITY` in Kernel
+- Fix for check if watchdog is running
+- Make sure to also find disks when there are more than 26 disks in the system
+- Add mounted script to boot procedure
+- Fix spindown_watchdog not being restarted after changing values
+- Create new endpoint `docker/mos/ports` to get all allocated docker ports
+- Fix issue samba and nfs not restarting when local master was changed
+- Trying something new for non spinning disks to be reported as such
+
+## Frontend
+
+- Add `margin-bottom` to scrollable areas in components `dockerChange`, `dockerCompose` and `dockerCreate`
+- Change the maximum height of scrollable areas in components `dockerChange`, `dockerCompose` and `dockerCreate` to `calc(100vh - 150px)`
+- Add `scrollable` property with maximum height to components `dockerChange`, `dockerCompose` and `dockerCreate`
+- Add `scrollable` property to `v-navigation-drawer` in components `dockerChange`, `dockerCompose` and `dockerCreate`
+- Add function to retrieve Docker ports to components `dockerChange`, `dockerCompose` and `dockerCreate`
+- Add support for saving the status of detail views in Memory and Processor components
+- Update the RAID levels in the pool view

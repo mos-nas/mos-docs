@@ -59,15 +59,16 @@ const sidebars = {
         { type: 'doc', id: 'User-Management/User-Profile', label: 'User Profile' },
       ],
     },
-    {
-      type: 'category',
-      label: '🚀 System Startup',
-      items: [
-        { type: 'doc', id: 'System-Startup/Pre-Start-Script', label: 'Pre-Start Script' },
-        { type: 'doc', id: 'System-Startup/Post-Start-Script', label: 'Post-Start Script' },
-        { type: 'doc', id: 'System-Startup/Pool-Mount-Scripts', label: 'Pool Mount Scripts' },
-      ],
-    },
+      {
+        type: 'category',
+        label: '🚀 System Startup',
+        items: [
+          { type: 'doc', id: 'System-Startup/Pre-Start-Script', label: 'Pre-Start Script' },
+          { type: 'doc', id: 'System-Startup/Mounted-Script', label: 'Mounted Script' },
+          { type: 'doc', id: 'System-Startup/Post-Start-Script', label: 'Post-Start Script' },
+          { type: 'doc', id: 'System-Startup/Pool-Mount-Scripts', label: 'Pool Mount Scripts' },
+        ],
+      },
     {
       type: 'category',
       label: '🗂️ Virtualization',

@@ -180,6 +180,69 @@ http://<mos-ip-address>
 
 ---
 
+## 🖥️ Proxmox VE: Install MOS to Disk
+
+After testing MOS in the VM, you can install it to a virtual disk for persistent use on Proxmox VE.
+
+### 1️⃣ Install MOS to Disk
+
+1. In the MOS WebUI, navigate to **System Settings** → **Update System**
+2. Click **Install to Disk**
+3. Wait for the installation to complete
+4. **Wait for the notification** that it is safe to reboot
+
+---
+
+### 2️⃣ Shutdown the VM
+
+1. **Shutdown** the VM from the Proxmox WebUI or via CLI:
+   ```bash
+   qm shutdown <vmid>
+   ```
+
+---
+
+### 3️⃣ Remove USB Configuration
+
+Remove or comment out the USB configuration lines from the VM config file:
+
+```bash
+nano /etc/pve/qemu-server/<vmid>.conf
+```
+
+Comment out or delete these lines:
+```bash
+# usb0: spice,usb3=1
+# args: -drive file=/var/lib/vz/images/mos_amd64.img,format=raw,if=none,id=usbdisk -device usb-storage,drive=usbdisk
+```
+
+---
+
+### 4️⃣ Edit Boot Order
+
+Edit the VM configuration to prioritize the boot disk:
+
+1. In Proxmox WebUI, go to your VM → **Hardware**
+2. Click **Hard Disk** and ensure the boot order is set correctly
+3. Or edit the config file directly:
+   ```bash
+   nano /etc/pve/qemu-server/<vmid>.conf
+   ```
+   Add or modify the `boot` line:
+   ```bash
+   boot: order=scsi0;ide2;net0
+   ```
+
+---
+
+### 5️⃣ Ready to Use
+
+1. Start the VM again
+2. MOS will now boot from the installed disk
+3. All configurations and data will persist across reboots
+
+---
+
 ## ✅ What to Expect
 
 - Full MOS WebUI available

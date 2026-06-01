@@ -110,7 +110,8 @@ const sidebars = {
         { type: 'doc', id: 'Advanced-Usage/Disable-MD5-Verification', label: 'Disable MD5 Verification' },
         { type: 'doc', id: 'Advanced-Usage/Early-Boot-Script', label: 'Early Boot Script' },
         { type: 'doc', id: 'Advanced-Usage/Persistent-Package-Installation', label: 'Persistent Package Installation' },
-        { type: 'doc', id: 'Advanced-Usage/Kernel-Module-Configuration', label: 'Kernel Module Configuration' },
+         { type: 'doc', id: 'Advanced-Usage/Kernel-Module-Configuration', label: 'Kernel Module Configuration' },
+         { type: 'doc', id: 'Advanced-Usage/Bash-Profile-Configuration', label: 'Bash Profile Configuration' },
       ],
     },
     {

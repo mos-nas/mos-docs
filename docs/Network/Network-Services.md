@@ -24,7 +24,7 @@ ssh root@<MOS-IP-ADDRESS>
 
 ---
 
-## 📁 NFS
+##  NFS
 
 Network File System (NFS) allows Linux/Unix systems to mount shares from MOS.
 

@@ -147,6 +147,18 @@ Enable this option **only in trusted networks**.
 
 ---
 
+### 🔧 Allow execute always
+
+Allows files in the share to be executed with full execute permissions.
+
+| State | Effect |
+|-------|--------|
+| ✅ Enabled | Files can be executed with execute permissions |
+| ❌ Disabled | Execute permissions are restricted |
+
+This option is useful for shares that need to store and execute executable files (e.g., scripts, binaries).
+:::
+
 ## 📋 Managing Existing Shares
 
 The Shares overview displays all configured shares.

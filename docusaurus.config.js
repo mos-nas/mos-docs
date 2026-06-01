@@ -55,8 +55,8 @@ const config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'release-0.4.6-beta',
-      content: '🚀 <strong>MOS 0.4.6-beta is out!</strong> — Kernel 6.18.33, 🐳 Docker v29.5.2, 📦 EDK2 v202605, 🛠️ acs-overrides_iommu Patch &nbsp;<a href="https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.6-beta" style="color:#ffffff;">Release Notes →</a>',
+      id: 'release-0.4.7-beta',
+      content: '🚀 <strong>MOS 0.4.7-beta is out!</strong> — Kernel 6.18.34, 📦 SnapRAID v14.5, 🔌 Socket-based API, 💾 Hugepages support, 🖥️ iSCSI WebUI &nbsp;<a href="https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.7-beta" style="color:#ffffff;">Release Notes →</a>',
       backgroundColor: '#fa9725',
       textColor: '#ffffff',
       isCloseable: true,

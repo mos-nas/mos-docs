@@ -575,4 +575,19 @@ Reviewing these repositories helps understand template best practices and struct
 
 ---
 
+## 📢 Share Your Repository
+
+Once your MOS Hub repository is created and published, consider sharing it with the community!
+
+Join the **#moshub-community-repositories** channel on the official MOS Discord server to:
+- Showcase your repository to other users
+- Get feedback and suggestions from the community
+- Help others discover your templates and plugins
+
+:::note
+Your repository will be available to all MOS users who add it to their Hub settings — sharing it in Discord helps increase visibility and engagement.
+:::
+
+---
+
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

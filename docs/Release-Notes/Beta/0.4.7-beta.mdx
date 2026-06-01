@@ -1,0 +1,53 @@
+---
+title: 0.4.7-beta
+sidebar_label: 🧪 0.4.7-beta
+sidebar_position: 1
+---
+
+# 0.4.7-beta
+
+:::tip Download
+Download this release on the [GitHub Releases](https://github.com/ich777/mos-releases/releases/tag/0.4.7-beta) page.
+:::
+
+## System
+
+- Recommended Kernel: **6.18.34**
+- Update SnapRAID to **v14.5**
+- Update mos-notify to **v0.2.1**
+- Fix typo on notify init script
+- Switch to socket based communication in nginx config
+- Add support for hugepages
+- Add shim to virtual prefixes to detection routine
+- Make socket path not changeable
+- Switch to socket based API (TCP optional)
+- Add `temperatureStatus` to `pool/disks` endpoints and websockets
+- Make sure when a disk from a mounted pool went offline/missing to send an alert notification
+- Make sure to not wake up disks when API is restarted and S.M.A.R.T. configuration hasn't changed
+- Add `allow_execute_always` key to samba mounts
+- Fix regex bug for `LABEL` detection from disk
+- Add serial number to mounting scheme from mounting single disks
+- Swap defaults for disk mounting schemes to use: label/serial/uuid/path
+- Fix documentation oversight, replace endpoint for SnapRAID was not documented in API docs
+- Forgot to also add `skip_size_check` to replace endpoint for SnapRAID devices
+- Make sure to exclude shim interfaces from network reconcile
+- Add new key `skip_size_check` to make it possible when adding a SnapRAID device/creating a SnapRAID pool to entirely skip the check if parity device(s) are the biggest devices
+
+## Frontend
+
+- Add temperature display for hard drives in overview
+- Initial iSCSI WebUI support
+- Update logic for displaying Compose WebUI and add counter for running containers
+- Add support for hugepages in VM service and update related settings
+- Optimize layout of input fields in Docker dialogs for better user experience
+- Remove `skip_size_check` option from mergerfs device addition dialog
+- Add `skip size check` option to pool creation and management dialogs
+- Add support for `Execute Always Allowed` option in SMB dialogs
+- Add `Execute Always Allowed` option to SMB dialogs and update related data structures
+
+## Virtualization
+
+- Update QEMU to **v11.0.1**
+- Add hugepages to VM templates
+- Add new keys for hugepages to VM settings
+- Change default terminal and change environment variables for terminal

@@ -259,6 +259,21 @@ Enables disk encryption for the pool.
 
 ---
 
+### 🔍 Skip Size check (Mergerfs only)
+
+**Warning:** This option requires **5 clicks** to enable. This is intentional to ensure you understand the implications.
+
+When enabled, MOS will skip the size validation check when creating a Mergerfs pool. This allows you to use disks with different sizes, but may lead to unexpected behavior if not configured correctly.
+
+:::warning
+- Only available for **Mergerfs pools**
+- Requires **5 clicks** to enable (intentional safety measure)
+- May cause issues if disks have significantly different sizes
+- Use only if you understand the risks
+:::
+
+---
+
 ## ✅ Summary
 
 Choosing the correct pool type and filesystem is essential for a stable and reliable system.

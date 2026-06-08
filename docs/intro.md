@@ -88,7 +88,7 @@ MOS is and will always remain **free and open source**. If you'd like to support
 
 | Resource | Link |
 |----------|------|
-| **Support Project** | [Support MOS](/support/support-project) |
+| **Support Project** | [Support MOS](/support-mos/support_mos) |
 
 ---
 

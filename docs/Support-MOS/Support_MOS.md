@@ -24,11 +24,13 @@ As a thank you, every supporter who donates at least $5 will receive a code to u
 3. Go to **Settings -> Others -> Support MOS** and enter the code for the support banner
 
    ![Settings Navigation](/img/support-mos/Settings_Others.png)
+
    ![Support MOS Settings](/img/support-mos/Support_MOS_Settings.png)
 
 4. The support banner will be unlocked and visible in the expandable menu at the bottom left of your MOS WebUI
 
    ![Support Banner Black](/img/support-mos/Support_Banner_Black.png)
+   
    ![Support Banner White](/img/support-mos/Support_Banner_White.png)
 
 ---
@@ -48,9 +50,9 @@ If you send a donation via GitHub, **please contact us** on Discord or Matrix so
 
 ### 📬 Contact Options
 
-**Discord:** [MOS Channel](https://discord.com/invite/fcTMbuygTV)
+**Discord:** [mos_official](https://discord.com/invite/fcTMbuygTV)
 
-**Matrix:** [MOS Official](https://matrix.to/#/#mos_official:matrix.org)
+**Matrix:** [mos_official](https://matrix.to/#/#mos_official:matrix.org)
 
 ---
 

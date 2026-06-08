@@ -1,6 +1,6 @@
 ---
-title: 🌟 Support MOS
-slug: /support-mos/support_mos
+sidebar_label: 🌟 Support MOS
+sidebar_position: 1
 ---
 
 # 🌟 Support MOS

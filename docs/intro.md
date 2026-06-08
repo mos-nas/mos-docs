@@ -76,8 +76,19 @@ MOS is built from multiple open-source components:
 | Resource | Link |
 |----------|------|
 | **Discord Community** | [Join our Discord](https://discord.com/invite/fcTMbuygTV) |
+| **Matrix Channel** | [Join our Matrix](https://matrix.to/#/#mos_official:matrix.org) |
 | **Report Issues** | [GitHub Issues](https://github.com/ich777/mos-docs/issues) |
 | **Releases & Changelog** | [GitHub Releases](https://github.com/ich777/mos-releases) |
+
+---
+
+## 🌟 Support MOS
+
+MOS is and will always remain **free and open source**. If you'd like to support the project, you can make a donation to help us continue development.
+
+| Resource | Link |
+|----------|------|
+| **Support Project** | [Support MOS](/support/support-project) |
 
 ---
 

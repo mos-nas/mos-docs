@@ -114,17 +114,24 @@ const sidebars = {
          { type: 'doc', id: 'Advanced-Usage/Bash-Profile-Configuration', label: 'Bash Profile Configuration' },
       ],
     },
-    {
-      type: 'category',
-      label: '🛠️ Troubleshooting',
-      items: [
-        { type: 'doc', id: 'Troubleshooting/Troubleshooting', label: 'Troubleshooting' },
-        { type: 'doc', id: 'Troubleshooting/Diagnostics', label: 'Diagnostics' },
-      ],
-    },
-    {
-      type: 'category',
-      label: '📋 Release Notes',
+     {
+       type: 'category',
+       label: '🛠️ Troubleshooting',
+       items: [
+         { type: 'doc', id: 'Troubleshooting/Troubleshooting', label: 'Troubleshooting' },
+         { type: 'doc', id: 'Troubleshooting/Diagnostics', label: 'Diagnostics' },
+       ],
+     },
+     {
+       type: 'category',
+       label: '🌟 Support MOS',
+       items: [
+         { type: 'doc', id: 'Support-MOS/Support_MOS', label: 'Support MOS' },
+       ],
+     },
+     {
+       type: 'category',
+       label: '📋 Release Notes',
       items: [
         { type: 'doc', id: 'Release-Notes/Overview', label: 'Overview' },
           {

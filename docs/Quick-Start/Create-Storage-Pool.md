@@ -275,6 +275,54 @@ When enabled, MOS will skip the size validation check when creating a Mergerfs p
 
 ---
 
+## ⚠️ Usage Warning
+
+:::note
+**Note:** The translation for this feature is not yet finalized in the current MOS 0.4.8-beta release. The UI labels may still be in German and will be updated in a future release.
+:::
+
+The Usage Warning feature allows you to receive notifications when a storage pool reaches certain capacity thresholds. This helps you proactively manage storage space and avoid unexpected issues.
+
+### How It Works
+
+- The system checks pool usage **every 10 minutes**
+- When the pool reaches your configured threshold, you will receive a warning or alarm notification
+- Two threshold levels are available: **Warning** and **Alarm**
+
+### Configuration
+
+To configure Usage Warning for a pool:
+
+1. Navigate to **Pools**
+2. Select the pool you want to monitor
+3. Click the **three dots (•••)** menu
+4. Select **Usage Warning**
+5. Configure the thresholds:
+   - **Warning**: Percentage threshold for warning notifications
+   - **Alarm**: Percentage threshold for alarm notifications
+
+![Usage Warning Menu](/img/usage-warning-menu.png)
+
+*Location of the Usage Warning option in the pool menu*
+
+![Usage Warning Settings](/img/usage-warning-settings.png)
+
+*Usage Warning configuration dialog*
+
+### Threshold Recommendations
+
+- **Warning (70%)**: Receive a warning when the pool reaches this level
+- **Alarm (90%)**: Receive an alarm when the pool reaches this critical level
+
+### Best Practices
+
+- Set **Warning** at a level that gives you enough time to respond (e.g., 70%)
+- Set **Alarm** at a critical level that requires immediate action (e.g., 90%)
+- Consider your storage growth rate when setting thresholds
+- Monitor notifications and take action before reaching the Alarm level
+
+---
+
 ## ✅ Summary
 
 Choosing the correct pool type and filesystem is essential for a stable and reliable system.

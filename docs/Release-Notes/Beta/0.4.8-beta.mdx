@@ -1,0 +1,42 @@
+---
+title: 0.4.8-beta
+sidebar_label: 🧪 0.4.8-beta
+sidebar_position: 1
+---
+
+# 0.4.8-beta
+
+:::tip Download
+Download this release on the [GitHub Releases](https://github.com/ich777/mos-releases/releases/tag/0.4.8-beta) page.
+:::
+
+## System
+
+- Recommended Kernel: **6.18.35**
+- Update Docker to **v29.5.3**
+- Update SnapRAID to **v14.7**
+- Add BTRFS scrub and balance
+- Add BTRFS operations for scrub and balance (API only for now)
+- Add BTRFS operation monitors (API only for now)
+- Add BTRFS schedules for scrub and balance (API only for now)
+- Fix for restarting API — don't pull API on restart
+- Use force option for NTFS mounts and ignore mount options
+- Add handling for NTFS filesystems to disk mounting
+- Add endpoint `mos/bootbackupfiles`
+- Add `tar_file` to `mos/installtodisk` endpoint
+- Make sure to pull full git repos to get sorting working in MOS Hub
+- Fix issues with wget writing hsts files in `/`
+- Add supporter logic in the backend
+- Add support for PayPal and GitHub Sponsors in the support section
+- Add support for donations and support banners
+- Supporter badge design
+- Supporter badge preparations
+- Use install to disk to restore file (please only use files created by the MOS Backup Plugin)
+
+## Frontend
+
+- Make `.bash_history` available in WebTerminals
+- Add support for the French language and update icons for different screen sizes (Thanks @waazaa-fr)
+- Copy/Move operations can now be stopped in the file browser's operation dialog
+- Remove unused image files and adjust column width in the disk component
+- Bugfix: devices dropdown sends wrong values to API

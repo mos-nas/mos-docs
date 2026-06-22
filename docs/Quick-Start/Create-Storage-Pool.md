@@ -289,11 +289,11 @@ To configure Usage Warning for a pool:
    - **Warning**: Percentage threshold for warning notifications
    - **Alarm**: Percentage threshold for alarm notifications
 
-![Usage Warning Menu](/img/usage-warning-menu.png)
+![Usage Warning Menu](/img/pools/usage-warning-menu.png)
 
 *Location of the Usage Warning option in the pool menu*
 
-![Usage Warning Settings](/img/usage-warning-settings.png)
+![Usage Warning Settings](/img/pools/usage-warning-settings.png)
 
 *Usage Warning configuration dialog*
 
@@ -308,6 +308,115 @@ To configure Usage Warning for a pool:
 - Set **Alarm** at a critical level that requires immediate action (e.g., 90%)
 - Consider your storage growth rate when setting thresholds
 - Monitor notifications and take action before reaching the Alarm level
+
+---
+
+## 🧹 Btrfs Operations & Schedules
+
+When a pool is formatted with `btrfs`, MOS provides additional maintenance operations that help keep the filesystem healthy and performant.
+
+These operations are **only available for btrfs pools** and can be scheduled to run automatically.
+
+### Where to Find
+
+The Btrfs operations and schedules are accessible from the pool list:
+
+1. Navigate to **Pools**
+2. Click the **three dots (•••)** menu on a btrfs pool
+3. Select **Btrfs Operations** or **Btrfs Schedules**
+
+![Btrfs Menu](/img/pools/Btrfs_Menu.png)
+
+*Accessing the Btrfs options from the pool menu*
+
+---
+
+### 📋 Btrfs Operations
+
+The Btrfs Operations dialog shows the available maintenance tasks for the selected pool.
+
+![Btrfs Operations](/img/pools/Btrfs_operations.png)
+
+*Btrfs Operations dialog*
+
+---
+
+### 🔍 Scrub
+
+A **scrub** reads all data and metadata on a btrfs filesystem and verifies it against known checksums.  
+If corrupted data is found and a valid mirrored or RAID copy exists, btrfs can automatically repair the affected blocks.
+
+**What it does:**
+- Detects silent data corruption (bit rot)
+- Repairs corrupted blocks when redundant copies are available
+- Reports errors that cannot be repaired automatically
+
+**Advantages:**
+- ✅ Ensures long-term data integrity
+- ✅ Can repair corruption automatically on mirrored/RAID1 pools
+- ✅ Runs online without unmounting the pool
+
+**Disadvantages:**
+- ❌ Causes additional disk I/O during the scrub
+- ❌ On single-disk pools without redundancy, corruption can only be detected but not repaired
+
+:::tip
+Scrub is especially valuable on `multi + raid1` btrfs pools, where corrupted data can be repaired automatically from the mirror.
+:::
+
+---
+
+### ⚖️ Balance
+
+A **balance** reorganizes data across the disks in a btrfs pool.  
+It redistributes data chunks to reclaim unused space, reduce fragmentation, and enforce RAID profiles evenly across all devices.
+
+**What it does:**
+- Reclaims allocated but unused space
+- Reduces file fragmentation
+- Redistributes data evenly across all disks in multi-device pools
+
+**Advantages:**
+- ✅ Can free up space that is allocated but not actually used
+- ✅ Improves read performance by reducing fragmentation
+- ✅ Keeps data evenly distributed across disks
+
+**Disadvantages:**
+- ❌ Causes significant disk I/O and can take a long time on large pools
+- ❌ Temporarily increases wear on the disks
+- ❌ Running it too frequently offers little benefit while adding unnecessary load
+
+---
+
+### 📅 Schedules
+
+Both **Scrub** and **Balance** can be enabled as scheduled tasks in MOS.  
+When enabled, MOS will run the selected operation automatically at the configured interval.
+
+![Btrfs Schedules](/img/pools/Btrfs_schedules.png)
+
+*Btrfs Schedules overview*
+
+![Btrfs Schedules Options](/img/pools/Btrfs_schedules_options.png)
+
+*Btrfs Schedules configuration options*
+
+**Should you enable schedules?**
+
+| Operation | Schedule recommended? | Reason |
+|-----------|----------------------|--------|
+| Scrub     | ✅ Yes               | Regularly verifies data integrity and repairs silent corruption early |
+| Balance   | ⚠️ Optional          | Only needed when space allocation issues or fragmentation occur; not required on a regular basis |
+
+**Best practices:**
+- ✅ Enable a regular **Scrub** schedule (e.g., monthly) to detect and repair corruption early
+- ⚠️ Only enable a **Balance** schedule if you experience unallocated space issues or high fragmentation
+- 🕒 Schedule maintenance during low-activity periods (e.g., nightly) to minimize impact on performance
+- 📊 Monitor the results of each run in the MOS task history
+
+:::warning
+A balance operation can generate heavy I/O load. Avoid running it during peak usage hours or on pools with active workloads.
+:::
 
 ---
 

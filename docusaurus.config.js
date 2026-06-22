@@ -55,8 +55,8 @@ const config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'release-0.4.9-beta',
-      content: '🚀 <strong>MOS 0.4.9-beta is out!</strong> — Kernel 6.18.36, 🐳 Docker v29.6.0, 🔄 BTRFS schedules, 📊 SMART acknowledge, 🔌 Boot backup &nbsp;<a href="https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.9-beta" style="color:#ffffff;">Release Notes →</a>',
+      id: 'release-0.4.10-beta',
+      content: '🚀 <strong>MOS 0.4.10-beta is out!</strong> — 🐛 Bugfix: Network Services blank page, 🇫🇷 French translation completed &nbsp;<a href="https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.10-beta" style="color:#ffffff;">Release Notes →</a>',
       backgroundColor: '#fa9725',
       textColor: '#ffffff',
       isCloseable: true,

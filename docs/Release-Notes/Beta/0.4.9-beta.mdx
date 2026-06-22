@@ -1,0 +1,66 @@
+---
+title: 0.4.9-beta
+sidebar_label: 🧪 0.4.9-beta
+sidebar_position: 1
+---
+
+# 0.4.9-beta
+
+:::tip Download
+Download this release on the [GitHub Releases](https://github.com/ich777/mos-releases/releases/tag/0.4.9-beta) page.
+:::
+
+## System
+
+- Recommended Kernel: **6.18.36**
+- Update Docker to **v29.6.0**
+- Minor improvements and fixes for plugin installation routine
+- Fix an issue where `VERSION_PATH` would always be empty
+- Add detection if plugin needs additional system packages and update package index
+- Add installation and update routine for additional plugin system packages
+- Add cleanup logic for old system packages
+- Fix installation process for additional packages
+- Make sure to wait for scrub and balance to actually send notifications
+- Make sure to not spam `syslog` with `smartd` messages
+- Make sure to only install packages from version directories
+- Add timeout (300s) to function file execution to avoid boot blocking for plugins
+- Move start order from services a bit around
+- Create new function `pre_install` for plugin installation
+- Install/download additional packages when `package` file is found in plugin repository
+- Fix issue where mapping from NVMe and other devices was not correctly parsed for disk going offline from a mounted pool
+- Add acknowledge endpoints to acknowledge attributes with issues to not get notification if the specific attribute doesn't increase
+- Fix detection for disk types, at least trying to
+- Add more information to SMART for NVMe drives
+- Fix for attributes not correctly getting parsed and shown for certain kind of disks
+- Make sure to transform the `appdata` paths to the local set appdata directory if in the template `/mnt/(cache|user)` is set
+- Make sure to send a disabled notification when usage warning is set to zero for pools
+- Add scrub and balance status to pools
+- Add support for BTRFS operations and create empty language files for Spanish and Italian
+- Set default release in install dialog based on fetched plugin releases
+- Add dialogs for restart and shutdown
+- Remove unnecessary blank lines in template and `setHubRepositories` function
+- Change default sort order and position in Hub and adjust `getMosHub` function accordingly
+- Fix condition for displaying Balance switch in Multi-Schedules dialog for BTRFS pools
+- Change conditions for displaying Multi-Schedules dialog and adjust dialog contents for BTRFS pools
+- Allow opening Multi-Schedules dialog for single and multi-pools
+- Add BTRFS schedules
+- Sleep / Wakeup all disks
+
+## Frontend
+
+- Icon size dashboard devices
+- Updated `@babel/runtime` from `^7.29.2` to `^7.29.7`
+- Updated `@codemirror/view` from `^6.41.0` to `^6.43.0`
+- Updated `@uiw/codemirror-theme-duotone` from `^4.25.9` to `^4.25.10`
+- Updated `sass` from `^1.99.0` to `^1.101.0`
+- Updated `vue` from `^3.5.34` to `^3.5.38`
+- Updated `vue-i18n` from `^11.4.2` to `^11.4.5`
+- Updated `vue-router` from `^5.0.7` to `^5.1.0`
+- Updated `vuetify` from `^4.0.7` to `^4.1.1`
+- Updated `vite` from `^8.0.13` to `^8.0.16`
+- Enhanced German, English, and French localization files with new translations for boot backup functionality
+- Refactored `boot.vue` to improve the installation dialog and added functionality to fetch boot backup files
+- Excluded `vue-i18n` from dependency optimization in `vite.config.js`
+- Update translation status badge in README
+- Remove hover effect for supporter badge
+- Fix translations

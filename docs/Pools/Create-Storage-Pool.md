@@ -16,7 +16,7 @@ Pools are required for:
 - Media and backup data
 
 :::tip
-If you want to use ZFS, please take a look at the following section: [ZFS](/docs/System-Management/ZFS)
+If you want to use ZFS, please take a look at the following section: [ZFS](/docs/Pools/ZFS)
 :::
 
 Example:
@@ -157,7 +157,7 @@ Uses multiple independent disks without traditional RAID.
 :::tip
 The nonraid driver is **not installed by default**.
 After installing the driver you have to reboot.
-For installation instructions, refer to the [MOS Hub](../System-Management/System-Configuration/MOS-Hub.md) documentation.
+For installation instructions, refer to the [MOS Hub](../MOS-Hub/MOS-Hub-Settings.md) documentation.
 :::
 
 It must be installed as a plugin via the MOS Hub.
@@ -210,7 +210,7 @@ Available options:
 - **vfat** – Only for removable or temporary storage
 
 :::tip
-If you want to use ZFS, please take a look at the following section: [ZFS](/docs/System-Management/ZFS)
+If you want to use ZFS, please take a look at the following section: [ZFS](/docs/Pools/ZFS)
 :::
 
 ---

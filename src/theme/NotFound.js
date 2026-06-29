@@ -1,7 +1,6 @@
 import React from 'react';
 import {PageMetadata} from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 
 export default function NotFound() {
   return (
@@ -31,18 +30,18 @@ export default function NotFound() {
                 <div style={{marginTop: '1.5rem'}}>
                   <h3>Quick Links</h3>
                   <div style={{display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center', marginTop: '1rem'}}>
-                    <Link className="button button--primary button--lg" to="/docs/">
+                    <a className="button button--primary button--lg" href="/docs/">
                       Documentation
-                    </Link>
-                    <Link className="button button--secondary button--lg" to="/docs/Dashboard/WebUI-Overview">
+                    </a>
+                    <a className="button button--secondary button--lg" href="/docs/Dashboard/WebUI-Overview">
                       WebUI Overview
-                    </Link>
-                    <Link className="button button--secondary button--lg" to="/docs/Installation/Create-Bootable-Media">
+                    </a>
+                    <a className="button button--secondary button--lg" href="/docs/Installation/Create-Bootable-Media">
                       Installation
-                    </Link>
-                    <Link className="button button--secondary button--lg" to="/docs/Release-Notes/Overview">
+                    </a>
+                    <a className="button button--secondary button--lg" href="/docs/Release-Notes/Overview">
                       Release Notes
-                    </Link>
+                    </a>
                   </div>
                 </div>
 

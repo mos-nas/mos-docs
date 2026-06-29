@@ -84,6 +84,7 @@ const sidebars = {
       items: [
         { type: 'doc', id: 'Network/Network-Configuration', label: 'Network Configuration' },
         { type: 'doc', id: 'Network/Network-Services', label: 'Network Services' },
+        { type: 'doc', id: 'Network/Network-Ports', label: 'Network Ports' },
       ],
     },
     {
@@ -106,6 +107,7 @@ const sidebars = {
       type: 'category',
       label: '📖 Advanced Usage',
       items: [
+        { type: 'doc', id: 'Advanced-Usage/System-Architecture', label: 'System Architecture' },
         { type: 'doc', id: 'Advanced-Usage/Docker-Local-Host-Access-Shim', label: 'Docker Local Host Access' },
         { type: 'doc', id: 'Advanced-Usage/Disable-MD5-Verification', label: 'Disable MD5 Verification' },
         { type: 'doc', id: 'Advanced-Usage/Early-Boot-Script', label: 'Early Boot Script' },

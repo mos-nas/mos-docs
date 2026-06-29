@@ -16,7 +16,7 @@ To install additional packages that persist across reboots, MOS provides a dedic
 
 Place your `.deb` packages in the following directory:
 
-```
+```text
 /boot/optional/packages
 ```
 

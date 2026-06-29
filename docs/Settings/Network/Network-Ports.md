@@ -43,7 +43,7 @@ Direct public exposure of the WebUI may lead to unauthorized access.
 :::
 
 Example:
-```
+```bash
 http://<mos-ip>
 ```
 

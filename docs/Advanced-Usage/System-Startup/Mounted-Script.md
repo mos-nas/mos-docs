@@ -22,7 +22,7 @@ This makes it suitable for tasks that need storage to be available but should ru
 
 ## 📍 Script Location
 
-```
+```text
 /boot/optional/scripts/mounted.sh
 ```
 

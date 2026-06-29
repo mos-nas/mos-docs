@@ -19,7 +19,7 @@ A MOS Hub repository follows a specific structure that the MOS Hub can recognize
 
 **Required structure:**
 
-```
+```text
 your-repository/
 ├── docker/
 │   ├── Template1.json
@@ -170,7 +170,7 @@ Once configured, deploy the container to verify it works correctly.
 
 After the container is running, MOS automatically stores the template in:
 
-```
+```text
 /boot/config/system/docker/templates/TEMPLATE.json
 ```
 
@@ -254,7 +254,7 @@ Navigate to:
 
 In the **MOS Hub** section, add your repository URL:
 
-```
+```bash
 https://github.com/your-username/your-repository
 ```
 

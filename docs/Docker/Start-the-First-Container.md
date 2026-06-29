@@ -45,7 +45,7 @@ Defines where Docker stores internal data such as images and layers.
 
 **Example:**
 
-```
+```bash
 /mnt/main/system/docker
 ```
 
@@ -64,7 +64,7 @@ Defines the base path for persistent container configuration data.
 
 **Example:**
 
-```
+```text
 /mnt/main/appdata
 ```
 
@@ -316,7 +316,7 @@ Optional shortcut link to the container web interface.
 Defines the container icon shown in the UI using **Material Design Icons (MDI)** identifiers.
 
 **Example:**
-```
+```text
 mdi-vpn
 ```
 

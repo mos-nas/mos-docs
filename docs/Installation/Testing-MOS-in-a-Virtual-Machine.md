@@ -17,7 +17,7 @@ MOS supports **UEFI boot only** by default. Legacy BIOS / CSM boot is **not supp
 
 ## 📦 VM Image
 
-```
+```text
 mos_amd64.img.xz
 ```
 
@@ -37,7 +37,7 @@ unxz --decompress mos_amd64.img.xz
 
 This will produce:
 
-```
+```text
 mos_amd64.img
 ```
 
@@ -125,7 +125,7 @@ If Secure Boot is still active after creation:
 
 Upload `mos_amd64.img` to the Proxmox ISO storage:
 
-```
+```text
 /var/lib/vz/template/iso/
 ```
 
@@ -151,7 +151,7 @@ nano /etc/pve/qemu-server/<vmid>.conf
 
 Add the following lines:
 
-```
+```text
 usb0: spice,usb3=1
 args: -drive file=/var/lib/vz/images/mos_amd64.img,format=raw,if=none,id=usbdisk -device usb-storage,drive=usbdisk
 ```
@@ -175,7 +175,7 @@ Start the VM — MOS will boot automatically.
 3. Obtain the IP address from the VM console or your DHCP server
 4. Open the MOS WebUI in your browser:
 
-```
+```bash
 http://<mos-ip-address>
 ```
 

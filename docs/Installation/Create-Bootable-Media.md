@@ -186,7 +186,7 @@ A network connection will be needed to access the WebUI to set initial account p
 
 Access the WebUI via:
 
-```
+```bash
 http://MOS-IP/
 ```
 

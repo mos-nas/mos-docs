@@ -14,7 +14,7 @@ In advanced scenarios, this verification can be explicitly disabled.
 
 - Create the following file on the system:
 
-  ```
+  ```text
   /boot/config/system/md5check_disabled
   ```
 

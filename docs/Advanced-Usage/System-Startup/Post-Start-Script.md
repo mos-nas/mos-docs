@@ -22,7 +22,7 @@ This makes it suitable for tasks that require a fully initialized system environ
 
 ## 📍 Script Location
 
-```
+```text
 /boot/optional/scripts/post-start.sh
 ```
 

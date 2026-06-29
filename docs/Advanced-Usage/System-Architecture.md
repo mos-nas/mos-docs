@@ -32,7 +32,7 @@ Any changes made:
 will not survive a reboot.
 
 This includes manually created directories in locations such as:
-```
+```text
 /root
 /home
 /tmp
@@ -53,7 +53,7 @@ When creating folders, storing data, or configuring services, always use:
 - Relative paths within persistent storage
 
 Example (recommended):
-```
+```text
 /mnt/cache/appdata/
 ```
 

@@ -16,7 +16,7 @@ This is especially useful for ARM users who may need to apply board-specific dri
 
 Place your custom modprobe configuration files in:
 
-```
+```text
 /boot/optional/modprobe.d/
 ```
 
@@ -34,13 +34,13 @@ Configuration files placed here will be automatically applied during system star
 
 Files must use the `.conf` extension and follow standard modprobe.d syntax:
 
-```
+```text
 /boot/optional/modprobe.d/<your-config>.conf
 ```
 
 **Example:**
 
-```
+```bash
 /boot/optional/modprobe.d/ahci-mask.conf
 ```
 
@@ -48,17 +48,17 @@ Files must use the `.conf` extension and follow standard modprobe.d syntax:
 
 Each `.conf` file can contain standard modprobe options:
 
-```
+```bash
 # Example: Disable a specific feature for the ahci driver
 options ahci ahci_mask=0x0
 ```
 
-```
+```bash
 # Example: Set module parameters
 options snd-hda-intel power_save=0
 ```
 
-```
+```bash
 # Example: Blacklist a module
 blacklist nouveau
 ```

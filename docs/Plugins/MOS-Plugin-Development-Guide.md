@@ -15,7 +15,7 @@ It explains how to create and configure your own MOS plugin, including the requi
 
 A typical MOS plugin repository is structured as follows:
 
-```
+```text
 .
 ├── page/
 │   ├── plugin.config.js
@@ -102,7 +102,7 @@ Plugins can optionally provide a `settings.json` file in the root of the reposit
 
 Settings can be accessed via the MOS API:
 
-```
+```js
 /mos/plugins/settings/{pluginName}
 ```
 
@@ -156,7 +156,7 @@ These can be executed using the MOS API.
 
 Plugins can execute binaries using the MOS API endpoint:
 
-```
+```bash
 /mos/plugins/query
 ```
 
@@ -226,7 +226,7 @@ This endpoint returns information about the currently available or installed dri
 
 An example GitHub Actions workflow is provided at:
 
-```
+```text
 .github/workflows/build-plugin.yml
 ```
 

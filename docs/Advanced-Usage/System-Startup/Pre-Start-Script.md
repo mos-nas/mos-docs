@@ -22,7 +22,7 @@ This makes it suitable for preparing the system environment before MOS initializ
 
 ## 📍 Script Location
 
-```
+```text
 /boot/optional/scripts/pre-start.sh
 ```
 

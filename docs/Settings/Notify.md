@@ -36,7 +36,7 @@ Provider configuration is currently done **manually** via:
 Each provider has its own configuration file.  
 After changing any provider configuration, the service must be restarted:
 
-```
+```text
 /etc/init.d/notify restart
 ```
 

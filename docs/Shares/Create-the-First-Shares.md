@@ -55,7 +55,7 @@ Defines the directory path of the share.
 - The directory name is derived from the selected path
 
 **Example:**
-```
+```text
 /mnt/main/media
 ```
 

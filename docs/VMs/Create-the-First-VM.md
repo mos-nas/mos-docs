@@ -11,7 +11,7 @@ This guide walks you through creating and configuring your first VM.
 :::warning **Prerequisite:**
 Before you can create a VM, you must first enable the **VM Service** in the settings. Navigate to **Settings → Virtualization → VM Service** and enable the service. For more details, refer to the [VM Service](VM-Service.md) documentation.
 
-Additionally, it is recommended to set a network interface to **bridged** mode for optimal VM service functionality. For more information, refer to the [Network Configuration](../Settings/Settings/Network/Network-Configuration.md#bridged-recommended) documentation.
+Additionally, it is recommended to set a network interface to **bridged** mode for optimal VM service functionality. For more information, refer to the [Network Configuration](../Settings/Network/Network-Configuration.md#bridged-recommended) documentation.
 :::
 
 Navigate to:

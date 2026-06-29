@@ -9,137 +9,166 @@ const sidebars = {
       type: 'category',
       label: '📦 Installation',
       items: [
-        { type: 'doc', id: 'Installation/Create-Bootable-Media', label: 'Create Bootable Media' },
-        { type: 'doc', id: 'Installation/Testing-MOS-in-a-Virtual-Machine', label: 'Testing MOS in a Virtual Machine' },
-        { type: 'doc', id: 'Installation/First-Walkthrough', label: 'First Walkthrough' },
-        { type: 'doc', id: 'Installation/ARM-Support', label: 'ARM Support (Experimental)' },
+        { type: 'doc', id: 'Installation/Create-Bootable-Media', label: '💿 Create Bootable Media' },
+        { type: 'doc', id: 'Installation/First-Walkthrough', label: '🚀 First Walkthrough' },
+        { type: 'doc', id: 'Installation/Testing-MOS-in-a-Virtual-Machine', label: '🖥️ Testing MOS in a Virtual Machine' },
+        { type: 'doc', id: 'Installation/ARM-Support', label: '🍓 ARM Support (Experimental)' },
       ],
     },
     {
       type: 'category',
-      label: '🧭 Getting Started',
+      label: '🖥️ Dashboard',
       items: [
-        { type: 'doc', id: 'Quick-Start/WebUI-Overview', label: 'WebUI Overview' },
-        { type: 'doc', id: 'Quick-Start/Start-Network-Configuration', label: 'Start Network Configuration' },
-        { type: 'doc', id: 'Quick-Start/Create-Storage-Pool', label: 'Create a Storage Pool' },
-        { type: 'doc', id: 'Quick-Start/Start-the-First-Container', label: 'Start the First Container' },
-        { type: 'doc', id: 'Quick-Start/Create-the-First-Shares', label: 'Create the First Shares' },
-        { type: 'doc', id: 'Quick-Start/Create-the-First-VM', label: 'Create the First VM' },
+        { type: 'doc', id: 'Dashboard/WebUI-Overview', label: '👀 WebUI Overview' },
       ],
     },
     {
       type: 'category',
-      label: '⚙️ System Management',
+      label: '💾 Disks',
       items: [
-        { type: 'doc', id: 'System-Management/Boot', label: 'Boot' },
-        { type: 'doc', id: 'System-Management/Drivers', label: 'Drivers' },
-        { type: 'doc', id: 'System-Management/ZFS', label: 'ZFS' },
-        { type: 'doc', id: 'System-Management/SMART', label: 'S.M.A.R.T.' },
-        {
-          type: 'category',
-          label: '💻 System Configuration',
-          items: [
-            { type: 'doc', id: 'System-Management/System-Configuration/System-Settings', label: 'System Settings' },
-            { type: 'doc', id: 'System-Management/System-Configuration/Update-System', label: 'Update System' },
-            { type: 'doc', id: 'System-Management/System-Configuration/Cron-Jobs', label: 'Cron Jobs' },
-            { type: 'doc', id: 'System-Management/System-Configuration/Logs', label: 'Logs' },
-            { type: 'doc', id: 'System-Management/System-Configuration/MOS-Hub', label: 'MOS-Hub' },
-            { type: 'doc', id: 'System-Management/System-Configuration/Notify', label: 'Notify' },
-            { type: 'doc', id: 'System-Management/System-Configuration/Sensors', label: 'Sensors' },
-            { type: 'doc', id: 'System-Management/System-Configuration/Token', label: 'Token' },
-          ],
-        },
+        { type: 'doc', id: 'Disks/SMART', label: '📊 S.M.A.R.T.' },
       ],
     },
     {
       type: 'category',
-      label: '👤 User Management',
+      label: '🗄️ Pools',
       items: [
-        { type: 'doc', id: 'User-Management/Users', label: 'Users' },
-        { type: 'doc', id: 'User-Management/User-Profile', label: 'User Profile' },
-      ],
-    },
-      {
-        type: 'category',
-        label: '🚀 System Startup',
-        items: [
-          { type: 'doc', id: 'System-Startup/Pre-Start-Script', label: 'Pre-Start Script' },
-          { type: 'doc', id: 'System-Startup/Mounted-Script', label: 'Mounted Script' },
-          { type: 'doc', id: 'System-Startup/Post-Start-Script', label: 'Post-Start Script' },
-          { type: 'doc', id: 'System-Startup/Pool-Mount-Scripts', label: 'Pool Mount Scripts' },
-        ],
-      },
-    {
-      type: 'category',
-      label: '🗂️ Virtualization',
-      items: [
-        { type: 'doc', id: 'Virtualization/Docker-Service', label: 'Docker Service' },
-        { type: 'doc', id: 'Virtualization/LXC-Service', label: 'LXC Service' },
-        { type: 'doc', id: 'Virtualization/VM-Service', label: 'VM Service' },
+        { type: 'doc', id: 'Pools/Create-Storage-Pool', label: '🆕 Create a Storage Pool' },
+        { type: 'doc', id: 'Pools/ZFS', label: '🐟 ZFS' },
       ],
     },
     {
       type: 'category',
-      label: '🌐 Network',
+      label: '📂 Shares',
       items: [
-        { type: 'doc', id: 'Network/Network-Configuration', label: 'Network Configuration' },
-        { type: 'doc', id: 'Network/Network-Services', label: 'Network Services' },
-        { type: 'doc', id: 'Network/Network-Ports', label: 'Network Ports' },
-      ],
-    },
-    {
-      type: 'category',
-      label: '🔌 API',
-      items: [
-        { type: 'doc', id: 'API/MOS-API-Overview', label: 'MOS API Overview' },
-        { type: 'doc', id: 'API/Rate-Limits', label: 'Rate Limits' },
+        { type: 'doc', id: 'Shares/Create-the-First-Shares', label: '✨ Create the First Shares' },
       ],
     },
     {
       type: 'category',
       label: '🛍️ MOS Hub',
       items: [
-        { type: 'doc', id: 'MOS-Hub/Creating-Your-Own-MOS-Hub-Repository', label: 'Creating Your Own MOS Hub Repository' },
-        { type: 'doc', id: 'MOS-Hub/MOS-Plugin-Development-Guide', label: 'MOS Plugin Development Guide' },
+        { type: 'doc', id: 'MOS-Hub/MOS-Hub-Settings', label: '⚙️ MOS Hub Settings' },
+        { type: 'doc', id: 'MOS-Hub/Creating-Your-Own-MOS-Hub-Repository', label: '🔧 Creating Your Own MOS Hub Repository' },
+      ],
+    },
+    {
+      type: 'category',
+      label: '🐳 Docker',
+      items: [
+        { type: 'doc', id: 'Docker/Docker-Service', label: '🔧 Docker Service' },
+        { type: 'doc', id: 'Docker/Start-the-First-Container', label: '🚀 Start the First Container' },
+      ],
+    },
+    {
+      type: 'category',
+      label: '📦 LXC',
+      items: [
+        { type: 'doc', id: 'LXC/LXC-Service', label: '🔧 LXC Service' },
+      ],
+    },
+    {
+      type: 'category',
+      label: '🖥️ VMs',
+      items: [
+        { type: 'doc', id: 'VMs/VM-Service', label: '🔧 VM Service' },
+        { type: 'doc', id: 'VMs/Create-the-First-VM', label: '🚀 Create the First VM' },
+      ],
+    },
+    {
+      type: 'category',
+      label: '🧩 Plugins & Drivers',
+      items: [
+        { type: 'doc', id: 'Plugins/Drivers', label: '🖥️ Drivers' },
+        { type: 'doc', id: 'Plugins/MOS-Plugin-Development-Guide', label: '📦 MOS Plugin Development Guide' },
+      ],
+    },
+    {
+      type: 'category',
+      label: '⚙️ Settings',
+      items: [
+        { type: 'doc', id: 'Settings/System-Settings', label: '🖥️ System Settings' },
+        { type: 'doc', id: 'Settings/Update-System', label: '🔄 Update System' },
+        { type: 'doc', id: 'Settings/Boot', label: '💾 Boot' },
+        { type: 'doc', id: 'Settings/Cron-Jobs', label: '⏰ Cron Jobs' },
+        { type: 'doc', id: 'Settings/Logs', label: '📋 Logs' },
+        { type: 'doc', id: 'Settings/Notify', label: '🔔 Notify' },
+        { type: 'doc', id: 'Settings/Sensors', label: '🌡️ Sensors' },
+        { type: 'doc', id: 'Settings/Token', label: '🔑 Token' },
+        {
+          type: 'category',
+          label: '🌐 Network',
+          items: [
+            { type: 'doc', id: 'Settings/Network/Network-Configuration', label: '🔧 Network Configuration' },
+            { type: 'doc', id: 'Settings/Network/Network-Services', label: '🔌 Network Services' },
+            { type: 'doc', id: 'Settings/Network/Network-Ports', label: '📡 Network Ports' },
+          ],
+        },
+        {
+          type: 'category',
+          label: '👤 User Management',
+          items: [
+            { type: 'doc', id: 'Settings/User-Management/Users', label: '👥 Users' },
+            { type: 'doc', id: 'Settings/User-Management/User-Profile', label: '🪪 User Profile' },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔌 API',
+      items: [
+        { type: 'doc', id: 'API/MOS-API-Overview', label: '📖 MOS API Overview' },
+        { type: 'doc', id: 'API/Rate-Limits', label: '⏱️ Rate Limits' },
       ],
     },
     {
       type: 'category',
       label: '📖 Advanced Usage',
       items: [
-        { type: 'doc', id: 'Advanced-Usage/System-Architecture', label: 'System Architecture' },
-        { type: 'doc', id: 'Advanced-Usage/Docker-Local-Host-Access-Shim', label: 'Docker Local Host Access' },
-        { type: 'doc', id: 'Advanced-Usage/Disable-MD5-Verification', label: 'Disable MD5 Verification' },
-        { type: 'doc', id: 'Advanced-Usage/Early-Boot-Script', label: 'Early Boot Script' },
-        { type: 'doc', id: 'Advanced-Usage/Persistent-Package-Installation', label: 'Persistent Package Installation' },
-         { type: 'doc', id: 'Advanced-Usage/Kernel-Module-Configuration', label: 'Kernel Module Configuration' },
-         { type: 'doc', id: 'Advanced-Usage/Bash-Profile-Configuration', label: 'Bash Profile Configuration' },
+        { type: 'doc', id: 'Advanced-Usage/System-Architecture', label: '🧠 System Architecture' },
+        { type: 'doc', id: 'Advanced-Usage/Docker-Local-Host-Access-Shim', label: '🐳 Docker Local Host Access' },
+        { type: 'doc', id: 'Advanced-Usage/Disable-MD5-Verification', label: '🔓 Disable MD5 Verification' },
+        { type: 'doc', id: 'Advanced-Usage/Persistent-Package-Installation', label: '📦 Persistent Package Installation' },
+        { type: 'doc', id: 'Advanced-Usage/Kernel-Module-Configuration', label: '🔧 Kernel Module Configuration' },
+        { type: 'doc', id: 'Advanced-Usage/Bash-Profile-Configuration', label: '💻 Bash Profile Configuration' },
+        {
+          type: 'category',
+          label: '🚀 System Startup',
+          items: [
+            { type: 'doc', id: 'Advanced-Usage/System-Startup/Early-Boot-Script', label: '⚡ Early Boot Script' },
+            { type: 'doc', id: 'Advanced-Usage/System-Startup/Pre-Start-Script', label: '🏁 Pre-Start Script' },
+            { type: 'doc', id: 'Advanced-Usage/System-Startup/Mounted-Script', label: '🔗 Mounted Script' },
+            { type: 'doc', id: 'Advanced-Usage/System-Startup/Post-Start-Script', label: '✅ Post-Start Script' },
+            { type: 'doc', id: 'Advanced-Usage/System-Startup/Pool-Mount-Scripts', label: '🗄️ Pool Mount Scripts' },
+          ],
+        },
       ],
     },
-     {
-       type: 'category',
-       label: '🛠️ Troubleshooting',
-       items: [
-         { type: 'doc', id: 'Troubleshooting/Troubleshooting', label: 'Troubleshooting' },
-         { type: 'doc', id: 'Troubleshooting/Diagnostics', label: 'Diagnostics' },
-       ],
-     },
-     {
-       type: 'category',
-       label: '🌟 Support MOS',
-       items: [
-         { type: 'doc', id: 'Support-MOS/Support_MOS', label: 'Support MOS' },
-       ],
-     },
-     {
-       type: 'category',
-       label: '📋 Release Notes',
+    {
+      type: 'category',
+      label: '🛠️ Troubleshooting',
       items: [
-        { type: 'doc', id: 'Release-Notes/Overview', label: 'Overview' },
-          {
-            type: 'category',
-            label: '🧪 Beta',
-            items: [
+        { type: 'doc', id: 'Troubleshooting/Troubleshooting', label: '🔧 Troubleshooting' },
+        { type: 'doc', id: 'Troubleshooting/Diagnostics', label: '🩺 Diagnostics' },
+      ],
+    },
+    {
+      type: 'category',
+      label: '🌟 Support MOS',
+      items: [
+        { type: 'doc', id: 'Support-MOS/Support_MOS', label: '🌟 Support MOS' },
+      ],
+    },
+    {
+      type: 'category',
+      label: '📋 Release Notes',
+      items: [
+        { type: 'doc', id: 'Release-Notes/Overview', label: '📖 Overview' },
+        {
+          type: 'category',
+          label: '🧪 Beta',
+          items: [
             { type: 'doc', id: 'Release-Notes/Beta/0.4.11-beta', label: '0.4.11-beta' },
             { type: 'doc', id: 'Release-Notes/Beta/0.4.10-beta', label: '0.4.10-beta' },
             { type: 'doc', id: 'Release-Notes/Beta/0.4.9-beta', label: '0.4.9-beta' },
@@ -161,4 +190,5 @@ const sidebars = {
     },
   ],
 };
+
 export default sidebars;

@@ -1,6 +1,7 @@
 ---
 sidebar_label: 🧠 System Architecture
 sidebar_position: 1
+description: "MOS system architecture: runs entirely in RAM from a USB stick with persistent storage for configuration. Understand the lightweight, energy-efficient design for homelabs."
 ---
 
 # 🧠 System Architecture

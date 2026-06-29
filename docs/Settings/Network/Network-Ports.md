@@ -1,6 +1,7 @@
 ---
 sidebar_label: 📡 Network Ports
 sidebar_position: 3
+description: "Network ports used by MOS: WebUI (80), API (998), Notify (999), VNC consoles (5900+), and DNS (53). Configure firewalls and reverse proxies correctly."
 ---
 
 # 🌐 Network Ports Used by MOS

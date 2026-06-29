@@ -1,0 +1,37 @@
+---
+title: 0.4.11-beta
+sidebar_label: 🧪 0.4.11-beta
+sidebar_position: 1
+---
+
+# 0.4.11-beta
+
+:::tip Download
+Download this release on the [GitHub Releases](https://github.com/ich777/mos-releases/releases/tag/0.4.11-beta) page.
+:::
+
+## System
+
+- Recommended Kernel: **6.18.37**
+- Update wsddn to **v1.25**
+- Update QEMU to **v11.0.2**
+- Update Docker to **v29.6.1**
+- Hub and Docker Group improvements
+- Add `docker/hub/recommended` endpoint so that recommended repositories can be fetched/displayed by MOS (recommended repositories are only fetched on boot but only if Hub Updates are enabled)
+- Add ability to specify URLs from PNGs to add a Docker group icon
+- Fix issue with not giving back proper model for smart attribute acknowledgement
+- Improvements to Hub and LXC
+- Add `installed` key to Docker and Plugins index
+- Improve loading times from LXC page, at least try to
+- Add MergerFS Virtual Pools
+- Add endpoints `GET/POST pools/vpools` and `pools/vpools/{id}` to be able to create vpools and get information from vpools
+- Add endpoints `PUT pools/vpools/order` and `POST pools/vpools/{id}/automount` to set the order and autostart from vpools
+- Add endpoint `DELETE pools/vpools/{id}` to delete a vpool
+- Add endpoints `POST pools/vpools/{id}/mount` and `pools/vpools/{id}/umount` to mount/umount vpools
+- Include vpools information in diagnostics
+- Visualize recommended repositories and better visualization of YAML fields in docker-compose
+- Set default values for SMART disk attributes and update configuration after acknowledgement
+- Acknowledge for smart values
+- Remove redundant `v-overlay` components from several Vue files
+- Increase line count for environment variables in Compose Stacks dialogs
+- Btrfs scrub/balance more operations

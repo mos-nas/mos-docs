@@ -11,6 +11,18 @@ description: "MOS 0.5.0-stable first stable release: Kernel 6.18.38, Node.js 24.
 Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-releases/releases/tag/0.5.0-stable) page.
 :::
 
+:::warning[Important for users upgrading from Beta]
+Since we are switching over to a GitHub Organization, all existing installs need to install the **MOS Organization Path Fix** plugin before updating to 0.5.0-stable. Otherwise you won't be able to update.
+
+1. Open the MOS Hub and **Refresh your repositories** first (three-dots menu → Repositories → Refresh)
+2. Search for **MOS Organization Path Fix** in the MOS Hub: [https://mos-official.net/apps.html?search=MOS+Organization+Path+Fix+ich777](https://mos-official.net/apps.html?search=MOS+Organization+Path+Fix+ich777)
+3. Install the plugin
+
+This plugin changes the URLs which are used to grab the releases and also updates your plugins on installation to be fully compatible with the new organization: [https://github.com/mos-nas](https://github.com/mos-nas)
+
+The plugin will be **removed automatically** after you update to MOS 0.5.0-stable.
+:::
+
 ## System
 
 - Recommended Kernel: **6.18.38**

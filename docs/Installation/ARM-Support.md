@@ -21,7 +21,7 @@ ARM boot/hardware is currently considered **experimental**. Not all ARM boards/h
 
 ## 📥 Step 1: Download MOS for ARM
 
-1. Go to the [MOS Releases](https://github.com/ich777/mos-releases) page
+1. Go to the [MOS Releases](https://github.com/mos-nas/mos-releases) page
 2. Download the ARM64 ZIP archive (`mos_*-beta_arm64.zip`)
 
 ![MOS ARM64 Release](/img/installation/mos-release-arm64.png)
@@ -34,7 +34,7 @@ ARM boot/hardware is currently considered **experimental**. Not all ARM boards/h
 
 The device tree file (`.dtb`) is required for your specific ARM board/chip.
 
-1. Look at the changelog from the MOS release and go to the [Kernel repository](https://github.com/ich777/mos-kernel)
+1. Look at the changelog from the MOS release and go to the [Kernel repository](https://github.com/mos-nas/mos-kernel)
 2. Download the device tree file archive (`6.*-device_tree_files_arm64.zip`)
 
 ![Kernel Device Tree Files](/img/installation/mos-kernel-dtb.png)

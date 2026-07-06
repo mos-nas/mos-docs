@@ -167,6 +167,13 @@ const sidebars = {
         { type: 'doc', id: 'Release-Notes/Overview', label: '📖 Overview' },
         {
           type: 'category',
+          label: '🎉 Stable',
+          items: [
+            { type: 'doc', id: 'Release-Notes/Stable/0.5.0-stable', label: '0.5.0-stable' },
+          ],
+        },
+        {
+          type: 'category',
           label: '🧪 Beta',
           items: [
             { type: 'doc', id: 'Release-Notes/Beta/0.4.11-beta', label: '0.4.11-beta' },

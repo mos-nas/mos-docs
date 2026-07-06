@@ -13,7 +13,7 @@ const config = {
 
   url: 'https://docs.mos-official.net',
   baseUrl: '/',
-  organizationName: 'ich777',
+  organizationName: 'mos-nas',
   projectName: 'mos-docs',
   onBrokenLinks: 'throw',
 
@@ -134,7 +134,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/docs/',
-          editUrl: 'https://github.com/ich777/mos-docs/edit/master/',
+          editUrl: 'https://github.com/mos-nas/mos-docs/edit/master/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
@@ -148,8 +148,8 @@ const config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'release-0.4.11-beta',
-      content: '🚀 <strong>MOS 0.4.11-beta is out!</strong> — 🐧 Kernel 6.18.37, 🐳 Docker v29.6.1, 📦 MergerFS Virtual Pools, Hub & Docker Group improvements &nbsp;<a href="https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.11-beta" style="color:#ffffff;">Release Notes →</a>',
+      id: 'release-0.5.0-stable',
+      content: '🎉 <strong>MOS 0.5.0-stable is out!</strong> — First stable release! 🐧 Kernel 6.18.38, 📦 Node.js 24.18.0 LTS, Virtual Pools, SMART acknowledge, Plugins from Gitea/Codeberg &nbsp;<a href="https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.0-stable" style="color:#ffffff;">Release Notes →</a>',
       backgroundColor: '#fa9725',
       textColor: '#ffffff',
       isCloseable: true,
@@ -170,7 +170,7 @@ const config = {
       },
       items: [
         {
-          href: 'https://github.com/ich777/mos-releases',
+          href: 'https://github.com/mos-nas/mos-releases',
           label: 'GitHub',
           position: 'right',
         },
@@ -214,11 +214,11 @@ const config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/ich777/mos-releases',
+              href: 'https://github.com/mos-nas/mos-releases',
             },
             {
               label: 'GitHub Issue',
-              href: 'https://github.com/ich777/mos-releases/issues',
+              href: 'https://github.com/mos-nas/mos-releases/issues',
             },
           ],
         },

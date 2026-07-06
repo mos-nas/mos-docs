@@ -48,7 +48,7 @@ Custom providers can be added as long as they are compatible with MOS Notify.
 
 If you have implemented a new provider and would like to share it, please open a Pull Request at:
 
-[https://github.com/ich777/mos-boot-files](https://github.com/ich777/mos-boot-files)
+[https://github.com/mos-nas/mos-boot-files](https://github.com/mos-nas/mos-boot-files)
 
 ---
 

@@ -162,7 +162,7 @@ If you encounter issues with updates:
 
 1. Check the [Release Notes](/docs/Release-Notes/Overview) for known issues
 2. Visit our [Discord community](https://discord.com/invite/fcTMbuygTV) for support
-3. Report bugs on [GitHub Issues](https://github.com/ich777/mos-docs/issues)
+3. Report bugs on [GitHub Issues](https://github.com/mos-nas/mos-releases/issues)
 
 ---
 

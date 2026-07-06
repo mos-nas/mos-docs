@@ -1,0 +1,81 @@
+---
+title: 0.5.0-stable
+sidebar_label: 🎉 0.5.0-stable
+sidebar_position: 1
+description: "MOS 0.5.0-stable first stable release: Kernel 6.18.38, Node.js 24.18.0 LTS, Virtual Pools, Docker Hub recommended repositories, SMART acknowledge, plugin installation from Gitea and Codeberg, many bugfixes and improvements."
+---
+
+# 0.5.0-stable
+
+:::tip Download
+Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-releases/releases/tag/0.5.0-stable) page.
+:::
+
+## System
+
+- Recommended Kernel: **6.18.38**
+- Update Node.js to **24.18.0 LTS**
+- Necessary changes for organization
+- Add routine to cleanup `pathfix` if found
+- Cleanup socket on API restart
+- Add `sleep 1` to prevent restart API from failing
+- Move stop order around in `mos-stop`
+- Fix broken `mos_start_after_services` function
+- Fix wrong help text
+- Make sure to generate and copy over `machine-id`
+- Add Tailscale and NetBird Docker scripts
+- Fix permissions for `ntpsec` directory
+- Make sure to write MergerFS logs into separate logfile
+- Fix SnapRAID logfile size getting out of hand
+- Fix false error messages on plugin installation on boot
+- Make sure to sort vpools by index first before iterating over them
+- Add additional logger messages
+- Add `mount_vpools` function
+- Create `mos-mount_vpools`
+- Change wording on some return messages
+- Make sure to return raw YAML even if YAML is broken for Compose
+- Add ability to download/install/update plugins from Gitea and Codeberg
+- Make sure to `chmod`/`chown` QEMU images
+- Restart udev monitor when missing disk from pool comes back
+- Add `docker/hub/recommended` endpoint for fetching recommended repositories
+- Add ability to specify URLs for Docker group icons
+- Fix issue with proper model for SMART attribute acknowledgement
+- Add `installed` key to Docker and Plugins index
+- Improve loading times from LXC page
+- Add endpoints for creating, configuring, mounting, unmounting, and deleting virtual pools
+- Include virtual pools information in diagnostics
+- Move virtual pools section, bugfix scrollbar
+- Implement automount for virtual pools
+- Add missing French translations
+- Fix repository link
+- Rename vpool to virtual pool
+- Add virtual pools feature
+- Add CodeMirror oneDark theme for Docker Compose forms
+- Fix supporter dialog
+- Show device serial in target devices of shares
+
+## Dependencies
+
+- Updated `@babel/runtime` to version **8.0.0**
+- Updated `@codemirror/state` to version **6.7.0**
+- Updated `@codemirror/view` to version **6.43.1**
+- Updated `vue` to version **3.5.39**
+- Updated `vue-i18n` to version **11.4.6**
+- Updated `vuetify` to version **4.1.2**
+- Updated `vite` to version **8.1.0**
+
+## Frontend
+
+- Replaced `<label>` with `<v-label>` in `docker.vue` and `dockerCompose.vue`
+- Adjusted styles for YAML and environment variable editors for vertical resizing
+- Simplified chip rendering logic in `notifications.vue`
+- Visualize recommended repositories and improved YAML field display in Docker Compose
+- Add "Acknowledge" to English translations
+- Set defaults for SMART disk attributes and update config after acknowledgement
+- Fix acknowledge bug
+- Remove unnecessary `v-overlay` components from Vue files
+- Increase line count for environment variables in Compose Stack dialogs
+
+---
+
+[📋 Release Notes Overview](../Overview) | **[Next: 0.4.11-beta →](../Beta/0.4.11-beta)**

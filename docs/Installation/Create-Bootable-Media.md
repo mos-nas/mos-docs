@@ -160,7 +160,7 @@ You can also use `parted` or the `gparted` GUI to create an MBR partition table 
 
 ## 2. ⬇️ Download the Installation Files
 
-Download the latest version of the system (`.zip` archive) from the [Releases](https://github.com/ich777/mos-releases/releases) page — Assets section.
+Download the latest version of the system (`.zip` archive) from the [Releases](https://github.com/mos-nas/mos-releases/releases) page — Assets section.
 
 ---
 

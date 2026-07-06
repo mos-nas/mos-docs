@@ -67,7 +67,7 @@ Defines how many lines of the selected log file are displayed.
 - Limit output for better readability
 - Improve performance when viewing large files
 
-:::tip Best practice:
+:::tip[Best practice]
 - Start with a lower number of lines when troubleshooting
 - Increase the value only if more context is required
 :::

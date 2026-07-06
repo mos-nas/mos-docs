@@ -26,11 +26,11 @@ API rate limits are configured via environment variables in the file `/boot/conf
 - Maximum of `RATE_LIMIT_MAX` requests within `RATE_LIMIT_WINDOW` seconds
 - Default: 20 requests per second
 
-:::danger Do Not Change!
+:::danger[Do Not Change]
 The API rate limits should **not** be changed! These default values are carefully tuned to ensure system stability and security. Modifying these limits may lead to system instability, performance issues, or security vulnerabilities.
 :::
 
-:::warning Important
+:::warning[Important]
 Changes to the configuration require a restart of the API or the server to take effect.
 :::
 
@@ -49,7 +49,7 @@ RATE_LIMIT_MAX=20
 NODE_ENV=production
 ```
 
-:::warning Change JWT_SECRET!
+:::warning[Change JWT_SECRET!]
 You may change the `JWT_SECRET` in the configuration. Changing the JWT_SECRET is explicitly allowed and recommended for enhanced security. The default secret should be replaced with your own cryptographically secure value for security reasons.
 :::
 

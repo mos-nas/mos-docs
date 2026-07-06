@@ -51,7 +51,7 @@ External service tokens increase API limits and prevent download throttling when
 
 A GitHub token allows MOS to access GitHub repositories with higher API limits.
 
-:::tip Benefits:
+:::tip[Benefits]
 - Avoids GitHub API rate limits
 - Improves reliability of template and container downloads
 :::
@@ -66,7 +66,7 @@ A GitHub token allows MOS to access GitHub repositories with higher API limits.
 6. Select **Fine-grained tokens**
 7. Click **Generate new token**
 
-:::tip Recommended settings:
+:::tip[Recommended settings]
 - **Expiration:** No expiration
 - **Repository access:** Public repositories (Read-only access to public repositories)
 :::
@@ -82,7 +82,7 @@ A GitHub token allows MOS to access GitHub repositories with higher API limits.
 
 A Docker Hub token allows MOS to authenticate against Docker Hub and increases image pull rate limits.
 
-:::tip Benefits:
+:::tip[Benefits]
 - Higher Docker image pull limits
 - Reduced risk of rate limiting during deployments and updates
 :::
@@ -95,7 +95,7 @@ A Docker Hub token allows MOS to authenticate against Docker Hub and increases i
 4. Open **Personal Access Tokens**
 5. Click **Generate New Token**
 
-:::tip Recommended settings:
+:::tip[Recommended settings]
 - **Description:** `MOS`
 - **Expiration date:** None
 - **Access permissions:** Read-only

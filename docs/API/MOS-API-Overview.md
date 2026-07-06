@@ -138,7 +138,7 @@ Optional parameters allow controlling:
 
 ---
 
-:::warning Important Notes
+:::warning[Important Notes]
 
 - The API uses **live system data** (no caching)
 - Actions performed via the WebUI are equivalent to API calls

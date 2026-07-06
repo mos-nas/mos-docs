@@ -90,6 +90,6 @@ Each running VM receives the next available port in sequence.
 - Ports are only active while the VM is running
 - If a VM stops, its assigned port becomes available again
 
-:::warning Security Notice
+:::warning[Security Notice]
 VNC ports (5900+) should not be exposed to the public Internet. Use a VPN or SSH tunnel for remote console access.
 :::

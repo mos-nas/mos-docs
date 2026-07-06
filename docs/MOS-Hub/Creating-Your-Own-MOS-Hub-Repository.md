@@ -54,7 +54,7 @@ Contains individual Docker container templates in JSON format.
 
 Each file represents a single container configuration that can be deployed directly from the MOS Hub.
 
-:::tip Use this folder for:
+:::tip[Use this folder for:]
 - Single-container applications
 - Simple services
 :::
@@ -72,7 +72,7 @@ Each subfolder represents a complete application stack with multiple containers.
 - `.env` – Environment variables (optional)
 - `template.json` – Metadata for MOS Hub display
 
-:::tip Use this folder for:
+:::tip[Use this folder for:]
 - Multi-container applications
 - Complex service stacks
 :::
@@ -85,7 +85,7 @@ Contains system plugins, drivers, and utilities in JSON format.
 
 Each file represents a system component that can be installed from the MOS Hub.
 
-:::tip Use this folder for:
+:::tip[Use this folder for:]
 - Hardware drivers (Nvidia, AMD, Coral)
 - System utilities
 - Kernel modules
@@ -104,7 +104,7 @@ Contains icon files for your templates and plugins.
 
 Icons are displayed in the MOS Hub interface.
 
-:::tip Recommended:
+:::tip[Recommended]
 Use consistent icon sizes for a professional appearance.
 :::
 
@@ -131,7 +131,7 @@ This file is required for the MOS Hub to recognize your repository.
 
 Provides documentation about your template collection.
 
-:::tip Recommended contents:
+:::tip[Recommended contents]
 - Repository overview
 - List of included templates
 - Installation instructions
@@ -206,7 +206,7 @@ If the container supports user/group IDs, configure them:
 "PGID": "500"
 ```
 
-:::tip Recommended values:
+:::tip[Recommended values]
 `PUID=500` and `PGID=500`
 
 Why:
@@ -285,7 +285,7 @@ Templates must follow the MOS template schema.
 - Invalid JSON syntax
 - Incorrect path formats
 
-:::tip Recommendation:
+:::tip[Recommendation]
 Test your templates locally in MOS before publishing them to GitHub.
 :::
 
@@ -395,7 +395,7 @@ The MOS ecosystem benefits from community-contributed repositories.
 - Invalid JSON syntax
 - Hub not refreshed
 
-:::tip Solution:
+:::tip[Solution]
 Verify repository structure and refresh the MOS Hub.
 :::
 
@@ -408,7 +408,7 @@ Verify repository structure and refresh the MOS Hub.
 - Missing required environment variables
 - Network configuration conflicts
 
-:::tip Solution:
+:::tip[Solution]
 Review the template JSON and compare it to a working MOS container configuration.
 :::
 
@@ -421,7 +421,7 @@ Review the template JSON and compare it to a working MOS container configuration
 - Incorrect icon path in template
 - Unsupported image format
 
-:::tip Solution:
+:::tip[Solution]
 Ensure icons are in PNG or JPG format and correctly referenced in the template.
 :::
 
@@ -471,7 +471,7 @@ Plugin templates use a different structure than Docker templates.
 - **category**  
   Array of categories. Common options:
 
-:::warning Case Sensitivity
+:::warning[Case Sensitivity]
 Categories are **case sensitive**. Make sure to use the exact spelling and capitalization as shown in the table below (e.g., `Game Server` with a capital `G` and `S`, not `game server` or `Game server`). Incorrect casing will cause the template to be grouped incorrectly or not appear in the expected category.
 :::
 
@@ -542,7 +542,7 @@ When a user installs a plugin from the MOS Hub:
 3. MOS executes the installation routine provided by the repository
 4. The plugin integrates into the system
 
-:::warning Important:
+:::warning[Important]
 The `repository` field should point to a repository that provides installation scripts compatible with MOS.
 :::
 

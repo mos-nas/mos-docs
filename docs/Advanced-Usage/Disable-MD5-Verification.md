@@ -27,7 +27,7 @@ In advanced scenarios, this verification can be explicitly disabled.
 
 ---
 
-:::warning Important Notes
+:::warning[Important Notes]
 - Disabling MD5 checks is intended for advanced users only
 - Use this option only if you fully understand the implications
 :::

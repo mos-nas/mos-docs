@@ -24,7 +24,7 @@ Example:
 
 ![Network Interfaces](/img/network/Network_Interfaces.png)
 
-:::warning Network Configuration Safety
+:::warning[Network Configuration Safety]
 
 When applying network changes, MOS protects you from accidental lockouts.
 
@@ -64,11 +64,10 @@ If the network configuration changes the IP address of the MOS system:
 
 3. Click **Accept** within **60 seconds**
 
-:::warning
-You must access the WebUI using the **new address** before the 60 second timer expires.
+:::warning[You must access the WebUI using the **new address** before the 60 second timer expires.]
 :::
 
-:::info ⏱ What Happens If You Don't Confirm?
+:::info[What Happens If You Don't Confirm?]
 
 If the configuration is **not confirmed within 60 seconds**:
 
@@ -172,7 +171,7 @@ Creates a Linux bridge and attaches the physical interface to it.
 - Virtual machines
 - Most server setups
 
-:::tip Recommendation
+:::tip[Recommendation]
 This is the **default and recommended mode** for most installations.
 :::
 
@@ -217,7 +216,7 @@ Enables or disables automatic IPv4 configuration via DHCP.
 - **Disabled:**  
   Static IPv4 configuration is required.
 
-:::tip **Recommended:**  
+:::tip[Recommendation]
 Disable DHCP for servers and use a static IP address.
 :::
 

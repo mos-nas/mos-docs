@@ -76,7 +76,7 @@ Defines the CPU frequency scaling policy.
 - `powersave` – Forces minimum CPU frequency to reduce power consumption
 - `conservative` – Gradual frequency scaling with slower ramp-up, optimized for power efficiency
 
-:::tip Recommendation
+:::tip[Recommendation]
 Use `ondemand` for balanced performance and efficiency.
 :::
 

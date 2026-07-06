@@ -60,7 +60,7 @@ Defines how long your WebUI session remains active before requiring re-authentic
 - **Default:** 14 days
 - **Range:** Typically 1-30 days
 
-:::warning Security Note
+:::warning[Security Note]
 Shorter session expiry times increase security by requiring more frequent re-authentication. Longer times improve convenience but may pose a security risk if you leave your browser unattended.
 :::
 
@@ -86,7 +86,7 @@ MOS supports TOTP-based Multi-Factor Authentication (MFA) to add an extra layer 
 
 ![MFA QR Code Dialog](/img/users/MFA_QR_Code.png)
 
-:::warning Important
+:::warning[Important]
 Store the recovery codes securely. They are your only way to regain access if you lose your authenticator device.
 :::
 
@@ -133,7 +133,7 @@ If you have lost access to your authenticator device, you can use a recovery cod
 1. On the Two Factor Authentication screen, enter a recovery code instead of a TOTP code
 2. Click **Verify** to proceed
 
-:::danger Important
+:::danger[Important]
 - Using a recovery code **immediately disables MFA** on your account
 - The recovery code can only be used once and is invalidated after use
 - After logging in, you will see a notification that MFA has been disabled
@@ -169,7 +169,7 @@ To disable MFA:
 
 ![MFA Disabled](/img/users/MFA_Success_Disabled.png)
 
-:::note
+:::note[Disabling MFA]  
 Disabling MFA removes the additional security layer. Only disable MFA if absolutely necessary and ensure your password is strong.
 :::
 

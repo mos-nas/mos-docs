@@ -35,7 +35,7 @@ Minimum recommended size: **8 GB** (16 GB recommended to be on the safe side).
 
 **Symptoms:** After formatting with Windows Explorer, the USB stick is not recognized as bootable by the BIOS/UEFI.
 
-:::tip Solution
+:::tip[Solution]
 Use `diskpart` to create a bootable partition. Open **CMD as Administrator** and run the following commands:
 :::
 

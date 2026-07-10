@@ -37,6 +37,18 @@ The recommended way is:
 3. Start your server
 4. Change the boot order in your BIOS if necessary to boot from the new disk
 
+:::tip[Switching to a different boot medium]
+You can repeat the **Install to Disk** process at any time to migrate your installation to a new boot medium (e.g. from a USB flash drive to an SSD). This simply copies the current state of your existing installation to the new medium.
+
+**Steps:**
+1. Run **Install to Disk** and select the new target medium
+2. Shut down your server
+3. Remove the old boot medium
+4. Boot from the new medium
+
+This process can be repeated as often as needed — each run copies the current installation state to the chosen medium, making it easy to upgrade or replace your boot drive at any time.
+:::
+
 When clicking **Install to Disk**, an input form is displayed with the following options:
 
 ---
@@ -95,7 +107,6 @@ Allows you to restore the boot configuration from a MOS backup file.
 
 :::note
 The [MOS Backup Plugin](https://mos-official.net/apps.html?search=MOS+Backup+ich777) must be installed and configured to use this feature.
-
 :::
 
 

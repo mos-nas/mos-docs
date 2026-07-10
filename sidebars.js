@@ -103,38 +103,44 @@ const sidebars = {
       type: 'category',
       label: '⚙️ Settings',
       items: [
-        { type: 'doc', id: 'Settings/System-Settings', label: '🖥️ System Settings' },
-        { type: 'doc', id: 'Settings/Update-System', label: '🔄 Update System' },
-        { type: 'doc', id: 'Settings/Boot', label: '💾 Boot' },
-        { type: 'doc', id: 'Settings/Cron-Jobs', label: '⏰ Cron Jobs' },
-        { type: 'doc', id: 'Settings/Logs', label: '📋 Logs' },
-        { type: 'doc', id: 'Settings/Notify', label: '🔔 Notify' },
-        { type: 'doc', id: 'Settings/Sensors', label: '🌡️ Sensors' },
-        { type: 'doc', id: 'Settings/Token', label: '🔑 Token' },
         {
           type: 'category',
-          label: '🌐 Network',
+          label: '🔄 System',
           items: [
-            { type: 'doc', id: 'Settings/Network/Network-Configuration', label: '🔧 Network Configuration' },
-            { type: 'doc', id: 'Settings/Network/Network-Services', label: '🔌 Network Services' },
-            { type: 'doc', id: 'Settings/Network/Network-Ports', label: '📡 Network Ports' },
+            { type: 'doc', id: 'Settings/System/Update-System', label: '🔄 Update System' },
+          ],
+        },
+        {
+          type: 'category',
+          label: '🛠️ System Configuration',
+          items: [
+            { type: 'doc', id: 'Settings/User-Management/Users', label: '👥 Users' },
+            { type: 'doc', id: 'Settings/System-Configuration/System', label: '🖥️ System' },
+            { type: 'doc', id: 'Settings/System-Configuration/Cron-Jobs', label: '⏰ Cron Jobs' },
+            { type: 'doc', id: 'Settings/System-Configuration/Logs', label: '📋 Logs' },
+            { type: 'doc', id: 'Settings/System-Configuration/Notifications', label: '🔔 Notifications' },
+            { type: 'doc', id: 'Settings/User-Management/User-Profile', label: '🪪 User Profile' },
           ],
         },
         {
           type: 'category',
           label: '🔌 Hardware',
           items: [
-            { type: 'doc', id: 'Settings/Hardware/PCI-Devices', label: '🖥️ PCI Devices' },
+            { type: 'doc', id: 'Settings/Hardware/Boot', label: '💾 Boot' },
             { type: 'doc', id: 'Settings/Hardware/USB-Devices', label: '🔌 USB Devices' },
+            { type: 'doc', id: 'Settings/Hardware/PCI-Devices', label: '🖥️ PCI Devices' },
             { type: 'doc', id: 'Settings/Hardware/ZRAM', label: '🗜️ ZRAM' },
+            { type: 'doc', id: 'Settings/Hardware/Sensors', label: '🌡️ Sensors' },
           ],
         },
         {
           type: 'category',
-          label: '👤 User Management',
+          label: '🌐 Network',
           items: [
-            { type: 'doc', id: 'Settings/User-Management/Users', label: '👥 Users' },
-            { type: 'doc', id: 'Settings/User-Management/User-Profile', label: '🪪 User Profile' },
+            { type: 'doc', id: 'Settings/Network/Network-Configuration', label: '🔧 Network Interfaces' },
+            { type: 'doc', id: 'Settings/Network/Network-Services', label: '🔌 Network Services' },
+            { type: 'doc', id: 'Settings/Network/Network-Ports', label: '📡 Network Ports' },
+            { type: 'doc', id: 'Settings/Network/Token', label: '🔑 Token' },
           ],
         },
       ],
@@ -182,7 +188,6 @@ const sidebars = {
       type: 'category',
       label: '🌟 Support MOS',
       items: [
-        { type: 'doc', id: 'Support-MOS/Support_MOS', label: '🌟 Support MOS' },
       ],
     },
     {

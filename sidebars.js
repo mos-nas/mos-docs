@@ -34,6 +34,7 @@ const sidebars = {
       label: '🗄️ Pools',
       items: [
         { type: 'doc', id: 'Pools/Create-Storage-Pool', label: '🆕 Create a Storage Pool' },
+        { type: 'doc', id: 'Pools/Virtual-Pools', label: '📁 Virtual Pools' },
         { type: 'doc', id: 'Pools/ZFS', label: '🐟 ZFS' },
       ],
     },

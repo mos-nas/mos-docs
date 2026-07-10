@@ -93,6 +93,13 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '📂 Filebrowser',
+      items: [
+        { type: 'doc', id: 'Filebrowser/Filebrowser', label: '📂 Filebrowser' },
+      ],
+    },
+    {
+      type: 'category',
       label: '⚙️ Settings',
       items: [
         { type: 'doc', id: 'Settings/System-Settings', label: '🖥️ System Settings' },

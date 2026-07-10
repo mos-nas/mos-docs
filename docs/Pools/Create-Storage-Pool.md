@@ -144,6 +144,12 @@ Creates a pooled filesystem using multiple independent disks combined via merger
 **Filesystem recommendation:**
 - `xfs` for data disks
 
+#### Full Policy Reference
+
+For a complete description of all available mergerfs policies, their behavior, and when to use each one, see the official mergerfs documentation:
+
+👉 [mergerfs – Policy Descriptions](https://trapexit.github.io/mergerfs/latest/config/functions_categories_policies/#policy-descriptions)
+
 ---
 
 ### nonraid

@@ -65,60 +65,49 @@ You can add paths from different physical pools. For example, combine `/mnt/main
 
 ---
 
-## 📋 Create Policies
+## 📋 Policies
 
-The **Create Policy** determines how mergerfs distributes **new files** across the configured paths. When a file is written to the Virtual Pool, the policy decides which underlying path receives the file.
+mergerfs uses **policies** to determine how files are distributed and found across the configured paths. MOS exposes two policy categories for Virtual Pools:
 
 ![Create Policy Options](/img/pools/virtual-pool-dropdown-0.png)
 
-*Available Create Policy options in the dropdown.*
+*The Create Policy dropdown with all available mergerfs policies.*
 
-### Non-Path-Preserving Policies
+### Create Policy
 
-These policies consider all paths regardless of whether the target directory already exists on a path.
+The **Create Policy** determines which path receives a **new file** when it is written to the Virtual Pool. MOS offers 20 policies, including:
 
-| Policy | Full Name | Description |
-|--------|-----------|-------------|
-| **`pfrd`** | Percentage Free Random Distribution | Distributes files based on percentage of free space. Default mergerfs policy. Good general-purpose choice. |
-| **`rand`** | Random | Picks a random eligible path. Simple, evenly distributes over time. |
-| **`mfs`** | Most Free Space | Always picks the path with the most available space. Maximizes capacity usage. |
-| **`ff`** | First Found | Picks the first eligible path in the configured order. Simple and predictable. |
-| **`lfs`** | Least Free Space | Picks the path with the least free space (but still above minimum). Fills up paths before moving to the next. |
-| **`lup`** | Least Used Percentage | Picks the path with the lowest used space percentage. Balances usage across paths. |
-| **`lus`** | Least Used Space | Picks the path with the least used space in bytes. Balances usage across paths. |
-| **`all`** | All | Uses all eligible paths. Useful for action operations, not typically used as a create policy. |
-| **`newest`** | Newest | Picks the path where the target directory has the most recent modification time. |
+- **Non-path-preserving** (`pfrd`, `rand`, `mfs`, `ff`, `lfs`, `lup`, `lus`, `all`, `newest`) — consider all paths regardless of existing directory structure
+- **Path-preserving (msp)** (`msppfrd`, `mspmfs`, `msplfs`, `msplus`) — prefer paths where the target directory already exists
+- **Existing path (ep)** (`eppfrd`, `epmfs`, `eprand`, `epff`, `eplfs`, `eplus`, `epall`) — strictly require the target directory to exist on a path
 
-### Path-Preserving Policies (msp — Most Similar Path)
+Default: `mspmfs` (Most Similar Path, Most Free Space)
 
-These policies prefer paths where the target directory already exists, keeping related files together on the same path.
+### Search Policy
+
+The **Search Policy** determines which copy of an **existing file** is read when the file exists on multiple paths. MOS offers 5 policies:
 
 | Policy | Full Name | Description |
 |--------|-----------|-------------|
-| **`msppfrd`** | msp + Percentage Free Random | Path-preserving with percentage-based distribution. |
-| **`mspmfs`** | msp + Most Free Space | Path-preserving, picks the path with the most free space where the directory exists. **Default.** |
-| **`msplfs`** | msp + Least Free Space | Path-preserving, picks the path with the least free space where the directory exists. |
-| **`msplus`** | msp + Least Used Space | Path-preserving, picks the path with the least used space where the directory exists. |
+| **`ff`** | First Found | Returns the first path where the file exists (in configured order). **Default.** |
+| **`lfs`** | Least Free Space | Picks the copy on the path with the least free space. |
+| **`lus`** | Least Used Space | Picks the copy on the path with the least used space. |
+| **`all`** | All | Returns all paths where the file exists. Used for action operations. |
+| **`newest`** | Newest | Picks the copy with the most recent modification time. |
 
-### Existing Path Policies (ep — Existing Path)
+Default: `ff` (First Found)
 
-These policies strictly require the target directory to already exist on a path. If no path has the directory, they fall back to other behavior.
+### Full Policy Reference
 
-| Policy | Full Name | Description |
-|--------|-----------|-------------|
-| **`eppfrd`** | ep + Percentage Free Random | Existing path with percentage-based distribution. |
-| **`epmfs`** | ep + Most Free Space | Existing path, picks most free space. Good for keeping directory structures intact. |
-| **`eprand`** | ep + Random | Existing path, picks randomly. |
-| **`epff`** | ep + First Found | Existing path, picks first in order. |
-| **`eplfs`** | ep + Least Free Space | Existing path, picks least free space. |
-| **`eplus`** | ep + Least Used Space | Existing path, picks least used space. |
-| **`epall`** | ep + All | Existing path, uses all matching paths. |
+For a complete description of all available mergerfs policies, their behavior, and when to use each one, see the official mergerfs documentation:
+
+👉 [mergerfs – Policy Descriptions](https://trapexit.github.io/mergerfs/latest/config/functions_categories_policies/#policy-descriptions)
 
 ### Policy Recommendations
 
 | Use Case | Recommended Policy | Why |
 |----------|-------------------|-----|
-| **General use** | `pfrd` | Even distribution, no branch overload |
+| **General use** | `pfrd` | Even distribution, no path overload |
 | **Keep related files together** | `mspmfs` (default) | Path-preserving + most free space |
 | **Maximize capacity** | `mfs` | Always uses the path with most space |
 | **Simple, predictable** | `ff` | First path in order |
@@ -126,28 +115,6 @@ These policies strictly require the target directory to already exist on a path.
 
 :::tip
 If unsure, use the default `mspmfs`. It keeps directory structures together on the same path while distributing new files to the path with the most free space.
-:::
-
----
-
-## 🔍 Search Policies
-
-The **Search Policy** determines how mergerfs finds **existing files** when reading or opening them. Since files may exist on multiple paths, the search policy decides which copy to use.
-
-![Search Policy Options](/img/pools/virtual-pool-dropdown-2.png)
-
-*Available Search Policy options in the dropdown.*
-
-| Policy | Full Name | Description |
-|--------|-----------|-------------|
-| **`ff`** | First Found | Returns the first path where the file exists (in configured order). **Default.** Simple and fast. |
-| **`lfs`** | Least Free Space | Picks the copy on the path with the least free space. Prioritizes paths that are more full. |
-| **`lus`** | Least Used Space | Picks the copy on the path with the least used space. Balances read load. |
-| **`all`** | All | Returns all paths where the file exists. Used for action operations (chmod, unlink, etc.). |
-| **`newest`** | Newest | Picks the copy with the most recent modification time. Useful when files are updated on multiple paths. |
-
-:::info
-The default `ff` (First Found) is sufficient for most setups. Only change it if you have specific needs, such as ensuring the most recently modified copy is always read.
 :::
 
 ---

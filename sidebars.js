@@ -125,6 +125,7 @@ const sidebars = {
           items: [
             { type: 'doc', id: 'Settings/Hardware/PCI-Devices', label: '🖥️ PCI Devices' },
             { type: 'doc', id: 'Settings/Hardware/USB-Devices', label: '🔌 USB Devices' },
+            { type: 'doc', id: 'Settings/Hardware/ZRAM', label: '🗜️ ZRAM' },
           ],
         },
         {

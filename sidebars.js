@@ -139,6 +139,8 @@ const sidebars = {
           items: [
             { type: 'doc', id: 'Settings/Network/Network-Configuration', label: '🔧 Network Interfaces' },
             { type: 'doc', id: 'Settings/Network/Network-Services', label: '🔌 Network Services' },
+            { type: 'doc', id: 'Settings/Network/iSCSI-Target', label: '🎯 iSCSI Target' },
+            { type: 'doc', id: 'Settings/Network/iSCSI-Initiator', label: '🎯 iSCSI Initiator' },
             { type: 'doc', id: 'Settings/Network/Network-Ports', label: '📡 Network Ports' },
             { type: 'doc', id: 'Settings/Network/Token', label: '🔑 Token' },
           ],

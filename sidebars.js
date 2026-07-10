@@ -121,6 +121,14 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: '🔌 Hardware',
+          items: [
+            { type: 'doc', id: 'Settings/Hardware/PCI-Devices', label: '🖥️ PCI Devices' },
+            { type: 'doc', id: 'Settings/Hardware/USB-Devices', label: '🔌 USB Devices' },
+          ],
+        },
+        {
+          type: 'category',
           label: '👤 User Management',
           items: [
             { type: 'doc', id: 'Settings/User-Management/Users', label: '👥 Users' },

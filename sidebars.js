@@ -86,6 +86,13 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '🖥️ Terminal',
+      items: [
+        { type: 'doc', id: 'Terminal/Terminal', label: '🖥️ Terminal' },
+      ],
+    },
+    {
+      type: 'category',
       label: '⚙️ Settings',
       items: [
         { type: 'doc', id: 'Settings/System-Settings', label: '🖥️ System Settings' },

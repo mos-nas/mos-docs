@@ -81,6 +81,38 @@ Defines the directory used to store LXC container data.
 
 ---
 
+## 💾 Backups & Snapshots
+
+Each LXC container can be managed individually via the **Manage** button in the container list. This opens a detail view with two tabs:
+
+### Backups
+
+The **Backups** tab shows all created backups for the container.
+
+- Backups are stored as compressed archives
+- Each backup captures the container's filesystem and configuration
+- Click **Create Backup** to manually create a backup
+- Existing backups can be restored or deleted
+
+:::tip
+Schedule regular backups using Cron Jobs (Settings → System Configuration → Cron Jobs) to automate the backup process.
+:::
+
+### Snapshots
+
+The **Snapshots** tab shows all created snapshots for the container.
+
+- Snapshots are point-in-time copies of the container's state
+- Creating a snapshot is faster than a full backup
+- Snapshots can be used to quickly roll back to a previous state
+- Click **Create Snapshot** to manually create a snapshot
+
+:::info
+Snapshots require a filesystem that supports them (e.g., btrfs or ZFS). On other filesystems, snapshots may not be available.
+:::
+
+---
+
 ## 📝 Operational Notes
 
 - Network connectivity depends on bridge configuration

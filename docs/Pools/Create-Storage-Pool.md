@@ -318,6 +318,28 @@ To configure Usage Warning for a pool:
 
 ---
 
+## 🔄 Pool Actions
+
+Each pool in the Pools list has an action menu (•••) with the following options:
+
+| Action | Description |
+|--------|-------------|
+| **Unmount Pool** | Unmounts the pool without deleting it. The pool data remains intact and can be remounted later |
+| **Delete pool** | Permanently removes the pool and its configuration. Data on the disks is NOT deleted |
+| **Spin Up Pool** | Wakes up all disks in the pool from sleep/standby mode |
+| **Spin Down Pool** | Puts all disks in the pool into sleep/standby mode to save power and reduce noise |
+| **Usage Alerts** | Configure warning and alarm thresholds for pool capacity (see [Usage Warning](#️-usage-warning)) |
+
+:::tip
+Use **Spin Down Pool** for pools that are not frequently accessed (e.g., backup pools) to reduce power consumption and disk wear. Use **Spin Up Pool** before accessing the pool to wake the disks.
+:::
+
+:::warning
+Spinning down disks frequently can reduce their lifespan. Only use spin down for pools that are accessed infrequently (e.g., once per day or less).
+:::
+
+---
+
 ## 🧹 Btrfs Operations & Schedules
 
 When a pool is formatted with `btrfs`, MOS provides additional maintenance operations that help keep the filesystem healthy and performant.

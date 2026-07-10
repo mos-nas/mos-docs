@@ -116,4 +116,28 @@ Not all drives report all S.M.A.R.T. attributes. NVMe drives use a different att
 
 ---
 
+## 😴 Disk Sleep / Wake
+
+The Disks page provides a global action menu (•••) with options to manage disk power states:
+
+| Action | Description |
+|--------|-------------|
+| **Sleep All** | Puts all detected disks into sleep/standby mode. Reduces power consumption and noise when disks are not in use |
+| **Wake All** | Wakes all disks from sleep/standby mode. Use this before performing operations that require disk access |
+
+:::info
+Disk sleep (standby) puts the disk's spindle motor into a low-power state. The disk automatically wakes when accessed. **Sleep All** and **Wake All** provide manual control over this behavior.
+:::
+
+:::tip
+Disk sleep is particularly useful for homelab servers running 24/7 where some disks (e.g., backup or archive pools) are only accessed occasionally. Combined with the **Spin Down Pool** action, this can significantly reduce power consumption.
+:::
+
+:::warning
+Frequent spin-up/spin-down cycles can increase disk wear. Modern NAS-rated drives (e.g., WD Red, Seagate IronWolf) are designed for 24/7 operation and may last longer running continuously than with frequent sleep cycles. Consider your workload before enabling automatic disk sleep.
+:::
+
+
+---
+
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

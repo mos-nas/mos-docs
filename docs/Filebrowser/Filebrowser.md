@@ -8,7 +8,7 @@ description: "Overview of the MOS Filebrowser: web-based file manager for browsi
 
 The MOS Filebrowser provides a web-based file manager that allows you to browse, navigate, and inspect the entire file system of your MOS server directly from the WebUI. No SSH or FTP client required — file system access is available with a single click.
 
-![MOS Filebrowser Overview](/static/img/filebrowser/filebrowser-overview.png)
+![MOS Filebrowser Overview](/img/filebrowser/filebrowser-overview.png)
 
 *The Filebrowser showing the root directory (`/`).*
 

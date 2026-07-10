@@ -188,6 +188,7 @@ const sidebars = {
       type: 'category',
       label: '🌟 Support MOS',
       items: [
+        { type: 'doc', id: 'Support-MOS/Support_MOS', label: '🌟 Support MOS' },
       ],
     },
     {

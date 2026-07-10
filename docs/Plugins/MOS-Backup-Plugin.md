@@ -16,7 +16,7 @@ The Backup Plugin provides comprehensive backup management for your MOS system. 
 
 ## 📦 Installation
 
-The Backup Plugin is available in the MOS Hub.
+The [MOS Backup Plugin](https://mos-official.net/apps.html?search=MOS+Backup+ich777) is available in the MOS Hub.
 After Installation you can find it in the Plugins section.
 
 1. Navigate to **Plugins** in the sidebar
@@ -24,8 +24,6 @@ After Installation you can find it in the Plugins section.
 3. Click **Open** to access the plugin settings
 
 The plugin version is displayed in the top-right corner of the plugin card (e.g., `v0.6.3`).
-
-[MOS Backup Plugin](https://mos-official.net/apps.html?search=MOS+Backup+ich777)
 
 ---
 
@@ -62,9 +60,13 @@ The **Backup All** section allows you to run all configured backup types in a si
 - Use **Backup Now** for manual, on-demand execution of all backup types
 - The Cron Schedule applies to all backup types when enabled
 
+:::tip
+The Backup All section performs a backup of all currently active services.
+:::
+
 ---
 
-## 🥾 Boot Backup
+## 💾 Boot Backup
 
 The **Boot Backup** section manages backups of the system boot configuration.
 

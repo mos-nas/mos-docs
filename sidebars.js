@@ -79,6 +79,7 @@ const sidebars = {
       type: 'category',
       label: '🧩 Plugins & Drivers',
       items: [
+        { type: 'doc', id: 'Plugins/MOS-Backup-Plugin', label: '🗄️ MOS Backup Plugin' },
         { type: 'doc', id: 'Plugins/Drivers', label: '🖥️ Drivers' },
         { type: 'doc', id: 'Plugins/MOS-Plugin-Development-Guide', label: '📦 MOS Plugin Development Guide' },
       ],

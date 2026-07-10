@@ -1,6 +1,6 @@
 ---
 sidebar_label: 📦 MOS Plugin Development Guide
-sidebar_position: 2
+sidebar_position: 3
 description: "Develop your own MOS plugin: Vue-based configuration pages, bash functions, plugin settings, and GitHub Actions build workflow."
 ---
 

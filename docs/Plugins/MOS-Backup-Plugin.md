@@ -1,6 +1,6 @@
 ---
 sidebar_label: 🗄️ MOS Backup Plugin
-sidebar_position: 2
+sidebar_position: 1
 description: "MOS Backup Plugin: Backup and restore your MOS system with this plugin."
 ---
 

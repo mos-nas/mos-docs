@@ -25,6 +25,8 @@ Example:
 
 Installs the system bootloader to a selected disk which will basically copies the contents from your `/boot` folder to the new drive.
 
+![Install to Disk](/img/system/Install_to_Disk.png)
+
 :::warning
 After the installation finished, please shutdown or reboot your server immediately since all further changes after Install to disk **will not** be saved.
 :::  
@@ -87,6 +89,18 @@ If Extra Partition is enabled:
 
 ---
 
+#### ↪️ Restore from file (MOS Backup)
+
+Allows you to restore the boot configuration from a MOS backup file.
+
+:::note
+The [MOS Backup Plugin](https://mos-official.net/apps.html?search=MOS+Backup+ich777) must be installed and configured to use this feature.
+
+:::
+
+
+---
+
 ### Edit `grub.cfg`
 
 Opens an editor for the GRUB configuration file:
@@ -97,6 +111,8 @@ Opens an editor for the GRUB configuration file:
 - Modify boot parameters
 - Adjust kernel options
 - Change boot behavior
+
+![Edit grub.cfg](/img/system/Edit_grub_cfg.png)
 
 :::danger
 This file is critical for system startup

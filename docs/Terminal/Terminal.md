@@ -97,14 +97,14 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ### Security
 
-warning
-
+:::warning
 The terminal provides **full root access** to the system. Be cautious when running commands — there is no confirmation prompt for destructive operations.
 
 - Only share terminal access with trusted users
 - Avoid running unverified commands from external sources
 - Use `sudo` is not required — you are already `root`
 - All actions in the terminal are executed immediately
+:::
 
 ### Session Management
 
@@ -113,9 +113,9 @@ The terminal provides **full root access** to the system. Be cautious when runni
 - Long-running commands will be interrupted if you close the page
 - Use `screen` or `tmux` for persistent sessions that survive page reloads
 
-tip
-
+:::tip
 For long-running tasks (backups, updates, large file transfers), consider using `tmux` or `screen` inside the terminal. This way, the task continues even if you close the browser tab.
+:::
 
 ### Alternatives
 

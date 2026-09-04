@@ -148,8 +148,8 @@ const config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'release-0.5.6-stable',
-      content: '🎉 <strong>MOS 0.5.6-stable is out!</strong> — IPv6 DHCP fix, SLAAC/DHCP/Static IPv6 WebUI, NUT init script fix, VM disk size editing regression fix, DMA kernel fix  <a href="https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.6-stable" style="color:#ffffff;">Release Notes →</a>',
+      id: 'release-0.5.8-stable',
+      content: '🎉 <strong>MOS 0.5.8-stable is out!</strong> — Kernel 6.18.48, Docker v29.7.2, QEMU v11.1.1, rsync daemon support, performance metrics modifier, IPv6 nginx support, NUT event scripts, network chart eChart  <a href="https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.8-stable" style="color:#ffffff;">Release Notes →</a>',
       backgroundColor: '#fa9725',
       textColor: '#ffffff',
       isCloseable: true,

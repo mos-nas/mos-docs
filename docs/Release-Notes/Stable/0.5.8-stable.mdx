@@ -1,0 +1,90 @@
+---
+title: 0.5.8-stable
+sidebar_label: 🎉 0.5.8-stable
+sidebar_position: 1
+description: "MOS 0.5.8-stable: Kernel 6.18.48, Docker v29.7.2, QEMU v11.1.1, rsync daemon support, performance metrics modifier, IPv6 nginx support, NUT event scripts, network chart eChart, many bugfixes and improvements."
+---
+
+# 0.5.8-stable
+
+:::tip[Download]
+Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-releases/releases/tag/0.5.8-stable) page.
+:::
+
+## System
+
+- Recommended Kernel 6.18.48
+- Update Docker v29.7.2
+- Update QEMU v11.1.1
+- Update wsddn v1.27
+- Update edk2 v202608
+- Add missing function execution for rsync daemon in MOS startup routine
+- Add rsync daemon support
+- Create custom rsync init script
+- Fix cronjob names
+- System update default values
+
+## New Features
+
+### Performance Metrics
+- Add performance modifier to Compose, Docker, LXC and VM
+- Add new URL modifier `performance=true` to get the Container/Stack/VM performance metrics (CPU/Memory) — by default no metrics are sent when modifier is not given
+
+### Rsync Daemon
+- Add new `rsync_daemon` to network services
+- Create new GET and POST endpoints `/mos/settings/network/services/rsync/config`
+
+### NUT (Network UPS Tools)
+- Create new GET and POST endpoints `/nut/scripts/{event}` to create/edit event scripts
+- NUT Websocket implementation
+
+### Networking
+- Add IPv6 support for nginx
+- Create new key `runtime_address` for IPv6 to make SLAAC or DHCP address visible
+
+### Diagnostics
+- Add containers, compose and groups to diagnostics
+- Add `docker network ls` to diagnostics
+
+### WebUI / Frontend
+- CodeMirror plugin for fileEdit-Dialogs
+- LXC file picker for mount source fields
+- Network chart transitions
+- Network chart → eChart
+- NUT card design
+- Style known repo dialog
+- NUT translations
+
+## Bugfixes
+
+### Networking
+- Fix IPv6 issues
+- Fix for networking service start/stop/restart
+- Make sure to not throw error when `dhcp=false` and no address for IPv6 is given
+
+### Docker
+- Modify docker pull command to capture output while maintaining error handling
+- Fix variable assignment for local SHA256 Docker digest
+
+### System & Services
+- Re-enable nmbd
+- Fix make sure to run mos-api_cli as root for NUT
+- Fix issues with notification system
+- Make sure to return full model from network services if key is missing
+- Make sure that not available NFS shares don't block API
+- Add timeout for `df` when testing mounts to make sure they are actually working
+- Add timeout for NFS shares when querying them
+- Kick out systeminformation from disks service
+- Use lsblk to get disks
+- Remove lowercase from notifications
+
+### WebUI / Frontend
+- networkServices design fixes
+- NUT design fixes
+- Fix NFS create share dialog
+- Fix virtual pools policies
+- Update dialog handling
+
+---
+
+[📋 Release Notes Overview](../Overview) | **[Previous: 0.5.6-stable ←](../Stable/0.5.6-stable)**

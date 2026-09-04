@@ -202,6 +202,7 @@ const sidebars = {
           type: 'category',
           label: '🎉 Stable',
           items: [
+            { type: 'doc', id: 'Release-Notes/Stable/0.5.8-stable', label: '0.5.8-stable' },
             { type: 'doc', id: 'Release-Notes/Stable/0.5.6-stable', label: '0.5.6-stable' },
             { type: 'doc', id: 'Release-Notes/Stable/0.5.5-stable', label: '0.5.5-stable' },
             { type: 'doc', id: 'Release-Notes/Stable/0.5.0-stable', label: '0.5.0-stable' },

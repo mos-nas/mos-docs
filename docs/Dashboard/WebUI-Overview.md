@@ -24,8 +24,6 @@ The MOS web interface provides a centralized management dashboard for monitoring
 
 The top bar is always visible and provides quick access to global functions.
 
-- **MOS Logo** — Returns you to the Dashboard from any page.
-- **Docs** — Direct link to the MOS Docs page for help
 - **Notifications** — Displays system alerts, warnings and important events.
 - **User Settings** — Displays user profile settings such as “Dark Mode”, “Language”, etc.
 

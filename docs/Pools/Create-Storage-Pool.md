@@ -155,34 +155,145 @@ For a complete description of all available mergerfs policies, their behavior, a
 ### nonraid
 
 Uses multiple independent disks without traditional RAID.
+Each data disk keeps its own filesystem and is mounted individually, while optional parity disks provide fault protection.
 
 **Characteristics:**
-- Each disk has its own filesystem
-- Optional parity disk
+- Each data disk has its own filesystem
+- Optional parity disks for fault tolerance
 - Flexible and simple disk management
+- Disks can be added or replaced individually
 
 :::tip
 The nonraid driver is **not installed by default**.
+It must be installed as a plugin via the MOS Hub.
 After installing the driver you have to reboot.
 For installation instructions, refer to the [MOS Hub](../MOS-Hub/MOS-Hub-Settings.md) documentation.
 :::
 
-It must be installed as a plugin via the MOS Hub.
+To install the driver:
 
-To install:
-
-1. Open MOS Hub
-2. Search for NonRAID Driver
+1. Open **MOS Hub**
+2. Search for **NonRAID Driver**
 3. Select the desired release
+4. Click **Install**
+5. **Reboot** the server
 
-- Click Install
+:::note
+Only **one nonraid pool** can be created per MOS system.
+:::
 
-- Reboot the server
+---
+
+#### 🔐 Parity Setup (Optional)
+
+Parity disks allow MOS to rebuild the data of failed data disks.
+Using parity is **optional** — you can run a nonraid pool with data disks only (no redundancy) or add up to two parity disks for one- or two-fault tolerance.
+
+**Important rules:**
+- **Maximum 2 parity disks** per pool
+- **Maximum 28 data disks** per pool
+- Each parity disk must be **at least as large as the biggest data disk** in the pool
+- Parity disks do **not** provide usable storage space — they only store parity information
+- For full protection of all data disks, every parity disk has to be at least as large as the largest data disk in the pool
+- **1 parity disk** → protects against a single data disk failure
+- **2 parity disks** → protects against up to two simultaneous data disk failures
+
+**Step-by-step: Create a nonraid pool with parity**
+
+1. Navigate to **Pools** and open the pool creation dialog
+2. Enter a descriptive **Name** (e.g. `media`)
+3. Set the pool **Type** to `nonraid`
+4. **Devices** — select all data disks that should store your actual data (up to 28)
+5. **Parity** — select the disk(s) that should hold the parity data (optional, leave empty for no redundancy; up to 2 disks)
+   :::warning
+   Every selected parity disk must be **at least as large as the biggest selected data disk**.
+   Otherwise the parity protection does not cover the full capacity of all data disks.
+   :::
+6. **Filesystem** — choose the filesystem for the pool:
+   - `ext4`
+   - `xfs` *(recommended)*
+   - `btrfs`
+7. **Minimal Free Space** — set the minimum free space threshold for the pool
+   (this controls when MOS stops writing to a single disk and moves on to the next one)
+8. Configure the following options by ticking the checkboxes as needed:
+   - **Move on No Space** — automatically moves data to the next available disk when a disk runs out of space
+   - **Automount** — ✅ Recommended; mounts the pool automatically on system startup
+   - **Format** — formats the selected disks during pool creation
+     :::warning
+     Enabling **Format** permanently deletes all existing data on the selected disks.
+     Make sure the disks are empty or backed up before continuing.
+     :::
+   - **Shared** — makes the pool available as a shared pool
+   - **Encrypt** — enables disk encryption for the pool
+     :::warning
+     Encryption keys must be stored securely. Losing the key means losing access to the data permanently.
+     :::
+9. Click **Create** to create the pool
+
+After creation, MOS automatically starts the initial **parity sync (resync)**.
+The pool is mounted and usable immediately, but full protection is only available once the resync has completed.
+
+:::note
+During the initial resync the parity disks are being populated with parity information.
+You can use the pool normally while the resync runs in the background, but a data disk failure before the resync completes cannot be recovered from parity.
+:::
+
+---
+
+#### ➕ Adding and Replacing Disks
+
+Disks can be added or replaced at any time without recreating the pool.
+
+:::note
+The limits still apply after creation: **max. 28 data disks** and **max. 2 parity disks** per pool.
+:::
+
+**Add a data disk:**
+1. Open the pool in **Pools**
+2. Add the new disk under **Devices**
+3. MOS automatically triggers a parity update afterwards
+
+**Replace a failed data disk:**
+1. Open the pool in **Pools**
+2. Remove the failed disk from **Devices**
+3. Add the replacement disk to the same slot in **Devices**
+4. MOS starts a resync (`RECON_DISK`) and rebuilds the data from parity
+
+:::warning
+A data disk rebuild from parity is only possible while enough parity disks and all other required data disks are still intact.
+The replacement disk must be at least as large as the original disk.
+:::
+
+**Replace a parity disk:**
+1. Open the pool in **Pools**
+2. Remove the old disk from the **Parity** field
+3. Add the new disk to the **Parity** field
+4. MOS starts a full resync to populate the new parity disk
+
+---
+
+#### 🛡️ Parity Maintenance
+
+MOS provides parity operations for nonraid pools, accessible via the pool's action menu (•••):
+
+| Operation | Description |
+|-----------|-------------|
+| **Check** | Verifies that parity matches the current data. No changes are made to the data disks |
+| **Correct** | Verifies parity and rewrites the parity disk(s) to fix any detected mismatches |
+| **Cancel** | Cancels a currently running parity operation |
+
+:::tip
+Run a periodic parity **Check** (e.g. monthly) to detect mismatches early.
+If mismatches are found, run **Correct** to update the parity disks accordingly.
+:::
+
+---
 
 **Use cases:**
 - Simple parity-based storage
 - Easy disk replacement
-- Home server setups
+- Mixed disk sizes with redundancy
+- Home server and NAS setups
 
 ---
 

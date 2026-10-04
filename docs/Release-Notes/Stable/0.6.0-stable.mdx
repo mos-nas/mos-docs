@@ -1,0 +1,160 @@
+---
+title: 0.6.0-stable
+sidebar_label: 🎉 0.6.0-stable
+sidebar_position: 1
+description: "MOS 0.6.0-stable: Kernel 6.18.55, Docker v29.8.2, QEMU v11.1.2, Node.js v24.21.0, bcachefs support, nonraid improvements, single device pool types, secure boot for VMs, many bugfixes and improvements."
+---
+
+# 0.6.0-stable
+
+:::tip[Download]
+Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-releases/releases/tag/0.6.0-stable) page.
+:::
+
+## System
+
+- Recommended Kernel 6.18.55
+- Update Docker v29.8.2
+- Update QEMU v11.1.2
+- Update Node.js v24.21.0
+
+## New Features
+
+### bcachefs
+- Add bcachefs to supported filesystems
+- Initial changes for bcachefs
+- Add dependencies for bcachefs
+- Create new endpoint `pools/bcachefs`
+- Add new bcachefs endpoint for scrub: `pools/{id}/bcachefs/scrub`
+- Add scrub for bcachefs
+- Add monitor to bcachefs operations
+- Add unclean shutdown check for bcachefs
+- Add new function for PartUUIDs for bcachefs
+- Fix bcachefs PartUUID logic for creating/adding pool/device
+- Add logic for removing device from bcachefs pool
+- Add logic for replacing device from bcachefs pool
+
+### nonraid
+- Add single device pool types
+- Add new preparing disks function to make sure disks prepared for nonraid or bcachefs are not visible in unassigned endpoint
+- Fix replace never matching slots for nonraid
+- Start resync explicitly after `RECON_DISK`
+- Skip generic LUKS pre-open for nonraid
+- Refresh udev after nonraid pool stop
+- Make sure to clean up LUKS, mounts and mount pool after a failed nonraid mount
+- Wipe old partition signatures before repartitioning
+- Grow filesystems after a rebuild onto a larger disk
+- Change logic for adding nonraid device: zero first, then format, and send notification when disk is ready
+- Make sure to lock nonraid operations when an operation is already running
+- Use nodiscard when formatting nonraid devices to be consistent with mounting disks
+
+### Remotes
+- Add remotes list/mount/unmount to `mos-api_cli`
+
+### Boot Files
+- Sync boot files if missing
+- Add `mos-boot-files` for arm64
+- Add `mos-boot-files` for amd64
+
+### SMB / Samba
+- Add `global_extra.conf` and `shares_extra.conf` to `smb.conf`
+- Add new function to check for `shares_extra.conf` and `global_extra.conf`
+
+### Networking
+- Add new TUN interface option for interfaces endpoint
+
+### Virtual Machines
+- Implement secure boot for VMs when OVMF-TPM is enabled (applies only to newly created VMs)
+
+### Pools
+- Add `raid_level` key to pools (`null` if no raid level)
+- Add new group and durability keys to pools
+- Add missing filesystem type for nonraid and new bcachefs
+- Add new function for normalizing LUKS passphrases
+- Enable passphrase in pool create
+- Add missing replace documentation to Swagger
+
+### WebUI / Frontend
+- Initial implementation bcachefs
+- Refactor `pools.vue`
+- Refactoring api calls pools and profile
+- Redesign pool wake up / sleep
+- Context menu pools
+- Pools UI fixes
+- Nonraid replace device
+- Minfreespace, moveonenospc new fields for mergerfs and nonraid
+- Save disk description
+- Dashboard cards with graph width fix
+- Docker creation name warning
+- Info texts for first setup assistant
+- Visualization of nut services (stop containers)
+- NUT text fixes
+- Add Spanish translation
+- Avoid duplicate question marks in Spanish
+- Remove trailing comma in `es.json`
+- Fix dark theme
+- Bugfix custom ips to open docker webuis
+- Icon fix
+- Fix vite config
+- Check active services before query
+- Update versions
+- Rsync daemon
+
+## Bugfixes
+
+### Docker
+- Add timeout and retries to icon download in Docker deploy
+- Make sure to correctly write containers file when container tag changed in Docker deploy
+- Fix issue where a newly deployed container is not correctly written to containers file in Docker deploy
+- Fix issue where a container with cached builds could break the container SHA check and always displays a container update even if the container is on the latest version
+- Fix issue where Docker reports started where it couldn't be started because docker/appdata path is not mounted
+- Fix issue where Docker couldn't be stopped when it falsely reported that it's started if it was not started successfully
+- Make sure to check if Docker deploy is in progress when doing a cleanup from containers file
+- Make sure to check for required path for Docker, LXC and VM before allowing the services to start
+- Make sure to check for empty paths for Docker, LXC and VM before allowing to save
+
+### OS Update
+- Fix issue with rollback function in OS Update script
+- Remove notifications when upgrade/rollback finished, let that be handled by the API
+- Make sure to send finish notifications through API and not through the update/rollback scripts, to make sure to only send message after plugin updates are finished
+
+### nonraid
+- nonraid fixes in backend
+- Fix for nonraid UUID
+- Show actual filesize in API log when parity is smaller than biggest data device
+- Fix for broken start state for nonraid
+- Fix for nonraid CORRECT and CANCEL operations
+- Fix for deleting `nonraid.dat` when creating a new nonraid pool
+- Fix issues where parity nonraid disks are not recognized correctly (WWN and SCSI)
+- Fix issue with check order for disk sizes from parity devices for nonraid
+
+### Filesystem
+- Fix issues with XFS formatting
+- Better handling for BTRFS with and without encryption
+- Use new raid detection function for `swap.service` and `shares.service`
+- Throw error when bcachefs is used for swap file
+
+### Services
+- Make sure to not block disabling LXC/VM service when pool went offline
+- Fix log spamming issue when device field is empty in pools service
+- Make sure to identify process triggered by `mos-api_cli` to be actually from `mos-api_cli`
+- Make sure to construct mount options for mergerfs like API does in `mos-mount_disks`
+- Make sure to check if NFS host is filled in
+- Normalize keys for NFS if empty string is passed to make sure exports file is constructed correctly
+- Add `global_extra.conf` and `shares_extra.conf` to diagnostics collection
+- Add check if disks are not already in use when creating pools
+- Mount pool automatically after adding parity/data devices and trigger check/rebuild
+- Fix logic for share creation and permissions
+- Remove NUT directory if empty
+
+### WebUI / Frontend
+- Fix minor visual issue for ARM boards when no `/dev/console` is present
+
+### Miscellaneous
+- Create new routine that checks each template if it's valid to make sure the MOS Hub doesn't break entirely because of an invalid template
+- Fix OVMF/OVMF-TPM bug in API where the wrong fd file could be referenced
+- Cleanup dead code
+
+---
+
+[📋 Release Notes Overview](../Overview) | **[Previous: 0.5.8-stable ←](../Stable/0.5.8-stable)**

@@ -149,7 +149,7 @@ const config = {
   themeConfig: {
     announcementBar: {
       id: 'release-0.5.8-stable',
-      content: '🎉 <strong>MOS 0.5.8-stable is out!</strong> — Kernel 6.18.48, Docker v29.7.2, QEMU v11.1.1, rsync daemon support, performance metrics modifier, IPv6 nginx support, NUT event scripts, network chart eChart  <a href="https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.8-stable" style="color:#ffffff;">Release Notes →</a>',
+      content: '🎉 <strong>MOS 0.6.0-stable is out!</strong> — Kernel 6.18.55, Docker v29.8.2, QEMU v11.1.2, Node.js v24.21.0, bcachefs support, nonraid improvements, single device pool types, secure boot for VMs, many bugfixes  <a href="https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.0-stable" style="color:#ffffff;">Release Notes →</a>',
       backgroundColor: '#fa9725',
       textColor: '#ffffff',
       isCloseable: true,

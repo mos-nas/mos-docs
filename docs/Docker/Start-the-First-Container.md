@@ -283,14 +283,18 @@ Navigate to:
 
 | Field | Description |
 |-------|-------------|
-| **Template** | Optional predefined template |
+| **Template** | Load a previously saved container configuration |
 | **Name** | Unique container name |
 | **Repository** | Docker image (e.g. `lscr.io/linuxserver/code-server`) |
 | **Network** | Docker network to attach the container to |
+| **Container** | Optional Target container when the network is set to `container-network` *(depending on network mode)* |
 | **Custom IP** | Optional static IP *(depending on network mode)* |
 | **Default Shell** | Shell used for interactive container access |
 | **GPU** | Assign GPU resources if supported |
 | **Privileged** | Grants extended system permissions — use only if required |
+| **No Autoupdate** | Excludes the container from automatic updates |
+| **Extra Parameters** | Additional `docker run` flags appended before the image name, e.g. `--restart=unless-stopped` |
+| **Post Parameters** | Command and arguments appended after the image name, overriding the image's default command |
 
 ---
 
@@ -302,6 +306,7 @@ Navigate to:
 | **Ports** | Expose container ports to the host |
 | **Devices** | Pass through host devices |
 | **Variables** | Environment variables used by the container |
+| **Labels** | Docker labels attached to the container |
 
 ---
 
@@ -319,6 +324,16 @@ Defines the container icon shown in the UI using **Material Design Icons (MDI)**
 ```text
 mdi-vpn
 ```
+
+---
+
+### ⚠️ Errors During Container Creation
+
+If Docker reports an error while creating a container, you are redirected back to the Docker overview page. Your configuration **is not lost** - it is saved as a template. Note that Docker may report errors that are not actual errors, such as exposed ports on a container network. In this case, the container will still be created.
+
+:::tip
+Open **Docker → Add container** again and select your container from the **Template** dropdown to restore and correct the previously entered settings. Saved templates are stored as JSON files in `/boot/config/system/docker/templates` and can be viewed with the Web Terminal or File Browser.
+:::
 
 ---
 

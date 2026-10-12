@@ -332,7 +332,7 @@ mdi-vpn
 If Docker reports an error while creating a container, you are redirected back to the Docker overview page. Your configuration **is not lost** - it is saved as a template. Note that Docker may report errors that are not actual errors, such as exposed ports on a container network. In this case, the container will still be created.
 
 :::tip
-Open **Docker → Add container** again and select your container from the **Template** dropdown to restore and correct the previously entered settings. Saved templates are stored as JSON files in `/boot/config/system/docker/templates` and can be viewed with the Web Terminal or File Browser.
+Open **Docker → Add container** again and select your container from the **Template** dropdown to restore and correct the previously entered settings. Saved templates are stored as JSON files in `/boot/config/system/docker/templates` and can be viewed with the Web Terminal or File Browser, but do not edit or delete them — they are managed automatically, and manual changes may cause container creation to fail.
 :::
 
 ---

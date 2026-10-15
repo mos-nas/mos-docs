@@ -15,6 +15,18 @@ Follow these steps to prepare a bootable USB drive:
 
 ---
 
+## 📋 System Requirements
+
+Before you begin, make sure your target machine meets the following requirements:
+
+- **UEFI Boot** — the system must support (and be configured for) UEFI boot mode
+- **x86_64 compatible processor**
+- **aarch64 compatible processor** *(experimental — see [ARM Support](./ARM-Support))*
+- **8 GB RAM recommended** (minimum 4 GB)
+- **A hard drive for storage** — MOS boots from the USB stick by default, but can also be installed directly onto a disk (see [Install to Disk](../Settings/Hardware/Boot#install-to-disk)). Beyond that, hard drives are required for storage such as Docker data, shares, and pools.
+
+---
+
 ## 1. 🖴 Prepare the USB Stick
 
 Format a USB stick as **FAT32** and set the label/name to `MOS`.

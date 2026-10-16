@@ -15,6 +15,34 @@ MOS supports **UEFI boot only** by default. Legacy BIOS / CSM boot is **not supp
 
 ---
 
+## 🤝 Community VM Images by bantznet
+
+In addition to the official raw image below, a community-driven project by **[bantznet](https://github.com/bantznet)** provides ready-to-import VM disk images built from official MOS releases:
+
+- 📦 **Repo:** [bantznet/mos-vm-images](https://github.com/bantznet/mos-vm-images)
+- 🚀 **Releases:** Ready-to-download images on the [Releases page](https://github.com/bantznet/mos-vm-images/releases)
+
+These images are kept up to date with the latest MOS versions and are available in multiple formats so you can pick the one that matches your hypervisor:
+
+| Format | Hypervisor |
+|---|---|
+| `.ova` / `.vmdk` | ESXi / VMware |
+| `.vhdx` | Hyper-V |
+| `.qcow2` | Proxmox / KVM |
+| `.img.xz` | Raw disk, anything else |
+
+:::note
+These images are **unofficial** and built by a third party. They are intended for **trying MOS in a virtual machine only**. To run MOS for real (on bare metal or as a long-term server), follow the official instructions in this documentation.
+:::
+
+:::tip[🙏 Special Thanks]
+A huge **thank you** from the entire **MOS Team** goes out to **[bantznet (JessMarie)](https://github.com/bantznet)** 🙌
+
+Your dedication to the community — building, maintaining, and keeping these VM images up to date with every MOS release — makes it so much easier for everyone to try out MOS. We truly appreciate your time, effort, and the value you bring to the MOS community.
+:::
+
+---
+
 ## 📦 VM Image
 
 ```text

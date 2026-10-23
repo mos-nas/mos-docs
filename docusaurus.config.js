@@ -148,8 +148,8 @@ const config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'release-0.5.8-stable',
-      content: '🎉 <strong>MOS 0.6.0-stable is out!</strong> — Kernel 6.18.55, Docker v29.8.2, QEMU v11.1.2, Node.js v24.21.0, bcachefs support, nonraid improvements, single device pool types, secure boot for VMs, many bugfixes  <a href="https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.0-stable" style="color:#ffffff;">Release Notes →</a>',
+      id: 'release-0.6.1-stable',
+      content: '🎉 <strong>MOS 0.6.1-stable is out!</strong> — Kernel 6.18.58, Docker v29.9.2, Node.js v24.22.1, reworked theme system with auto dark mode, Spanish language, Samba configuration UI, per-disk spindown times, FSNavigator directory sizes & bookmarks, iOS push notifications, SnapRAID error notifications  <a href="https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.1-stable" style="color:#ffffff;">Release Notes →</a>',
       backgroundColor: '#fa9725',
       textColor: '#ffffff',
       isCloseable: true,

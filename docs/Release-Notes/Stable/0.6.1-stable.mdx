@@ -1,0 +1,75 @@
+---
+title: 0.6.1-stable
+sidebar_label: 🎉 0.6.1-stable
+sidebar_position: 1
+description: "MOS 0.6.1-stable: Kernel 6.18.58, Docker v29.9.2, Node.js v24.22.1, reworked theme system with auto dark mode, Spanish language, Samba configuration UI, per-disk spindown times, FSNavigator directory sizes & bookmarks, iOS push notifications, SnapRAID error notifications, many bugfixes and improvements."
+---
+
+# 0.6.1-stable
+
+:::tip[Download]
+Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-releases/releases/tag/0.6.1-stable) page.
+:::
+
+## System
+
+- Recommended Kernel 6.18.58
+- Update Docker v29.9.2
+- Update docker-watchdog v0.5.0
+- Update Node.js v24.22.1
+- Update api packages
+- Bump versions
+
+## New Features
+
+### Theme System (Auto Dark Mode)
+- Theme system reworked: system preference as fallback, router guard for instant application, no more blocking API calls on startup
+- The WebUI now automatically follows the system light/dark preference (auto dark mode) when no manual theme is selected
+
+### Languages
+- Spanish language activated
+
+### API
+- New endpoints for Docker image size calculation (container overview & individual containers)
+- Endpoints for LXC rootfs size and VM disk usage calculation
+- New endpoints for Samba configuration (GET/POST)
+- FSNavigator: directory size calculation and bookmark endpoints
+
+### Pools / Spindown
+- Pool spindown: per-disk individual spindown times now configurable
+
+### SMB / Samba
+- Samba configuration in UI with extra config options
+
+### FSNavigator
+- FSNavigator: directory size calculation and bookmark management
+
+### Drivers
+- New driver category for easier filtering
+
+### PWA
+- PWA: push notifications for iOS
+
+### SnapRAID
+- SnapRAID: error notifications for sync, scrub, and fix operations
+
+### Docker / mos-deploy_docker
+- Support for MDI icons in mos-deploy_docker
+
+### MOS Install to disk
+- New BACKUP label support for MOS Install to disk
+
+### WebUI / Frontend
+- New buttons for displaying Docker image, LXC rootfs, and VM disk sizes
+- Spindown UI: compact sheet layout with inline controls per disk
+
+## Bugfixes
+
+- Fixed Compose update indicator not correctly updating
+- Fixed Swagger UI example data for LXC mounts
+- Fixed: label detection for full vfat drives and Fat32 formatting
+- Various bugfixes: Docker network refresh, overlay handling, first setup theme switch, pool settings dialog, smart dialog (mobile)
+
+---
+
+[📋 Release Notes Overview](../Overview) | **[Previous: 0.6.0-stable ←](../Stable/0.6.0-stable)**

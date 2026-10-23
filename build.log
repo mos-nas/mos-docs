@@ -1,0 +1,29 @@
+
+ ------------------------------------------------------------------------------                                                                                                         Update available 3.9.2 → 3.10.2                                                                                                                 To upgrade Docusaurus packages with the latest version, run the                                       following command:                                            `npm i @docusaurus/core@latest @docusaurus/faster@latest                               @docusaurus/plugin-client-redirects@latest                       @docusaurus/preset-classic@latest @docusaurus/module-type-aliases@latest                               @docusaurus/types@latest`                                                                                                             ------------------------------------------------------------------------------ 
+
+[INFO] [en] Creating an optimized production build...
+
+[ERROR] Error: Unable to build website for locale en.
+    at tryToBuildLocale (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\commands\build\build.js:83:15)
+    at async C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\commands\build\build.js:35:9
+    at async mapAsyncSequential (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\utils\lib\jsUtils.js:21:24)
+    at async Command.build (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\commands\build\build.js:34:5)
+    at async Promise.all (index 0)
+    at async runCLI (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\commands\cli.js:56:5)
+    at async file:///C:/Users/Nico.Nestler/OneDrive/Github/mos-docs/node_modules/@docusaurus/core/bin/docusaurus.mjs:44:3 {
+  [cause]: Error: Docusaurus was unable to resolve the "@docusaurus/plugin-client-redirects" plugin. Make sure one of the following packages are installed:
+  - @docusaurus/plugin-client-redirects
+  - @docusaurus/docusaurus-plugin-plugin-client-redirects
+      at resolveModuleName (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\server\plugins\moduleShorthand.js:41:15)
+      at normalizeShorthand (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\server\plugins\configs.js:81:57)
+      at C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\server\plugins\configs.js:89:66
+      at Array.map (<anonymous>)
+      at loadPluginConfigs (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\server\plugins\configs.js:89:50)
+      at async initPlugins (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\server\plugins\init.js:127:27)
+      at async C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\server\plugins\plugins.js:143:36
+      at async loadSite (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\server\site.js:155:45)
+      at async buildLocale (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\commands\build\buildLocale.js:33:18)
+      at async runBuildLocaleTask (C:\Users\Nico.Nestler\OneDrive\Github\mos-docs\node_modules\@docusaurus\core\lib\commands\build\build.js:98:5)
+}
+[INFO] Docusaurus version: 3.9.2
+Node version: v26.12.1

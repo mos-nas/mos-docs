@@ -1,0 +1,77 @@
+name: Sync Release Notes
+
+# Syncs MOS release notes from mos-nas/mos-releases into the docs and, when
+# something changed, commits it and redeploys the docs site. Runs fully in
+# GitHub Actions — no local machine required.
+on:
+  schedule:
+    # Every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to sync (e.g. 0.6.2-stable). Leave empty for all.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Sync release notes
+        id: sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.event.inputs.tag }}
+        run: |
+          ARGS=""
+          if [ -n "$TAG" ]; then ARGS="--tag $TAG"; fi
+          node scripts/sync-releases.js $ARGS
+          if git diff --quiet --exit-code release-index.json release-announcement.json docs/Release-Notes; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No release-note changes detected."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Release notes changed — will commit and redeploy."
+          fi
+
+      - name: Commit synced release notes
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          STAMP="$(TZ=Europe/Vienna date +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add release-index.json release-announcement.json docs/Release-Notes
+          git commit -m "chore(release-notes): auto-sync release notes ($STAMP)"
+          git push
+
+      - name: Install dependencies
+        if: steps.sync.outputs.changed == 'true'
+        run: npm install
+
+      - name: Build website
+        if: steps.sync.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        if: steps.sync.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          cname: docs.mos-official.net

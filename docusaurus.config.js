@@ -1,5 +1,9 @@
 // @ts-check
 import {themes as prismThemes} from 'prism-react-renderer';
+import {createRequire} from 'module';
+
+const require = createRequire(import.meta.url);
+const announcement = require('./release-announcement.json');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -148,10 +152,10 @@ const config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'release-0.6.1-stable',
-      content: '🎉 <strong>MOS 0.6.1-stable is out!</strong> — Kernel 6.18.58, Docker v29.9.2, Node.js v24.22.1, auto dark mode, Spanish language, Samba configuration UI, per-disk spindown times, FSNavigator directory sizes & bookmarks, iOS push notifications, SnapRAID error notifications  <a href="https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.1-stable" style="color:#ffffff;">Release Notes →</a>',
-      backgroundColor: '#fa9725',
-      textColor: '#ffffff',
+      id: announcement.id,
+      content: announcement.content,
+      backgroundColor: announcement.backgroundColor,
+      textColor: announcement.textColor,
       isCloseable: true,
     },
     image: 'img/mos-social-card.jpg',

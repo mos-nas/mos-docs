@@ -13,7 +13,9 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "sync:openapi": "node scripts/sync-openapi.js",
-    "sync:openapi:check": "node scripts/sync-openapi.js --check"
+    "sync:openapi:check": "node scripts/sync-openapi.js --check",
+    "sync:releases": "node scripts/sync-releases.js",
+    "sync:releases:check": "node scripts/sync-releases.js --check"
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^2.0.1",

@@ -38,11 +38,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ github.event.inputs.tag }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           ARGS=""
           if [ -n "$TAG" ]; then ARGS="--tag $TAG"; fi
-          node scripts/sync-releases.js $ARGS
-          if git diff --quiet --exit-code release-index.json release-announcement.json docs/Release-Notes; then
+          if [ "$EVENT_NAME" = "schedule" ]; then TRIGGER="schedule"; else TRIGGER="manual"; fi
+          node scripts/sync-releases.js $ARGS --trigger "$TRIGGER"
+          if git diff --quiet --exit-code release-index.json release-announcement.json release-sync.json docs/Release-Notes; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No release-note changes detected."
           else
@@ -56,7 +58,7 @@ jobs:
           STAMP="$(TZ=Europe/Vienna date +%Y-%m-%d)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add release-index.json release-announcement.json docs/Release-Notes
+          git add release-index.json release-announcement.json release-sync.json docs/Release-Notes
           git commit -m "chore(release-notes): auto-sync release notes ($STAMP)"
           git push
 

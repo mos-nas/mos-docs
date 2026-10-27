@@ -18,10 +18,11 @@ const RELEASE_DIR = path.join(DOCS, 'Release-Notes');
 const OVERVIEW_FILE = path.join(RELEASE_DIR, 'Overview.mdx');
 const INDEX_FILE = path.join(ROOT, 'release-index.json');
 const ANNOUNCE_FILE = path.join(ROOT, 'release-announcement.json');
+const SYNC_FILE = path.join(ROOT, 'release-sync.json');
 const SITE_URL = 'https://docs.mos-official.net';
 
 function parseArgs(argv) {
-  const out = {check: false, tag: null, repo: 'mos-nas/mos-releases'};
+  const out = {check: false, tag: null, repo: 'mos-nas/mos-releases', trigger: 'manual'};
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--check') out.check = true;
@@ -29,8 +30,10 @@ function parseArgs(argv) {
     else if (a.startsWith('--tag=')) out.tag = a.slice(6);
     else if (a === '--repo') out.repo = argv[++i];
     else if (a.startsWith('--repo=')) out.repo = a.slice(7);
+    else if (a === '--trigger') out.trigger = argv[++i];
+    else if (a.startsWith('--trigger=')) out.trigger = a.slice(10);
     else if (a === '-h' || a === '--help') {
-      console.log('Usage: node scripts/sync-releases.js [--check] [--tag <tag>] [--repo <owner/repo>]');
+      console.log('Usage: node scripts/sync-releases.js [--check] [--tag <tag>] [--repo <owner/repo>] [--trigger schedule|manual]');
       process.exit(0);
     }
   }
@@ -318,6 +321,32 @@ function buildAnnouncement(index, releases) {
   };
 }
 
+// Build the last-sync metadata written to release-sync.json and shown by the
+// SyncBadge component on the Overview page (mirrors the OpenAPI x-synced-*
+// fields). All display strings are pre-formatted server-side (Europe/Vienna)
+// so the badge is hydration-safe.
+function buildSyncMeta(releases, opts) {
+  const sorted = [...releases].sort((a, b) => Date.parse(b.published_at || 0) - Date.parse(a.published_at || 0));
+  const newest = sorted[0];
+  const syncedAt = new Date();
+  return {
+    syncedAt: syncedAt.toISOString(),
+    syncedAtDisplay: new Intl.DateTimeFormat('de-AT', {
+      timeZone: 'Europe/Vienna',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'shortOffset',
+    }).format(syncedAt),
+    syncedTrigger: opts.trigger,
+    syncedFrom: newest ? normTag(newest.tag_name) : 'unknown',
+    syncedRepo: opts.repo,
+    syncedReleases: releases.length,
+  };
+}
+
 async function main() {
   const opts = parseArgs(process.argv);
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
@@ -391,13 +420,31 @@ async function main() {
     }
   }
 
+  // Maintain release-sync.json (last-sync metadata shown by the SyncBadge on
+  // the Overview page). It is written whenever release content changed, or on
+  // the first run so the badge never shows "unknown" once committed. This
+  // avoids timestamp-only commits/deployments on no-op runs.
+  const contentChanged = created.length > 0 || indexChanged || annChanged;
+  const syncMissing = !fs.existsSync(SYNC_FILE);
+  let syncChanged = false;
+  if (contentChanged || syncMissing) {
+    syncChanged = true;
+    if (opts.check) {
+      console.log('  ~ release-sync.json would change');
+    } else {
+      const sync = buildSyncMeta(sortedReleases, opts);
+      fs.writeFileSync(SYNC_FILE, JSON.stringify(sync, null, 2) + '\n');
+      console.log(`✔ Wrote ${path.relative(ROOT, SYNC_FILE)} (trigger: ${sync.syncedTrigger}, from: ${sync.syncedFrom})`);
+    }
+  }
+
   if (opts.check) {
-    if (created.length || indexChanged || annChanged) {
+    if (created.length || indexChanged || annChanged || syncChanged) {
       console.log('✖ Drift detected.');
       process.exit(1);
     }
     console.log('✔ Release notes are up to date.');
-  } else if (created.length === 0 && !indexChanged && !annChanged) {
+  } else if (created.length === 0 && !indexChanged && !annChanged && !syncChanged) {
     console.log('✔ Nothing to do — everything up to date.');
   }
 }

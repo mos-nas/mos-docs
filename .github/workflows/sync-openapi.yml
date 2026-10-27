@@ -5,8 +5,9 @@ name: Sync OpenAPI Reference
 # Runs fully in GitHub Actions — no local machine required.
 on:
   schedule:
-    # Sundays ~23:00 CET = 22:00 UTC (summer: ~00:00 Monday local, still fine)
-    - cron: '0 22 * * 0'
+    # Sundays ~23:00 Austrian time (CET/CEST). GitHub cron is UTC and ignores DST,
+    # so we run hourly 20-23 UTC and gate on AT hour == 23 inside the job.
+    - cron: '0 20-23 * * 0'
   workflow_dispatch:
     inputs:
       ref:
@@ -36,10 +37,23 @@ jobs:
 
       - name: Regenerate OpenAPI spec
         id: sync
+        env:
+          EVENT_NAME: ${{ github.event_name }}
         run: |
+          # Only run the weekly schedule around Sunday 23:00 Austrian time (CET/CEST).
+          if [ "$EVENT_NAME" = "schedule" ]; then
+            AT_HOUR="$(TZ=Europe/Vienna date +%H)"
+            echo "Austrian (Europe/Vienna) hour: $AT_HOUR"
+            if [ "$AT_HOUR" != "23" ]; then
+              echo "Not 23:00 AT - skipping this scheduled run."
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
           REF="${{ github.event.inputs.ref || 'master' }}"
-          echo "Using mos-api ref: $REF"
-          node scripts/sync-openapi.js --ref "$REF"
+          if [ "$EVENT_NAME" = "schedule" ]; then TRIGGER="schedule"; else TRIGGER="manual"; fi
+          echo "Using mos-api ref: $REF (trigger: $TRIGGER)"
+          node scripts/sync-openapi.js --ref "$REF" --trigger "$TRIGGER"
           if git diff --quiet --exit-code src/components/ApiExplorer/openapi.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No spec changes detected."
@@ -51,7 +65,7 @@ jobs:
       - name: Commit synced spec
         if: steps.sync.outputs.changed == 'true'
         run: |
-          STAMP="$(date -u +%Y-%m-%d)"
+          STAMP="$(TZ=Europe/Vienna date +%Y-%m-%d)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/components/ApiExplorer/openapi.json

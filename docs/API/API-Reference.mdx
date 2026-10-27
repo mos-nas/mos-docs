@@ -7,6 +7,11 @@ toc_max_heading_level: 3
 ---
 
 import ApiExplorer from '@site/src/components/ApiExplorer/ApiExplorer';
+import openapiSpec from '@site/src/components/ApiExplorer/openapi.json';
+
+const _syncedAtDisplay = openapiSpec['x-synced-at-display'] || 'unknown';
+const _syncedMode = openapiSpec['x-synced-trigger'] === 'schedule' ? 'automatic' : 'manual';
+const _syncedSha = String(openapiSpec['x-synced-from'] || '').slice(0, 10);
 
 # 📚 MOS API Reference
 
@@ -27,9 +32,11 @@ Authorization: Bearer <TOKEN>
 :::info[Auto-Sync]
 This reference is regenerated automatically from the
 [mos-nas/mos-api](https://github.com/mos-nas/mos-api) repository every
-**Sunday around 23:00 (CET)**. A manual update can be triggered any time via the
+**Sunday around 23:00 (Austrian time, CET/CEST)**. A manual update can be triggered any time via the
 **Sync OpenAPI Reference** workflow on the *Actions* tab of the
 [mos-docs](https://github.com/mos-nas/mos-docs/actions) repository.
+
+**Last sync:** {_syncedAtDisplay} | **mode:** {_syncedMode} | **source:** mos-api@{_syncedSha}
 :::
 
 ## Endpoints

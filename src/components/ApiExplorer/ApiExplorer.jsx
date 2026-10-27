@@ -655,17 +655,6 @@ export default function ApiExplorer() {
           parameters, schemas and example requests. Use the <code>#</code> on any endpoint or category
           to copy a direct, shareable link.
         </p>
-        {specData['x-synced-at'] &&
-          (() => {
-            const s = String(specData['x-synced-at']);
-            const sha = String(specData['x-synced-from'] || '').slice(0, 10);
-            return (
-              <p className={styles.muted}>
-                Last synced {s.slice(0, 10)} {s.slice(11, 16)} UTC
-                {sha ? ` from mos-api@${sha}` : ''}. Auto-updated weekly from the mos-api repository.
-              </p>
-            );
-          })()}
       </div>
       <ConfigBar servers={servers} config={config} setConfig={setConfig} baseUrl={baseUrl} />
       <FilterBar

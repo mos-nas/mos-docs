@@ -29,14 +29,16 @@ const TARGET = path.resolve(__dirname, '..', 'src', 'components', 'ApiExplorer',
 const q = (s) => `"${s}"`;
 
 function parseArgs(argv) {
-  const out = {check: false, ref: 'master'};
+  const out = {check: false, ref: 'master', trigger: 'manual'};
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--check') out.check = true;
     else if (a === '--ref') out.ref = argv[++i];
     else if (a.startsWith('--ref=')) out.ref = a.slice(6);
+    else if (a === '--trigger') out.trigger = argv[++i];
+    else if (a.startsWith('--trigger=')) out.trigger = a.slice(10);
     else if (a === '-h' || a === '--help') {
-      console.log('Usage: node scripts/sync-openapi.js [--check] [--ref <git-ref>]');
+      console.log('Usage: node scripts/sync-openapi.js [--check] [--ref <git-ref>] [--trigger schedule|manual]');
       process.exit(0);
     }
   }
@@ -88,7 +90,18 @@ function generate(opts) {
     spec = JSON.parse(JSON.stringify(spec));
     spec['x-synced-from'] = sha;
     spec['x-synced-ref'] = opts.ref;
-    spec['x-synced-at'] = new Date().toISOString();
+    spec['x-synced-trigger'] = opts.trigger;
+    const syncedAt = new Date();
+    spec['x-synced-at'] = syncedAt.toISOString();
+    spec['x-synced-at-display'] = new Intl.DateTimeFormat('de-AT', {
+      timeZone: 'Europe/Vienna',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'shortOffset',
+    }).format(syncedAt);
 
     return {spec, sha};
   } finally {
@@ -138,5 +151,5 @@ if (opts.check) {
 
 fs.writeFileSync(TARGET, content);
 console.log(`\u2714 Wrote ${path.relative(process.cwd(), TARGET)}`);
-console.log(`  synced from mos-api@${sha.slice(0, 10)} (${opts.ref}) at ${spec['x-synced-at']}`);
+console.log(`  synced from mos-api@${sha.slice(0, 10)} (${opts.ref}) at ${spec['x-synced-at-display']} [${opts.trigger}]`);
 summarize(oldSpec, spec);

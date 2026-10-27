@@ -131,3 +131,20 @@ html[data-theme='dark'] .markdown a:hover {
 .theme-doc-version-badge {
   display: none;
 }
+
+/* ── Announcement bar – consistent two-line height, nicely centered ── */
+/* The release announcement can wrap to two lines on smaller screens but
+   stays on one line on very wide monitors. A fixed min-height that fits two
+   lines keeps the bar the same height everywhere: on wide screens the single
+   line is vertically centered (deliberate, not choppy), on smaller screens
+   the two lines fill it evenly. */
+.theme-announcement-bar {
+  min-height: 4.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  line-height: 1.4;
+}
+/* Keep the "Release Notes →" link on a single line (no mid-link wrap). */
+.theme-announcement-bar a {
+  white-space: nowrap;
+}

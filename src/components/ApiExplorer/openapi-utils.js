@@ -107,15 +107,28 @@ export function schemaRows(spec, schema) {
   });
 }
 
-const BASE = 'http://<MOS-IP>/api/v1';
-const TOKEN = '<TOKEN>';
+const DEFAULT_BASE = 'http://<MOS-IP>/api/v1';
+const DEFAULT_TOKEN = '<TOKEN>';
 
-export function buildCurl(spec, method, path, op) {
-  const url = BASE + path;
+// Effective auth for an operation: an explicit empty `security: []` makes the
+// endpoint public; otherwise the global `security` applies.
+export function authMode(spec, op) {
+  if (Array.isArray(op.security)) {
+    return op.security.length > 0 ? 'bearer' : 'public';
+  }
+  if (spec.security && spec.security.length) return 'bearer';
+  return 'public';
+}
+
+export function buildCurl(spec, method, path, op, opts = {}) {
+  const base = opts.baseUrl || DEFAULT_BASE;
+  const token = opts.token || DEFAULT_TOKEN;
+  const auth = opts.auth || authMode(spec, op);
+  const url = base + path;
   const rb = op.requestBody ? resolveRef(spec, op.requestBody) : null;
   const hasBody = rb && rb.content && Object.keys(rb.content).length;
   const lines = [`curl -X ${method.toUpperCase()} "${url}"`];
-  lines.push(`  -H "Authorization: Bearer ${TOKEN}"`);
+  if (auth === 'bearer') lines.push(`  -H "Authorization: Bearer ${token}"`);
   if (hasBody) {
     const ct = rb.content['application/json'] || Object.values(rb.content)[0];
     if (ct) {
@@ -127,26 +140,30 @@ export function buildCurl(spec, method, path, op) {
   return lines.join(' \\\n');
 }
 
-export function buildFetch(spec, method, path, op) {
-  const url = BASE + path;
+export function buildFetch(spec, method, path, op, opts = {}) {
+  const base = opts.baseUrl || DEFAULT_BASE;
+  const token = opts.token || DEFAULT_TOKEN;
+  const auth = opts.auth || authMode(spec, op);
+  const url = base + path;
   const rb = op.requestBody ? resolveRef(spec, op.requestBody) : null;
   const hasBody = rb && rb.content && Object.keys(rb.content).length;
-  const headers = { Authorization: `Bearer ${TOKEN}` };
-  const opts = [`  method: '${method.toUpperCase()}'`];
+  const headers = {};
+  if (auth === 'bearer') headers.Authorization = `Bearer ${token}`;
+  const optsArr = [`  method: '${method.toUpperCase()}'`];
   if (hasBody) {
     const ct = rb.content['application/json'] || Object.values(rb.content)[0];
     if (ct) {
       headers['Content-Type'] = 'application/json';
       const ex = ct.example !== undefined ? ct.example : exampleFor(spec, ct.schema);
-      opts.push(`  headers: ${JSON.stringify(headers)}`);
-      opts.push(`  body: JSON.stringify(${JSON.stringify(ex)})`);
+      optsArr.push(`  headers: ${JSON.stringify(headers)}`);
+      optsArr.push(`  body: JSON.stringify(${JSON.stringify(ex)})`);
     } else {
-      opts.push(`  headers: ${JSON.stringify(headers)}`);
+      optsArr.push(`  headers: ${JSON.stringify(headers)}`);
     }
   } else {
-    opts.push(`  headers: ${JSON.stringify(headers)}`);
+    optsArr.push(`  headers: ${JSON.stringify(headers)}`);
   }
-  return `const res = await fetch("${url}", {\n${opts.join(',\n')}\n});\nconst data = await res.json();\nconsole.log(data);`;
+  return `const res = await fetch("${url}", {\n${optsArr.join(',\n')}\n});\nconst data = await res.json();\nconsole.log(data);`;
 }
 
 export function responseEntries(spec, op) {

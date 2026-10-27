@@ -1,0 +1,324 @@
+/* ── ApiExplorer ── */
+.explorer {
+  --ae-get: #61affe;
+  --ae-post: #49cc90;
+  --ae-put: #fca130;
+  --ae-delete: #f93e3e;
+  --ae-patch: #50e3c2;
+  --ae-head: #9012fe;
+  --ae-options: #0d5aa7;
+  --ae-border: #e5e7eb;
+  --ae-surface: #ffffff;
+  --ae-surface-2: #f9fafb;
+  --ae-muted: #6b7280;
+  --ae-text: #1f2937;
+  --ae-radius: 8px;
+}
+
+[data-theme='dark'] .explorer {
+  --ae-border: #374151;
+  --ae-surface: #1f2937;
+  --ae-surface-2: #111827;
+  --ae-muted: #9ca3af;
+  --ae-text: #f3f4f6;
+}
+
+.intro {
+  background: var(--ae-surface-2);
+  border: 1px solid var(--ae-border);
+  border-radius: var(--ae-radius);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+.intro p {
+  margin: 4px 0;
+}
+
+.muted {
+  color: var(--ae-muted);
+  font-size: 0.85rem;
+}
+.req {
+  color: var(--ae-delete);
+  font-weight: 600;
+}
+
+/* ── Tag (category) sections ── */
+.tagSection {
+  border: 1px solid var(--ae-border);
+  border-radius: var(--ae-radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: var(--ae-surface);
+}
+.tagHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: var(--ae-surface-2);
+  border: none;
+  border-bottom: 1px solid var(--ae-border);
+  padding: 12px 16px;
+  cursor: pointer;
+  color: var(--ae-text);
+  font: inherit;
+}
+.tagHeader:hover {
+  background: var(--ifm-color-emphasis-200, rgba(0, 0, 0, 0.04));
+}
+.tagTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.tagCount {
+  background: var(--ifm-color-emphasis-300, #d1d5db);
+  color: var(--ae-text);
+  border-radius: 999px;
+  padding: 1px 9px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.tagDesc {
+  color: var(--ae-muted);
+  font-size: 0.85rem;
+  margin-left: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 50%;
+}
+.tagBody {
+  padding: 8px;
+}
+
+/* ── Endpoints ── */
+.endpoint {
+  border: 1px solid var(--ae-border);
+  border-radius: var(--ae-radius);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.endpointHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: var(--ae-surface);
+  border: none;
+  border-left: 4px solid var(--ae-border);
+  padding: 10px 14px;
+  cursor: pointer;
+  color: var(--ae-text);
+  font: inherit;
+}
+.endpointHeader:hover {
+  background: var(--ae-surface-2);
+}
+.summary {
+  color: var(--ae-muted);
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: auto;
+  padding-right: 8px;
+}
+.path {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.chevron {
+  color: var(--ae-muted);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+/* ── Method badges ── */
+.badge {
+  display: inline-block;
+  min-width: 64px;
+  text-align: center;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  flex-shrink: 0;
+}
+.badgeGet {
+  background: var(--ae-get);
+  color: #1f2937;
+}
+.badgePost {
+  background: var(--ae-post);
+  color: #1f2937;
+}
+.badgePut {
+  background: var(--ae-put);
+  color: #1f2937;
+}
+.badgeDelete {
+  background: var(--ae-delete);
+}
+.badgePatch {
+  background: var(--ae-patch);
+  color: #1f2937;
+}
+.badgeHead {
+  background: var(--ae-head);
+}
+.badgeOptions {
+  background: var(--ae-options);
+}
+.badgeDefault {
+  background: #6b7280;
+}
+
+.endpointBody {
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--ae-border);
+}
+.description {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.description p {
+  margin: 6px 0;
+}
+.description ul {
+  margin: 6px 0;
+  padding-left: 22px;
+}
+.description code {
+  background: var(--ifm-color-emphasis-200, rgba(0, 0, 0, 0.06));
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.mdPre {
+  background: #1a1a1a;
+  color: #f8f8f2;
+  padding: 12px 14px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ── Sections / headings ── */
+.section {
+  margin-top: 14px;
+}
+.section h5 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* ── Tables ── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 6px 0 4px;
+}
+.table th,
+.table td {
+  border: 1px solid var(--ae-border);
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.table th {
+  background: var(--ae-surface-2);
+  font-weight: 600;
+}
+.table td code,
+.table th code {
+  font-size: 0.8rem;
+}
+
+/* ── Status badges ── */
+.statusBadge {
+  display: inline-block;
+  min-width: 38px;
+  text-align: center;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+}
+.status2xx {
+  background: var(--ae-post);
+  color: #1f2937;
+}
+.status3xx {
+  background: var(--ae-get);
+  color: #1f2937;
+}
+.status4xx {
+  background: var(--ae-put);
+  color: #1f2937;
+}
+.status5xx {
+  background: var(--ae-delete);
+}
+
+/* ── Code blocks ── */
+.codeBlock {
+  position: relative;
+  margin: 6px 0 12px;
+  background: #1a1a1a;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.codeBlock pre {
+  margin: 0;
+  padding: 12px 14px;
+  overflow-x: auto;
+}
+.codeBlock code {
+  color: #f8f8f2;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  white-space: pre;
+}
+.copyBtn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8f8f2;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 9px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.codeBlock:hover .copyBtn {
+  opacity: 1;
+}
+.copyBtn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ── States ── */
+.loading {
+  padding: 40px;
+  text-align: center;
+  color: var(--ae-muted);
+}
+.error {
+  padding: 16px;
+  color: var(--ae-delete);
+  background: rgba(249, 62, 62, 0.08);
+  border: 1px solid var(--ae-delete);
+  border-radius: var(--ae-radius);
+}

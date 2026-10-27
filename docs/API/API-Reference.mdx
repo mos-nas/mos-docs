@@ -1,0 +1,29 @@
+---
+sidebar_label: 📚 API Reference
+sidebar_position: 3
+description: "Interactive reference for the MOS REST API: browse every endpoint by category, expand to see parameters, request/response schemas and copy-ready example requests."
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ApiExplorer from '@site/src/components/ApiExplorer/ApiExplorer';
+
+# 📚 MOS API Reference
+
+This is the complete, interactive reference for the **MOS REST API**. It mirrors the
+built-in Swagger UI at `http://<MOS-IP>/api-docs/` and covers every endpoint, parameter,
+request/response schema and example request.
+
+:::info[Authentication]
+Most endpoints require a **Bearer token**. Create one in the WebUI under
+**User Settings → Admin API Tokens**, then send it in the `Authorization` header:
+
+```
+Authorization: Bearer <TOKEN>
+```
+
+:::
+
+## Endpoints
+
+<ApiExplorer specUrl="/api/openapi.json" />

@@ -2,6 +2,8 @@
 sidebar_label: 📚 API Reference
 sidebar_position: 3
 description: "Complete reference for the MOS REST API: every endpoint, parameter, request/response schema and example requests (cURL & JavaScript)."
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 ---
 
 # 📚 MOS API Reference
@@ -3034,7 +3036,7 @@ Unlike removing an attribute from monitoring ("ignore"), acknowledged errors sta
 (the disk keeps warning=true) but no further boot/live notifications are sent until a
 value rises above its acknowledged baseline. Values are taken from the cached smartd state
 (no disk wakeup). Send an empty body to acknowledge all currently reported attributes, or
-{ attributes: [187] } to acknowledge a specific attribute at its current value (no number needed).
+\{ attributes: [187] \} to acknowledge a specific attribute at its current value (no number needed).
 A baseline can also be cleared inline by sending "" or null for an attribute under
 "acknowledged"; to clear baselines explicitly use DELETE on the same path.
 
@@ -3122,7 +3124,7 @@ console.log(data);
 **Clear acknowledged SMART errors for a disk**
 
 Remove acknowledgement baselines for a disk. Send an empty body to clear all baselines,
-or { attributes: [...] } to clear only specific attribute IDs. After clearing, the normal
+or \{ attributes: [...] \} to clear only specific attribute IDs. After clearing, the normal
 boot/live notification behaviour applies again for those attributes.
 
 
@@ -3551,7 +3553,7 @@ console.log(data);
 **Create a vpool (MergerFS Path Pool)**
 
 Create a new MergerFS Path Pool by unioning existing filesystem paths under
-/mnt/{name}. The name must be globally unique (across pools and vpools) and
+/mnt/\{name\}. The name must be globally unique (across pools and vpools) and
 must not be a reserved name. When automount is enabled (default), the pool is
 mounted immediately; all configured paths must exist as directories.
 
@@ -3826,7 +3828,7 @@ console.log(data);
 
 **Mount a vpool by ID**
 
-Mount the mergerfs union at /mnt/{name}. All configured source paths are
+Mount the mergerfs union at /mnt/\{name\}. All configured source paths are
 validated first; if any path is missing or not a directory, the mount is
 aborted with an error.
 
@@ -3865,7 +3867,7 @@ console.log(data);
 
 **Unmount a vpool by ID**
 
-Unmount the mergerfs union at /mnt/{name}. Source paths are left untouched.
+Unmount the mergerfs union at /mnt/\{name\}. Source paths are left untouched.
 
 **Parameters**
 
@@ -4767,7 +4769,7 @@ Update configuration settings for a pool (works for all pool types - mergerfs, b
 | sync.schedule | string — SnapRAID sync cron schedule (dot-notation example) | No |
 | usage_alert.warning | integer — Usage warning threshold in percent (default 70). 0 disables the warning level. | No |
 | usage_alert.alert | integer — Usage alert threshold in percent (default 90). 0 disables the alert level. warning=0 AND alert=0 disables usage monitoring for the pool. | No |
-| spindown | object — Per-device spindown configuration mirroring pool structure. value is minutes (>= 0), null, or empty string to use global spindown from system.json. | No |
+| spindown | object — Per-device spindown configuration mirroring pool structure. value is minutes (\>= 0), null, or empty string to use global spindown from system.json. | No |
 
 **Responses**
 
@@ -5061,7 +5063,7 @@ Create a new MergerFS pool
 | config | object | No |
 | passphrase | string — Encryption passphrase (required if encrypted=true) | No |
 | options | object | No |
-| skip_size_check | boolean — Skip the parity device size validation (SnapRAID normally requires parity >= largest data device) | No |
+| skip_size_check | boolean — Skip the parity device size validation (SnapRAID normally requires parity \>= largest data device) | No |
 
 **Responses**
 
@@ -5308,8 +5310,8 @@ Replace one or more devices in the NonRAID pool with parity reconstruction (admi
 - Parity reconstruction starts automatically after replacement
 
 **Size Requirements:**
-- New data devices must be <= smallest parity device
-- New parity devices must be >= largest data device
+- New data devices must be \<= smallest parity device
+- New parity devices must be \>= largest data device
 
 **Encryption:**
 - Passphrase required when replacing data devices in encrypted pools
@@ -5407,7 +5409,7 @@ Device will be assigned the next available slot (1-28) automatically.
 - Adding, replacing or adding parity is rejected until a new disk is cleared, formatted and ready
 
 **Size Requirements:**
-- New data device must be <= smallest parity device
+- New data device must be \<= smallest parity device
 
 
 **Request body** (`application/json`)
@@ -5485,7 +5487,7 @@ Device will be assigned the next available parity slot (1 or 2) automatically.
 - Parity device is NOT formatted
 
 **Size Requirements:**
-- Parity device must be >= largest data device
+- Parity device must be \>= largest data device
 
 
 **Request body** (`application/json`)
@@ -5758,7 +5760,7 @@ Add one or more parity devices to an existing MergerFS pool for SnapRAID protect
 |-------|------|----------|
 | devices | array[string] — List of parity device paths to add | **Yes** |
 | format | boolean — Whether to force format the devices before adding | No |
-| skip_size_check | boolean — Skip the parity device size validation (SnapRAID normally requires parity >= largest data device) | No |
+| skip_size_check | boolean — Skip the parity device size validation (SnapRAID normally requires parity \>= largest data device) | No |
 
 **Responses**
 
@@ -5807,7 +5809,7 @@ The old device will be unmounted and the new device will take over its parity sl
 SnapRAID configuration will be updated automatically.
 
 **Size Requirements (default):**
-- New parity device must be >= largest data device
+- New parity device must be \>= largest data device
 - Use skip_size_check to bypass this validation
 
 **Encryption:**
@@ -5839,7 +5841,7 @@ SnapRAID configuration will be updated automatically.
 | newDevice | string — Path to the new parity device | **Yes** |
 | format | boolean — Whether to format the new device before adding | No |
 | passphrase | string — Encryption passphrase (required for encrypted pools) | No |
-| skip_size_check | boolean — Skip the parity device size validation (SnapRAID normally requires parity >= largest data device) | No |
+| skip_size_check | boolean — Skip the parity device size validation (SnapRAID normally requires parity \>= largest data device) | No |
 
 **Responses**
 
@@ -9143,7 +9145,7 @@ console.log(data);
 |-------|------|----------|
 | name | string — Group name | **Yes** |
 | containers | array[string] — Array of container names to add to group | No |
-| icon | string — Icon identifier (e.g. an MDI name) or an http(s) URL to a PNG. When a URL is provided the PNG is downloaded synchronously (max 5s) to /var/lib/docker/mos/icons/groups/<groupName>.png and validated to be a real, non-empty PNG.  | No |
+| icon | string — Icon identifier (e.g. an MDI name) or an http(s) URL to a PNG. When a URL is provided the PNG is downloaded synchronously (max 5s) to /var/lib/docker/mos/icons/groups/\<groupName\>.png and validated to be a real, non-empty PNG.  | No |
 
 **Responses**
 
@@ -9226,7 +9228,7 @@ Update any combination of group properties in a single request
 | Field | Type | Required |
 |-------|------|----------|
 | name | string — New group name | No |
-| icon | string — Icon identifier (e.g. an MDI name) or an http(s) URL to a PNG (null to remove icon). When the URL changes the PNG is re-downloaded synchronously (max 5s) to /var/lib/docker/mos/icons/groups/<groupName>.png and validated to be a real, non-empty PNG.  | No |
+| icon | string — Icon identifier (e.g. an MDI name) or an http(s) URL to a PNG (null to remove icon). When the URL changes the PNG is re-downloaded synchronously (max 5s) to /var/lib/docker/mos/icons/groups/\<groupName\>.png and validated to be a real, non-empty PNG.  | No |
 | containers | array[string] — Complete list of containers (replaces existing) | No |
 | addContainers | array[string] — Containers to add to existing list | No |
 | removeContainers | array[string] — Containers to remove from existing list | No |
@@ -12944,7 +12946,7 @@ Create a new VM with the specified configuration. Disks are automatically create
 | description | string — Optional description for the VM | No |
 | memory | string — Memory size. Supports units like "4G", "4GB", "4GiB", "512M", "512MB" or plain number in MiB | No |
 | cpus | integer — Number of vCPUs | No |
-| cpuPins | array[integer] — Host CPU cores to pin each vCPU to (e.g., [0, 10, 2, 12] pins vCPU0->core0, vCPU1->core10, etc.) | No |
+| cpuPins | array[integer] — Host CPU cores to pin each vCPU to (e.g., [0, 10, 2, 12] pins vCPU0-\>core0, vCPU1-\>core10, etc.) | No |
 | hugepages | boolean — Use hugepages for this VM's memory. Requires hugepages to be enabled and allocated in VM system settings. | No |
 | platform | string — Machine type - use 'i440fx' or 'q35' for latest version, or specific like 'pc-q35-9.2'. Note - q35 is recommended for modern systems. | No |
 | bios | string ["seabios","ovmf","ovmf-tpm"] — BIOS type. Note - q35 platform should use 'ovmf' or 'ovmf-tpm', not seabios. Use seabios only with i440fx. | No |
@@ -26933,7 +26935,7 @@ console.log(data);
 
 **Get the script for a NUT event**
 
-Reads the event script from /boot/config/system/nut/{event}.sh (admin only).
+Reads the event script from /boot/config/system/nut/\{event\}.sh (admin only).
 
 **Parameters**
 
@@ -26984,7 +26986,7 @@ console.log(data);
 
 **Update the script for a NUT event**
 
-Writes the event script to /boot/config/system/nut/{event}.sh, creating the directory
+Writes the event script to /boot/config/system/nut/\{event\}.sh, creating the directory
 and the file if they do not exist yet. NUT is not restarted: upsmon runs the script
 straight from the boot stick when the event fires, so changes take effect immediately.
 

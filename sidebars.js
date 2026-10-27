@@ -152,6 +152,7 @@ const sidebars = {
       label: '🔌 API',
       items: [
         { type: 'doc', id: 'API/MOS-API-Overview', label: '📖 MOS API Overview' },
+        { type: 'doc', id: 'API/API-Reference', label: '📚 API Reference' },
         { type: 'doc', id: 'API/Rate-Limits', label: '⏱️ Rate Limits' },
       ],
     },

@@ -54,12 +54,12 @@ Authorization: Bearer <TOKEN>
 - [Notifications](#notifications) — Notifications Management
 - [LLM](#llm) — LLM Integration and Chat
 
-## Authentication {#authentication}
+## Authentication
 
 User authentication and management.
 
 
-#### `GET` `/auth/firstsetup` {#get-auth-firstsetup}
+#### `GET` `/auth/firstsetup`
 
 **Get first setup token**
 
@@ -96,7 +96,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/auth/login` {#post-auth-login}
+#### `POST` `/auth/login`
 
 **User login**
 
@@ -155,7 +155,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/auth/mfa` {#post-auth-mfa}
+#### `POST` `/auth/mfa`
 
 **Verify MFA code during login**
 
@@ -221,7 +221,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/auth/mfa` {#delete-auth-mfa}
+#### `DELETE` `/auth/mfa`
 
 **Disable MFA**
 
@@ -275,7 +275,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/auth/mfa/setup` {#post-auth-mfa-setup}
+#### `POST` `/auth/mfa/setup`
 
 **Setup or confirm MFA**
 
@@ -336,7 +336,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/auth/users` {#get-auth-users}
+#### `GET` `/auth/users`
 
 **Get users (admin sees all, user sees only themselves)**
 
@@ -390,7 +390,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/auth/users` {#post-auth-users}
+#### `POST` `/auth/users`
 
 **Create new user (admin only)**
 
@@ -456,7 +456,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/auth/users/{id}` {#put-auth-users-id}
+#### `PUT` `/auth/users/{id}`
 
 **Update user (admin can update any user, users can update themselves)**
 
@@ -530,7 +530,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/auth/users/{id}` {#delete-auth-users-id}
+#### `DELETE` `/auth/users/{id}`
 
 **Delete user (admin only)**
 
@@ -565,7 +565,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/auth/profile` {#get-auth-profile}
+#### `GET` `/auth/profile`
 
 **Get own user profile**
 
@@ -606,7 +606,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/auth/logout` {#post-auth-logout}
+#### `POST` `/auth/logout`
 
 **User logout**
 
@@ -643,7 +643,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/auth/jwt-settings` {#get-auth-jwt-settings}
+#### `GET` `/auth/jwt-settings`
 
 **Get JWT settings**
 
@@ -682,7 +682,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/auth/jwt-settings` {#put-auth-jwt-settings}
+#### `PUT` `/auth/jwt-settings`
 
 **Update JWT expiry time**
 
@@ -742,7 +742,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/auth/admin-tokens` {#get-auth-admin-tokens}
+#### `GET` `/auth/admin-tokens`
 
 **Get all admin tokens**
 
@@ -795,7 +795,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/auth/admin-tokens` {#post-auth-admin-tokens}
+#### `POST` `/auth/admin-tokens`
 
 **Create admin token**
 
@@ -876,7 +876,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/auth/admin-tokens/me` {#get-auth-admin-tokens-me}
+#### `GET` `/auth/admin-tokens/me`
 
 **Get current token permissions**
 
@@ -924,7 +924,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/auth/admin-tokens/{id}/permissions` {#put-auth-admin-tokens-id-permissions}
+#### `PUT` `/auth/admin-tokens/{id}/permissions`
 
 **Update admin token permissions**
 
@@ -1007,7 +1007,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/auth/admin-tokens/{id}` {#delete-auth-admin-tokens-id}
+#### `DELETE` `/auth/admin-tokens/{id}`
 
 **Delete admin token**
 
@@ -1054,7 +1054,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/auth/admin-tokens/{id}/deactivate` {#put-auth-admin-tokens-id-deactivate}
+#### `PUT` `/auth/admin-tokens/{id}/deactivate`
 
 **Deactivate admin token**
 
@@ -1100,12 +1100,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/auth/admin-tokens/{id}/deactivat
 const data = await res.json();
 console.log(data);
 ```
-## Disks {#disks}
+## Disks
 
 Disk and Storage Management.
 
 
-#### `GET` `/disks` {#get-disks}
+#### `GET` `/disks`
 
 **List all disks with partitions**
 
@@ -1193,7 +1193,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/{device}/usage` {#get-disks-device-usage}
+#### `GET` `/disks/{device}/usage`
 
 **Get disk usage statistics**
 
@@ -1244,7 +1244,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/{device}/power` {#get-disks-device-power}
+#### `GET` `/disks/{device}/power`
 
 **Get disk power status**
 
@@ -1293,7 +1293,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/{device}/iostats` {#get-disks-device-iostats}
+#### `GET` `/disks/{device}/iostats`
 
 **Get disk I/O statistics**
 
@@ -1343,7 +1343,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/{device}/wake` {#post-disks-device-wake}
+#### `POST` `/disks/{device}/wake`
 
 **Wake disk from standby**
 
@@ -1390,7 +1390,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/{device}/sleep` {#post-disks-device-sleep}
+#### `POST` `/disks/{device}/sleep`
 
 **Put disk to sleep/standby**
 
@@ -1453,7 +1453,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/{device}/smart` {#get-disks-device-smart}
+#### `GET` `/disks/{device}/smart`
 
 **Get SMART information**
 
@@ -1533,7 +1533,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/descriptions/orphaned` {#get-disks-descriptions-orphaned}
+#### `GET` `/disks/descriptions/orphaned`
 
 **List orphaned disk descriptions**
 
@@ -1574,7 +1574,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/disks/descriptions/orphaned` {#delete-disks-descriptions-orphaned}
+#### `DELETE` `/disks/descriptions/orphaned`
 
 **Delete all orphaned disk descriptions**
 
@@ -1614,7 +1614,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/disks/descriptions/orphaned/{serial}` {#delete-disks-descriptions-orphaned-serial}
+#### `DELETE` `/disks/descriptions/orphaned/{serial}`
 
 **Delete a specific orphaned disk description**
 
@@ -1651,7 +1651,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/disks/{device}/description` {#put-disks-device-description}
+#### `PUT` `/disks/{device}/description`
 
 **Set or clear a disk description**
 
@@ -1715,7 +1715,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/availablefilesystems` {#get-disks-availablefilesystems}
+#### `GET` `/disks/availablefilesystems`
 
 **Get available filesystems**
 
@@ -1763,7 +1763,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/format` {#post-disks-format}
+#### `POST` `/disks/format`
 
 **Format disk/device**
 
@@ -1833,7 +1833,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/{device}/preclear/abort` {#post-disks-device-preclear-abort}
+#### `POST` `/disks/{device}/preclear/abort`
 
 **Abort preClear operation**
 
@@ -1881,7 +1881,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/{device}/partition` {#post-disks-device-partition}
+#### `POST` `/disks/{device}/partition`
 
 **Create partition**
 
@@ -1937,7 +1937,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/disks/{device}/partition/{partitionNumber}` {#delete-disks-device-partition-partitionnumber}
+#### `DELETE` `/disks/{device}/partition/{partitionNumber}`
 
 **Delete partition**
 
@@ -1985,7 +1985,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/disks/{device}/wipe` {#delete-disks-device-wipe}
+#### `DELETE` `/disks/{device}/wipe`
 
 **Wipe entire disk**
 
@@ -2032,7 +2032,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/{device}/partitions` {#get-disks-device-partitions}
+#### `GET` `/disks/{device}/partitions`
 
 **Get disk partitions**
 
@@ -2095,7 +2095,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/wake` {#post-disks-wake}
+#### `POST` `/disks/wake`
 
 **Wake multiple disks**
 
@@ -2160,7 +2160,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/sleep` {#post-disks-sleep}
+#### `POST` `/disks/sleep`
 
 **Sleep multiple disks**
 
@@ -2227,7 +2227,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/power/status` {#post-disks-power-status}
+#### `POST` `/disks/power/status`
 
 **Get power status for multiple disks**
 
@@ -2295,7 +2295,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/power/manage` {#post-disks-power-manage}
+#### `POST` `/disks/power/manage`
 
 **Manage disk power settings**
 
@@ -2354,7 +2354,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/unassigned` {#get-disks-unassigned}
+#### `GET` `/disks/unassigned`
 
 **List unassigned disks**
 
@@ -2451,7 +2451,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/{device}/mount` {#post-disks-device-mount}
+#### `POST` `/disks/{device}/mount`
 
 **Mount a disk device**
 
@@ -2519,7 +2519,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/{device}/unmount` {#post-disks-device-unmount}
+#### `POST` `/disks/{device}/unmount`
 
 **Unmount a disk device**
 
@@ -2585,7 +2585,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/zram/ramdisks` {#get-disks-zram-ramdisks}
+#### `GET` `/disks/zram/ramdisks`
 
 **Get ZRAM ramdisk devices**
 
@@ -2633,12 +2633,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/disks/zram/ramdisks", {
 const data = await res.json();
 console.log(data);
 ```
-## SMART {#smart}
+## SMART
 
 SMART Monitoring Configuration and Status.
 
 
-#### `GET` `/disks/smart/config` {#get-disks-smart-config}
+#### `GET` `/disks/smart/config`
 
 **Get SMART monitoring configuration**
 
@@ -2729,7 +2729,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/disks/smart/config` {#put-disks-smart-config}
+#### `PUT` `/disks/smart/config`
 
 **Update global SMART configuration**
 
@@ -2842,7 +2842,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/smart/config/disks/{device}` {#get-disks-smart-config-disks-device}
+#### `GET` `/disks/smart/config/disks/{device}`
 
 **Get SMART config for a specific disk**
 
@@ -2901,7 +2901,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/disks/smart/config/disks/{device}` {#put-disks-smart-config-disks-device}
+#### `PUT` `/disks/smart/config/disks/{device}`
 
 **Update SMART config for a specific disk**
 
@@ -2988,7 +2988,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/disks/smart/config/disks/{device}` {#delete-disks-smart-config-disks-device}
+#### `DELETE` `/disks/smart/config/disks/{device}`
 
 **Delete disk SMART config**
 
@@ -3027,7 +3027,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/disks/smart/config/disks/{device}/acknowledge` {#post-disks-smart-config-disks-device-acknowledge}
+#### `POST` `/disks/smart/config/disks/{device}/acknowledge`
 
 **Acknowledge current SMART errors for a disk**
 
@@ -3119,7 +3119,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/disks/smart/config/disks/{device}/acknowledge` {#delete-disks-smart-config-disks-device-acknowledge}
+#### `DELETE` `/disks/smart/config/disks/{device}/acknowledge`
 
 **Clear acknowledged SMART errors for a disk**
 
@@ -3200,7 +3200,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/smart/config/orphaned` {#get-disks-smart-config-orphaned}
+#### `GET` `/disks/smart/config/orphaned`
 
 **List orphaned disk entries**
 
@@ -3242,7 +3242,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/disks/smart/config/orphaned` {#delete-disks-smart-config-orphaned}
+#### `DELETE` `/disks/smart/config/orphaned`
 
 **Delete all orphaned entries**
 
@@ -3282,7 +3282,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/disks/smart/config/orphaned/{serial}` {#delete-disks-smart-config-orphaned-serial}
+#### `DELETE` `/disks/smart/config/orphaned/{serial}`
 
 **Delete a specific orphaned entry**
 
@@ -3318,12 +3318,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/disks/smart/config/orphaned/{ser
 const data = await res.json();
 console.log(data);
 ```
-## Disks WebSocket {#disks-websocket}
+## Disks WebSocket
 
 Real-time disk monitoring via WebSocket.
 
 
-#### `GET` `/disks/websocket/stats` {#get-disks-websocket-stats}
+#### `GET` `/disks/websocket/stats`
 
 **Get Disks WebSocket monitoring statistics**
 
@@ -3373,7 +3373,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/disks/websocket/events` {#get-disks-websocket-events}
+#### `GET` `/disks/websocket/events`
 
 **Disks WebSocket Events Documentation**
 
@@ -3475,12 +3475,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/disks/websocket/events", {
 const data = await res.json();
 console.log(data);
 ```
-## Pools {#pools}
+## Pools
 
 Storage Pool Management.
 
 
-#### `GET` `/pools/vpools` {#get-pools-vpools}
+#### `GET` `/pools/vpools`
 
 **List all vpools (MergerFS Path Pools)**
 
@@ -3548,7 +3548,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/vpools` {#post-pools-vpools}
+#### `POST` `/pools/vpools`
 
 **Create a vpool (MergerFS Path Pool)**
 
@@ -3653,7 +3653,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/pools/vpools/order` {#put-pools-vpools-order}
+#### `PUT` `/pools/vpools/order`
 
 **Update vpool display order**
 
@@ -3703,7 +3703,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/pools/vpools/{id}` {#get-pools-vpools-id}
+#### `GET` `/pools/vpools/{id}`
 
 **Get a vpool by ID**
 
@@ -3771,7 +3771,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/pools/vpools/{id}` {#delete-pools-vpools-id}
+#### `DELETE` `/pools/vpools/{id}`
 
 **Delete a vpool by ID**
 
@@ -3824,7 +3824,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/vpools/{id}/mount` {#post-pools-vpools-id-mount}
+#### `POST` `/pools/vpools/{id}/mount`
 
 **Mount a vpool by ID**
 
@@ -3863,7 +3863,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/vpools/{id}/unmount` {#post-pools-vpools-id-unmount}
+#### `POST` `/pools/vpools/{id}/unmount`
 
 **Unmount a vpool by ID**
 
@@ -3914,7 +3914,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/vpools/{id}/automount` {#post-pools-vpools-id-automount}
+#### `POST` `/pools/vpools/{id}/automount`
 
 **Toggle automount for a vpool**
 
@@ -3965,7 +3965,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/pools` {#get-pools}
+#### `GET` `/pools`
 
 **List all pools**
 
@@ -4064,7 +4064,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/pools/availablepooltypes` {#get-pools-availablepooltypes}
+#### `GET` `/pools/availablepooltypes`
 
 **Get available pool types**
 
@@ -4106,7 +4106,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/pools/{id}` {#get-pools-id}
+#### `GET` `/pools/{id}`
 
 **Get pool by ID**
 
@@ -4201,7 +4201,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/pools/{id}` {#delete-pools-id}
+#### `DELETE` `/pools/{id}`
 
 **Remove pool by ID**
 
@@ -4245,7 +4245,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/pools/{id}/status` {#get-pools-id-status}
+#### `GET` `/pools/{id}/status`
 
 **Get pool status**
 
@@ -4290,7 +4290,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/automount` {#post-pools-id-automount}
+#### `POST` `/pools/{id}/automount`
 
 **Toggle automount setting for a pool**
 
@@ -4406,7 +4406,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/shared` {#post-pools-id-shared}
+#### `POST` `/pools/{id}/shared`
 
 **Toggle shared mount propagation for a pool**
 
@@ -4522,7 +4522,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PATCH` `/pools/{id}/comment` {#patch-pools-id-comment}
+#### `PATCH` `/pools/{id}/comment`
 
 **Update pool comment**
 
@@ -4638,7 +4638,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/pools/{id}/config` {#get-pools-id-config}
+#### `GET` `/pools/{id}/config`
 
 **Get pool configuration**
 
@@ -4709,7 +4709,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PATCH` `/pools/{id}/config` {#patch-pools-id-config}
+#### `PATCH` `/pools/{id}/config`
 
 **Update pool configuration**
 
@@ -4809,7 +4809,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/pools/order` {#put-pools-order}
+#### `PUT` `/pools/order`
 
 **Update order of all pools**
 
@@ -4868,7 +4868,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/single` {#post-pools-single}
+#### `POST` `/pools/single`
 
 **Create single device pool**
 
@@ -4941,7 +4941,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/multi` {#post-pools-multi}
+#### `POST` `/pools/multi`
 
 **Create multi-device BTRFS pool**
 
@@ -5017,7 +5017,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/mergerfs` {#post-pools-mergerfs}
+#### `POST` `/pools/mergerfs`
 
 **Create MergerFS pool**
 
@@ -5102,7 +5102,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/bcachefs` {#post-pools-bcachefs}
+#### `POST` `/pools/bcachefs`
 
 **Create bcachefs pool**
 
@@ -5199,7 +5199,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/nonraid` {#post-pools-nonraid}
+#### `POST` `/pools/nonraid`
 
 **Create NonRAID pool**
 
@@ -5296,7 +5296,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/nonraid/replace` {#post-pools-nonraid-replace}
+#### `POST` `/pools/nonraid/replace`
 
 **Replace devices in a NonRAID pool**
 
@@ -5386,7 +5386,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/nonraid/adddevice` {#post-pools-nonraid-adddevice}
+#### `POST` `/pools/nonraid/adddevice`
 
 **Add data device to NonRAID pool**
 
@@ -5471,7 +5471,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/nonraid/addparity` {#post-pools-nonraid-addparity}
+#### `POST` `/pools/nonraid/addparity`
 
 **Add parity device to NonRAID pool**
 
@@ -5543,7 +5543,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/mount` {#post-pools-id-mount}
+#### `POST` `/pools/{id}/mount`
 
 **Mount pool by ID**
 
@@ -5606,7 +5606,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/unmount` {#post-pools-id-unmount}
+#### `POST` `/pools/{id}/unmount`
 
 **Unmount pool by ID**
 
@@ -5665,7 +5665,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/devices` {#post-pools-id-devices}
+#### `POST` `/pools/{id}/devices`
 
 **Add devices to pool**
 
@@ -5731,7 +5731,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/parity/add` {#post-pools-id-parity-add}
+#### `POST` `/pools/{id}/parity/add`
 
 **Add parity devices to a MergerFS pool**
 
@@ -5800,7 +5800,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/parity/replace` {#post-pools-id-parity-replace}
+#### `POST` `/pools/{id}/parity/replace`
 
 **Replace a parity device in a MergerFS pool**
 
@@ -5881,7 +5881,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/parity/remove` {#post-pools-id-parity-remove}
+#### `POST` `/pools/{id}/parity/remove`
 
 **Remove parity devices from a MergerFS pool**
 
@@ -6002,7 +6002,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/devices/remove` {#post-pools-id-devices-remove}
+#### `POST` `/pools/{id}/devices/remove`
 
 **Remove devices from an existing pool**
 
@@ -6133,7 +6133,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/devices/add` {#post-pools-id-devices-add}
+#### `POST` `/pools/{id}/devices/add`
 
 **Add devices to an existing pool**
 
@@ -6275,7 +6275,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/devices/replace` {#post-pools-id-devices-replace}
+#### `POST` `/pools/{id}/devices/replace`
 
 **Replace a device in a pool**
 
@@ -6404,7 +6404,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/parity` {#post-pools-id-parity}
+#### `POST` `/pools/{id}/parity`
 
 **Execute parity operation on a MergerFS or NonRAID pool**
 
@@ -6486,7 +6486,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/btrfs/scrub` {#post-pools-id-btrfs-scrub}
+#### `POST` `/pools/{id}/btrfs/scrub`
 
 **Execute BTRFS scrub operation**
 
@@ -6565,7 +6565,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/btrfs/balance` {#post-pools-id-btrfs-balance}
+#### `POST` `/pools/{id}/btrfs/balance`
 
 **Execute BTRFS balance operation**
 
@@ -6643,7 +6643,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/pools/{id}/bcachefs/scrub` {#post-pools-id-bcachefs-scrub}
+#### `POST` `/pools/{id}/bcachefs/scrub`
 
 **Execute bcachefs scrub operation**
 
@@ -6718,12 +6718,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/pools/{id}/bcachefs/scrub", {
 const data = await res.json();
 console.log(data);
 ```
-## Pools WebSocket {#pools-websocket}
+## Pools WebSocket
 
 Real-time pool monitoring via WebSocket.
 
 
-#### `GET` `/pools/websocket/stats` {#get-pools-websocket-stats}
+#### `GET` `/pools/websocket/stats`
 
 **Get WebSocket monitoring statistics**
 
@@ -6773,7 +6773,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/pools/websocket/events` {#get-pools-websocket-events}
+#### `GET` `/pools/websocket/events`
 
 **WebSocket Events Documentation**
 
@@ -6931,12 +6931,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/pools/websocket/events", {
 const data = await res.json();
 console.log(data);
 ```
-## iSCSI Targets {#iscsi-targets}
+## iSCSI Targets
 
 iSCSI Target Management.
 
 
-#### `GET` `/iscsi/targets` {#get-iscsi-targets}
+#### `GET` `/iscsi/targets`
 
 **Get all iSCSI targets**
 
@@ -7001,7 +7001,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/iscsi/targets` {#post-iscsi-targets}
+#### `POST` `/iscsi/targets`
 
 **Create new iSCSI target**
 
@@ -7112,7 +7112,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/iscsi/targets/info` {#get-iscsi-targets-info}
+#### `GET` `/iscsi/targets/info`
 
 **Get iSCSI targets statistics**
 
@@ -7158,7 +7158,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/iscsi/targets/{targetId}` {#get-iscsi-targets-targetid}
+#### `GET` `/iscsi/targets/{targetId}`
 
 **Get a specific iSCSI target**
 
@@ -7232,7 +7232,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/iscsi/targets/{targetId}` {#put-iscsi-targets-targetid}
+#### `PUT` `/iscsi/targets/{targetId}`
 
 **Update an iSCSI target**
 
@@ -7335,7 +7335,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/iscsi/targets/{targetId}` {#delete-iscsi-targets-targetid}
+#### `DELETE` `/iscsi/targets/{targetId}`
 
 **Delete an iSCSI target**
 
@@ -7418,7 +7418,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/iscsi/targets/restart` {#post-iscsi-targets-restart}
+#### `POST` `/iscsi/targets/restart`
 
 **Restart all iSCSI targets**
 
@@ -7468,7 +7468,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/iscsi/targets/{targetId}/luns` {#post-iscsi-targets-targetid-luns}
+#### `POST` `/iscsi/targets/{targetId}/luns`
 
 **Add a LUN to an iSCSI target**
 
@@ -7530,7 +7530,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/iscsi/targets/{targetId}/luns/{lunId}` {#put-iscsi-targets-targetid-luns-lunid}
+#### `PUT` `/iscsi/targets/{targetId}/luns/{lunId}`
 
 **Update a LUN in an iSCSI target**
 
@@ -7591,7 +7591,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/iscsi/targets/{targetId}/luns/{lunId}` {#delete-iscsi-targets-targetid-luns-lunid}
+#### `DELETE` `/iscsi/targets/{targetId}/luns/{lunId}`
 
 **Remove a LUN from an iSCSI target**
 
@@ -7678,12 +7678,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/iscsi/targets/{targetId}/luns/{l
 const data = await res.json();
 console.log(data);
 ```
-## iSCSI Initiators {#iscsi-initiators}
+## iSCSI Initiators
 
 iSCSI Initiator Management.
 
 
-#### `GET` `/iscsi/initiator` {#get-iscsi-initiator}
+#### `GET` `/iscsi/initiator`
 
 **Get iSCSI initiator configuration**
 
@@ -7737,7 +7737,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/iscsi/initiator/name` {#put-iscsi-initiator-name}
+#### `PUT` `/iscsi/initiator/name`
 
 **Update initiator name**
 
@@ -7812,7 +7812,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/iscsi/initiator/targets` {#post-iscsi-initiator-targets}
+#### `POST` `/iscsi/initiator/targets`
 
 **Add a new target**
 
@@ -7914,7 +7914,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/iscsi/initiator/targets/{targetId}` {#get-iscsi-initiator-targets-targetid}
+#### `GET` `/iscsi/initiator/targets/{targetId}`
 
 **Get a specific target**
 
@@ -7973,7 +7973,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/iscsi/initiator/targets/{targetId}` {#put-iscsi-initiator-targets-targetid}
+#### `PUT` `/iscsi/initiator/targets/{targetId}`
 
 **Update a target**
 
@@ -8093,7 +8093,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/iscsi/initiator/targets/{targetId}` {#delete-iscsi-initiator-targets-targetid}
+#### `DELETE` `/iscsi/initiator/targets/{targetId}`
 
 **Remove a target**
 
@@ -8173,7 +8173,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/iscsi/initiator/test-connection` {#post-iscsi-initiator-test-connection}
+#### `POST` `/iscsi/initiator/test-connection`
 
 **Test connection to a target**
 
@@ -8244,7 +8244,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/iscsi/initiator/targets/{targetId}/logout` {#post-iscsi-initiator-targets-targetid-logout}
+#### `POST` `/iscsi/initiator/targets/{targetId}/logout`
 
 **Logout from a target**
 
@@ -8298,7 +8298,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/iscsi/initiator/targets/{targetId}/login` {#post-iscsi-initiator-targets-targetid-login}
+#### `POST` `/iscsi/initiator/targets/{targetId}/login`
 
 **Login to a target**
 
@@ -8351,12 +8351,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/iscsi/initiator/targets/{targetI
 const data = await res.json();
 console.log(data);
 ```
-## Docker {#docker}
+## Docker
 
 Docker Container Management.
 
 
-#### `POST` `/docker/mos/create` {#post-docker-mos-create}
+#### `POST` `/docker/mos/create`
 
 **Create new container from template**
 
@@ -8430,7 +8430,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/docker/mos/remove` {#delete-docker-mos-remove}
+#### `DELETE` `/docker/mos/remove`
 
 **Remove container and its template**
 
@@ -8487,7 +8487,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/containers` {#get-docker-mos-containers}
+#### `GET` `/docker/mos/containers`
 
 **Get Docker images with update status**
 
@@ -8548,7 +8548,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/containers` {#post-docker-mos-containers}
+#### `POST` `/docker/mos/containers`
 
 **Update Docker container indices**
 
@@ -8624,7 +8624,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/containers/calc` {#get-docker-mos-containers-calc}
+#### `GET` `/docker/mos/containers/calc`
 
 **Get container image sizes**
 
@@ -8668,7 +8668,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/containers/{name}/calc` {#get-docker-mos-containers-name-calc}
+#### `GET` `/docker/mos/containers/{name}/calc`
 
 **Get a single container image size**
 
@@ -8717,7 +8717,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/ports` {#get-docker-mos-ports}
+#### `GET` `/docker/mos/ports`
 
 **Get Docker container port bindings**
 
@@ -8767,7 +8767,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/update_check` {#post-docker-mos-update-check}
+#### `POST` `/docker/mos/update_check`
 
 **Check for Docker updates**
 
@@ -8822,7 +8822,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/upgrade` {#post-docker-mos-upgrade}
+#### `POST` `/docker/mos/upgrade`
 
 **Upgrade containers**
 
@@ -8879,7 +8879,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/xml_convert` {#post-docker-mos-xml-convert}
+#### `POST` `/docker/mos/xml_convert`
 
 **Convert XML using URL**
 
@@ -8935,7 +8935,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/templates` {#get-docker-mos-templates}
+#### `GET` `/docker/mos/templates`
 
 **Get all container templates (installed and removed)**
 
@@ -9010,7 +9010,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/templates/{name}` {#get-docker-mos-templates-name}
+#### `GET` `/docker/mos/templates/{name}`
 
 **Get specific container template**
 
@@ -9063,7 +9063,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/groups` {#get-docker-mos-groups}
+#### `GET` `/docker/mos/groups`
 
 **Get all container groups**
 
@@ -9124,7 +9124,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/groups` {#post-docker-mos-groups}
+#### `POST` `/docker/mos/groups`
 
 **Create a new container group**
 
@@ -9194,7 +9194,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/docker/mos/groups/{groupId}` {#put-docker-mos-groups-groupid}
+#### `PUT` `/docker/mos/groups/{groupId}`
 
 **Update container group (name, icon, containers)**
 
@@ -9280,7 +9280,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/docker/mos/groups/{groupId}` {#delete-docker-mos-groups-groupid}
+#### `DELETE` `/docker/mos/groups/{groupId}`
 
 **Delete a container group**
 
@@ -9323,7 +9323,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/docker/mos/groups/order` {#put-docker-mos-groups-order}
+#### `PUT` `/docker/mos/groups/order`
 
 **Update group order/index**
 
@@ -9391,7 +9391,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/groups/{groupId}/start` {#post-docker-mos-groups-groupid-start}
+#### `POST` `/docker/mos/groups/{groupId}/start`
 
 **Start all containers in a group**
 
@@ -9449,7 +9449,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/groups/{groupId}/stop` {#post-docker-mos-groups-groupid-stop}
+#### `POST` `/docker/mos/groups/{groupId}/stop`
 
 **Stop all containers in a group**
 
@@ -9507,7 +9507,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/groups/{groupId}/restart` {#post-docker-mos-groups-groupid-restart}
+#### `POST` `/docker/mos/groups/{groupId}/restart`
 
 **Restart all containers in a group**
 
@@ -9565,7 +9565,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/groups/{groupId}/upgrade` {#post-docker-mos-groups-groupid-upgrade}
+#### `POST` `/docker/mos/groups/{groupId}/upgrade`
 
 **Upgrade all containers in a group**
 
@@ -9652,7 +9652,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/unusedimages` {#get-docker-mos-unusedimages}
+#### `GET` `/docker/mos/unusedimages`
 
 **Get unused Docker images**
 
@@ -9695,7 +9695,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/docker/mos/unusedimages` {#delete-docker-mos-unusedimages}
+#### `DELETE` `/docker/mos/unusedimages`
 
 **Delete unused Docker images**
 
@@ -9764,7 +9764,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/{path}` {#get-docker-path}
+#### `GET` `/docker/{path}`
 
 **Docker REST API Proxy (GET)**
 
@@ -9807,7 +9807,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/{path}` {#post-docker-path}
+#### `POST` `/docker/{path}`
 
 **Docker REST API Proxy (POST)**
 
@@ -9859,7 +9859,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/docker/{path}` {#put-docker-path}
+#### `PUT` `/docker/{path}`
 
 **Docker REST API Proxy (PUT)**
 
@@ -9905,7 +9905,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/docker/{path}` {#delete-docker-path}
+#### `DELETE` `/docker/{path}`
 
 **Docker REST API Proxy (DELETE)**
 
@@ -9942,12 +9942,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/docker/{path}", {
 const data = await res.json();
 console.log(data);
 ```
-## Docker Compose {#docker-compose}
+## Docker Compose
 
 Docker Compose Stack Management.
 
 
-#### `GET` `/docker/mos/compose/stacks` {#get-docker-mos-compose-stacks}
+#### `GET` `/docker/mos/compose/stacks`
 
 **Get all compose stacks**
 
@@ -10019,7 +10019,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/compose/stacks` {#post-docker-mos-compose-stacks}
+#### `POST` `/docker/mos/compose/stacks`
 
 **Create a new compose stack**
 
@@ -10096,7 +10096,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/compose/stacks/{name}` {#get-docker-mos-compose-stacks-name}
+#### `GET` `/docker/mos/compose/stacks/{name}`
 
 **Get a specific compose stack**
 
@@ -10152,7 +10152,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/docker/mos/compose/stacks/{name}` {#put-docker-mos-compose-stacks-name}
+#### `PUT` `/docker/mos/compose/stacks/{name}`
 
 **Update a compose stack**
 
@@ -10234,7 +10234,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PATCH` `/docker/mos/compose/stacks/{name}` {#patch-docker-mos-compose-stacks-name}
+#### `PATCH` `/docker/mos/compose/stacks/{name}`
 
 **Update stack settings**
 
@@ -10302,7 +10302,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/docker/mos/compose/stacks/{name}` {#delete-docker-mos-compose-stacks-name}
+#### `DELETE` `/docker/mos/compose/stacks/{name}`
 
 **Delete a compose stack**
 
@@ -10349,7 +10349,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/compose/stacks/{name}/start` {#post-docker-mos-compose-stacks-name-start}
+#### `POST` `/docker/mos/compose/stacks/{name}/start`
 
 **Start a compose stack**
 
@@ -10399,7 +10399,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/compose/stacks/{name}/stop` {#post-docker-mos-compose-stacks-name-stop}
+#### `POST` `/docker/mos/compose/stacks/{name}/stop`
 
 **Stop a compose stack**
 
@@ -10447,7 +10447,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/compose/stacks/{name}/restart` {#post-docker-mos-compose-stacks-name-restart}
+#### `POST` `/docker/mos/compose/stacks/{name}/restart`
 
 **Restart a compose stack**
 
@@ -10497,7 +10497,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/compose/stacks/{name}/pull` {#post-docker-mos-compose-stacks-name-pull}
+#### `POST` `/docker/mos/compose/stacks/{name}/pull`
 
 **Pull images for a compose stack**
 
@@ -10545,7 +10545,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/compose/stacks/{name}/sync-shas` {#post-docker-mos-compose-stacks-name-sync-shas}
+#### `POST` `/docker/mos/compose/stacks/{name}/sync-shas`
 
 **Sync local SHAs to remote SHAs for a compose stack**
 
@@ -10583,7 +10583,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/docker/mos/compose/stacks/{name}/upgrade` {#post-docker-mos-compose-stacks-name-upgrade}
+#### `POST` `/docker/mos/compose/stacks/{name}/upgrade`
 
 **Upgrade a compose stack to latest images**
 
@@ -10636,7 +10636,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/compose/templates` {#get-docker-mos-compose-templates}
+#### `GET` `/docker/mos/compose/templates`
 
 **Get all compose template names**
 
@@ -10682,7 +10682,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/mos/compose/templates/{name}` {#get-docker-mos-compose-templates-name}
+#### `GET` `/docker/mos/compose/templates/{name}`
 
 **Get specific compose template**
 
@@ -10735,12 +10735,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/docker/mos/compose/templates/{na
 const data = await res.json();
 console.log(data);
 ```
-## Docker WebSocket {#docker-websocket}
+## Docker WebSocket
 
 Real-time Docker operations via WebSocket.
 
 
-#### `GET` `/docker/websocket/events` {#get-docker-websocket-events}
+#### `GET` `/docker/websocket/events`
 
 **WebSocket Events Documentation**
 
@@ -11028,7 +11028,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/docker/websocket/stats` {#get-docker-websocket-stats}
+#### `GET` `/docker/websocket/stats`
 
 **Get WebSocket operation statistics**
 
@@ -11076,12 +11076,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/docker/websocket/stats", {
 const data = await res.json();
 console.log(data);
 ```
-## LXC {#lxc}
+## LXC
 
 LXC Container Management.
 
 
-#### `GET` `/lxc/containers` {#get-lxc-containers}
+#### `GET` `/lxc/containers`
 
 **List all LXC Containers**
 
@@ -11141,7 +11141,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/start` {#post-lxc-containers-name-start}
+#### `POST` `/lxc/containers/{name}/start`
 
 **Start a container**
 
@@ -11185,7 +11185,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/stop` {#post-lxc-containers-name-stop}
+#### `POST` `/lxc/containers/{name}/stop`
 
 **Stop a container**
 
@@ -11229,7 +11229,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/restart` {#post-lxc-containers-name-restart}
+#### `POST` `/lxc/containers/{name}/restart`
 
 **Restart a container**
 
@@ -11275,7 +11275,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/kill` {#post-lxc-containers-name-kill}
+#### `POST` `/lxc/containers/{name}/kill`
 
 **Forcefully stop a container (kill)**
 
@@ -11319,7 +11319,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/freeze` {#post-lxc-containers-name-freeze}
+#### `POST` `/lxc/containers/{name}/freeze`
 
 **Freeze (pause) a container**
 
@@ -11365,7 +11365,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/unfreeze` {#post-lxc-containers-name-unfreeze}
+#### `POST` `/lxc/containers/{name}/unfreeze`
 
 **Unfreeze (resume) a container**
 
@@ -11411,7 +11411,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/create` {#post-lxc-containers-create}
+#### `POST` `/lxc/containers/create`
 
 **Create a new LXC container**
 
@@ -11470,7 +11470,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/images` {#get-lxc-images}
+#### `GET` `/lxc/images`
 
 **Get available container images/distributions**
 
@@ -11593,7 +11593,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/containers/{name}/mounts` {#get-lxc-containers-name-mounts}
+#### `GET` `/lxc/containers/{name}/mounts`
 
 **List host bind mounts of a container**
 
@@ -11633,7 +11633,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/mounts` {#post-lxc-containers-name-mounts}
+#### `POST` `/lxc/containers/{name}/mounts`
 
 **Add host bind mount(s) to a container**
 
@@ -11681,7 +11681,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/lxc/containers/{name}/mounts` {#put-lxc-containers-name-mounts}
+#### `PUT` `/lxc/containers/{name}/mounts`
 
 **Replace all host bind mounts of a container**
 
@@ -11734,7 +11734,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/lxc/containers/{name}/mounts` {#delete-lxc-containers-name-mounts}
+#### `DELETE` `/lxc/containers/{name}/mounts`
 
 **Remove specific host bind mount(s) from a container**
 
@@ -11782,7 +11782,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/lxc/containers/{name}` {#delete-lxc-containers-name}
+#### `DELETE` `/lxc/containers/{name}`
 
 **Destroy (delete) a container**
 
@@ -11828,7 +11828,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/containers/usage` {#get-lxc-containers-usage}
+#### `GET` `/lxc/containers/usage`
 
 **Get resource usage for all containers**
 
@@ -11916,7 +11916,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/mos/containers` {#get-lxc-mos-containers}
+#### `GET` `/lxc/mos/containers`
 
 **Get container startup order**
 
@@ -11978,7 +11978,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/mos/containers` {#post-lxc-mos-containers}
+#### `POST` `/lxc/mos/containers`
 
 **Update container startup order**
 
@@ -12059,7 +12059,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/backups` {#get-lxc-backups}
+#### `GET` `/lxc/backups`
 
 **List all containers with their backups**
 
@@ -12106,7 +12106,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/containers/{name}/backups` {#get-lxc-containers-name-backups}
+#### `GET` `/lxc/containers/{name}/backups`
 
 **List backups for a specific container**
 
@@ -12153,7 +12153,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/backups` {#post-lxc-containers-name-backups}
+#### `POST` `/lxc/containers/{name}/backups`
 
 **Create a backup of a container**
 
@@ -12220,7 +12220,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/backups/abort` {#post-lxc-containers-name-backups-abort}
+#### `POST` `/lxc/containers/{name}/backups/abort`
 
 **Abort an active backup operation**
 
@@ -12253,7 +12253,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/lxc/containers/{name}/backups/{filename}` {#delete-lxc-containers-name-backups-filename}
+#### `DELETE` `/lxc/containers/{name}/backups/{filename}`
 
 **Delete a specific backup file**
 
@@ -12287,7 +12287,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/backups/restore` {#post-lxc-containers-name-backups-restore}
+#### `POST` `/lxc/containers/{name}/backups/restore`
 
 **Restore a container from backup**
 
@@ -12339,7 +12339,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/convert-btrfs` {#post-lxc-containers-name-convert-btrfs}
+#### `POST` `/lxc/containers/{name}/convert-btrfs`
 
 **Convert container rootfs to BTRFS subvolume**
 
@@ -12374,7 +12374,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/snapshots` {#get-lxc-snapshots}
+#### `GET` `/lxc/snapshots`
 
 **List all containers with their snapshots**
 
@@ -12420,7 +12420,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/containers/{name}/snapshots` {#get-lxc-containers-name-snapshots}
+#### `GET` `/lxc/containers/{name}/snapshots`
 
 **List all snapshots for a container**
 
@@ -12467,7 +12467,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/snapshots` {#post-lxc-containers-name-snapshots}
+#### `POST` `/lxc/containers/{name}/snapshots`
 
 **Create a snapshot of a container**
 
@@ -12500,7 +12500,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/lxc/containers/{name}/snapshots/{snapshot}` {#delete-lxc-containers-name-snapshots-snapshot}
+#### `DELETE` `/lxc/containers/{name}/snapshots/{snapshot}`
 
 **Delete a snapshot**
 
@@ -12534,7 +12534,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/snapshots/{snapshot}/restore` {#post-lxc-containers-name-snapshots-snapshot-restore}
+#### `POST` `/lxc/containers/{name}/snapshots/{snapshot}/restore`
 
 **Restore container from a snapshot**
 
@@ -12570,7 +12570,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/lxc/containers/{name}/snapshots/{snapshot}/clone` {#post-lxc-containers-name-snapshots-snapshot-clone}
+#### `POST` `/lxc/containers/{name}/snapshots/{snapshot}/clone`
 
 **Create a new container from a snapshot**
 
@@ -12621,7 +12621,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/containers/{name}/calc` {#get-lxc-containers-name-calc}
+#### `GET` `/lxc/containers/{name}/calc`
 
 **Calculate container rootfs size**
 
@@ -12668,12 +12668,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/lxc/containers/{name}/calc", {
 const data = await res.json();
 console.log(data);
 ```
-## LXC WebSocket {#lxc-websocket}
+## LXC WebSocket
 
 Real-time LXC container monitoring via WebSocket.
 
 
-#### `GET` `/lxc/websocket/events` {#get-lxc-websocket-events}
+#### `GET` `/lxc/websocket/events`
 
 **WebSocket Events Documentation**
 
@@ -12754,7 +12754,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/lxc/websocket/stats` {#get-lxc-websocket-stats}
+#### `GET` `/lxc/websocket/stats`
 
 **Get LXC WebSocket statistics**
 
@@ -12795,12 +12795,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/lxc/websocket/stats", {
 const data = await res.json();
 console.log(data);
 ```
-## VM {#vm}
+## VM
 
 Virtual Machine Management with libvirt/QEMU.
 
 
-#### `GET` `/vm/machines` {#get-vm-machines}
+#### `GET` `/vm/machines`
 
 **List all virtual machines**
 
@@ -12872,7 +12872,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/machines` {#post-vm-machines}
+#### `POST` `/vm/machines`
 
 **Create a new virtual machine**
 
@@ -12984,7 +12984,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/machines/usage` {#get-vm-machines-usage}
+#### `GET` `/vm/machines/usage`
 
 **Get resource usage for all VMs**
 
@@ -13032,7 +13032,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/machines/{name}/start` {#post-vm-machines-name-start}
+#### `POST` `/vm/machines/{name}/start`
 
 **Start a virtual machine**
 
@@ -13078,7 +13078,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/machines/{name}/stop` {#post-vm-machines-name-stop}
+#### `POST` `/vm/machines/{name}/stop`
 
 **Stop a virtual machine (graceful shutdown)**
 
@@ -13124,7 +13124,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/machines/{name}/kill` {#post-vm-machines-name-kill}
+#### `POST` `/vm/machines/{name}/kill`
 
 **Kill a virtual machine (force stop)**
 
@@ -13170,7 +13170,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/machines/{name}/restart` {#post-vm-machines-name-restart}
+#### `POST` `/vm/machines/{name}/restart`
 
 **Restart a virtual machine (graceful reboot)**
 
@@ -13216,7 +13216,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/machines/{name}/reset` {#post-vm-machines-name-reset}
+#### `POST` `/vm/machines/{name}/reset`
 
 **Reset a virtual machine (hard reset)**
 
@@ -13262,7 +13262,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/machines/{name}/autostart` {#get-vm-machines-name-autostart}
+#### `GET` `/vm/machines/{name}/autostart`
 
 **Get autostart status of a virtual machine**
 
@@ -13308,7 +13308,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/vm/machines/{name}/autostart` {#put-vm-machines-name-autostart}
+#### `PUT` `/vm/machines/{name}/autostart`
 
 **Set autostart status for a virtual machine**
 
@@ -13371,7 +13371,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/machinetypes` {#get-vm-machinetypes}
+#### `GET` `/vm/machinetypes`
 
 **Get available QEMU machine types**
 
@@ -13412,7 +13412,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/capabilities` {#get-vm-capabilities}
+#### `GET` `/vm/capabilities`
 
 **Get VM capabilities**
 
@@ -13494,7 +13494,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/binfmt_architectures` {#get-vm-binfmt-architectures}
+#### `GET` `/vm/binfmt_architectures`
 
 **Get available binfmt architectures**
 
@@ -13539,7 +13539,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/vm/machines/{name}` {#delete-vm-machines-name}
+#### `DELETE` `/vm/machines/{name}`
 
 **Delete a virtual machine**
 
@@ -13576,7 +13576,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/index` {#get-vm-index}
+#### `GET` `/vm/index`
 
 **Get VM index**
 
@@ -13618,7 +13618,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/vm/index` {#put-vm-index}
+#### `PUT` `/vm/index`
 
 **Update VM index**
 
@@ -13681,7 +13681,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/machines/{name}/xml` {#get-vm-machines-name-xml}
+#### `GET` `/vm/machines/{name}/xml`
 
 **Get raw VM XML**
 
@@ -13723,7 +13723,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/vm/machines/{name}/xml` {#put-vm-machines-name-xml}
+#### `PUT` `/vm/machines/{name}/xml`
 
 **Update VM XML directly**
 
@@ -13775,7 +13775,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/xml/validate` {#post-vm-xml-validate}
+#### `POST` `/vm/xml/validate`
 
 **Validate VM XML**
 
@@ -13827,7 +13827,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/machines/{name}/config` {#get-vm-machines-name-config}
+#### `GET` `/vm/machines/{name}/config`
 
 **Get simplified VM configuration**
 
@@ -13861,7 +13861,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/vm/machines/{name}/config` {#put-vm-machines-name-config}
+#### `PUT` `/vm/machines/{name}/config`
 
 **Update VM with simplified configuration**
 
@@ -13929,7 +13929,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/machines/{name}/calc` {#get-vm-machines-name-calc}
+#### `GET` `/vm/machines/{name}/calc`
 
 **Calculate VM disk sizes**
 
@@ -13986,7 +13986,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/virtioiso/versions` {#get-vm-virtioiso-versions}
+#### `GET` `/vm/virtioiso/versions`
 
 **Get available VirtIO ISO versions**
 
@@ -14025,7 +14025,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/virtioiso/installed` {#get-vm-virtioiso-installed}
+#### `GET` `/vm/virtioiso/installed`
 
 **Get installed VirtIO ISOs**
 
@@ -14063,7 +14063,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/virtioiso/download` {#post-vm-virtioiso-download}
+#### `POST` `/vm/virtioiso/download`
 
 **Download a VirtIO ISO**
 
@@ -14119,7 +14119,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/virtioiso/cleanup` {#post-vm-virtioiso-cleanup}
+#### `POST` `/vm/virtioiso/cleanup`
 
 **Cleanup old VirtIO ISOs**
 
@@ -14161,7 +14161,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/vm/vnc/token` {#post-vm-vnc-token}
+#### `POST` `/vm/vnc/token`
 
 **Generate VNC access token**
 
@@ -14216,7 +14216,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/vnc/sessions` {#get-vm-vnc-sessions}
+#### `GET` `/vm/vnc/sessions`
 
 **Get active VNC sessions**
 
@@ -14262,12 +14262,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/vm/vnc/sessions", {
 const data = await res.json();
 console.log(data);
 ```
-## VM WebSocket {#vm-websocket}
+## VM WebSocket
 
 Real-time VM monitoring via WebSocket.
 
 
-#### `GET` `/vm/websocket/stats` {#get-vm-websocket-stats}
+#### `GET` `/vm/websocket/stats`
 
 **Get VM WebSocket statistics**
 
@@ -14313,7 +14313,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/vm/websocket/events` {#get-vm-websocket-events}
+#### `GET` `/vm/websocket/events`
 
 **WebSocket Events Documentation**
 
@@ -14409,12 +14409,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/vm/websocket/events", {
 const data = await res.json();
 console.log(data);
 ```
-## Users {#users}
+## Users
 
 SMB Users and System User Management.
 
 
-#### `PUT` `/users/root` {#put-users-root}
+#### `PUT` `/users/root`
 
 **Change root password**
 
@@ -14470,7 +14470,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/users` {#get-users}
+#### `GET` `/users`
 
 **Get users (admin sees all, user sees only themselves)**
 
@@ -14518,7 +14518,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/users/me` {#get-users-me}
+#### `GET` `/users/me`
 
 **Get own user profile**
 
@@ -14564,7 +14564,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/users/me` {#put-users-me}
+#### `PUT` `/users/me`
 
 **Update own user profile**
 
@@ -14639,7 +14639,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/users/{id}` {#get-users-id}
+#### `GET` `/users/{id}`
 
 **Get specific user (admin only)**
 
@@ -14693,7 +14693,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/users/{id}` {#put-users-id}
+#### `PUT` `/users/{id}`
 
 **Update user (admin only for other users)**
 
@@ -14775,7 +14775,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/users/{id}` {#delete-users-id}
+#### `DELETE` `/users/{id}`
 
 **Delete user (admin only)**
 
@@ -14821,12 +14821,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/users/{id}", {
 const data = await res.json();
 console.log(data);
 ```
-## Shares {#shares}
+## Shares
 
 Network Shares Management (SMB/CIFS).
 
 
-#### `GET` `/shares` {#get-shares}
+#### `GET` `/shares`
 
 **Get all shares configuration**
 
@@ -14874,7 +14874,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/shares/smb` {#get-shares-smb}
+#### `GET` `/shares/smb`
 
 **Get SMB shares only**
 
@@ -14945,7 +14945,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/shares/smb` {#post-shares-smb}
+#### `POST` `/shares/smb`
 
 **Create new SMB share**
 
@@ -15072,7 +15072,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/shares/nfs` {#get-shares-nfs}
+#### `GET` `/shares/nfs`
 
 **Get NFS shares only**
 
@@ -15136,7 +15136,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/shares/nfs` {#post-shares-nfs}
+#### `POST` `/shares/nfs`
 
 **Create new NFS share**
 
@@ -15222,7 +15222,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/shares/info` {#get-shares-info}
+#### `GET` `/shares/info`
 
 **Get shares information/statistics**
 
@@ -15270,7 +15270,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/shares/pools` {#get-shares-pools}
+#### `GET` `/shares/pools`
 
 **Get available pools for share creation**
 
@@ -15326,7 +15326,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/shares/smb/{shareId}` {#get-shares-smb-shareid}
+#### `GET` `/shares/smb/{shareId}`
 
 **Get a specific SMB share**
 
@@ -15392,7 +15392,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/shares/smb/{shareId}` {#put-shares-smb-shareid}
+#### `PUT` `/shares/smb/{shareId}`
 
 **Update a SMB share**
 
@@ -15493,7 +15493,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/shares/smb/{shareId}` {#delete-shares-smb-shareid}
+#### `DELETE` `/shares/smb/{shareId}`
 
 **Delete a SMB share**
 
@@ -15582,7 +15582,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/shares/smb/{shareId}/target-devices` {#get-shares-smb-shareid-target-devices}
+#### `GET` `/shares/smb/{shareId}/target-devices`
 
 **Get target devices for a specific share**
 
@@ -15641,7 +15641,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/shares/smb/{shareId}/target-devices` {#put-shares-smb-shareid-target-devices}
+#### `PUT` `/shares/smb/{shareId}/target-devices`
 
 **Update target devices for a share**
 
@@ -15715,7 +15715,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/shares/smb/{shareId}/target-devices` {#delete-shares-smb-shareid-target-devices}
+#### `DELETE` `/shares/smb/{shareId}/target-devices`
 
 **Remove target devices from a share**
 
@@ -15769,7 +15769,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/shares/nfs/{shareId}` {#get-shares-nfs-shareid}
+#### `GET` `/shares/nfs/{shareId}`
 
 **Get a specific NFS share**
 
@@ -15807,7 +15807,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/shares/nfs/{shareId}` {#put-shares-nfs-shareid}
+#### `PUT` `/shares/nfs/{shareId}`
 
 **Update a NFS share**
 
@@ -15877,7 +15877,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/shares/nfs/{shareId}` {#delete-shares-nfs-shareid}
+#### `DELETE` `/shares/nfs/{shareId}`
 
 **Delete a NFS share**
 
@@ -15940,7 +15940,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/shares/nfs/{shareId}/target-devices` {#get-shares-nfs-shareid-target-devices}
+#### `GET` `/shares/nfs/{shareId}/target-devices`
 
 **Get target devices for a specific NFS share**
 
@@ -15976,7 +15976,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/shares/nfs/{shareId}/target-devices` {#put-shares-nfs-shareid-target-devices}
+#### `PUT` `/shares/nfs/{shareId}/target-devices`
 
 **Update target devices for a NFS share**
 
@@ -16034,7 +16034,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/shares/nfs/{shareId}/target-devices` {#delete-shares-nfs-shareid-target-devices}
+#### `DELETE` `/shares/nfs/{shareId}/target-devices`
 
 **Remove target devices from a NFS share**
 
@@ -16071,12 +16071,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/shares/nfs/{shareId}/target-devi
 const data = await res.json();
 console.log(data);
 ```
-## Remotes {#remotes}
+## Remotes
 
 Remote Shares Management (SMB/NFS Mount).
 
 
-#### `GET` `/remotes` {#get-remotes}
+#### `GET` `/remotes`
 
 **List all remote shares**
 
@@ -16127,7 +16127,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/remotes` {#post-remotes}
+#### `POST` `/remotes`
 
 **Create new remote share**
 
@@ -16213,7 +16213,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/remotes/{id}` {#get-remotes-id}
+#### `GET` `/remotes/{id}`
 
 **Get remote share by ID**
 
@@ -16269,7 +16269,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/remotes/{id}` {#put-remotes-id}
+#### `PUT` `/remotes/{id}`
 
 **Update remote share**
 
@@ -16362,7 +16362,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/remotes/{id}` {#delete-remotes-id}
+#### `DELETE` `/remotes/{id}`
 
 **Delete remote share**
 
@@ -16420,7 +16420,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/remotes/{id}/mount` {#post-remotes-id-mount}
+#### `POST` `/remotes/{id}/mount`
 
 **Mount remote share**
 
@@ -16467,7 +16467,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/remotes/{id}/unmount` {#post-remotes-id-unmount}
+#### `POST` `/remotes/{id}/unmount`
 
 **Unmount remote share**
 
@@ -16514,7 +16514,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/remotes/{id}/status` {#get-remotes-id-status}
+#### `GET` `/remotes/{id}/status`
 
 **Get remote share mount status**
 
@@ -16561,7 +16561,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/remotes/listshares` {#post-remotes-listshares}
+#### `POST` `/remotes/listshares`
 
 **List all available shares from a server**
 
@@ -16627,7 +16627,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/remotes/connectiontest` {#post-remotes-connectiontest}
+#### `POST` `/remotes/connectiontest`
 
 **Test connection to remote share without saving**
 
@@ -16693,12 +16693,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/remotes/connectiontest", {
 const data = await res.json();
 console.log(data);
 ```
-## Cron {#cron}
+## Cron
 
 Cron Jobs Management.
 
 
-#### `GET` `/cron` {#get-cron}
+#### `GET` `/cron`
 
 **Get all cron jobs**
 
@@ -16750,7 +16750,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/cron` {#post-cron}
+#### `POST` `/cron`
 
 **Create new cron job**
 
@@ -16828,7 +16828,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/cron/scripts` {#get-cron-scripts}
+#### `GET` `/cron/scripts`
 
 **List all cron scripts**
 
@@ -16877,7 +16877,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/cron/scripts/{scriptName}` {#get-cron-scripts-scriptname}
+#### `GET` `/cron/scripts/{scriptName}`
 
 **Get cron script content**
 
@@ -16931,7 +16931,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/cron/scripts/{scriptName}` {#put-cron-scripts-scriptname}
+#### `PUT` `/cron/scripts/{scriptName}`
 
 **Update cron script content**
 
@@ -16995,7 +16995,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/cron/scripts/{scriptName}` {#delete-cron-scripts-scriptname}
+#### `DELETE` `/cron/scripts/{scriptName}`
 
 **Delete cron script**
 
@@ -17060,7 +17060,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/cron/system` {#get-cron-system}
+#### `GET` `/cron/system`
 
 **Get system cron jobs**
 
@@ -17107,7 +17107,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/cron/{identifier}` {#get-cron-identifier}
+#### `GET` `/cron/{identifier}`
 
 **Get specific cron job**
 
@@ -17163,7 +17163,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/cron/{identifier}` {#put-cron-identifier}
+#### `PUT` `/cron/{identifier}`
 
 **Update cron job**
 
@@ -17245,7 +17245,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/cron/{identifier}` {#delete-cron-identifier}
+#### `DELETE` `/cron/{identifier}`
 
 **Delete cron job**
 
@@ -17304,7 +17304,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/cron/{identifier}/enable` {#post-cron-identifier-enable}
+#### `POST` `/cron/{identifier}/enable`
 
 **Enable cron job**
 
@@ -17362,7 +17362,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/cron/{identifier}/disable` {#post-cron-identifier-disable}
+#### `POST` `/cron/{identifier}/disable`
 
 **Disable cron job**
 
@@ -17420,7 +17420,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/cron/{identifier}/start` {#post-cron-identifier-start}
+#### `POST` `/cron/{identifier}/start`
 
 **Start cron job manually**
 
@@ -17476,7 +17476,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/cron/{identifier}/stop` {#post-cron-identifier-stop}
+#### `POST` `/cron/{identifier}/stop`
 
 **Stop running cron job**
 
@@ -17531,12 +17531,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/cron/{identifier}/stop", {
 const data = await res.json();
 console.log(data);
 ```
-## System {#system}
+## System
 
 System Information, Monitoring and Power Management.
 
 
-#### `GET` `/system/memory` {#get-system-memory}
+#### `GET` `/system/memory`
 
 **Get detailed memory information**
 
@@ -17597,7 +17597,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/detailed` {#get-system-detailed}
+#### `GET` `/system/detailed`
 
 **Get detailed system information**
 
@@ -17657,7 +17657,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/load` {#get-system-load}
+#### `GET` `/system/load`
 
 **Get system load, temperature, memory and network utilization**
 
@@ -17871,7 +17871,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/system/power/reboot` {#post-system-power-reboot}
+#### `POST` `/system/power/reboot`
 
 **Reboot system**
 
@@ -17910,7 +17910,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/system/power/shutdown` {#post-system-power-shutdown}
+#### `POST` `/system/power/shutdown`
 
 **Shutdown system**
 
@@ -17949,7 +17949,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/proxy` {#get-system-proxy}
+#### `GET` `/system/proxy`
 
 **Get proxy settings**
 
@@ -17991,7 +17991,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/system/proxy` {#put-system-proxy}
+#### `PUT` `/system/proxy`
 
 **Update proxy settings**
 
@@ -18055,7 +18055,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/keymaps` {#get-system-keymaps}
+#### `GET` `/system/keymaps`
 
 **List available keymaps**
 
@@ -18109,7 +18109,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/timezones` {#get-system-timezones}
+#### `GET` `/system/timezones`
 
 **List available timezones**
 
@@ -18163,7 +18163,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/governors` {#get-system-governors}
+#### `GET` `/system/governors`
 
 **Get available CPU governors**
 
@@ -18206,7 +18206,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/logs` {#get-system-logs}
+#### `GET` `/system/logs`
 
 **List all log files**
 
@@ -18253,7 +18253,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/logs/content` {#get-system-logs-content}
+#### `GET` `/system/logs/content`
 
 **Read log file content**
 
@@ -18312,7 +18312,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/devices/pci` {#get-system-devices-pci}
+#### `GET` `/system/devices/pci`
 
 **Get PCI devices information**
 
@@ -18405,7 +18405,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/devices/usb` {#get-system-devices-usb}
+#### `GET` `/system/devices/usb`
 
 **Get USB devices information**
 
@@ -18500,7 +18500,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/gpus` {#get-system-gpus}
+#### `GET` `/system/gpus`
 
 **Get GPU information**
 
@@ -18562,7 +18562,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/sensors` {#get-system-sensors}
+#### `GET` `/system/sensors`
 
 **Get hardware sensor data**
 
@@ -18607,7 +18607,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/timedate` {#get-system-timedate}
+#### `GET` `/system/timedate`
 
 **Get current system date and time**
 
@@ -18646,7 +18646,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/system/timedate` {#put-system-timedate}
+#### `PUT` `/system/timedate`
 
 **Set system date and/or time**
 
@@ -18702,12 +18702,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/system/timedate", {
 const data = await res.json();
 console.log(data);
 ```
-## System Load WebSocket {#system-load-websocket}
+## System Load WebSocket
 
 Real-time system load monitoring via WebSocket.
 
 
-#### `GET` `/system/websocket/stats` {#get-system-websocket-stats}
+#### `GET` `/system/websocket/stats`
 
 **Get WebSocket monitoring statistics**
 
@@ -18753,7 +18753,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/system/websocket/events` {#get-system-websocket-events}
+#### `GET` `/system/websocket/events`
 
 **WebSocket Events Documentation**
 
@@ -18944,12 +18944,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/system/websocket/events", {
 const data = await res.json();
 console.log(data);
 ```
-## MOS {#mos}
+## MOS
 
 MOS System Configuration and Settings Management.
 
 
-#### `GET` `/mos/settings/docker` {#get-mos-settings-docker}
+#### `GET` `/mos/settings/docker`
 
 **Get Docker settings**
 
@@ -19011,7 +19011,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/docker` {#post-mos-settings-docker}
+#### `POST` `/mos/settings/docker`
 
 **Update Docker settings**
 
@@ -19106,7 +19106,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/lxc` {#get-mos-settings-lxc}
+#### `GET` `/mos/settings/lxc`
 
 **Get LXC settings**
 
@@ -19147,7 +19147,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/lxc` {#post-mos-settings-lxc}
+#### `POST` `/mos/settings/lxc`
 
 **Update LXC settings**
 
@@ -19202,7 +19202,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/vm` {#get-mos-settings-vm}
+#### `GET` `/mos/settings/vm`
 
 **Get VM settings**
 
@@ -19252,7 +19252,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/vm` {#post-mos-settings-vm}
+#### `POST` `/mos/settings/vm`
 
 **Update VM settings**
 
@@ -19315,7 +19315,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/system/network/interfaces` {#get-mos-system-network-interfaces}
+#### `GET` `/mos/system/network/interfaces`
 
 **Detect physical network interfaces**
 
@@ -19367,7 +19367,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/network/interfaces/reconcile` {#post-mos-settings-network-interfaces-reconcile}
+#### `POST` `/mos/settings/network/interfaces/reconcile`
 
 **Reconcile network interfaces**
 
@@ -19414,7 +19414,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/network/interfaces` {#get-mos-settings-network-interfaces}
+#### `GET` `/mos/settings/network/interfaces`
 
 **Get network interfaces**
 
@@ -19486,7 +19486,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/network/interfaces` {#post-mos-settings-network-interfaces}
+#### `POST` `/mos/settings/network/interfaces`
 
 **Update network interfaces**
 
@@ -19537,7 +19537,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/network/apply` {#post-mos-settings-network-apply}
+#### `POST` `/mos/settings/network/apply`
 
 **Confirm pending network changes**
 
@@ -19577,7 +19577,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/network/revert` {#post-mos-settings-network-revert}
+#### `POST` `/mos/settings/network/revert`
 
 **Revert pending network changes**
 
@@ -19617,7 +19617,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/network/interfaces/{interfaceName}/vlans` {#post-mos-settings-network-interfaces-interfacename-vlans}
+#### `POST` `/mos/settings/network/interfaces/{interfaceName}/vlans`
 
 **Add VLAN to interface**
 
@@ -19693,7 +19693,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/mos/settings/network/interfaces/{interfaceName}/vlans/{vlanId}` {#delete-mos-settings-network-interfaces-interfacename-vlans-vlanid}
+#### `DELETE` `/mos/settings/network/interfaces/{interfaceName}/vlans/{vlanId}`
 
 **Delete VLAN from interface**
 
@@ -19738,7 +19738,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/network/services` {#get-mos-settings-network-services}
+#### `GET` `/mos/settings/network/services`
 
 **Get network services**
 
@@ -19807,7 +19807,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/network/services` {#post-mos-settings-network-services}
+#### `POST` `/mos/settings/network/services`
 
 **Update network services**
 
@@ -19867,7 +19867,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/network/services/rsync/config` {#get-mos-settings-network-services-rsync-config}
+#### `GET` `/mos/settings/network/services/rsync/config`
 
 **Get rsync daemon configuration**
 
@@ -19910,7 +19910,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/network/services/rsync/config` {#post-mos-settings-network-services-rsync-config}
+#### `POST` `/mos/settings/network/services/rsync/config`
 
 **Update rsync daemon configuration**
 
@@ -19975,7 +19975,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/network/services/samba/config` {#get-mos-settings-network-services-samba-config}
+#### `GET` `/mos/settings/network/services/samba/config`
 
 **Get Samba extra configuration**
 
@@ -20016,7 +20016,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/network/services/samba/config` {#post-mos-settings-network-services-samba-config}
+#### `POST` `/mos/settings/network/services/samba/config`
 
 **Update Samba extra configuration**
 
@@ -20085,7 +20085,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/system` {#get-mos-settings-system}
+#### `GET` `/mos/settings/system`
 
 **Get system settings**
 
@@ -20141,7 +20141,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/system` {#post-mos-settings-system}
+#### `POST` `/mos/settings/system`
 
 **Update system settings**
 
@@ -20241,7 +20241,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/notifications/providers` {#get-mos-settings-notifications-providers}
+#### `GET` `/mos/settings/notifications/providers`
 
 **Get all notification providers**
 
@@ -20280,7 +20280,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/notifications/providers` {#post-mos-settings-notifications-providers}
+#### `POST` `/mos/settings/notifications/providers`
 
 **Create a new notification provider**
 
@@ -20350,7 +20350,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/notifications/providers/{name}` {#get-mos-settings-notifications-providers-name}
+#### `GET` `/mos/settings/notifications/providers/{name}`
 
 **Get a single notification provider**
 
@@ -20393,7 +20393,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PATCH` `/mos/settings/notifications/providers/{name}` {#patch-mos-settings-notifications-providers-name}
+#### `PATCH` `/mos/settings/notifications/providers/{name}`
 
 **Update a notification provider**
 
@@ -20467,7 +20467,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/mos/settings/notifications/providers/{name}` {#delete-mos-settings-notifications-providers-name}
+#### `DELETE` `/mos/settings/notifications/providers/{name}`
 
 **Delete a notification provider**
 
@@ -20512,7 +20512,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/settings/notifications/email` {#get-mos-settings-notifications-email}
+#### `GET` `/mos/settings/notifications/email`
 
 **Get email notification provider config**
 
@@ -20563,7 +20563,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/settings/notifications/email` {#post-mos-settings-notifications-email}
+#### `POST` `/mos/settings/notifications/email`
 
 **Update email notification provider config**
 
@@ -20636,7 +20636,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/update_api` {#post-mos-update-api}
+#### `POST` `/mos/update_api`
 
 **Update the API service**
 
@@ -20678,7 +20678,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/update_ui` {#post-mos-update-ui}
+#### `POST` `/mos/update_ui`
 
 **Update the UI service (nginx)**
 
@@ -20720,7 +20720,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/recreatecerts` {#post-mos-recreatecerts}
+#### `POST` `/mos/recreatecerts`
 
 **Recreate SSL certificates**
 
@@ -20762,7 +20762,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/certificates` {#get-mos-certificates}
+#### `GET` `/mos/certificates`
 
 **Get SSL certificate information**
 
@@ -20822,7 +20822,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/services` {#get-mos-services}
+#### `GET` `/mos/services`
 
 **Get all service status**
 
@@ -20909,7 +20909,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/restart/service` {#post-mos-restart-service}
+#### `POST` `/mos/restart/service`
 
 **Restart generic service**
 
@@ -20967,7 +20967,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/updateos` {#post-mos-updateos}
+#### `POST` `/mos/updateos`
 
 **Update MOS**
 
@@ -21036,7 +21036,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/rollbackos` {#post-mos-rollbackos}
+#### `POST` `/mos/rollbackos`
 
 **Rollback MOS**
 
@@ -21097,7 +21097,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/getreleases` {#get-mos-getreleases}
+#### `GET` `/mos/getreleases`
 
 **Get available MOS releases**
 
@@ -21147,7 +21147,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/osinfo` {#get-mos-osinfo}
+#### `GET` `/mos/osinfo`
 
 **Get current MOS and CPU information**
 
@@ -21203,7 +21203,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/getkernel` {#get-mos-getkernel}
+#### `GET` `/mos/getkernel`
 
 **Get available kernel releases**
 
@@ -21253,7 +21253,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/getdrivers` {#get-mos-getdrivers}
+#### `GET` `/mos/getdrivers`
 
 **Get available driver releases**
 
@@ -21312,7 +21312,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/installeddrivers` {#get-mos-installeddrivers}
+#### `GET` `/mos/installeddrivers`
 
 **Get installed drivers**
 
@@ -21360,7 +21360,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/drivers` {#post-mos-drivers}
+#### `POST` `/mos/drivers`
 
 **Download or upgrade drivers**
 
@@ -21422,7 +21422,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/mos/drivers` {#delete-mos-drivers}
+#### `DELETE` `/mos/drivers`
 
 **Delete a driver**
 
@@ -21482,7 +21482,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/updatekernel` {#post-mos-updatekernel}
+#### `POST` `/mos/updatekernel`
 
 **Update kernel**
 
@@ -21543,7 +21543,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/rollbackkernel` {#post-mos-rollbackkernel}
+#### `POST` `/mos/rollbackkernel`
 
 **Rollback kernel**
 
@@ -21588,7 +21588,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/bootbackupfiles` {#get-mos-bootbackupfiles}
+#### `GET` `/mos/bootbackupfiles`
 
 **Get boot backup files**
 
@@ -21627,7 +21627,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/installtodisk` {#post-mos-installtodisk}
+#### `POST` `/mos/installtodisk`
 
 **Install MOS to disk**
 
@@ -21699,7 +21699,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/dashboard` {#get-mos-dashboard}
+#### `GET` `/mos/dashboard`
 
 **Get dashboard layout**
 
@@ -21754,7 +21754,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/dashboard` {#post-mos-dashboard}
+#### `POST` `/mos/dashboard`
 
 **Update dashboard layout**
 
@@ -21843,7 +21843,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/readfile` {#get-mos-readfile}
+#### `GET` `/mos/readfile`
 
 **Read a file from the filesystem**
 
@@ -21893,7 +21893,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/editfile` {#post-mos-editfile}
+#### `POST` `/mos/editfile`
 
 **Edit a file on the filesystem**
 
@@ -21955,7 +21955,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/rename` {#post-mos-rename}
+#### `POST` `/mos/rename`
 
 **Rename a file or directory**
 
@@ -22022,7 +22022,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/createfile` {#post-mos-createfile}
+#### `POST` `/mos/createfile`
 
 **Create a new file on the filesystem**
 
@@ -22090,7 +22090,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/createfolder` {#post-mos-createfolder}
+#### `POST` `/mos/createfolder`
 
 **Create a new folder on the filesystem**
 
@@ -22156,7 +22156,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/delete` {#post-mos-delete}
+#### `POST` `/mos/delete`
 
 **Delete a file or folder from the filesystem**
 
@@ -22225,7 +22225,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/chown` {#post-mos-chown}
+#### `POST` `/mos/chown`
 
 **Change ownership of a file or folder**
 
@@ -22292,7 +22292,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/chmod` {#post-mos-chmod}
+#### `POST` `/mos/chmod`
 
 **Change permissions of a file or folder**
 
@@ -22356,7 +22356,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/dashboard/interface` {#get-mos-dashboard-interface}
+#### `GET` `/mos/dashboard/interface`
 
 **Get dashboard network interface setting**
 
@@ -22393,7 +22393,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/dashboard/interface` {#post-mos-dashboard-interface}
+#### `POST` `/mos/dashboard/interface`
 
 **Update dashboard network interface setting**
 
@@ -22449,7 +22449,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/fsnavigator` {#get-mos-fsnavigator}
+#### `GET` `/mos/fsnavigator`
 
 **Browse filesystem with directory/file picker**
 
@@ -22522,7 +22522,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/fsnavigator/calc` {#post-mos-fsnavigator-calc}
+#### `POST` `/mos/fsnavigator/calc`
 
 **Calculate directory size**
 
@@ -22580,7 +22580,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/fsnavigator/bookmarks` {#get-mos-fsnavigator-bookmarks}
+#### `GET` `/mos/fsnavigator/bookmarks`
 
 **List all filesystem bookmarks**
 
@@ -22625,7 +22625,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/fsnavigator/bookmarks` {#post-mos-fsnavigator-bookmarks}
+#### `POST` `/mos/fsnavigator/bookmarks`
 
 **Replace all filesystem bookmarks**
 
@@ -22683,7 +22683,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/mos/fsnavigator/bookmarks` {#put-mos-fsnavigator-bookmarks}
+#### `PUT` `/mos/fsnavigator/bookmarks`
 
 **Create a new filesystem bookmark**
 
@@ -22746,7 +22746,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/mos/fsnavigator/bookmarks` {#delete-mos-fsnavigator-bookmarks}
+#### `DELETE` `/mos/fsnavigator/bookmarks`
 
 **Delete one or all filesystem bookmarks**
 
@@ -22806,7 +22806,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/download` {#get-mos-download}
+#### `GET` `/mos/download`
 
 **Download a file from the filesystem**
 
@@ -22853,7 +22853,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/upload` {#post-mos-upload}
+#### `POST` `/mos/upload`
 
 **Upload a file to the filesystem**
 
@@ -22918,7 +22918,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/fileoperations` {#get-mos-fileoperations}
+#### `GET` `/mos/fileoperations`
 
 **List all file operations**
 
@@ -22978,7 +22978,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/fileoperations` {#post-mos-fileoperations}
+#### `POST` `/mos/fileoperations`
 
 **Start a file copy or move operation**
 
@@ -23072,7 +23072,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/mos/fileoperations/{id}` {#delete-mos-fileoperations-id}
+#### `DELETE` `/mos/fileoperations/{id}`
 
 **Cancel a running file operation**
 
@@ -23138,7 +23138,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/runningfsoperations` {#get-mos-runningfsoperations}
+#### `GET` `/mos/runningfsoperations`
 
 **Get count of running file operations**
 
@@ -23176,7 +23176,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/sensors` {#get-mos-sensors}
+#### `GET` `/mos/sensors`
 
 **Get mapped sensor values**
 
@@ -23235,7 +23235,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/sensors` {#post-mos-sensors}
+#### `POST` `/mos/sensors`
 
 **Create sensor mapping(s)**
 
@@ -23315,7 +23315,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/mos/sensors` {#put-mos-sensors}
+#### `PUT` `/mos/sensors`
 
 **Replace all sensor mappings**
 
@@ -23491,7 +23491,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/sensors/unmapped` {#get-mos-sensors-unmapped}
+#### `GET` `/mos/sensors/unmapped`
 
 **Get unmapped sensors**
 
@@ -23542,7 +23542,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/sensors/config` {#get-mos-sensors-config}
+#### `GET` `/mos/sensors/config`
 
 **Get sensor mapping configuration**
 
@@ -23610,7 +23610,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/sensors/view` {#get-mos-sensors-view}
+#### `GET` `/mos/sensors/view`
 
 **Get sensors view settings**
 
@@ -23656,7 +23656,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/sensors/view` {#post-mos-sensors-view}
+#### `POST` `/mos/sensors/view`
 
 **Update sensors view settings**
 
@@ -23722,7 +23722,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PATCH` `/mos/sensors/{id}` {#patch-mos-sensors-id}
+#### `PATCH` `/mos/sensors/{id}`
 
 **Update an existing sensor mapping**
 
@@ -23799,7 +23799,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/mos/sensors/{id}` {#delete-mos-sensors-id}
+#### `DELETE` `/mos/sensors/{id}`
 
 **Delete a sensor mapping**
 
@@ -23836,7 +23836,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/tokens` {#get-mos-tokens}
+#### `GET` `/mos/tokens`
 
 **Get all tokens**
 
@@ -23876,7 +23876,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/tokens` {#post-mos-tokens}
+#### `POST` `/mos/tokens`
 
 **Update tokens (partial updates supported)**
 
@@ -23937,7 +23937,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/validatetokens` {#get-mos-validatetokens}
+#### `GET` `/mos/validatetokens`
 
 **Validate configured tokens**
 
@@ -24002,7 +24002,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/zram` {#get-mos-zram}
+#### `GET` `/mos/zram`
 
 **Get ZRAM configuration and status**
 
@@ -24059,7 +24059,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/zram` {#post-mos-zram}
+#### `POST` `/mos/zram`
 
 **Update ZRAM configuration**
 
@@ -24137,7 +24137,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/zram/algorithms` {#get-mos-zram-algorithms}
+#### `GET` `/mos/zram/algorithms`
 
 **Get available compression algorithms**
 
@@ -24181,7 +24181,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/zram/status` {#get-mos-zram-status}
+#### `GET` `/mos/zram/status`
 
 **Get ZRAM device status**
 
@@ -24212,7 +24212,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/zram/devices` {#post-mos-zram-devices}
+#### `POST` `/mos/zram/devices`
 
 **Add a new ZRAM device**
 
@@ -24269,7 +24269,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/zram/devices/{id}` {#post-mos-zram-devices-id}
+#### `POST` `/mos/zram/devices/{id}`
 
 **Update a ZRAM device**
 
@@ -24317,7 +24317,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/mos/zram/devices/{id}` {#delete-mos-zram-devices-id}
+#### `DELETE` `/mos/zram/devices/{id}`
 
 **Delete a ZRAM device**
 
@@ -24356,7 +24356,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/zswap/algorithms` {#get-mos-zswap-algorithms}
+#### `GET` `/mos/zswap/algorithms`
 
 **Get available zswap compression algorithms**
 
@@ -24399,7 +24399,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/zswap/status` {#get-mos-zswap-status}
+#### `GET` `/mos/zswap/status`
 
 **Get swap and zswap status**
 
@@ -24450,7 +24450,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/diag` {#get-mos-diag}
+#### `GET` `/mos/diag`
 
 **Download diagnostics tar.gz bundle**
 
@@ -24488,12 +24488,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/mos/diag", {
 const data = await res.json();
 console.log(data);
 ```
-## File Operations WebSocket {#file-operations-websocket}
+## File Operations WebSocket
 
 File Operations WebSocket.
 
 
-#### `GET` `/mos/fileoperations/websocket/events` {#get-mos-fileoperations-websocket-events}
+#### `GET` `/mos/fileoperations/websocket/events`
 
 **WebSocket Events Documentation**
 
@@ -24636,12 +24636,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/mos/fileoperations/websocket/eve
 const data = await res.json();
 console.log(data);
 ```
-## MOS Hub {#mos-hub}
+## MOS Hub
 
 MOS Hub Repository Management.
 
 
-#### `GET` `/mos/hub/settings` {#get-mos-hub-settings}
+#### `GET` `/mos/hub/settings`
 
 **Get hub settings**
 
@@ -24689,7 +24689,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/hub/settings` {#post-mos-hub-settings}
+#### `POST` `/mos/hub/settings`
 
 **Update hub settings**
 
@@ -24749,7 +24749,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/hub/repositories` {#get-mos-hub-repositories}
+#### `GET` `/mos/hub/repositories`
 
 **Get all repository URLs**
 
@@ -24787,7 +24787,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/hub/repositories` {#post-mos-hub-repositories}
+#### `POST` `/mos/hub/repositories`
 
 **Set repository URLs**
 
@@ -24837,7 +24837,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/hub/knownrepositories` {#get-mos-hub-knownrepositories}
+#### `GET` `/mos/hub/knownrepositories`
 
 **Get known repository URLs**
 
@@ -24875,7 +24875,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/hub/update` {#post-mos-hub-update}
+#### `POST` `/mos/hub/update`
 
 **Update repositories**
 
@@ -24926,7 +24926,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/hub/index` {#get-mos-hub-index}
+#### `GET` `/mos/hub/index`
 
 **Get template index**
 
@@ -24999,7 +24999,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/hub/types` {#get-mos-hub-types}
+#### `GET` `/mos/hub/types`
 
 **Get available template types**
 
@@ -25038,7 +25038,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/hub/categories` {#get-mos-hub-categories}
+#### `GET` `/mos/hub/categories`
 
 **Get available template categories**
 
@@ -25084,7 +25084,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/hub/docker/template` {#post-mos-hub-docker-template}
+#### `POST` `/mos/hub/docker/template`
 
 **Get docker template content**
 
@@ -25130,7 +25130,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/hub/compose/template` {#post-mos-hub-compose-template}
+#### `POST` `/mos/hub/compose/template`
 
 **Get compose files content**
 
@@ -25192,7 +25192,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/hub/plugin/template` {#post-mos-hub-plugin-template}
+#### `POST` `/mos/hub/plugin/template`
 
 **Get plugin template content**
 
@@ -25253,12 +25253,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/mos/hub/plugin/template", {
 const data = await res.json();
 console.log(data);
 ```
-## MOS Plugins {#mos-plugins}
+## MOS Plugins
 
 MOS Plugin Management.
 
 
-#### `GET` `/mos/plugins` {#get-mos-plugins}
+#### `GET` `/mos/plugins`
 
 **List all installed plugins**
 
@@ -25306,7 +25306,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/plugins/query` {#post-mos-plugins-query}
+#### `POST` `/mos/plugins/query`
 
 **Query a plugin command**
 
@@ -25371,7 +25371,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/plugins/releases` {#post-mos-plugins-releases}
+#### `POST` `/mos/plugins/releases`
 
 **Get GitHub releases for a plugin repository**
 
@@ -25446,7 +25446,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/plugins/install` {#post-mos-plugins-install}
+#### `POST` `/mos/plugins/install`
 
 **Install a plugin from Hub template**
 
@@ -25502,7 +25502,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/plugins/settings/{pluginName}` {#get-mos-plugins-settings-pluginname}
+#### `GET` `/mos/plugins/settings/{pluginName}`
 
 **Get plugin settings**
 
@@ -25545,7 +25545,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/plugins/settings/{pluginName}` {#post-mos-plugins-settings-pluginname}
+#### `POST` `/mos/plugins/settings/{pluginName}`
 
 **Update plugin settings**
 
@@ -25597,7 +25597,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/plugins/updatecheck` {#post-mos-plugins-updatecheck}
+#### `POST` `/mos/plugins/updatecheck`
 
 **Check for plugin updates**
 
@@ -25655,7 +25655,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/plugins/update` {#post-mos-plugins-update}
+#### `POST` `/mos/plugins/update`
 
 **Update plugins**
 
@@ -25716,7 +25716,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/mos/plugins/delete/{pluginName}` {#delete-mos-plugins-delete-pluginname}
+#### `DELETE` `/mos/plugins/delete/{pluginName}`
 
 **Delete a plugin**
 
@@ -25765,7 +25765,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/mos/plugins/executefunction` {#post-mos-plugins-executefunction}
+#### `POST` `/mos/plugins/executefunction`
 
 **Execute a function from a plugin**
 
@@ -25825,7 +25825,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/mos/plugins/driver/{pluginName}` {#get-mos-plugins-driver-pluginname}
+#### `GET` `/mos/plugins/driver/{pluginName}`
 
 **Get driver package info for a driver plugin**
 
@@ -25872,12 +25872,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/mos/plugins/driver/{pluginName}"
 const data = await res.json();
 console.log(data);
 ```
-## Terminal {#terminal}
+## Terminal
 
 Terminal Management.
 
 
-#### `GET` `/terminal/sessions` {#get-terminal-sessions}
+#### `GET` `/terminal/sessions`
 
 **List all terminal sessions**
 
@@ -25947,7 +25947,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/terminal/create` {#post-terminal-create}
+#### `POST` `/terminal/create`
 
 **Create new terminal session**
 
@@ -26101,7 +26101,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/terminal/{sessionId}` {#get-terminal-sessionid}
+#### `GET` `/terminal/{sessionId}`
 
 **Terminal session info**
 
@@ -26161,7 +26161,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/terminal/{sessionId}` {#delete-terminal-sessionid}
+#### `DELETE` `/terminal/{sessionId}`
 
 **Terminate terminal session**
 
@@ -26207,7 +26207,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/terminal/{sessionId}/resize` {#post-terminal-sessionid-resize}
+#### `POST` `/terminal/{sessionId}/resize`
 
 **Resize terminal**
 
@@ -26277,12 +26277,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/terminal/{sessionId}/resize", {
 const data = await res.json();
 console.log(data);
 ```
-## Terminal WebSocket {#terminal-websocket}
+## Terminal WebSocket
 
 Terminal WebSocket management and documentation.
 
 
-#### `GET` `/api/v1/terminal/websocket/events` {#get-api-v1-terminal-websocket-events}
+#### `GET` `/api/v1/terminal/websocket/events`
 
 **Terminal WebSocket Events Documentation**
 
@@ -26538,7 +26538,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/api/v1/terminal/websocket/stats` {#get-api-v1-terminal-websocket-stats}
+#### `GET` `/api/v1/terminal/websocket/stats`
 
 **Get Terminal WebSocket Statistics**
 
@@ -26598,12 +26598,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/api/v1/terminal/websocket/stats"
 const data = await res.json();
 console.log(data);
 ```
-## NUT {#nut}
+## NUT
 
 Network UPS Tools configuration and status.
 
 
-#### `GET` `/nut/settings` {#get-nut-settings}
+#### `GET` `/nut/settings`
 
 **Get NUT settings**
 
@@ -26719,7 +26719,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/nut/settings` {#post-nut-settings}
+#### `POST` `/nut/settings`
 
 **Update NUT settings**
 
@@ -26864,7 +26864,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/nut/status` {#get-nut-status}
+#### `GET` `/nut/status`
 
 **Get UPS status**
 
@@ -26931,7 +26931,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/nut/scripts/{event}` {#get-nut-scripts-event}
+#### `GET` `/nut/scripts/{event}`
 
 **Get the script for a NUT event**
 
@@ -26982,7 +26982,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/nut/scripts/{event}` {#post-nut-scripts-event}
+#### `POST` `/nut/scripts/{event}`
 
 **Update the script for a NUT event**
 
@@ -27052,12 +27052,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/nut/scripts/{event}", {
 const data = await res.json();
 console.log(data);
 ```
-## NUT WebSocket {#nut-websocket}
+## NUT WebSocket
 
 Real-time UPS status monitoring via WebSocket.
 
 
-#### `GET` `/nut/websocket/events` {#get-nut-websocket-events}
+#### `GET` `/nut/websocket/events`
 
 **WebSocket Events Documentation**
 
@@ -27134,7 +27134,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/nut/websocket/stats` {#get-nut-websocket-stats}
+#### `GET` `/nut/websocket/stats`
 
 **Get NUT WebSocket statistics**
 
@@ -27175,12 +27175,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/nut/websocket/stats", {
 const data = await res.json();
 console.log(data);
 ```
-## Notifications {#notifications}
+## Notifications
 
 Notifications Management.
 
 
-#### `GET` `/notifications` {#get-notifications}
+#### `GET` `/notifications`
 
 **Get all notifications**
 
@@ -27242,7 +27242,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/notifications` {#delete-notifications}
+#### `DELETE` `/notifications`
 
 **Delete all notifications**
 
@@ -27283,7 +27283,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/notifications/{id}` {#delete-notifications-id}
+#### `DELETE` `/notifications/{id}`
 
 **Delete notification by ID**
 
@@ -27331,7 +27331,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/notifications/stats` {#get-notifications-stats}
+#### `GET` `/notifications/stats`
 
 **Get notification statistics**
 
@@ -27377,7 +27377,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/notifications/{id}/read` {#put-notifications-id-read}
+#### `PUT` `/notifications/{id}/read`
 
 **Mark notification as read**
 
@@ -27426,7 +27426,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/notifications/read/multiple` {#put-notifications-read-multiple}
+#### `PUT` `/notifications/read/multiple`
 
 **Mark multiple notifications as read**
 
@@ -27482,7 +27482,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `PUT` `/notifications/read/all` {#put-notifications-read-all}
+#### `PUT` `/notifications/read/all`
 
 **Mark all notifications as read**
 
@@ -27524,7 +27524,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `GET` `/notifications/push/vapid-key` {#get-notifications-push-vapid-key}
+#### `GET` `/notifications/push/vapid-key`
 
 **Get VAPID public key**
 
@@ -27563,7 +27563,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/notifications/push/subscribe` {#post-notifications-push-subscribe}
+#### `POST` `/notifications/push/subscribe`
 
 **Subscribe to push notifications**
 
@@ -27624,7 +27624,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `DELETE` `/notifications/push/subscribe` {#delete-notifications-push-subscribe}
+#### `DELETE` `/notifications/push/subscribe`
 
 **Unsubscribe from push notifications**
 
@@ -27680,12 +27680,12 @@ const res = await fetch("http://<MOS-IP>/api/v1/notifications/push/subscribe", {
 const data = await res.json();
 console.log(data);
 ```
-## LLM {#llm}
+## LLM
 
 LLM Integration and Chat.
 
 
-#### `GET` `/llm/status` {#get-llm-status}
+#### `GET` `/llm/status`
 
 **Get LLM container status**
 
@@ -27724,7 +27724,7 @@ const data = await res.json();
 console.log(data);
 ```
 
-#### `POST` `/llm/chat` {#post-llm-chat}
+#### `POST` `/llm/chat`
 
 **Send a message to the LLM**
 

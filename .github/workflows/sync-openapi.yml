@@ -1,0 +1,75 @@
+name: Sync OpenAPI Reference
+
+# Regenerates src/components/ApiExplorer/openapi.json from the mos-api
+# repository and, when the spec changed, commits it and redeploys the docs.
+# Runs fully in GitHub Actions — no local machine required.
+on:
+  schedule:
+    # Sundays ~23:00 CET = 22:00 UTC (summer: ~00:00 Monday local, still fine)
+    - cron: '0 22 * * 0'
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'mos-api git ref (branch / tag / sha)'
+        required: false
+        default: 'master'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Regenerate OpenAPI spec
+        id: sync
+        run: |
+          REF="${{ github.event.inputs.ref || 'master' }}"
+          echo "Using mos-api ref: $REF"
+          node scripts/sync-openapi.js --ref "$REF"
+          if git diff --quiet --exit-code src/components/ApiExplorer/openapi.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No spec changes detected."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Spec changed — will commit and redeploy."
+          fi
+
+      - name: Commit synced spec
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          STAMP="$(date -u +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/components/ApiExplorer/openapi.json
+          git commit -m "chore(api): auto-sync openapi.json (weekly, $STAMP)"
+          git push
+
+      - name: Install dependencies
+        if: steps.sync.outputs.changed == 'true'
+        run: npm install
+
+      - name: Build website
+        if: steps.sync.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        if: steps.sync.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          cname: docs.mos-official.net

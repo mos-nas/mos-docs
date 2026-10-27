@@ -460,6 +460,13 @@
             "description": "Dark mode preference",
             "example": false
           },
+          "menu_layout": {
+            "type": "string",
+            "nullable": true,
+            "description": "Menu layout preference",
+            "default": null,
+            "example": "vertical"
+          },
           "byte_format": {
             "type": "string",
             "enum": [
@@ -10151,6 +10158,13 @@
                     "description": "Dark mode preference",
                     "example": true
                   },
+                  "menu_layout": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Menu layout preference",
+                    "default": null,
+                    "example": "vertical"
+                  },
                   "byte_format": {
                     "type": "string",
                     "enum": [
@@ -10368,6 +10382,12 @@
                   "darkmode": {
                     "type": "boolean",
                     "description": "Dark mode preference"
+                  },
+                  "menu_layout": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Menu layout preference",
+                    "default": null
                   },
                   "byte_format": {
                     "type": "string",
@@ -24814,6 +24834,11 @@
                         "type": "string",
                         "description": "Cron schedule for update checks",
                         "example": "0 1 * * *"
+                      },
+                      "webui_notification": {
+                        "type": "boolean",
+                        "description": "Enable OS update notification in WebUI via /mos/services endpoint",
+                        "example": false
                       }
                     }
                   },
@@ -26096,6 +26121,35 @@
                           "type": "boolean",
                           "description": "Whether a valid supporter key is configured",
                           "example": false
+                        },
+                        "os_update_available": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Version string from /var/mos/mos_update_check if webui_notification is enabled and an update is available, null otherwise",
+                          "example": "0.6.1-stable"
+                        },
+                        "reboot_pending": {
+                          "type": "object",
+                          "description": "Information about a pending system reboot",
+                          "properties": {
+                            "pending": {
+                              "type": "boolean",
+                              "description": "Whether a system reboot is pending (file /var/mos/reboot_pending exists)",
+                              "example": true
+                            },
+                            "reason": {
+                              "type": "array",
+                              "description": "Reasons for the pending reboot (one entry per line from the file). For multiple \"MOS Update\" or \"MOS Kernel Update\" entries, only the last one of each is kept.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "MOS Update 0.6.3-stable",
+                                "MOS Kernel Update 6.1.0-amd64",
+                                "Plugin Installation xyz"
+                              ]
+                            }
+                          }
                         }
                       }
                     }
@@ -26158,7 +26212,12 @@
                     "enabled": true
                   },
                   "mos": {
-                    "supporter": false
+                    "supporter": false,
+                    "os_update_available": null,
+                    "reboot_pending": {
+                      "pending": false,
+                      "reason": []
+                    }
                   }
                 }
               }
@@ -37452,8 +37511,7 @@
               "enum": [
                 "docker",
                 "compose",
-                "plugin",
-                "driver"
+                "plugin"
               ]
             },
             "description": "Filter by type"
@@ -37537,8 +37595,7 @@
                             "enum": [
                               "docker",
                               "compose",
-                              "plugin",
-                              "driver"
+                              "plugin"
                             ]
                           },
                           "category": {
@@ -47380,5 +47437,8 @@
         }
       }
     }
-  }
+  },
+  "x-synced-from": "eb0b340c133ec05421fbc7375a4d6757888c9441",
+  "x-synced-ref": "master",
+  "x-synced-at": "2026-10-27T21:10:05.945Z"
 }

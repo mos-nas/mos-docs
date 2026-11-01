@@ -293,6 +293,11 @@
   margin: 0;
   padding: 12px 14px;
   overflow-x: auto;
+  /* Force the dark "terminal" surface in BOTH themes. Without this, Docusaurus'
+     global `pre { background: var(--ifm-pre-background) }` (light in light mode)
+     paints the <pre> light and covers the parent's #1a1a1a, while the hardcoded
+     light code text (#f8f8f2) becomes white-on-white / invisible. */
+  background: #1a1a1a;
 }
 .codeBlock code {
   color: #f8f8f2;

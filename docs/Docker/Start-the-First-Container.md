@@ -170,7 +170,7 @@ containers that belong to the stack.
 
 Navigate to:
 
-> **Docker → Docker Compose**
+> **Docker → ⋯ (bottom right) → Create Compose Stack**
 
 This allows deploying one or multiple containers using a Docker Compose YAML definition.
 
@@ -234,6 +234,7 @@ Clicking the stack menu provides the following actions:
 | **Edit Stack** | Opens the Docker Compose configuration for editing |
 | **Remove Stack** | Removes the entire stack and all associated containers |
 | **Pull Stack Images** | Pulls the latest images for all containers in the stack |
+| **Force Update Stack** | Pulls the latest images and recreates all containers in the stack |
 
 :::note
 Stack actions always apply to **all containers within the stack**.
@@ -247,10 +248,10 @@ The action menu *(three-dot button)* provides additional Docker management featu
 
 | Action | Description |
 |--------|-------------|
-| ➕ **Add container** | Create a new container manually |
-| 📦 **Docker Compose** | Deploy containers using a Compose YAML file |
+| ➕ **Create Docker Container** | Create a new container manually |
+| 📦 **Create Compose Stack** | Deploy containers using a Compose YAML file |
 | 🗂️ **Create Docker group** | Organize containers into logical groups |
-| ⏱️ **Set Wait Times** | Define startup delays for individual containers |
+| ⏱️ **Sort / Wait Times** | Reorder containers and define startup delays |
 | 🧹 **Unused Docker Images** | View and remove unused container images |
 | 🔍 **Check for Updates** | Manually check for available image updates |
 | ⬆️ **Update All** | Update all containers at once |
@@ -272,7 +273,7 @@ Each individual container provides a context menu with management actions.
 | ☠️ **Kill** | Immediately stops the container without graceful shutdown |
 | ✏️ **Edit** | Opens the container configuration for editing |
 | 📜 **Logs** | Displays the container logs |
-| ⚡ **Force Update** | Pulls the latest image and recreates the container |
+| ⬆️ **Force Update** | Pulls the latest image and recreates the container |
 | 🗑️ **Delete** | Removes the container and its configuration |
 
 :::note

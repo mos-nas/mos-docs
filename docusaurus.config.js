@@ -129,6 +129,14 @@ const config = {
         ],
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          // ...
+        ],
+      },
+    ],
   ],
 
   presets: [
@@ -151,6 +159,13 @@ const config = {
   ],
 
   themeConfig: {
+    zoom: {
+      selector: '.markdown img',
+      background: {
+        light: 'rgb(255, 255, 255)',
+        dark: 'rgb(50, 50, 50)',
+      },
+    },
     announcementBar: {
       id: announcement.id,
       content: announcement.content,

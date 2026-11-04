@@ -66,6 +66,14 @@ http://<mos-ip>
 
 ## 🧭 Optional Ports
 
+The following ports are used by optional services and are only reachable while the respective service is enabled:
+
+| Port | Service | Purpose |
+| ----------- | -------------- | ------------- |
+| 873 | Rsync Daemon | rsync file synchronisation server |
+| 3493 | NUT | Network UPS Tools server (netserver mode) |
+| 8088 | Tailscale Web UI | Tailscale management web interface |
+
 ---
 
 ## 🖥️ Virtual Machine Console Ports (VNC)

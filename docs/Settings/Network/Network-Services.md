@@ -1,7 +1,7 @@
 ---
 sidebar_label: 🔌 Network Services
 sidebar_position: 3
-description: "Enable network services in MOS: SSH, NFS, Dnsmasq, NUT (UPS), Tailscale, Netbird, and iSCSI for remote access, file sharing, and VPN connectivity."
+description: "Enable network services in MOS: SSH, NFS, Samba, Rsync, Remote Mounting, Dnsmasq, NUT (UPS), Tailscale, and Netbird for remote access, file sharing, and VPN connectivity."
 ---
 
 # 🔌 Network Services
@@ -11,6 +11,8 @@ MOS provides various network services for remote access, file sharing, and VPN c
 **Settings → Network → Network Services**
 
 ![Network Services](/img/network/Network_Services.png)
+
+![Network Services (continued)](/img/network/Network_Services2.png)
 
 ---
 
@@ -267,6 +269,50 @@ Enable to access storage from other servers or NAS devices.
 
 ---
 
+## 🔄 Rsync
+
+Rsync is a fast, incremental file-synchronisation tool. Enabling the **Rsync Daemon** turns MOS into an rsync server so that other systems can synchronise data to or from your shares over the network.
+
+:::info
+The Rsync **daemon** is enabled or disabled under **Settings → Network → Network Services**. The daemon configuration is edited on the dedicated **Rsync** page under **Settings → Network**.
+:::
+
+The Rsync page shows a single **Content** editor for the `rsyncd.conf` file, stored at:
+
+```
+/boot/config/system/rsync/rsyncd.conf
+```
+
+![Rsync configuration page](/img/settings/network/rsync/rsync.png)
+
+*The Rsync page with the rsyncd.conf content editor.*
+
+### Configuring rsyncd.conf
+
+Enter the rsync daemon configuration in the **Content** editor and click the save (floating action) button. When the content changes and the daemon is enabled, the service is restarted automatically.
+
+A minimal module definition looks like this:
+
+```ini
+[data]
+  path = /mnt/pool/data
+  read only = no
+```
+
+| Directive | Description |
+|-----------|-------------|
+| `[name]` | Module name clients connect to (e.g., `rsync://host/data`) |
+| `path` | Absolute path of the directory to expose |
+| `read only` | `yes` = clients may only download, `no` = clients may also upload |
+| `comment` | Optional description shown in the module list |
+| `auth users` / `secrets file` | Restrict access to specific users with a password file |
+
+:::tip
+The daemon listens on the standard rsync port `873`. Make sure your firewall allows access from the clients that should synchronise with MOS.
+:::
+
+---
+
 ## 🗂️ Samba (SMB/CIFS)
 
 Windows-compatible file sharing.
@@ -279,6 +325,27 @@ Enable network discovery for automatic detection of MOS shares.
 
 ### Workgroup
 Configure the workgroup name for your network (default: `WORKGROUP`).
+
+### Localmaster
+Enable **Localmaster** to make MOS act as the Samba **local master browser** for its workgroup. This helps Windows clients keep an up-to-date list of computers and shares on the network.
+
+:::note
+Only one host per workgroup should be the local master browser. Enable this on MOS only if no other server already provides this role.
+:::
+
+### Edit Extra Configuration
+Use **Edit extra configuration** to add custom options to the generated Samba configuration without editing files by hand. The dialog provides two editors:
+
+| Editor | Purpose | Stored as |
+|--------|---------|-----------|
+| **Global Configuration** | Extra options for the `[global]` section (e.g., veto files) | `global_extra.conf` |
+| **Shares Configuration** | Extra options applied to the share definitions | `shares_extra.conf` |
+
+![Samba extra configuration dialog](/img/settings/network/samba/samba_extra_configuration.png)
+
+*The Samba Extra Configuration dialog with default global options.*
+
+Both files are stored under `/boot/config/system/samba/` and are included in the generated `smb.conf`. When the content changes and Samba is enabled, `smbd` is restarted (and `nmbd`/`wsddn` if Samba Discovery is enabled). Click **Save** to apply or **Cancel** to discard.
 
 ---
 
@@ -313,6 +380,21 @@ Enable automatic update notifications for Tailscale.
 ### Tailscale Daemon Parameters
 
 Add custom command-line arguments for the Tailscale daemon (`tailscaled`) if needed.
+
+### Tailscale Web UI
+
+Enable **Tailscale Web UI** to expose the Tailscale web interface for managing your tailnet from the browser.
+
+| Field | Default | Description |
+|-------|---------|-------------|
+| **Address** | `0.0.0.0` | Interface the Web UI listens on (`0.0.0.0` = all interfaces) |
+| **Port** | `8088` | TCP port for the Web UI |
+
+Once enabled, click **Open Web UI** to open the interface in a new browser tab (e.g., `http://<MOS-IP>:8088`).
+
+:::warning
+The Tailscale Web UI exposes administrative functions. Only enable it on trusted networks and never forward its port to the public Internet.
+:::
 
 ---
 

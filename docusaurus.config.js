@@ -151,6 +151,13 @@ const config = {
         ],
       },
     ],
+    [
+      'docusaurus-plugin-glossary',
+      {
+        glossaryPath: 'glossary/glossary.json',
+        routePath: '/glossary',
+      },
+    ],
   ],
 
   presets: [
@@ -202,6 +209,11 @@ const config = {
         href: '/docs/',
       },
       items: [
+        {
+          to: '/glossary',
+          label: 'Glossary',
+          position: 'right',
+        },
         {
           href: 'https://github.com/mos-nas/mos-releases',
           label: 'GitHub',

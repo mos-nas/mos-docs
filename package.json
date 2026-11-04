@@ -23,6 +23,7 @@
     "@docusaurus/faster": "3.10.1",
     "@docusaurus/plugin-client-redirects": "3.10.1",
     "@docusaurus/plugin-pwa": "3.10.1",
+    "docusaurus-plugin-glossary": "^3.4.0",
     "docusaurus-plugin-image-zoom": "^3.0.1",
     "@docusaurus/preset-classic": "3.10.1",
     "@docusaurus/theme-mermaid": "3.10.1",

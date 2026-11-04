@@ -1,0 +1,228 @@
+# MOS Documentation
+
+> MOS (Modular Operating System) is a lightweight, web-based management system for servers and homelabs, built on Devuan Linux.
+
+This is the official documentation for MOS. It covers installation, storage pools, shares, Docker, LXC, virtual machines, networking, the MOS Hub, plugins and the MOS API.
+
+- [Full documentation (single file)](https://docs.mos-official.net/llms-full.txt)
+
+## Documentation
+
+- [Welcome to MOS-Docs](https://docs.mos-official.net/docs/): MOS is a lightweight, Devuan-based OS for server and homelab management with Docker, LXC, VMs, storage pools, shares, monitoring, notifications, REST API, and plugins. Open source, no telemetry.
+
+### Installation
+
+- [Create Bootable Media](https://docs.mos-official.net/docs/Installation/Create-Bootable-Media): Create a bootable USB stick or VM image to install MOS (Modular Operating System) on your server or homelab.
+- [First Walkthrough](https://docs.mos-official.net/docs/Installation/First-Walkthrough): Complete the MOS first walkthrough: set root password, configure web login, network, storage, and system settings.
+- [Testing MOS in a Virtual Machine](https://docs.mos-official.net/docs/Installation/Testing-MOS-in-a-Virtual-Machine): Test MOS (Modular Operating System) in a virtual machine before installing on physical hardware. Step-by-step QEMU/KVM and VirtualBox guide.
+- [ARM Support (Experimental)](https://docs.mos-official.net/docs/Installation/ARM-Support): Install MOS on ARM devices like Orange Pi and Raspberry Pi. Experimental ARM64 support guide with kernel and DTB configuration.
+
+### Dashboard
+
+- [WebUI Overview](https://docs.mos-official.net/docs/Dashboard/WebUI-Overview): Overview of the MOS web interface: dashboard, navigation menu, storage, virtualization, and system configuration panels explained.
+
+### Disks
+
+- [S.M.A.R.T.](https://docs.mos-official.net/docs/Disks/SMART): Configure S.M.A.R.T. monitoring in MOS to track disk health, temperature thresholds, and receive warnings for HDD, SSD, and NVMe drives.
+
+### Pools
+
+- [Create a Storage Pool](https://docs.mos-official.net/docs/Pools/Create-Storage-Pool): Create and configure storage pools in MOS using mergerfs, SnapRAID, Btrfs, or ZFS. Step-by-step guide with pool types and filesystem options.
+- [Virtual Pools](https://docs.mos-official.net/docs/Pools/Virtual-Pools): Combine existing storage paths into a single virtual pool using mergerfs, without requiring dedicated physical disks.
+- [ZFS](https://docs.mos-official.net/docs/Pools/ZFS): Enable ZFS support in MOS via the OpenZFS Driver plugin. CLI-only ZFS pool management with automatic import on boot.
+
+### Shares
+
+- [Create the First Shares](https://docs.mos-official.net/docs/Shares/Create-the-First-Shares): Create network shares in MOS with SMB and NFS. Configure share permissions, access control, and storage pool assignment.
+
+### MOS Hub
+
+- [MOS Hub Settings](https://docs.mos-official.net/docs/MOS-Hub/MOS-Hub-Settings): Configure the MOS Hub settings: enable/disable the app store, control update behavior, and manage template repositories.
+- [Creating Your Own MOS Hub Repository](https://docs.mos-official.net/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository): Create your own MOS Hub repository on GitHub to share Docker templates, Compose templates, and plugins with the MOS community.
+
+### Docker
+
+- [Docker Service](https://docs.mos-official.net/docs/Docker/Docker-Service): Configure the Docker service in MOS: enable Docker, set storage locations, configure networking, and manage update checks.
+- [Start the First Container](https://docs.mos-official.net/docs/Docker/Start-the-First-Container): Deploy your first Docker container in MOS using the Docker service or MOS Hub templates. Complete setup guide with networking and volume configuration.
+
+### LXC
+
+- [Container Overview](https://docs.mos-official.net/docs/LXC/LXC-Overview): Overview of the LXC container list in MOS: columns, container states, storage usage and management actions.
+- [LXC Service](https://docs.mos-official.net/docs/LXC/LXC-Service): Configure the LXC service in MOS: enable Linux Containers, set storage locations, and manage container networking.
+
+### VMs
+
+- [VM Service](https://docs.mos-official.net/docs/VMs/VM-Service): Configure the VM service in MOS: enable KVM/QEMU virtual machines and define storage locations for VM data.
+- [Create the First VM](https://docs.mos-official.net/docs/VMs/Create-the-First-VM): Create your first virtual machine in MOS with KVM/QEMU. Configure CPU, memory, storage, network, and boot from ISO images.
+
+### Plugins & Drivers
+
+- [MOS Backup Plugin](https://docs.mos-official.net/docs/Plugins/MOS-Backup-Plugin): MOS Backup Plugin: Backup and restore your MOS system with this plugin.
+- [Drivers](https://docs.mos-official.net/docs/Plugins/Drivers): Manage hardware drivers in MOS via Driver Plugins from the MOS Hub. Install NVIDIA, DVB, and other kernel module drivers.
+- [MOS Plugin Development Guide](https://docs.mos-official.net/docs/Plugins/MOS-Plugin-Development-Guide): Develop your own MOS plugin: Vue-based configuration pages, bash functions, plugin settings, and GitHub Actions build workflow.
+
+### Terminal
+
+- [Terminal](https://docs.mos-official.net/docs/Terminal/): Access the MOS system shell directly from the browser with the Web Terminal.
+
+### Filebrowser
+
+- [Filebrowser](https://docs.mos-official.net/docs/Filebrowser/): Overview of the MOS Filebrowser: web-based file manager for browsing, navigating, and inspecting the entire file system of your MOS server directly from the WebUI.
+
+### Settings
+
+
+#### System
+
+- [Update System](https://docs.mos-official.net/docs/Settings/System/Update-System): Update MOS firmware and kernel: choose update channels (alpha, beta, stable), select releases, and manage kernel updates.
+
+#### System Configuration
+
+- [Users](https://docs.mos-official.net/docs/Settings/User-Management/Users): Create and manage user accounts in MOS: assign roles, configure Samba access, and control permissions for shares and services.
+- [System](https://docs.mos-official.net/docs/Settings/System-Configuration/System): Configure MOS system settings: hostname, keymap, timezone, CPU governor, swap, zswap, NTP, proxy, and display options.
+- [Cron Jobs](https://docs.mos-official.net/docs/Settings/System-Configuration/Cron-Jobs): Create and manage cron jobs in MOS: schedule automated tasks, backups, log rotation, and custom scripts with flexible timing.
+- [Logs](https://docs.mos-official.net/docs/Settings/System-Configuration/Logs): View and browse system log files in MOS: access API, boot, cron, Docker, and syslog entries through the WebUI log viewer.
+- [Notifications](https://docs.mos-official.net/docs/Settings/System-Configuration/Notifications): Configure notification providers in MOS to receive system alerts via Email, Discord, Gotify, Pushbits, or custom webhook providers.
+- [User Profile](https://docs.mos-official.net/docs/Settings/User-Management/User-Profile): Configure user profile settings in MOS: interface preferences, language, dark mode, UI color, and MFA/TOTP two-factor authentication.
+
+#### Hardware
+
+- [Boot](https://docs.mos-official.net/docs/Settings/Hardware/Boot): Install and manage the MOS bootloader: install to disk, configure boot files, and set up extra partitions for storage pools.
+- [USB Devices](https://docs.mos-official.net/docs/Settings/Hardware/USB-Devices): Overview of USB devices connected to the MOS system, including vendor IDs, product IDs, and bus information.
+- [PCI Devices](https://docs.mos-official.net/docs/Settings/Hardware/PCI-Devices): Overview of PCI devices detected on the MOS system, including slot information, device classes, and vendor/device IDs.
+- [ZRAM](https://docs.mos-official.net/docs/Settings/Hardware/ZRAM): Configure ZRAM compressed swap and RAM disks on MOS to maximize memory efficiency on systems with limited RAM.
+- [Sensors](https://docs.mos-official.net/docs/Settings/Hardware/Sensors): Monitor hardware sensors in MOS: display temperatures, voltages, fan speeds, and custom metrics on the dashboard.
+
+#### Network
+
+- [Network Interfaces](https://docs.mos-official.net/docs/Settings/Network/Network-Configuration): Configure network interfaces in MOS: ethernet, bridged, and bond modes, static IP, DHCP, VLAN, and IPv6 support with 60-second rollback protection.
+- [Network Services](https://docs.mos-official.net/docs/Settings/Network/Network-Services): Enable network services in MOS: SSH, NFS, Samba, Rsync, Remote Mounting, Dnsmasq, NUT (UPS), Tailscale, and Netbird for remote access, file sharing, and VPN connectivity.
+- [iSCSI Target](https://docs.mos-official.net/docs/Settings/Network/iSCSI-Target): Configure iSCSI targets on MOS to share block storage over the network using the iSCSI protocol.
+- [iSCSI Initiator](https://docs.mos-official.net/docs/Settings/Network/iSCSI-Initiator): Configure the iSCSI Initiator on MOS to connect to remote iSCSI targets and mount their block storage locally.
+- [Network Ports](https://docs.mos-official.net/docs/Settings/Network/Network-Ports): Network ports used by MOS: WebUI (80), API (998), Notify (999), VNC consoles (5900+), and DNS (53). Configure firewalls and reverse proxies correctly.
+- [Token](https://docs.mos-official.net/docs/Settings/Network/Token): Manage authentication tokens in MOS: create MOS Admin API tokens, GitHub tokens, and Docker Hub tokens for extended functionality.
+
+### API
+
+- [MOS API Overview](https://docs.mos-official.net/docs/API/MOS-API-Overview): MOS REST API overview: fully documented API used by the WebUI. Automate, script, and integrate MOS with external tools via Bearer Token authentication.
+- [API Reference](https://docs.mos-official.net/docs/API/API-Reference): Interactive reference for the MOS REST API: browse every endpoint by category, expand to see parameters, request/response schemas and copy-ready example requests.
+- [Rate Limits](https://docs.mos-official.net/docs/API/Rate-Limits): MOS API rate limits configuration: general request limits and login brute-force protection via environment variables.
+
+### Advanced Usage
+
+- [System Architecture](https://docs.mos-official.net/docs/Advanced-Usage/System-Architecture): MOS system architecture: runs entirely in RAM from a USB stick with persistent storage for configuration. Understand the lightweight, energy-efficient design for homelabs.
+- [Docker Local Host Access](https://docs.mos-official.net/docs/Advanced-Usage/Docker-Local-Host-Access-Shim): Enable Docker containers on LAN networks (macvlan/ipvlan) to access the MOS host system via a shim interface plugin.
+- [Disable MD5 Verification](https://docs.mos-official.net/docs/Advanced-Usage/Disable-MD5-Verification): Disable MD5 checksum verification on MOS boot for advanced scenarios. Marker file-based configuration.
+- [Persistent Package Installation](https://docs.mos-official.net/docs/Advanced-Usage/Persistent-Package-Installation): Install persistent Debian packages on MOS that survive reboots. Place .deb files in /boot/optional/packages for automatic installation.
+- [Kernel Module Configuration](https://docs.mos-official.net/docs/Advanced-Usage/Kernel-Module-Configuration): Configure persistent kernel module parameters in MOS via custom modprobe.d files. Useful for ARM board-specific driver settings.
+- [Bash Profile Configuration](https://docs.mos-official.net/docs/Advanced-Usage/Bash-Profile-Configuration): Customize your MOS SSH session with a persistent .bash_profile: aliases, environment variables, prompt colors, and custom functions.
+
+#### System Startup
+
+- [Early Boot Script](https://docs.mos-official.net/docs/Advanced-Usage/System-Startup/Early-Boot-Script): MOS Early Boot Script (boot.sh): the earliest execution point for deep system-level modifications before drivers, network, and storage are loaded.
+- [Pre-Start Script](https://docs.mos-official.net/docs/Advanced-Usage/System-Startup/Pre-Start-Script): MOS Pre-Start Script (pre-start.sh): execute commands before storage pools are mounted and services are started.
+- [Mounted Script](https://docs.mos-official.net/docs/Advanced-Usage/System-Startup/Mounted-Script): MOS Mounted Script (mounted.sh): execute commands after storage pools are mounted but before services start.
+- [Post-Start Script](https://docs.mos-official.net/docs/Advanced-Usage/System-Startup/Post-Start-Script): MOS Post-Start Script (post-start.sh): execute commands after all services are fully started.
+- [Pool Mount Scripts](https://docs.mos-official.net/docs/Advanced-Usage/System-Startup/Pool-Mount-Scripts): MOS Pool Mount Scripts: execute custom scripts when specific storage pools are mounted during boot.
+
+### Troubleshooting
+
+- [Troubleshooting](https://docs.mos-official.net/docs/Troubleshooting/): MOS troubleshooting guide: common issues and solutions for boot problems, network configuration, Docker, LXC, and pool recovery.
+- [Diagnostics](https://docs.mos-official.net/docs/Troubleshooting/Diagnostics): Create a MOS diagnostics archive: collect system information, logs, and configuration for troubleshooting and community support.
+
+### Support MOS
+
+- [Support MOS](https://docs.mos-official.net/docs/Support-MOS/Support_MOS): Support the MOS project: donate to help continued development of the free and open-source Modular Operating System.
+
+### Release Notes
+
+- [Overview](https://docs.mos-official.net/docs/Release-Notes/Overview): MOS release notes overview: complete version history with highlights for all stable and beta releases.
+
+#### Stable
+
+- [0.6.1-stable](https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.1-stable): MOS 0.6.1-stable: Kernel 6.18.58, Docker v29.9.2, Node.js v24.22.1, reworked theme system with auto dark mode, Spanish language, Samba configuration UI, per-disk spindown times, FSNavigator directory sizes & bookmarks, iOS push notifications, SnapRAID error notifications, many bugfixes and improvements.
+- [0.6.0-stable](https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.0-stable): MOS 0.6.0-stable: Kernel 6.18.55, Docker v29.8.2, QEMU v11.1.2, Node.js v24.21.0, bcachefs support, nonraid improvements, single device pool types, secure boot for VMs, many bugfixes and improvements.
+- [0.5.8-stable](https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.8-stable): MOS 0.5.8-stable: Kernel 6.18.48, Docker v29.7.2, QEMU v11.1.1, rsync daemon support, performance metrics modifier, IPv6 nginx support, NUT event scripts, network chart eChart, many bugfixes and improvements.
+- [0.5.6-stable](https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.6-stable): MOS 0.5.6-stable: Kernel 6.18.42, IPv6 DHCP boot hang fix, SLAAC/DHCP/Static IPv6 WebUI settings, NUT init script fix, VM disk size editing regression fix, DMA kernel fix.
+- [0.5.5-stable](https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.5-stable): MOS 0.5.5-stable: Kernel 6.18.41, Docker v29.7.1, QEMU v11.0.3, SnapRAID v14.9, NUT integration, disk descriptions, LXC host mounts, VM CPU pinning, admin token permissions, network bonding, many bugfixes and improvements.
+- [0.5.0-stable](https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.0-stable): MOS 0.5.0-stable first stable release: Kernel 6.18.38, Node.js 24.18.0 LTS, Virtual Pools, Docker Hub recommended repositories, SMART acknowledge, plugin installation from Gitea and Codeberg, many bugfixes and improvements.
+
+#### Beta
+
+- [0.4.10-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.10-beta): MOS 0.4.10-beta release notes: bugfix for Network Services blank page and completed French translation.
+- [0.4.11-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.11-beta): MOS 0.4.11-beta release notes: Kernel 6.18.37, Docker v29.6.1, QEMU v11.0.2, wsddn v1.25, MergerFS Virtual Pools, Hub & Docker Group improvements, SMART acknowledge, Btrfs scrub/balance.
+- [0.4.5-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.5-beta): MOS 0.4.5-beta release notes: Kernel 6.18.32, Docker v29.5.0, wsddn v1.24, and Netbird/Tailscale support.
+- [0.4.6-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.6-beta): MOS 0.4.6-beta release notes: Kernel 6.18.33, Docker v29.5.2, EDK2 v202605, and acs-overrides_iommu patch.
+- [0.4.7-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.7-beta): MOS 0.4.7-beta release notes: Kernel 6.18.34, SnapRAID v14.5, socket-based API, Hugepages support, and iSCSI WebUI.
+- [0.4.8-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.8-beta): MOS 0.4.8-beta release notes: Kernel 6.18.35, Docker v29.5.3, SnapRAID v14.7, BTRFS scrub & balance, and French language support.
+- [0.4.9-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.9-beta): MOS 0.4.9-beta release notes: Kernel 6.18.36, Docker v29.6.0, BTRFS schedules, SMART acknowledge, and sleep/wakeup disk support.
+- [0.4.4-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.4-beta): MOS 0.4.4-beta release notes: Kernel 6.18.29, MergerFS v2.42.0, and Docker no_autoupdate option.
+- [0.4.3-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.3-beta): MOS 0.4.3-beta release notes: Kernel 6.18.28, dirty frag exploit fix, NFS fully implemented, and Docker v29.4.3.
+- [0.4.2-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.2-beta): MOS 0.4.2-beta release notes: Kernel 6.18.25, MFA/TOTP support, and plugin improvements.
+- [0.4.1-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.1-beta): MOS 0.4.1-beta release notes: Kernel 6.18.24, Docker v29.4.1, QEMU v11.0.0, SnapRAID v14.4, and Cron scheduling with CIDR support.
+- [0.4.0-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.0-beta): MOS 0.4.0-beta release notes: Kernel 6.18.23, SnapRAID v14.3, HTTPS certificates, and file upload & Hub improvements.
+- [0.3.0-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.3.0-beta): MOS 0.3.0-beta release notes: Docker 29.4.0, SnapRAID 14.2, S.M.A.R.T. monitoring, PWA notifications, and HTTPS support.
+- [0.2.4-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.2.4-beta): MOS 0.2.4-beta release notes: SnapRAID 14.1, Filebrowser operations, and login security improvements.
+- [0.2.3-beta](https://docs.mos-official.net/docs/Release-Notes/Beta/0.2.3-beta): MOS 0.2.3-beta release notes: PWA support, file operations, Docker 29.3.1, and MOS Hub improvements.
+
+## Glossary
+
+- **API Token**: A token created under Settings > Network > Token that authenticates requests to the MOS API from outside the WebUI.
+- **Appdata**: The directory where Docker containers keep their persistent configuration and data. It must live on a storage pool and should be backed up regularly.
+- **bcachefs**: A copy-on-write filesystem with checksums and optional replication, available as a MOS pool type.
+- **Bond**: Combines two or more physical network interfaces into one logical interface for redundancy or throughput. The switch must be configured to match (LACP or static).
+- **Boot device**: The USB stick or internal disk MOS boots from. Persistent system configuration lives in /boot/config on this device.
+- **Bridge**: A virtual network switch that connects virtual machines and containers to the physical LAN. The recommended interface type for most MOS installations.
+- **Btrfs**: A copy-on-write Linux filesystem with snapshots and checksums. Can be used as a pool filesystem and is required for snapshot-based LXC backups.
+- **CHAP**: Challenge Handshake Authentication Protocol. Used to authenticate an iSCSI initiator against a target.
+- **Diagnostics**: A downloadable .tar.gz archive containing system information, logs and configuration. Attach it when asking for support.
+- **Dnsmasq**: A lightweight DNS forwarder and DHCP server that MOS can enable for the local network.
+- **Docker**: The container runtime MOS uses for applications. It is enabled and configured under Settings > Virtualization > Docker Service.
+- **Docker Compose**: A multi-container stack defined in a compose.yaml file. MOS Hub can deploy Compose stacks as a single app.
+- **Docker Template**: A JSON file describing a container (image, ports, volumes, environment). MOS saves one automatically for every container you create.
+- **Firmware**: In MOS, the complete system image including the OS and kernel that is installed on the boot device and updated through Settings > System > Update System.
+- **FSNavigator**: Internal name of the Filebrowser service. The WebUI calls it Filebrowser; the API endpoints use fsnavigator.
+- **Hub Repository**: A GitHub repository in the layout the MOS Hub expects (docker/, compose/, plugins/) that can be added as a template source.
+- **iSCSI**: A protocol that shares block storage over the network. MOS can export storage as a target and mount remote targets as an initiator.
+- **IQN**: The unique identifier of an iSCSI target or initiator. The initiator IQN is generated automatically by MOS.
+- **KVM/QEMU**: The full-virtualization stack used for MOS virtual machines. VMs are enabled under Settings > Virtualization > VM Service.
+- **LUN**: A block device exported by an iSCSI target. Each LUN is backed by a disk, partition or image file on the MOS server.
+- **LXC**: Lightweight OS-level virtualization that shares the host kernel. Containers are managed on the LXC page and enabled under Settings > Virtualization > LXC Service.
+- **mergerfs**: A union filesystem that combines several disks into one mountpoint. Often combined with SnapRAID.
+- **MFA**: Multi-factor authentication using a TOTP app in addition to the password. Each account also gets recovery codes for when the app is unavailable.
+- **Minimal Free Space**: The free-space threshold at which MOS stops writing to a disk and moves on to the next disk in a mergerfs or nonraid pool.
+- **MOS API**: The REST API used by the WebUI and available for automation. Interactive documentation (Swagger UI) is served at /api-docs/ on the MOS IP.
+- **MOS Hub**: MOS app catalog for installing Docker containers, Compose stacks and plugins.
+- **Netbird**: An open-source mesh VPN based on WireGuard that MOS can enable as an alternative to Tailscale.
+- **NFS**: The file-sharing protocol used to mount MOS shares on Linux and Unix clients.
+- **nonraid**: A pool type with dedicated parity disks, similar to Unraid. Requires the nonraid driver, which is installed from the MOS Hub.
+- **NUT**: The service MOS uses to monitor a UPS and trigger a graceful shutdown when mains power is lost.
+- **OVMF**: The UEFI firmware used by virtual machines. Required for Windows 11 and modern Linux distributions.
+- **Parity**: Redundant data stored on one or more parity disks so a failed data disk can be rebuilt. Parity disks hold no usable capacity. Used by SnapRAID and nonraid.
+- **PCI Passthrough**: Giving a virtual machine exclusive access to a physical PCI device such as a GPU or controller. The host cannot use the device while the VM runs.
+- **Plugin**: An installable extension from the MOS Hub. Drivers are distributed as plugins, and some plugins add their own page to the WebUI.
+- **Pool**: One or more disks managed together as a single storage area. MOS supports single, multi, mergerfs, nonraid and bcachefs pools, plus Virtual Pools built from existing paths.
+- **PWA**: A website that can be installed as an app. MOS Docs can be installed and cached for offline reading.
+- **RAID**: Combining several disks into one protected volume. MOS multi pools support RAID 0 (striping, no protection) and RAID 1 (mirroring).
+- **Rate limit**: Protection that caps API requests at 20 per second by default. The defaults are tuned for stability and should not be changed.
+- **Resync**: Rebuilding parity, or rebuilding a replaced data disk from parity. A nonraid pool is usable during the initial resync but not yet protected.
+- **samba_only**: A user role without WebUI access. The account can only authenticate against file shares.
+- **Scrub**: A maintenance task that reads all data and verifies it against stored checksums, repairing from a mirror where possible. Available for btrfs and bcachefs.
+- **Share**: A folder on a pool that is shared over SMB or NFS.
+- **SMB**: The Windows file-sharing protocol. MOS provides SMB shares through Samba.
+- **SMART**: Self-Monitoring, Analysis and Reporting Technology. Disk health data used for warnings and temperature limits.
+- **SnapRAID**: Parity-based protection for mergerfs pools. It is not a live RAID; parity is updated on a schedule.
+- **Snapshot**: A point-in-time copy of a container or VM disk used for backups and rollback. LXC snapshot backups require btrfs storage; VM snapshots require qcow2 disks.
+- **Spindown**: Putting idle disks into standby after a configured number of minutes to save power and reduce noise.
+- **Swapfile**: A file on disk used as virtual memory when physical RAM is exhausted. Configured under Settings > System Configuration > System.
+- **Tailscale**: A WireGuard-based mesh VPN that gives remote access to MOS without port forwarding.
+- **Update channel**: The firmware track MOS follows: alpha (team testing only), beta (pre-release) or stable (recommended for production).
+- **UPS**: A battery backup that keeps the server running during a power outage. MOS monitors it through NUT and can shut down gracefully.
+- **Virtual Pool**: A pool built from existing directory paths (for example /mnt/main and /mnt/media) combined with mergerfs. No dedicated disks and no formatting required.
+- **VirtIO**: Paravirtualized disk and network drivers for virtual machines. They offer the best performance and need separate drivers inside Windows guests.
+- **VLAN**: A tagged (802.1Q) network segment configured on an interface. A VLAN can carry its own IP or be used only for bridging.
+- **WebUI**: The MOS browser interface. It performs no direct system actions; every action goes through the MOS API.
+- **XFS**: A journaling filesystem recommended for mergerfs and nonraid data disks.
+- **ZFS**: A copy-on-write filesystem with snapshots, checksums and RAID-Z. Available through the OpenZFS Driver plugin and currently CLI only.
+- **ZRAM**: A compressed block device in RAM used as compressed swap or as a fast RAM disk.
+- **Zswap**: A kernel feature that compresses memory pages in RAM before they are written to swap.

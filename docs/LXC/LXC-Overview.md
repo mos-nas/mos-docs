@@ -1,4 +1,12 @@
-## 📋 LXC Container List
+---
+sidebar_label: 📋 Container Overview
+sidebar_position: 1
+description: "Overview of the LXC container list in MOS: columns, container states, storage usage and management actions."
+---
+
+# 📋 LXC Container Overview
+
+The **LXC** page lists all containers on the system and their current state.
 
 | Column | Description |
 |--------|-------------|

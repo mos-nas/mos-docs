@@ -183,30 +183,6 @@ To install the driver:
 Only **one nonraid pool** can be created per MOS system.
 :::
 
----
-
-### 🧬 bcachefs
-
-A bcachefs pool combines devices into one filesystem with built-in checksumming and
-optional replication, managed by bcachefs itself rather than by mergerfs or SnapRAID.
-
-**Use it when:**
-- you want per-block checksums and self-healing on replicated data
-- you want a single filesystem across multiple devices without a separate parity tool
-
-**Characteristics:**
-- The pool is created through its own endpoint and always uses `bcachefs` as the filesystem
-- Supports scrubbing to verify data against checksums
-- Detects unclean shutdowns and reports them
-- Devices are prepared so they do not appear as unassigned disks while in use
-
-:::note
-bcachefs is younger than ext4, xfs or btrfs. Test a restore before you rely on it for
-data you cannot lose.
-:::
-
----
-
 #### 🔐 Parity Setup (Optional)
 
 Parity disks allow MOS to rebuild the data of failed data disks.
@@ -317,6 +293,28 @@ If mismatches are found, run **Correct** to update the parity disks accordingly.
 - Easy disk replacement
 - Mixed disk sizes with redundancy
 - Home server and NAS setups
+
+---
+
+### 🧬 bcachefs
+
+A bcachefs pool combines devices into one filesystem with built-in checksumming and
+optional replication, managed by bcachefs itself rather than by mergerfs or SnapRAID.
+
+**Use it when:**
+- you want per-block checksums and self-healing on replicated data
+- you want a single filesystem across multiple devices without a separate parity tool
+
+**Characteristics:**
+- The pool is created through its own endpoint and always uses `bcachefs` as the filesystem
+- Supports scrubbing to verify data against checksums
+- Detects unclean shutdowns and reports them
+- Devices are prepared so they do not appear as unassigned disks while in use
+
+:::note
+bcachefs is younger than ext4, xfs or btrfs. Test a restore before you rely on it for
+data you cannot lose.
+:::
 
 ---
 
@@ -489,15 +487,16 @@ To override it for individual disks:
 | Value | Behaviour |
 |-------|-----------|
 | empty | Inherits the global spindown value |
+| `0` | Spindown is disabled for this disk |
 | number | Individual idle time in minutes for this disk |
 
 Remove an individual value with the trash icon next to the field to return the disk
 to the global setting. Values are applied when the pool settings are saved.
 
 :::note
-Spindown is only available for pool types that manage individual devices
-(bcachefs, mergerfs and NonRAID). A pool that consists of a single filesystem
-uses the global setting.
+Per-disk spindown is available for pool types that manage individual devices:
+**btrfs**, **bcachefs**, **mergerfs** and **NonRAID**. Pools without per-device
+management (for example a single `xfs` pool) use the global setting.
 :::
 
 ---

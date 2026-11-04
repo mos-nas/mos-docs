@@ -136,6 +136,27 @@ Only edit `grub.cfg` if you fully understand GRUB configuration and recovery pro
 
 ---
 
+#### 🏷️ Set backup label on new device
+
+Gives the target device a label ending in `_BACKUP` instead of the normal `MOS`
+label. If the current installation uses the standard label, the new device is
+labelled `MOS_BACKUP`.
+
+**Options:**
+- Enable
+- Disable
+
+**When to use it:**
+- The disk is intended as a backup copy of the boot medium
+- You want to distinguish it from the normal installation at a glance
+
+:::note
+The label is written during the installation. Any existing label on the target
+device is replaced.
+:::
+
+---
+
 ## 📚 Best Practices 
 
 - Verify the target device before installing the bootloader

@@ -109,16 +109,15 @@ TLB pressure for memory-heavy VMs.
 
 | Field | Description |
 |-------|-------------|
-| **Enabled** | Reserves huge pages on the host |
-| **Set Huge Pages (MB)** | Total amount of memory to reserve for huge pages |
+| **Enabled** | Reserves huge pages on the host. Disabling it releases the reservation |
+| **Set Huge Pages** | Number of huge pages to reserve (`vm.nr_hugepages`). One page is typically 2 MB, so 512 pages reserve about 1 GB |
 | **System Huge Page Size (MB)** | Size of a single huge page as reported by the kernel (typically `2`) |
-| **Huge Pages** | Number of huge pages currently reserved |
-| **Free Huge Pages** | Number of reserved pages not in use |
+| **Huge Pages** | Number of pages currently reserved (read-only) |
+| **Free Huge Pages** | Number of reserved pages not in use (read-only) |
 
 :::note
-Huge pages are reserved from physical memory and are then unavailable to the rest of
-the system. Reserve only as much as your VMs need, and stop VMs before shrinking the
-reservation.
+The memory is reserved from physical RAM immediately. Reserved pages are not
+available to the rest of the system until you disable huge pages again.
 :::
 
 :::tip

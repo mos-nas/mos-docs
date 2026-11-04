@@ -28,8 +28,8 @@ Choose how the WebUI is displayed. The setting is stored per user.
 | **Light** | Always uses the light theme |
 | **Dark Mode** | Always uses the dark theme |
 
-**Auto** is the default. Selecting **Light** or **Dark Mode** overrides the system
-preference until you switch back to **Auto**.
+New users start with **Light**. **Auto** follows the operating system and updates
+when the system theme changes; **Light** and **Dark Mode** override the system preference until you switch back to **Auto**.
 
 :::tip
 **Auto** is the safest choice on devices that switch themes at sunset. The theme is

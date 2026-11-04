@@ -102,28 +102,33 @@ URL of the LXC image registry used for `lxc-create` downloads.
 
 ## 💾 Backups & Snapshots
 
-Each LXC container can be managed individually via the **Manage** button in the container list. This opens a detail view with two tabs:
+Each container is managed individually via the **Manage** button in the container
+list. The **Manage** view contains the container's backups, snapshots and restore
+actions.
 
-The backup defaults below apply to every container. Per-container backups and
-snapshots are managed with the **Manage** button in the container list.
+The defaults below apply to every container. They can be overridden per container
+when a backup is created.
 
-| Setting | Description |
-|---------|-------------|
-| **Backup Path** | Directory where container backups are stored |
-| **Backups to Keep** | Number of backups kept per container; older ones are removed |
-| **Compression** | Compression level or algorithm used for backup archives |
-| **Threads** | Number of worker threads used for compression (`0` = automatic) |
-| **Use Snapshots for Backups** | Create a snapshot first and back up from it, so the container keeps running during the backup. Requires a snapshot-capable filesystem (btrfs/ZFS) |
+### Backup Defaults
 
----
+| Setting | Default | Description |
+|---------|---------|-------------|
+| **Backup Path** | Pool-dependent | Directory where container backups are stored |
+| **Backups to Keep** | `3` | Number of backups kept per container; older ones are removed |
+| **Compression** | `6` | xz compression level from `0` (none) to `9` (maximum) |
+| **Threads** | `0` | Worker threads for compression. `0` uses half of the available CPU cores |
+| **Use Snapshots for Backups** | off | Back up from a btrfs snapshot so the container keeps running. Ignored for containers with **Directory** backing storage |
 
 ### Backing Storage
 
 Defines how container root filesystems are stored.
 
-- **Directory** — each container is a directory below the **LXC Directory**.
-  This is the default and works on every filesystem.
-- Other backends are only offered when the system supports them.
+| Option | Description |
+|--------|-------------|
+| **Directory** | Each container is a directory below the **LXC Directory** (default) |
+| **Btrfs** | Each root filesystem is a btrfs subvolume. Required for snapshot-based backups |
+
+Btrfs backing storage requires the **LXC Directory** to be on a btrfs filesystem.
 
 ### Backups
 

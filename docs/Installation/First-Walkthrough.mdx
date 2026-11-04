@@ -193,7 +193,7 @@ Configure basic system parameters:
 - **Hostname** — The system hostname (default: `MOS`)
 - **Keymap** — Keyboard layout for console access (default: `de-latin1-nodeadkeys`)
 - **Timezone** — System timezone (default: `Europe/Vienna`)
-- **CPU Governor** — CPU frequency scaling policy (default: `performance`)
+- **CPU Governor** — CPU frequency scaling policy (default: `ondemand`; falls back to `performance` if the CPU does not support it)
 - **Global Spindown** — Disk idle time before spin-down in minutes (default: `20`)
 - **Persist History** — Toggle to preserve command history across reboots
 - **Web UI HTTP Port** — The port for the WebUI (default: `80`)

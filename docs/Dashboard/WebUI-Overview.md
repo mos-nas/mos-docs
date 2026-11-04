@@ -235,9 +235,15 @@ standalone window and — on mobile devices — push notifications.
 
 ### Push notifications
 
-After you log in, MOS asks the browser for notification permission. If you allow it,
-the WebUI subscribes this browser and receives notifications even when the tab is
-closed. Logging out removes the subscription for that browser.
+After you log in, MOS tries to subscribe the browser for push notifications and the
+browser asks for permission. Some browsers only show this prompt after a user
+interaction, and some block automatic requests entirely.
+
+If no prompt appears:
+
+1. Open the browser's site settings for the MOS address.
+2. Allow **Notifications**.
+3. Reload the WebUI and log in again — MOS subscribes the browser on login.
 
 :::warning[HTTPS is required]
 Push notifications only work in a secure context. Access the WebUI via **HTTPS**
@@ -256,6 +262,30 @@ If notifications do not arrive:
 1. Check the browser's site settings and allow notifications for the MOS address.
 2. Make sure the WebUI is open at least once after installing the PWA.
 3. Remove the subscription by logging out, then log in again to re-subscribe.
+
+---
+
+## 🔔 Notification List
+
+The bell icon in the top bar opens the list of notifications received by MOS.
+A badge shows the number of unread entries.
+
+| Element | Behaviour |
+|---------|-----------|
+| Severity icon | Info, warning or error, depending on the notification |
+| Title and message | Short summary and details of the event |
+| Timestamp | When the notification was created |
+| **Newer / Older** | Switches the sort order of the list |
+| **Mark all as read** | Marks every entry as read after confirmation |
+
+Unread notifications are shown in bold. Selecting an entry opens it and marks it
+as read.
+
+:::note
+The notification list only shows events that were delivered to MOS. Which events
+are sent, and to which providers, is configured under
+[Settings → Notifications](/docs/Settings/System-Configuration/Notifications).
+:::
 
 ---
 

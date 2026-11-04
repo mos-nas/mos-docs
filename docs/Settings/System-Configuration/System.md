@@ -67,8 +67,14 @@ Defines the system timezone.
 
 Defines the CPU frequency scaling policy.
 
-**Default:**  
+**Default:**
 - `ondemand`
+
+:::note
+If the CPU does not provide the `ondemand` governor, MOS falls back to
+`performance` and stores that value. Check this page after installation to see
+which governor is actually active.
+:::
 
 **Common options:**
 - `ondemand` – Dynamic scaling based on current system load
@@ -181,6 +187,27 @@ Defines the local DNS search domain for hostname resolution.
 ### Network Interfaces
 
 Select the primary network interface for system operations.
+
+---
+
+## 📋 Logs
+
+### Max Log Directory Size
+
+Maximum size of the `tmpfs` mounted at `/var/log`, in megabytes.
+
+**Default:**
+- `200` MB
+
+**Behaviour:**
+- The change is applied immediately by remounting `/var/log`
+- When the limit is reached, services can no longer write log output
+- Log data lives in RAM and is lost on reboot
+
+:::warning
+A value that is too small can cut off logs you need for troubleshooting. Keep at
+least a few days of history for the services you monitor.
+:::
 
 ---
 

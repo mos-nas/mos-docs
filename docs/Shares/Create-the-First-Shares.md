@@ -157,6 +157,7 @@ Allows files in the share to be executed with full execute permissions.
 | ✅ Enabled | Files can be executed with execute permissions |
 | ❌ Disabled | Execute permissions are restricted |
 
+:::tip
 This option is useful for shares that need to store and execute executable files (e.g., scripts, binaries).
 :::
 
@@ -191,7 +192,7 @@ When deleting a share, an additional option is available:
 | **Delete directory** | Permanently removes the share directory and **all its contents** |
 | **Remove Path Rule** | Removes the path rule from the configuration |
 
-:::danger This action cannot be undone!
+:::danger[This action cannot be undone!]
 All data in the share directory will be permanently lost.
 :::
 

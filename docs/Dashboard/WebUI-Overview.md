@@ -217,7 +217,7 @@ Default configuration:
 - Maximum of 5 failed login attempts in 15 minutes
 - After 5 failed attempts: 30 minutes block
 
-:::warning Important
+:::warning[Important]
 Changes to the configuration require a restart of the API or the server to take effect.
 :::
 

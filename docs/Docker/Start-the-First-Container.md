@@ -34,8 +34,9 @@ Navigate to:
 
 Enables or disables the Docker engine.
 
-> [!IMPORTANT]
-> Docker must be **enabled** before containers can be created.
+:::important
+Docker must be **enabled** before containers can be created.
+:::
 
 ---
 

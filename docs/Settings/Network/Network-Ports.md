@@ -33,7 +33,7 @@ Understanding which ports are in use is important for:
 - Default HTTP access
 - Intended for local network use only
 
-:::warning Security Notice
+:::warning[Security Notice]
 The MOS WebUI is not designed to be exposed directly to the public Internet.
 
 Do not forward port 80 on your router or firewall.

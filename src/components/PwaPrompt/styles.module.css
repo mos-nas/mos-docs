@@ -1,0 +1,94 @@
+.card {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1000;
+  width: min(340px, calc(100vw - 2rem));
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: var(--ifm-global-shadow-md);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--ifm-font-color-base);
+}
+
+.title {
+  margin: 0 1.2rem 0.25rem 0;
+  font-weight: 600;
+}
+
+.text {
+  margin: 0 0 0.65rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.help {
+  margin: 0.35rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.82rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.primary,
+.secondary {
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary {
+  border: 1px solid var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.primary:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.secondary {
+  border: 1px solid var(--ifm-color-emphasis-400);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+}
+
+.secondary:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+@media (max-width: 600px) {
+  .card {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: auto;
+  }
+}

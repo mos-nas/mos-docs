@@ -77,26 +77,27 @@ async function fetchReleases(repo, token, onlyTag) {
   }
   return all;
 }
+
+// Reads the bullet list under the release body's "Changes" heading.
+// Handles "### Changes:", "## Changes" and "Changes:".
 function extractChanges(body) {
   if (!body) return [];
   const lines = body.split(/\r?\n/);
-  let start = lines.findIndex((l) => /^changes\s*:/i.test(l.trim()));
-  if (start < 0) {
-    start = lines.findIndex((l) => /^\s*[-*]\s+/.test(l));
-  } else {
-    start += 1;
-  }
+  const start = lines.findIndex((l) => /^#{0,6}\s*changes\s*:?\s*$/i.test(l.trim()));
   if (start < 0) return [];
+
   const bullets = [];
-  for (let i = start; i < lines.length; i++) {
-    const l = lines[i];
-    if (/^\s*[-*]\s+/.test(l)) {
-      bullets.push(l.replace(/^\s*[-*]\s+/, '').trim());
-    } else if (l.trim() === '') {
-      continue;
-    } else if (/^(contributors|assets|all reactions)/i.test(l.trim())) {
-      break;
-    } else {
+  for (let i = start + 1; i < lines.length; i++) {
+    const raw = lines[i];
+    const line = raw.trim();
+    if (line === '') continue;
+    if (/^#{1,6}\s/.test(line)) break;
+    if (/^\s*[-*]\s+/.test(raw)) {
+      bullets.push(raw.replace(/^\s*[-*]\s+/, '').trim());
+    } else if (/^\s{2,}\S/.test(raw) && bullets.length) {
+      // Indented continuation of the previous bullet.
+      bullets[bullets.length - 1] += ' ' + line;
+    } else if (/^(contributors|assets|all reactions)/i.test(line)) {
       break;
     }
   }
@@ -153,6 +154,7 @@ function cmpVersion(a, b) {
   for (let i = 0; i < 3; i++) if (ka[i] !== kb[i]) return ka[i] - kb[i];
   return 0;
 }
+
 function listChannelTags(channel) {
   const dir = path.join(RELEASE_DIR, channel);
   if (!fs.existsSync(dir)) return [];
@@ -207,18 +209,19 @@ function seedIndexFromOverview() {
   }
   return map;
 }
+
 function renderMdx({tag, channel, release, prevTag, position, highlights}) {
   const emoji = channel === 'Stable' ? '🎉' : '🧪';
   const bullets = extractChanges(release.body);
   const {system, features, fixes} = categorize(bullets);
-  const desc = `MOS ${tag}: ${highlights}`.replace(/"/g, "'");
+  const desc = `MOS ${tag}: ${highlights}`;
   const htmlUrl = release.html_url || `https://github.com/mos-nas/mos-releases/releases/tag/${tag}`;
   const L = [];
   L.push('---');
   L.push(`title: ${tag}`);
   L.push(`sidebar_label: ${emoji} ${tag}`);
   L.push(`sidebar_position: ${position}`);
-  L.push(`description: "${desc}"`);
+  L.push(`description: ${JSON.stringify(desc)}`);
   L.push('---');
   L.push('');
   L.push(`# ${tag}`);
@@ -281,7 +284,9 @@ function buildIndex(releases, existingIndex) {
         channel,
         badge: channel === 'Stable' ? '🎉 Stable' : '🧪 Beta',
         highlights,
-        date: r && (r.published_at || null),
+        // Keep the previously known date when a single tag was fetched
+        // (--tag), so a partial sync does not wipe the other entries.
+        date: (r && r.published_at) || (prev && prev.date) || null,
       });
     }
   }
@@ -289,34 +294,27 @@ function buildIndex(releases, existingIndex) {
   const beta = [...byKey.values()].filter((e) => e.channel === 'Beta').sort((a, b) => cmpVersion(b.version, a.version));
   return [...stable, ...beta];
 }
-function buildAnnouncement(index, releases) {
+
+// Pick the announcement by version (not by publish date), so editing an older
+// release cannot make it the "newest" one. Stable wins ties.
+function buildAnnouncement(index) {
   if (index.length === 0) return null;
-  let latest = null;
-  let best = -1;
-  const byVer = new Map(index.map((e) => [e.version, e]));
-  for (const r of releases) {
-    const t = normTag(r.tag_name);
-    if (!byVer.has(t)) continue;
-    const ts = Date.parse(r.published_at || r.created_at || 0);
-    if (ts > best) {
-      best = ts;
-      latest = {tag: t, release: r};
+  let best = index[0];
+  for (const entry of index.slice(1)) {
+    const cmp = cmpVersion(entry.version, best.version);
+    if (cmp > 0 || (cmp === 0 && entry.channel === 'Stable' && best.channel !== 'Stable')) {
+      best = entry;
     }
   }
-  if (!latest) {
-    latest = {tag: index[0].version, release: {html_url: `https://github.com/mos-nas/mos-releases/releases/tag/${index[0].version}`}};
-  }
-  const entry = byVer.get(latest.tag);
-  const channel = entry.channel;
-  const emoji = channel === 'Stable' ? '🎉' : '🧪';
-  const permalink = `${SITE_URL}/docs/Release-Notes/${channel}/${latest.tag}`;
+  const emoji = best.channel === 'Stable' ? '🎉' : '🧪';
+  const permalink = `${SITE_URL}/docs/Release-Notes/${best.channel}/${best.version}`;
   const content =
-    `${emoji} <strong>MOS ${latest.tag} is out!</strong> — ${entry.highlights}  ` +
+    `${emoji} <strong>MOS ${best.version} is out!</strong> — ${best.highlights}  ` +
     `<a href="${permalink}" style="color:#ffffff;">Release Notes →</a>`;
   return {
-    id: `release-${latest.tag}`,
+    id: `release-${best.version}`,
     content,
-    backgroundColor: channel === 'Stable' ? '#fa9725' : '#2470d7',
+    backgroundColor: best.channel === 'Stable' ? '#fa9725' : '#2470d7',
     textColor: '#ffffff',
   };
 }
@@ -325,7 +323,7 @@ function buildAnnouncement(index, releases) {
 // SyncBadge component on the Overview page (mirrors the OpenAPI x-synced-*
 // fields). All display strings are pre-formatted server-side (Europe/Vienna)
 // so the badge is hydration-safe.
-function buildSyncMeta(releases, opts) {
+function buildSyncMeta(releases, opts, totalReleases) {
   const sorted = [...releases].sort((a, b) => Date.parse(b.published_at || 0) - Date.parse(a.published_at || 0));
   const newest = sorted[0];
   const syncedAt = new Date();
@@ -343,7 +341,7 @@ function buildSyncMeta(releases, opts) {
     syncedTrigger: opts.trigger,
     syncedFrom: newest ? normTag(newest.tag_name) : 'unknown',
     syncedRepo: opts.repo,
-    syncedReleases: releases.length,
+    syncedReleases: Number.isFinite(totalReleases) ? totalReleases : releases.length,
   };
 }
 
@@ -409,14 +407,19 @@ async function main() {
     }
   }
 
-  const announcement = buildAnnouncement(index, sortedReleases);
-  const annContent = JSON.stringify(announcement, null, 2) + '\n';
-  const annChanged = !fs.existsSync(ANNOUNCE_FILE) || fs.readFileSync(ANNOUNCE_FILE, 'utf8') !== annContent;
-  if (annChanged) {
-    if (opts.check) console.log('  ~ release-announcement.json would change');
-    else {
-      fs.writeFileSync(ANNOUNCE_FILE, annContent);
-      console.log(`✔ Wrote ${path.relative(ROOT, ANNOUNCE_FILE)} (id: ${announcement.id})`);
+  const announcement = buildAnnouncement(index);
+  let annChanged = false;
+  if (!announcement) {
+    console.warn('  ! No announcement generated (index is empty) — leaving release-announcement.json unchanged.');
+  } else {
+    const annContent = JSON.stringify(announcement, null, 2) + '\n';
+    annChanged = !fs.existsSync(ANNOUNCE_FILE) || fs.readFileSync(ANNOUNCE_FILE, 'utf8') !== annContent;
+    if (annChanged) {
+      if (opts.check) console.log('  ~ release-announcement.json would change');
+      else {
+        fs.writeFileSync(ANNOUNCE_FILE, annContent);
+        console.log(`✔ Wrote ${path.relative(ROOT, ANNOUNCE_FILE)} (id: ${announcement.id})`);
+      }
     }
   }
 
@@ -432,7 +435,7 @@ async function main() {
     if (opts.check) {
       console.log('  ~ release-sync.json would change');
     } else {
-      const sync = buildSyncMeta(sortedReleases, opts);
+      const sync = buildSyncMeta(sortedReleases, opts, index.length);
       fs.writeFileSync(SYNC_FILE, JSON.stringify(sync, null, 2) + '\n');
       console.log(`✔ Wrote ${path.relative(ROOT, SYNC_FILE)} (trigger: ${sync.syncedTrigger}, from: ${sync.syncedFrom})`);
     }

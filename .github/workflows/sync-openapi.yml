@@ -1,13 +1,12 @@
 name: Sync OpenAPI Reference
 
 # Regenerates src/components/ApiExplorer/openapi.json from the mos-api
-# repository and, when the spec changed, commits it and redeploys the docs.
-# Runs fully in GitHub Actions — no local machine required.
+# repository and commits it when the spec actually changed. The deploy itself
+# is handled by deploy.yml (triggered by the push).
 on:
   schedule:
-    # Sundays ~23:00 Austrian time (CET/CEST). GitHub cron is UTC and ignores DST,
-    # so we run hourly 20-23 UTC and gate on AT hour == 23 inside the job.
-    - cron: '0 20-23 * * 0'
+    # Sundays 21:00 UTC (22:00/23:00 Europe/Vienna depending on DST)
+    - cron: '0 21 * * 0'
   workflow_dispatch:
     inputs:
       ref:
@@ -17,7 +16,10 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
+
+concurrency:
+  group: sync-openapi
+  cancel-in-progress: false
 
 jobs:
   sync:
@@ -33,33 +35,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
 
-      - name: Regenerate OpenAPI spec
+      - name: Sync OpenAPI spec
         id: sync
         env:
           EVENT_NAME: ${{ github.event_name }}
         run: |
-          # Only run the weekly schedule around Sunday 23:00 Austrian time (CET/CEST).
-          if [ "$EVENT_NAME" = "schedule" ]; then
-            AT_HOUR="$(TZ=Europe/Vienna date +%H)"
-            echo "Austrian (Europe/Vienna) hour: $AT_HOUR"
-            if [ "$AT_HOUR" != "23" ]; then
-              echo "Not 23:00 AT - skipping this scheduled run."
-              echo "changed=false" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
-          fi
           REF="${{ github.event.inputs.ref || 'master' }}"
           if [ "$EVENT_NAME" = "schedule" ]; then TRIGGER="schedule"; else TRIGGER="manual"; fi
           echo "Using mos-api ref: $REF (trigger: $TRIGGER)"
           node scripts/sync-openapi.js --ref "$REF" --trigger "$TRIGGER"
-          if git diff --quiet --exit-code src/components/ApiExplorer/openapi.json; then
+          if [ -n "$(git status --porcelain -- src/components/ApiExplorer/openapi.json)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Spec changed — will commit."
+          else
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No spec changes detected."
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "Spec changed — will commit and redeploy."
           fi
 
       - name: Commit synced spec
@@ -69,21 +60,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/components/ApiExplorer/openapi.json
-          git commit -m "chore(api): auto-sync openapi.json (weekly, $STAMP)"
+          git commit -m "chore(api): auto-sync openapi.json ($STAMP)"
+          git pull --rebase origin master
           git push
-
-      - name: Install dependencies
-        if: steps.sync.outputs.changed == 'true'
-        run: npm install
-
-      - name: Build website
-        if: steps.sync.outputs.changed == 'true'
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
-        if: steps.sync.outputs.changed == 'true'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          cname: docs.mos-official.net

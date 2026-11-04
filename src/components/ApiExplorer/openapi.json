@@ -4464,7 +4464,7 @@
               "wordpress_db_1"
             ]
           },
-          "iconUrl": {
+          "icon": {
             "type": "string",
             "nullable": true,
             "description": "Icon URL",
@@ -37998,7 +37998,7 @@
                       "wordpress_web_1",
                       "wordpress_db_1"
                     ],
-                    "iconUrl": "https://example.com/icon.png",
+                    "icon": "https://example.com/icon.png",
                     "running": true
                   },
                   {
@@ -38013,7 +38013,7 @@
                       "nextcloud_db_1",
                       "nextcloud_redis_1"
                     ],
-                    "iconUrl": null,
+                    "icon": null,
                     "running": false
                   }
                 ]
@@ -38215,7 +38215,7 @@
                         "type": "string"
                       }
                     },
-                    "iconUrl": {
+                    "icon": {
                       "type": "string",
                       "nullable": true
                     },
@@ -38992,7 +38992,7 @@
                       "nullable": true,
                       "description": ".env file content"
                     },
-                    "iconUrl": {
+                    "icon": {
                       "type": "string",
                       "nullable": true,
                       "description": "Icon URL"
@@ -39020,7 +39020,7 @@
                   "name": "wordpress_new",
                   "yaml": "version: '3'\nservices:\n  web:\n    image: wordpress:latest",
                   "env": "DB_HOST=db",
-                  "iconUrl": "https://example.com/icon.png",
+                  "icon": "https://example.com/icon.png",
                   "autostart": false,
                   "webui": null,
                   "source": "installed"
@@ -39039,6 +39039,117 @@
           },
           "404": {
             "description": "Template not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Permanently delete a removed compose stack template",
+        "description": "Delete a stack template from the removed directory (admin only). Only works on removed stacks, not installed ones.",
+        "tags": [
+          "Docker Compose"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name of the removed stack template to delete",
+            "example": "wordpress"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Template deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Removed stack 'wordpress' permanently deleted"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Template name is required"
+          },
+          "401": {
+            "description": "Not authenticated"
+          },
+          "403": {
+            "description": "Admin permission required"
+          },
+          "404": {
+            "description": "Removed template not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/docker/mos/compose/templates/removed": {
+      "delete": {
+        "summary": "Permanently delete all removed compose stack templates",
+        "description": "Delete all stack templates from the removed directory at once (admin only). Only works on removed stacks, not installed ones.",
+        "tags": [
+          "Docker Compose"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All removed stack templates deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "All removed stack templates permanently deleted"
+                    },
+                    "deleted_count": {
+                      "type": "integer",
+                      "description": "Number of stack templates deleted",
+                      "example": 2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated"
+          },
+          "403": {
+            "description": "Admin permission required"
           },
           "500": {
             "description": "Server error"
@@ -40308,6 +40419,117 @@
                 }
               }
             }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Permanently delete a removed container template",
+        "description": "Delete a template from the removed directory (admin only). Only works on removed templates, not installed ones.",
+        "tags": [
+          "Docker"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name of the removed template to delete",
+            "example": "nginx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Template deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Removed template 'nginx' permanently deleted"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Template name is required"
+          },
+          "401": {
+            "description": "Not authenticated"
+          },
+          "403": {
+            "description": "Admin permission required"
+          },
+          "404": {
+            "description": "Removed template not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/docker/mos/templates/removed": {
+      "delete": {
+        "summary": "Permanently delete all removed container templates",
+        "description": "Delete all templates from the removed directory at once (admin only). Only works on removed templates, not installed ones.",
+        "tags": [
+          "Docker"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All removed templates deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "All removed templates permanently deleted"
+                    },
+                    "deleted_count": {
+                      "type": "integer",
+                      "description": "Number of templates deleted",
+                      "example": 3
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated"
+          },
+          "403": {
+            "description": "Admin permission required"
+          },
+          "500": {
+            "description": "Server error"
           }
         }
       }
@@ -47438,9 +47660,9 @@
       }
     }
   },
-  "x-synced-from": "eb0b340c133ec05421fbc7375a4d6757888c9441",
+  "x-synced-from": "8051d78cb975d19a4065e08969e78dc6093493d4",
   "x-synced-ref": "master",
   "x-synced-trigger": "manual",
-  "x-synced-at": "2026-10-27T21:24:02.545Z",
-  "x-synced-at-display": "27.10.2026, 22:24 GMT+1"
+  "x-synced-at": "2026-11-04T13:22:36.544Z",
+  "x-synced-at-display": "04.11.2026, 14:22 GMT+1"
 }

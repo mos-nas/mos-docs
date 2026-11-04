@@ -56,21 +56,21 @@ function generate(opts) {
   fs.rmSync(tmp, {recursive: true, force: true});
   fs.mkdirSync(tmp, {recursive: true});
   try {
-    console.log(`\u25B6 Cloning mos-api (ref: ${opts.ref}) ...`);
+    console.log(`▶ Cloning mos-api (ref: ${opts.ref}) ...`);
     run(`git clone --depth 1 ${REPO} ${q(tmp)}`);
     if (opts.ref && opts.ref !== 'master') {
       run(`git -C ${q(tmp)} fetch --depth 1 origin ${q(opts.ref)}`);
       run(`git -C ${q(tmp)} checkout FETCH_HEAD`);
     }
     const sha = run(`git -C ${q(tmp)} rev-parse HEAD`);
-    console.log(`\u25B6 Checked out ${sha.slice(0, 10)}`);
+    console.log(`▶ Checked out ${sha.slice(0, 10)}`);
 
     // Minimal package.json so npm installs swagger-jsdoc into <tmp>/node_modules.
     fs.writeFileSync(
       path.join(tmp, 'package.json'),
       JSON.stringify({name: 'mos-api-sync', version: '0.0.0', private: true}, null, 2) + '\n',
     );
-    console.log(`\u25B6 Installing swagger-jsdoc@${SWAGGER_JSDOC_VERSION} ...`);
+    console.log(`▶ Installing swagger-jsdoc@${SWAGGER_JSDOC_VERSION} ...`);
     run(`npm install --no-audit --no-fund --no-package-lock swagger-jsdoc@${SWAGGER_JSDOC_VERSION}`, {
       cwd: tmp,
     });
@@ -109,6 +109,17 @@ function generate(opts) {
   }
 }
 
+// Remove the sync metadata before comparing, so a new timestamp alone does not
+// count as a spec change.
+function stripSyncMeta(spec) {
+  if (!spec || typeof spec !== 'object') return spec;
+  const clone = JSON.parse(JSON.stringify(spec));
+  for (const key of Object.keys(clone)) {
+    if (key.startsWith('x-synced-')) delete clone[key];
+  }
+  return clone;
+}
+
 function summarize(oldSpec, newSpec) {
   const oldPaths = oldSpec ? Object.keys(oldSpec.paths || {}) : [];
   const newPaths = Object.keys(newSpec.paths || {});
@@ -138,18 +149,26 @@ if (fs.existsSync(TARGET)) {
   }
 }
 
+const specChanged =
+  !oldSpec ||
+  JSON.stringify(stripSyncMeta(oldSpec), null, 2) !== JSON.stringify(stripSyncMeta(spec), null, 2);
+
 if (opts.check) {
-  const existing = fs.existsSync(TARGET) ? fs.readFileSync(TARGET, 'utf8') : '';
-  if (existing === content) {
-    console.log('\u2714 openapi.json is up to date (no drift).');
+  if (!specChanged) {
+    console.log('✔ openapi.json is up to date (no drift).');
     process.exit(0);
   }
-  console.log('\u2716 Drift detected: committed openapi.json differs from generated spec.');
+  console.log('✖ Drift detected: committed openapi.json differs from generated spec.');
   summarize(oldSpec, spec);
   process.exit(1);
 }
 
+if (!specChanged) {
+  console.log('✔ No spec changes — openapi.json left untouched.');
+  process.exit(0);
+}
+
 fs.writeFileSync(TARGET, content);
-console.log(`\u2714 Wrote ${path.relative(process.cwd(), TARGET)}`);
+console.log(`✔ Wrote ${path.relative(process.cwd(), TARGET)}`);
 console.log(`  synced from mos-api@${sha.slice(0, 10)} (${opts.ref}) at ${spec['x-synced-at-display']} [${opts.trigger}]`);
 summarize(oldSpec, spec);

@@ -18,20 +18,41 @@ Example:
 
 ---
 
-## 🌓 Dark Mode
+## 🌓 Theme
 
-Toggle between light and dark interface themes.
+Choose how the WebUI is displayed. The setting is stored per user.
 
-- **Enabled:** Dark theme with darker backgrounds and reduced eye strain
-- **Disabled:** Light theme with bright backgrounds
+| Option | Behaviour |
+|--------|-----------|
+| **Auto** | Follows the operating system's light or dark preference and updates when the system theme changes |
+| **Light** | Always uses the light theme |
+| **Dark Mode** | Always uses the dark theme |
+
+**Auto** is the default. Selecting **Light** or **Dark Mode** overrides the system
+preference until you switch back to **Auto**.
+
+:::tip
+**Auto** is the safest choice on devices that switch themes at sunset. The theme is
+applied as soon as the page loads, so there is no flash of the wrong theme.
+:::
 
 ---
 
 ## 🌐 Language
 
-Select the interface language for the WebUI.
+Select the interface language for the WebUI. The setting is stored per user.
 
-Available languages depend on the system configuration. The default language is English.
+Currently available:
+
+| Language | Code |
+|----------|------|
+| English | `en` — default, fallback for missing translations |
+| German | `de` |
+| French | `fr` |
+| Spanish | `es` |
+
+Untranslated strings fall back to English. Translations are maintained in Weblate;
+the language list grows as new translations are completed.
 
 ---
 

@@ -223,6 +223,42 @@ Changes to the configuration require a restart of the API or the server to take 
 
 ---
 
+## 📱 Install as an App and Enable Push Notifications
+
+MOS is a Progressive Web App (PWA). Installing it gives you an app icon, a
+standalone window and — on mobile devices — push notifications.
+
+### Install
+
+- **Android / Desktop (Chrome, Edge):** click the install icon in the address bar.
+- **iOS / iPadOS (Safari):** tap **Share → Add to Home Screen**.
+
+### Push notifications
+
+After you log in, MOS asks the browser for notification permission. If you allow it,
+the WebUI subscribes this browser and receives notifications even when the tab is
+closed. Logging out removes the subscription for that browser.
+
+:::warning[HTTPS is required]
+Push notifications only work in a secure context. Access the WebUI via **HTTPS**
+(the self-signed certificate can be downloaded under Settings → System → Web UI).
+Plain HTTP works for the interface itself, but not for push — the only exception is
+`localhost`.
+:::
+
+:::note[iOS]
+Push notifications require iOS/iPadOS 16.4 or later and a WebUI installed via
+**Add to Home Screen**. In a normal Safari tab, iOS does not deliver web push.
+:::
+
+If notifications do not arrive:
+
+1. Check the browser's site settings and allow notifications for the MOS address.
+2. Make sure the WebUI is open at least once after installing the PWA.
+3. Remove the subscription by logging out, then log in again to re-subscribe.
+
+---
+
 ## ✅ Summary
 
 The MOS WebUI is designed to provide:

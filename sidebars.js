@@ -65,6 +65,7 @@ const sidebars = {
       type: 'category',
       label: '📦 LXC',
       items: [
+        { type: 'doc', id: 'LXC/LXC-Overview', label: '📋 Container Overview' },
         { type: 'doc', id: 'LXC/LXC-Service', label: '🔧 LXC Service' },
       ],
     },

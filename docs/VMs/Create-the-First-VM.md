@@ -100,6 +100,16 @@ Defines the firmware used to boot the VM.
 Use `ovmf` for Windows 11 and modern Linux distributions that require UEFI.
 :::
 
+:::note[Secure Boot]
+When an **OVMF** firmware variant with TPM is selected, newly created VMs boot with
+Secure Boot enabled. Existing VMs keep their current firmware configuration — to use
+Secure Boot with an older VM, create a new VM with the same disks and settings.
+
+Secure Boot requires a guest OS with signed bootloaders (for example Windows 11 or a
+distribution with a signed shim). Linux guests without Secure Boot support will not
+boot in this mode.
+:::
+
 ---
 
 ## 💾 Disks
@@ -318,6 +328,7 @@ The new VM will appear in the VMs overview with a **stopped** state.
 | **Description** | Optional description |
 | **CPU Load** | Live CPU usage while running |
 | **Disks** | Attached disk and ISO paths |
+| **Storage** | Actual disk usage of the VM's disks. Click the calculator button to calculate it on demand |
 | **Port** | VNC/SPICE port for remote access |
 | **Autostart** | Whether the VM starts automatically on boot |
 | **Info** | Additional VM information |

@@ -81,9 +81,49 @@ Defines the directory used to store LXC container data.
 
 ---
 
+### Start Wait (seconds)
+
+Delay in seconds before the LXC service starts its containers after boot.
+
+- `0` disables the delay (default).
+- Increase it when containers depend on storage that is mounted late, for example a
+  pool that needs to be unlocked or imported.
+
+---
+
+### LXC Registry
+
+URL of the LXC image registry used for `lxc-create` downloads.
+
+- Leave empty to use the default, `images.linuxcontainers.org`.
+- Set a mirror URL when the default registry is slow or unreachable.
+
+---
+
 ## 💾 Backups & Snapshots
 
 Each LXC container can be managed individually via the **Manage** button in the container list. This opens a detail view with two tabs:
+
+The backup defaults below apply to every container. Per-container backups and
+snapshots are managed with the **Manage** button in the container list.
+
+| Setting | Description |
+|---------|-------------|
+| **Backup Path** | Directory where container backups are stored |
+| **Backups to Keep** | Number of backups kept per container; older ones are removed |
+| **Compression** | Compression level or algorithm used for backup archives |
+| **Threads** | Number of worker threads used for compression (`0` = automatic) |
+| **Use Snapshots for Backups** | Create a snapshot first and back up from it, so the container keeps running during the backup. Requires a snapshot-capable filesystem (btrfs/ZFS) |
+
+---
+
+### Backing Storage
+
+Defines how container root filesystems are stored.
+
+- **Directory** — each container is a directory below the **LXC Directory**.
+  This is the default and works on every filesystem.
+- Other backends are only offered when the system supports them.
 
 ### Backups
 

@@ -145,10 +145,21 @@ This page lists all configured containers and provides an overview of:
 
 - Container name and state
 - Image
+- Image size — click the calculator action to calculate it on demand
 - Exposed ports
 - IP address
 - Network mode
 - Autostart status
+
+The **State** column also shows whether an image update is available:
+
+| Icon | Meaning |
+|------|---------|
+| green check | Image is up to date |
+| red circular arrow | A newer image is available; click it to pull the update |
+
+Clicking the chevron at the end of a Compose stack row expands it to show the
+containers that belong to the stack.
 
 ![Docker Overview](/img/docker/Docker_Overview.png)
 

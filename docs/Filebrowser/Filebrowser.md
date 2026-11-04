@@ -39,7 +39,7 @@ The Filebrowser displays files and directories in a table with the following col
 |--------|-------------|
 | **Name** | File or directory name |
 | **Path** | Full absolute path (e.g., `/etc`, `/mnt/main`) |
-| **Size** | File size (directories show `-`) |
+| **Size** | File size. For directories, a calculator button appears instead — click it to calculate the directory size on demand |
 | **Owner** | Owner and group (e.g., `root:root`) |
 | **Permissions** | Numeric permissions (e.g., `755`, `700`, `555`) |
 
@@ -50,6 +50,25 @@ The current directory path is displayed at the top of the file list. This shows 
 ### Operations Counter
 
 The "Operations" indicator shows the number of pending file operations (e.g., copy, move, delete). By default, it shows `0 Operations` when idle.
+
+### Directory Size
+
+Directories do not have a size until you calculate it. Click the **calculator**
+button in the **Size** column to measure a directory.
+
+- The value is calculated on demand and is not refreshed automatically.
+- A spinner runs while the calculation is in progress.
+- Large trees can take a while; the calculation runs server-side and does not block
+  other file operations.
+
+### Bookmarks
+
+Bookmarks act as shortcuts to frequently used folders.
+
+- Open the bookmark dialog from the bookmark icon in the toolbar at the bottom.
+- Add the current directory, or jump to a saved path.
+- Bookmarks are stored by MOS and are available to every user of the WebUI.
+- Remove a bookmark directly in the dialog; changes are saved when you confirm.
 
 ### Hidden Files
 

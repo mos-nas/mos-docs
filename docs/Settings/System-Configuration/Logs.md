@@ -54,6 +54,22 @@ Select the log file you want to inspect from the list.
 - Large log files may take longer to load
 :::
 
+### Max Log Directory Size
+
+Sets the maximum size of the log directory in megabytes.
+
+**Default value:**
+- `200` MB
+
+**Purpose:**
+- Prevents logs from filling the root filesystem
+- When the limit is reached, the oldest log data is discarded
+
+:::warning
+Setting the value too low can remove logs you need for troubleshooting. Keep at least
+a few days of history for the services you monitor.
+:::
+
 ---
 
 ### Lines

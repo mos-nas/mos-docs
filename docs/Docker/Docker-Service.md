@@ -104,6 +104,36 @@ Defines the Docker network driver used for container networking.
 
 ---
 
+## 🌐 Docker Networks
+
+Below the service settings, **Docker Networks** lists the networks known to Docker.
+
+| Column | Description |
+|--------|-------------|
+| **Name** | Network name (e.g. `bridge`, `host`, `none`, or a user-defined network) |
+| **Driver** | Network driver, e.g. `bridge`, `ipvlan`, `macvlan` |
+| **Subnet** | IPv4/IPv6 subnet, `-` for host/none networks |
+| **Gateway** | Gateway address of the network |
+| **Scope** | `local` for networks managed by this Docker daemon |
+| **IP Version** | `IPv4`, `IPv6` or both |
+
+### Adding a network
+
+Click **+ Add**, enter a **Name** and choose a **Driver**, then confirm. Docker
+assigns the subnet and gateway unless the driver requires them.
+
+### Deleting a network
+
+Open the network's action menu and choose delete. A network can only be removed when
+no container is attached to it.
+
+:::note
+Changing the **Docker Network Mode** above affects newly created containers. Existing
+containers keep the network they were created with — recreate the container to change it.
+:::
+
+---
+
 ### Docker Start Parameters
 
 Allows defining additional parameters passed to the Docker daemon at startup.

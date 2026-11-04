@@ -55,6 +55,7 @@ Available pool types:
 - `multi`
 - `mergerfs`
 - `nonraid` *(requires additional driver)*
+- `bcachefs`
 
 Each type serves a different use case and offers different levels of redundancy and flexibility.
 
@@ -180,6 +181,28 @@ To install the driver:
 
 :::note
 Only **one nonraid pool** can be created per MOS system.
+:::
+
+---
+
+### 🧬 bcachefs
+
+A bcachefs pool combines devices into one filesystem with built-in checksumming and
+optional replication, managed by bcachefs itself rather than by mergerfs or SnapRAID.
+
+**Use it when:**
+- you want per-block checksums and self-healing on replicated data
+- you want a single filesystem across multiple devices without a separate parity tool
+
+**Characteristics:**
+- The pool is created through its own endpoint and always uses `bcachefs` as the filesystem
+- Supports scrubbing to verify data against checksums
+- Detects unclean shutdowns and reports them
+- Devices are prepared so they do not appear as unassigned disks while in use
+
+:::note
+bcachefs is younger than ext4, xfs or btrfs. Test a restore before you rely on it for
+data you cannot lose.
 :::
 
 ---
@@ -447,6 +470,34 @@ Use **Spin Down Pool** for pools that are not frequently accessed (e.g., backup 
 
 :::warning
 Spinning down disks frequently can reduce their lifespan. Only use spin down for pools that are accessed infrequently (e.g., once per day or less).
+:::
+
+---
+
+## 💤 Spindown
+
+Pools can spin down idle disks to save power and reduce noise. The global idle
+time is configured under
+[Settings → System Configuration → System](/docs/Settings/System-Configuration/System#global-spindown-minutes).
+
+To override it for individual disks:
+
+1. Open the pool's **⋮ → Pool Settings** dialog.
+2. Find the **Spindown** section. Data devices and parity devices are listed separately.
+3. Enter a value in minutes for the disks you want to configure.
+
+| Value | Behaviour |
+|-------|-----------|
+| empty | Inherits the global spindown value |
+| number | Individual idle time in minutes for this disk |
+
+Remove an individual value with the trash icon next to the field to return the disk
+to the global setting. Values are applied when the pool settings are saved.
+
+:::note
+Spindown is only available for pool types that manage individual devices
+(bcachefs, mergerfs and NonRAID). A pool that consists of a single filesystem
+uses the global setting.
 :::
 
 ---

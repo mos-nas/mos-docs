@@ -94,6 +94,12 @@ Defines the idle time before disks are spun down.
 - Excessively low values may increase disk wear
 :::
 
+:::tip
+This value applies to every disk that has no individual value. Per-disk idle times
+are configured in the pool settings — see
+[Pools → Spindown](/docs/Pools/Create-Storage-Pool#-spindown).
+:::
+
 ---
 
 ### Persist History
@@ -104,6 +110,26 @@ Controls whether command and system history is preserved across reboots.
 **Use cases:**
 - Enable for auditing and troubleshooting
 - Disable for privacy-focused or minimal systems
+
+---
+
+### Persist Notifications
+- Enable / Disable
+
+Controls whether the notification list survives a reboot.
+
+**Enabled:**
+- Notifications remain in the list after a restart
+- Useful when a reboot happens unattended and you want to see what happened
+
+**Disabled:**
+- The notification list starts empty after a reboot
+- Notifications are still delivered while the system is running
+
+:::note
+This is independent of **Persist History**, which controls shell and system command
+history, not notifications.
+:::
 
 ---
 

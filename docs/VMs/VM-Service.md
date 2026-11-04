@@ -70,6 +70,19 @@ Defines the directory used to store virtual disk images.
 
 ---
 
+### IOMMU
+
+Shows whether IOMMU is active on the host. IOMMU is required for PCI and GPU
+passthrough to virtual machines.
+
+- **active** — the kernel reports a usable IOMMU; host devices can be passed through.
+- **inactive** — passthrough is not available. Enable IOMMU in the BIOS/UEFI and add
+  `intel_iommu=on` or `amd_iommu=on` to the kernel command line.
+
+This is a status indicator, not a setting.
+
+---
+
 ## 💿 VirtIO ISOs
 
 Provides access to VirtIO driver ISO images used by virtual machines (primarily for Windows guests).
@@ -85,6 +98,32 @@ Removes all VirtIO ISOs that are not currently in use by any VM.
 
 :::tip
 VirtIO drivers are required for Windows VMs to use paravirtualized hardware (disk, network, etc.) for best performance.
+:::
+
+---
+
+## 🧠 Huge Pages
+
+Huge Pages back guest memory with 2 MB pages instead of 4 KB pages, which reduces
+TLB pressure for memory-heavy VMs.
+
+| Field | Description |
+|-------|-------------|
+| **Enabled** | Reserves huge pages on the host |
+| **Set Huge Pages (MB)** | Total amount of memory to reserve for huge pages |
+| **System Huge Page Size (MB)** | Size of a single huge page as reported by the kernel (typically `2`) |
+| **Huge Pages** | Number of huge pages currently reserved |
+| **Free Huge Pages** | Number of reserved pages not in use |
+
+:::note
+Huge pages are reserved from physical memory and are then unavailable to the rest of
+the system. Reserve only as much as your VMs need, and stop VMs before shrinking the
+reservation.
+:::
+
+:::tip
+If a VM fails to start after enabling huge pages, check **Free Huge Pages** first.
+A VM whose memory exceeds the free reservation cannot be started.
 :::
 
 ---

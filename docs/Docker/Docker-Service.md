@@ -117,6 +117,10 @@ Below the service settings, **Docker Networks** lists the networks known to Dock
 | **Scope** | `local` for networks managed by this Docker daemon |
 | **IP Version** | `IPv4`, `IPv6` or both |
 
+![Docker networks](/img/docker/Docker_Networks.png)
+
+*The Docker Networks table with the Add action.*
+
 ### Adding a network
 
 Click **+ Add**, enter a **Name** and choose a **Driver**, then confirm. Docker

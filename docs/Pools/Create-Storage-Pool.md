@@ -305,6 +305,10 @@ optional replication, managed by bcachefs itself rather than by mergerfs or Snap
 - you want per-block checksums and self-healing on replicated data
 - you want a single filesystem across multiple devices without a separate parity tool
 
+![Creating a bcachefs pool](/img/pools/bcachefs-create.png)
+
+*bcachefs is selected as the pool type; the filesystem is fixed to bcachefs.*
+
 **Characteristics:**
 - The pool is created through its own endpoint and always uses `bcachefs` as the filesystem
 - Supports scrubbing to verify data against checksums
@@ -483,6 +487,10 @@ To override it for individual disks:
 1. Open the pool's **⋮ → Pool Settings** dialog.
 2. Find the **Spindown** section. Data devices and parity devices are listed separately.
 3. Enter a value in minutes for the disks you want to configure.
+
+![Per-disk spindown](/img/pools/spindown-per-disk.png)
+
+*Individual spindown values for data and parity devices.*
 
 | Value | Behaviour |
 |-------|-----------|

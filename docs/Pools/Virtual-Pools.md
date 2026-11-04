@@ -43,8 +43,8 @@ Regular pools (Create pool) and Virtual Pools (Create Virtual Pool) are separate
 | **Name** | Text | — | Name of the Virtual Pool. Used for the mount point (e.g., `vpool` → `/mnt/vpool`). |
 | **Paths** | Text + Add | — | One or more existing directory paths to combine (e.g., `/mnt/main`, `/mnt/media`). Click **Add** to add multiple paths. |
 | **Comment** | Text | `mspmfs` | Optional comment or description for the pool. |
-| **Create Policy** | Dropdown | `mspmfs` | mergerfs policy for distributing new files across paths — see [Create Policies](#create-policies). |
-| **Search Policy** | Dropdown | `ff` | mergerfs policy for finding existing files across paths — see [Search Policies](#search-policies). |
+| **Create Policy** | Dropdown | `mspmfs` | mergerfs policy for distributing new files across paths — see [Create Policy](#create-policy). |
+| **Search Policy** | Dropdown | `ff` | mergerfs policy for finding existing files across paths — see [Search Policy](#search-policy). |
 | **Automount** | Toggle | On | Automatically mount the Virtual Pool during system startup. |
 | **Shared** | Toggle | On | Make the pool available as a network share. |
 | **Cancel** / **Create** | Button | — | Cancel or create the Virtual Pool. |

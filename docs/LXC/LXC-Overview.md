@@ -8,6 +8,10 @@ description: "Overview of the LXC container list in MOS: columns, container stat
 
 The **LXC** page lists all containers on the system and their current state.
 
+![LXC container list](/img/lxc/lxc-overview.png)
+
+*The LXC container list.*
+
 | Column | Description |
 |--------|-------------|
 | **Name** | Container name and state |

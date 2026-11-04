@@ -101,6 +101,29 @@ If Extra Partition is enabled:
 
 ---
 
+#### 🏷️ Set backup label on new device
+
+Gives the target device a label ending in `_BACKUP` instead of the normal `MOS`
+label. If the current installation uses the standard label, the new device is
+labelled `MOS_BACKUP`.
+
+**Options:**
+- Enable
+- Disable
+
+**When to use it:**
+- The disk is intended as a backup copy of the boot medium
+- You want to distinguish it from the normal installation at a glance
+
+![Install to Disk with backup label](/img/system/Install_to_Disk_Backup_Label.png)
+
+:::note
+The label is written during the installation. Any existing label on the target
+device is replaced.
+:::
+
+---
+
 #### ↪️ Restore from file (MOS Backup)
 
 Allows you to restore the boot configuration from a MOS backup file.
@@ -108,7 +131,6 @@ Allows you to restore the boot configuration from a MOS backup file.
 :::note
 The [MOS Backup Plugin](https://mos-official.net/apps.html?search=MOS+Backup+ich777) must be installed and configured to use this feature.
 :::
-
 
 ---
 
@@ -132,27 +154,6 @@ Incorrect changes can prevent the system from booting
 
 :::tip
 Only edit `grub.cfg` if you fully understand GRUB configuration and recovery procedures.
-:::
-
----
-
-#### 🏷️ Set backup label on new device
-
-Gives the target device a label ending in `_BACKUP` instead of the normal `MOS`
-label. If the current installation uses the standard label, the new device is
-labelled `MOS_BACKUP`.
-
-**Options:**
-- Enable
-- Disable
-
-**When to use it:**
-- The disk is intended as a backup copy of the boot medium
-- You want to distinguish it from the normal installation at a glance
-
-:::note
-The label is written during the installation. Any existing label on the target
-device is replaced.
 :::
 
 ---

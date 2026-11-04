@@ -61,6 +61,10 @@ button in the **Size** column to measure a directory.
 - Large trees can take a while; the calculation runs server-side and does not block
   other file operations.
 
+![Calculating a directory size](/img/filebrowser/fsnavigator-size.png)
+
+*The calculator button in the Size column.*
+
 ### Bookmarks
 
 Bookmarks act as shortcuts to frequently used folders.
@@ -69,6 +73,10 @@ Bookmarks act as shortcuts to frequently used folders.
 - Add the current directory, or jump to a saved path.
 - Bookmarks are stored by MOS and are available to every user of the WebUI.
 - Remove a bookmark directly in the dialog; changes are saved when you confirm.
+
+![Filebrowser bookmarks](/img/filebrowser/fsnavigator-bookmarks.png)
+
+*The bookmark panel in the toolbar.*
 
 ### Hidden Files
 

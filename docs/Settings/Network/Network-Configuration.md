@@ -94,6 +94,17 @@ Example view:
 - `eth0` → physical network interface
 - `br0` → bridge used by VMs and containers
 
+```mermaid
+flowchart LR
+  NIC[Physical NIC<br/>e.g. eth0] --> Type{Interface type}
+  Type -->|ethernet| IP[IP directly on the NIC]
+  Type -->|bridged| BR[Bridge br0]
+  Type -->|bond| Bond[Bond]
+  BR --> Host[Host or VLAN IP]
+  BR --> VM[VMs]
+  BR --> LXC[LXC containers]
+```
+
 ---
 
 ## 🖧 Multi-NIC Support

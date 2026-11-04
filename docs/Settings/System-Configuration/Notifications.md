@@ -40,6 +40,21 @@ MOS Notify supports the following notification providers:
 Multiple providers can be enabled simultaneously. If no external provider is configured, notifications will still be displayed inside the MOS WebUI.
 :::
 
+```mermaid
+flowchart LR
+  Event[MOS event<br/>disk, SMART, UPS, Docker, SnapRAID] --> Notify[MOS Notify]
+  Notify --> Email[Email]
+  Notify --> Discord[Discord]
+  Notify --> Gotify[Gotify]
+  Notify --> Pushbits[Pushbits]
+  Notify --> Custom[Custom provider]
+  Email --> User[Recipient]
+  Discord --> User
+  Gotify --> User
+  Pushbits --> User
+  Custom --> User
+```
+
 ---
 
 ## ⚙️ Provider Configuration

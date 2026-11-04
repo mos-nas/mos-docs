@@ -63,6 +63,17 @@ Each type serves a different use case and offers different levels of redundancy 
 
 ## 🧩 Pool Types Explained
 
+```mermaid
+flowchart TD
+  Start{How many disks?}
+  Start -->|one| Single[single]
+  Start -->|several, equal size| Multi[multi]
+  Start -->|several, mixed sizes| Parity{Parity needed?}
+  Parity -->|yes, SnapRAID| Merger[mergerfs + SnapRAID]
+  Parity -->|yes, built-in| NonRAID[nonraid]
+  Parity -->|no, checksums / replicas| BCache[bcachefs]
+```
+
 ### single
 
 Uses a single disk without redundancy.

@@ -8,6 +8,14 @@ description: "MOS system architecture: runs entirely in RAM from a USB stick wit
 
 MOS is designed as a lightweight, USB-based operating system.
 
+```mermaid
+flowchart TB
+  USB[(USB stick<br/>bootloader, base image, updates)] -->|boot| RAM[Active system in RAM]
+  RAM --> Services[MOS services<br/>WebUI, API, Docker, LXC, VMs]
+  Services -->|persistent paths| Data[(Data disks<br/>pools, shares, appdata, /boot/config)]
+  Data -.->|survives reboot| Services
+```
+
 ## 🔄 Runs in RAM
 
 After boot, the MOS system runs entirely in RAM.

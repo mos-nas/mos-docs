@@ -43,131 +43,186 @@ Enable Dnsmasq for local DNS resolution and DHCP services.
 
 ## 🔋 NUT (Network UPS Tools)
 
-Monitor and manage UPS (Uninterruptible Power Supply) devices connected via USB or serial port.
+NUT (Network UPS Tools) lets MOS monitor and manage UPS (Uninterruptible Power Supply) devices connected via USB or serial port. It provides live battery and status information and can trigger a graceful shutdown of the system (and selected workloads) when mains power is lost.
 
-Enable NUT in **Settings → Network → Network Services** to integrate with local UPS devices for power management and automatic shutdown.
+Everything is configured directly in the WebUI — you no longer need to edit configuration files by hand.
 
-### Configuration Files
+:::info
+The NUT **service** itself is enabled or disabled under **Settings → Network → Network Services**. All remaining NUT settings are configured on the dedicated **NUT** page under **Settings → Network**.
+:::
 
-NUT configuration files are located at: `/boot/config/system/nut/`
+![NUT configuration page](/img/settings/network/nut/nut1.png)
 
-#### 1. ups.conf - UPS Device Configuration
+*The NUT page with UPS status and configuration sections.*
 
-Defines the UPS devices to monitor:
+### 🚀 Quick Start
 
-```ini
-[ups]
-driver = usbhid-ups
-port = auto
+1. Enable NUT under **Settings → Network → Network Services**
+2. Open the **NUT** page under **Settings → Network**
+3. Select the **Mode** (`standalone` for a locally connected USB/serial UPS)
+4. Under **UPS Configuration**, set the **UPS Name**, the **Driver** (e.g., `usbhid-ups`) and the **Port** (`auto` for USB)
+5. Adjust **Shutdown Configuration** and, if desired, **Stop Services on Battery**
+6. Click the save (floating action) button and verify the **UPS Status** card shows live values
+
+### 📊 UPS Status
+
+The **UPS Status** card at the top of the page shows live values queried from the UPS:
+
+| Field | Description |
+|-------|-------------|
+| **Status** | Raw UPS status flags (e.g., `OL` = online, `OB` = on battery, `LB` = low battery) |
+| **UPS Name** | Name of the configured UPS |
+| **Manufacturer** | UPS manufacturer (when reported) |
+| **Model** | UPS model (when reported) |
+| **Load** | Current load in percent |
+| **Battery Charge** | Battery charge in percent |
+| **Battery Runtime** | Estimated remaining runtime |
+| **Input Voltage** | Mains input voltage |
+
+:::note
+The status shows as `Unreachable` when NUT is disabled or the UPS daemon (`upsd`) cannot be queried — the card then displays a connection error (e.g., `Connection refused`).
+:::
+
+### ⚙️ Mode
+
+The **Mode** dropdown selects the NUT operating mode:
+
+| Mode | Description |
+|------|-------------|
+| `standalone` | Single UPS protecting the local MOS system (most common) |
+| `netserver` | UPS server that shares its UPS with other systems on the network |
+| `netclient` | Client that monitors a remote UPS over the network (no local UPS) |
+| `none` | NUT does not run (equivalent to disabling it) |
+
+![NUT mode selection](/img/settings/network/nut/nut_mode.png)
+
+*The available NUT modes.*
+
+#### Spindown Disks
+
+Toggle **Spindown Disks** to put all spin-capable disks into standby when the UPS reports an **ONBATT** (on battery) event. This lowers power draw and protects the disks during an outage.
+
+### 🖥️ Server Configuration (standalone / netserver)
+
+In `standalone` and `netserver` mode, MOS manages the UPS device(s) and the NUT server settings directly — this replaces the former `ups.conf`, `upsd.conf` and `upsd.users` files.
+
+![NUT server configuration](/img/settings/network/nut/nut_netserver.png)
+
+*Server and UPS configuration in netserver mode.*
+
+#### Listen Addresses
+
+Defines where the NUT server (`upsd`) accepts connections (equivalent to `LISTEN` in `upsd.conf`):
+
+| Field | Description |
+|-------|-------------|
+| **Address** | IP address to listen on (`0.0.0.0` = all interfaces) |
+| **Port** | TCP port (default: `3493`) |
+
+- Click **+** to add another listen address
+- Click the red delete icon to remove an entry
+
+#### UPS Configuration
+
+Defines the UPS device(s) to monitor (equivalent to `ups.conf`):
+
+| Field | Description |
+|-------|-------------|
+| **UPS Name** | Name of the UPS, e.g., `ups` |
+| **Driver** | NUT driver matching your UPS (e.g., `usbhid-ups` for USB HID devices) |
+| **Port** | Device port — `auto` for USB, or a serial device such as `/dev/ttyS0` |
+| **Description** | Optional description for the UPS |
+| **Extra Configuration +** | Additional driver options as key/value pairs (e.g., `pollinterval`, `maxretry`, `retrydelay`) |
+
+#### Users
+
+Defines NUT users and their permissions (equivalent to `upsd.users`). Click **+** to add a user:
+
+| Field | Description |
+|-------|-------------|
+| **Username** / **Password** | Credentials for the user |
+| **Actions** | Allowed actions, e.g., `SET` (change UPS variables) and `FSD` (force shutdown) |
+| **Instcmds** | Allowed instant commands (`ALL` = all commands) |
+| **upsmon** | Monitoring role: `primary` (formerly `master`), `secondary` (formerly `slave`), or none |
+
+### 📡 Monitor Configuration (netclient)
+
+In `netclient` mode, MOS monitors a remote UPS instead of a locally connected one (equivalent to the `MONITOR` line in `upsmon.conf`):
+
+![NUT netclient monitor configuration](/img/settings/network/nut/nut_netclient.png)
+
+*Monitor configuration in netclient mode.*
+
+| Field | Description |
+|-------|-------------|
+| **UPS Name** | Name of the UPS on the remote NUT server, e.g., `ups` |
+| **Host** | IP address or hostname of the remote NUT server |
+| **Port** | NUT port of the remote server (default: `3493`) |
+| **Power Value** | Number of power supplies this UPS feeds (default: `1`) |
+| **Username** / **Password** | Credentials defined on the remote NUT server |
+| **Role** | `primary` (formerly `master`) or `secondary` (formerly `slave`) |
+
+### 🛑 Shutdown Configuration
+
+Controls how and when MOS shuts down on a critical power event (equivalent to the shutdown options in `upsmon.conf`):
+
+![NUT UPS and shutdown configuration](/img/settings/network/nut/nut2.png)
+
+*UPS configuration, users, and shutdown configuration.*
+
+| Field | Default | Description |
+|-------|---------|-------------|
+| **Shutdown Command** | `/sbin/shutdown -h +0` | Command executed on a critical power event |
+| **Shutdown Mode** | `lowbattery` | When to shut down: `lowbattery` (when the UPS reports low battery) or `timer` (after a fixed time on battery) |
+| **Timer Seconds** | — | Time on battery before shutdown — only shown when **Shutdown Mode** is `timer` |
+| **Final Delay** | `5` | Seconds to wait before shutdown after the `SHUTDOWN` event |
+| **Minimum Supplies** | `1` | Minimum number of power supplies that must be online to keep running |
+| **Powerdown Flag** | `/etc/killpower` | File used to signal that the UPS should cut power after shutdown |
+
+### ⏱️ Timers
+
+Fine-tune polling and timeout behaviour (equivalent to `POLLFREQ`, `DEADTIME`, etc.):
+
+![NUT timers](/img/settings/network/nut/nut3.png)
+
+*Timers and workload shutdown settings.*
+
+| Field | Default | Description |
+|-------|---------|-------------|
+| **Poll Frequency** | `5` seconds | How often `upsmon` polls the UPS |
+| **Poll Frequency Alert** | `5` seconds | Poll frequency while an alert condition is active |
+| **Host Sync** | `15` seconds | How often secondary hosts synchronise with the primary |
+| **Dead Time** | `300` seconds | Time without a valid response before the UPS is declared dead |
+| **RB Warn Time** | `43200` seconds | Reboot warning interval |
+| **No Comm Warn Time** | `60` seconds | Time without communication before a warning is raised |
+
+### 🔌 Stop Services on Battery
+
+When the UPS switches to battery (**ONBATT**), MOS can stop selected workloads to save power and shut them down gracefully. Stopped workloads are restarted when power returns (**ONLINE**) — but only if they were running before the outage.
+
+![NUT stop services on battery](/img/settings/network/nut/nut4.png)
+
+*Workloads (Docker containers, LXC containers, VMs) to stop on battery.*
+
+- **Docker** — toggle individual containers
+- **LXC** — toggle individual containers
+- **VMs** — toggle individual virtual machines
+
+Expand a category to show its entries, then enable the toggle next to each workload you want stopped on battery.
+
+### 📜 Event Scripts
+
+Custom scripts can be attached to NUT events. They are stored under:
+
+```
+/boot/config/system/nut/<event>.sh
 ```
 
-**Key settings:**
-- `driver` - Driver for your UPS type (e.g., `usbhid-ups` for USB HID devices)
-- `port` - Serial port (e.g., `/dev/ttyS0`) or `auto` for USB
-- `maxretry` - Number of start attempts (default: 3)
-- `retrydelay` - Delay between attempts (default: 5 seconds)
-- `pollinterval` - Status refresh interval (default: 2 seconds)
+Supported events (case-insensitive): `ONLINE`, `ONBATT`, `SHUTDOWN`, `LOWBATT`, `FSD`, `COMMBAD`, `NOCOMM`, `NOPARENT`, `REPLBATT`.
 
-#### 2. nut.conf - NUT Mode
+The scripts run directly from the boot stick when the event fires, so changes take effect immediately without restarting NUT.
 
-Sets the operating mode:
-
-```ini
-MODE=standalone
-```
-
-**Modes:**
-- `standalone` - Single UPS protecting the local system (most common)
-- `netserver` - UPS server accessible over network
-- `netclient` - Client monitoring remote UPS servers only
-- `none` - NUT disabled
-
-#### 3. upsd.conf - UPS Daemon Configuration
-
-Network settings for the NUT server:
-
-```ini
-LISTEN 0.0.0.0 3493
-```
-
-**Key settings:**
-- `LISTEN` - IP address and port to listen on (default: 3493)
-- `MAXAGE` - Mark data stale after X seconds (default: 15)
-- `ALLOW_NO_DEVICE` - Allow server to start without UPS devices
-
-#### 4. upsd.users - User Access Control
-
-Defines users and permissions:
-
-```ini
-[admin]
-password=adminpass
-actions=set
-actions=fsd
-instcmds=all
-
-[slaveuser]
-password = slavepass
-upsmon slave
-
-[monuser]
-password = monpass
-upsmon master
-```
-
-**Permissions:**
-- `actions=SET` - Change UPS variables
-- `actions=FSD` - Force shutdown
-- `instcmds=ALL` - Execute all commands
-- `upsmon primary/secondary/master/slave` - Monitoring role
-
-#### 5. upsmon.conf - UPS Monitoring
-
-Controls system monitoring and shutdown behavior:
-
-```ini
-MONITOR ups@127.0.0.1 1 monuser monpass master
-MINSUPPLIES 1
-SHUTDOWNCMD "/sbin/shutdown -h +0"
-NOTIFYCMD /sbin/upssched
-POLLFREQ 5
-DEADTIME 15
-FINALDELAY 5
-
-NOTIFYFLAG ONBATT SYSLOG+EXEC
-NOTIFYFLAG ONLINE SYSLOG+EXEC
-NOTIFYFLAG LOWBATT SYSLOG+EXEC
-```
-
-**Key settings:**
-- `MONITOR` - UPS to monitor (format: `upsname@host powervalue username password role`)
-- `MINSUPPLIES` - Minimum power supplies needed to stay running
-- `SHUTDOWNCMD` - Command to execute on critical power event
-- `POLLFREQ` - Check interval in seconds (default: 5)
-- `DEADTIME` - Declare UPS dead after X seconds without response
-- `FINALDELAY` - Wait time before shutdown (default: 5 seconds)
-- `NOTIFYFLAG` - Actions on events (SYSLOG, WALL, EXEC, IGNORE)
-
-#### 6. upssched.conf - Scheduled Events
-
-Defines actions for UPS events:
-
-```ini
-CMDSCRIPT /bin/upssched-cmd
-# PIPEFN /run/nut/upssched/upssched.pipe
-# LOCKFN /run/nut/upssched/upssched.lock
-
-# Example: Start timer when on battery
-# AT ONBATT * START-TIMER onbattwarn 30
-# AT ONLINE * CANCEL-TIMER onbattwarn
-```
-
-**Commands:**
-- `CMDSCRIPT` - Script to execute for timer events
-- `PIPEFN/LOCKFN` - Required paths for timer mechanism
-- `AT <event> <ups> <action>` - Event handlers
-
-### Common UPS Drivers
+### 🧰 Common UPS Drivers
 
 | Manufacturer | Driver | Notes |
 |--------------|--------|-------|
@@ -179,9 +234,9 @@ CMDSCRIPT /bin/upssched-cmd
 | Tripp Lite | `tripplite` | Serial models |
 | Generic USB | `usbhid-ups` | HID-compliant devices |
 
-### Testing NUT
+### 🧪 Testing NUT
 
-After enabling NUT and configuring your UPS:
+After enabling NUT and configuring your UPS, verify the setup from the **MOS Terminal**:
 
 ```bash
 # Check UPS status
@@ -192,17 +247,15 @@ upscmd -l ups@localhost
 
 # Test battery (if supported)
 upscmd ups@localhost test.battery.start
-
-# View NUT logs
-tail -f /var/log/nut.log
 ```
 
-### Troubleshooting
+### 🛠 Troubleshooting
 
-- **UPS not detected:** Check USB connection and driver compatibility
-- **Permission denied:** Verify user settings in `upsd.users`
-- **No shutdown:** Check `SHUTDOWNCMD` and `NOTIFYFLAG` settings
-- **Stale data:** Increase `MAXAGE` or check `pollinterval`
+- **UPS unreachable / "Connection refused":** Ensure the NUT service is enabled in **Network Services** and the UPS daemon (`upsd`) is running
+- **UPS not detected:** Verify the USB/serial connection and that the selected **Driver** matches your UPS
+- **Permission denied:** Check the **Users** entries and their actions/instcmds
+- **No shutdown:** Verify **Shutdown Command**, **Shutdown Mode** and **Minimum Supplies**
+- **Stale data:** Adjust the **Timers** (e.g., **Dead Time**) as needed
 
 ---
 

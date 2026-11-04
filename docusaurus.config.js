@@ -129,14 +129,7 @@ const config = {
         ],
       },
     ],
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          // ...
-        ],
-      },
-    ],
+    'docusaurus-plugin-image-zoom',
   ],
 
   presets: [

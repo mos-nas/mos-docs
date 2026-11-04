@@ -135,6 +135,7 @@ const config = {
         ],
       },
     ],
+    require.resolve('./plugins/llms-txt'),
     'docusaurus-plugin-image-zoom',
     [
       '@docusaurus/plugin-pwa',
@@ -264,6 +265,10 @@ const config = {
             {
               label: 'GitHub Issue',
               href: 'https://github.com/mos-nas/mos-releases/issues',
+            },
+            {
+              label: 'llms.txt (for AI tools)',
+              href: 'https://docs.mos-official.net/llms.txt',
             },
           ],
         },

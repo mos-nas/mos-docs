@@ -11655,6 +11655,24 @@ _Parts of this documentation were created with the assistance of AI tools. All A
 
 ---
 
+# 0.6.2-stable
+
+Source: https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.2-stable
+
+# 0.6.2-stable
+
+:::tip[Download]
+Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-releases/releases/tag/0.6.2-stable) page.
+:::
+
+{/* ## Important — bei Bedarf einkommentieren und kritische Hinweise ergänzen */}
+
+---
+
+[📋 Release Notes Overview](../Overview) | **[Previous: 0.6.1-stable ←](../Stable/0.6.1-stable)**
+
+---
+
 # 0.6.1-stable
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.1-stable

@@ -1,5 +1,12 @@
 [
   {
+    "version": "0.6.2-stable",
+    "channel": "Stable",
+    "badge": "🎉 Stable",
+    "highlights": "MOS 0.6.2-stable: see release notes",
+    "date": "2026-11-05T17:38:22Z"
+  },
+  {
     "version": "0.6.1-stable",
     "channel": "Stable",
     "badge": "🎉 Stable",

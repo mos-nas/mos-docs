@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import releases from '@site/release-index.json';
 
 // Renders the curated release-notes overview table from release-index.json,
@@ -20,7 +21,7 @@ export default function ReleaseNotesOverview() {
         {releases.map((r) => (
           <tr key={r.version}>
             <td>
-              <a href={`./${r.channel}/${r.version}`}>{r.version}</a>
+              <Link to={`/docs/Release-Notes/${r.channel}/${r.version}`}>{r.version}</Link>
             </td>
             <td>{r.badge}</td>
             <td>{r.highlights}</td>

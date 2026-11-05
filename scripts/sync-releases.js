@@ -210,7 +210,16 @@ function seedIndexFromOverview() {
   return map;
 }
 
-function renderMdx({tag, channel, release, prevTag, position, highlights}) {
+function extractImportant(file) {
+  if (!fs.existsSync(file)) return '';
+  const text = fs.readFileSync(file, 'utf8');
+  const m = text.match(/(?:^|\n)## Important[ \t]*\r?\n([\s\S]*?)(?=\n## |\n---[ \t]*\r?\n|$)/);
+  if (!m) return '';
+  const body = m[1].trim();
+  return body ? `## Important\n\n${body}` : '';
+}
+
+function renderMdx({tag, channel, release, prevTag, position, highlights, important = ''}) {
   const emoji = channel === 'Stable' ? '🎉' : '🧪';
   const bullets = extractChanges(release.body);
   const {system, features, fixes} = categorize(bullets);
@@ -230,8 +239,13 @@ function renderMdx({tag, channel, release, prevTag, position, highlights}) {
   L.push(`Download this release on the [GitHub Releases](${htmlUrl}) page.`);
   L.push(':::');
   L.push('');
-  L.push('{/* ## Important — bei Bedarf einkommentieren und kritische Hinweise ergänzen */}');
-  L.push('');
+  if (important) {
+    L.push(important);
+    L.push('');
+  } else {
+    L.push('{/* ## Important — bei Bedarf einkommentieren und kritische Hinweise ergänzen */}');
+    L.push('');
+  }
   if (system.length) {
     L.push('## System');
     L.push('');
@@ -264,15 +278,16 @@ function renderMdx({tag, channel, release, prevTag, position, highlights}) {
 // Index = only releases that actually have an MDX page (curated + newly
 // created). Old uncurated releases from the API are deliberately excluded so
 // the Overview stays focused on documented releases.
-function buildIndex(releases, existingIndex) {
+function buildIndex(releases, existingIndex, refreshTags = new Set()) {
   const relByTag = new Map(releases.map((r) => [normTag(r.tag_name), r]));
   const byKey = new Map();
   for (const channel of ['Stable', 'Beta']) {
     for (const tag of listChannelTags(channel)) {
       const prev = existingIndex.get(tag);
       const r = relByTag.get(tag);
+      const isForced = refreshTags.has(tag);
       let highlights;
-      if (prev) {
+      if (prev && !isForced) {
         highlights = prev.highlights;
       } else {
         const fm = readFrontmatter(path.join(RELEASE_DIR, channel, `${tag}.mdx`));
@@ -359,6 +374,16 @@ async function main() {
 
   const sortedReleases = [...releases].sort((a, b) => Date.parse(b.published_at || 0) - Date.parse(a.published_at || 0));
 
+  // A manual sync for one specific tag (--tag) regenerates that release page
+  // and refreshes its highlights, e.g. after a changelog was added to the
+  // GitHub release later. Scheduled runs never force anything.
+  const refreshTags = new Set();
+
+  // True when a generated page has no change sections yet. Such a page is
+  // rebuilt automatically once the GitHub release gets a changelog later.
+  const hasChangeSections = (file) =>
+    /^## (System|New Features|Bugfixes|Changes)\s*$/m.test(fs.readFileSync(file, 'utf8'));
+
   // Only auto-create MDX for releases NEWER than the newest already-documented
   // release in their channel. Old, never-curated releases are left untouched
   // (their pages would be low-quality and clutter the sidebar).
@@ -369,13 +394,27 @@ async function main() {
     const tag = normTag(r.tag_name);
     const channel = channelOf(r);
     const file = path.join(RELEASE_DIR, channel, `${tag}.mdx`);
-    if (fs.existsSync(file)) continue;
-    const newest = newestByChannel[channel];
-    if (newest && cmpVersion(tag, newest) <= 0) continue; // not newer -> skip
-    const pos = minSidebarPosition(channel) - 1;
+    const exists = fs.existsSync(file);
+
+    // Rebuild an existing page only if it is still an empty auto-generated page
+    // and the release now has a changelog. Curated pages (with change sections)
+    // are never overwritten, even when a tag is passed explicitly.
+    const shouldRefresh = exists && !hasChangeSections(file) && extractChanges(r.body).length > 0;
+    if (exists && !shouldRefresh) continue;
+    if (!shouldRefresh && newestByChannel[channel] && cmpVersion(tag, newestByChannel[channel]) <= 0) continue; // not newer -> skip
+    if (shouldRefresh) refreshTags.add(tag);
+
+    // Keep the existing sidebar position when regenerating a page.
+    let pos = minSidebarPosition(channel) - 1;
+    if (exists) {
+      const existingPos = parseFloat(readFrontmatter(file).sidebar_position);
+      if (Number.isFinite(existingPos)) pos = existingPos;
+    }
+
     let prevTag = null;
     let prevMin = Infinity;
     for (const t of listChannelTags(channel)) {
+      if (t === tag) continue;
       const fm = readFrontmatter(path.join(RELEASE_DIR, channel, `${t}.mdx`));
       const p = parseFloat(fm.sidebar_position);
       if (Number.isFinite(p) && p < prevMin) {
@@ -384,7 +423,8 @@ async function main() {
       }
     }
     const highlights = buildHighlights(extractChanges(r.body));
-    const content = renderMdx({tag, channel, release: r, prevTag, position: pos, highlights});
+    const important = exists ? extractImportant(file) : '';
+    const content = renderMdx({tag, channel, release: r, prevTag, position: pos, highlights, important});
     if (opts.check) {
       created.push(file);
       console.log(`  + would create: ${path.relative(ROOT, file)}`);
@@ -396,7 +436,7 @@ async function main() {
     }
   }
 
-  const index = buildIndex(sortedReleases, existingIndex);
+  const index = buildIndex(sortedReleases, existingIndex, refreshTags);
   const indexContent = JSON.stringify(index, null, 2) + '\n';
   const indexChanged = !fs.existsSync(INDEX_FILE) || fs.readFileSync(INDEX_FILE, 'utf8') !== indexContent;
   if (indexChanged) {

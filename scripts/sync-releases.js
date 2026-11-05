@@ -20,6 +20,8 @@ const INDEX_FILE = path.join(ROOT, 'release-index.json');
 const ANNOUNCE_FILE = path.join(ROOT, 'release-announcement.json');
 const SYNC_FILE = path.join(ROOT, 'release-sync.json');
 const SITE_URL = 'https://docs.mos-official.net';
+const COMING_SOON = 'Changelog coming soon';
+const DISCORD_URL = 'https://discord.gg/EFUgVV5Btf';
 
 function parseArgs(argv) {
   const out = {check: false, tag: null, repo: 'mos-nas/mos-releases', trigger: 'manual'};
@@ -129,7 +131,7 @@ function buildHighlights(bullets) {
   for (const b of sys.slice(0, 4)) picks.push(cleanHi(b));
   const feat = bullets.filter((b) => !SYS_RE.test(b) && !FIX_RE.test(b));
   for (const b of feat.slice(0, 3)) picks.push(cleanHi(b));
-  if (picks.length === 0) return 'see release notes';
+  if (picks.length === 0) return COMING_SOON;
   let h = picks.join(', ');
   if (h.length > 180) h = h.slice(0, 177).replace(/,\s*[^,]*$/, '') + '…';
   return h;
@@ -243,7 +245,13 @@ function renderMdx({tag, channel, release, prevTag, position, highlights, import
     L.push(important);
     L.push('');
   } else {
-    L.push('{/* ## Important — bei Bedarf einkommentieren und kritische Hinweise ergänzen */}');
+    L.push('{/* ## Important — uncomment and add critical notes if needed */}');
+    L.push('');
+  }
+  if (system.length === 0 && features.length === 0 && fixes.length === 0) {
+    L.push(`:::info[${COMING_SOON}]`);
+    L.push(`The changelog for this release has not been published yet. Updates are posted in the 🚀│releases channel on our [Discord](${DISCORD_URL}).`);
+    L.push(':::');
     L.push('');
   }
   if (system.length) {
@@ -289,10 +297,12 @@ function buildIndex(releases, existingIndex, refreshTags = new Set()) {
       let highlights;
       if (prev && !isForced) {
         highlights = prev.highlights;
+      } else if (r) {
+        highlights = buildHighlights(extractChanges(r.body));
       } else {
         const fm = readFrontmatter(path.join(RELEASE_DIR, channel, `${tag}.mdx`));
-        const d = (fm.description || '').replace(/^MOS\s+\S+:\s*/, '').replace(/^"|"$/g, '');
-        highlights = d && !/^download this release/i.test(d) ? d : r ? buildHighlights(extractChanges(r.body)) : 'release notes';
+        const d = String(fm.description || '').replace(/^"|"$/g, '').replace(/^MOS\s+\S+:\s*/, '');
+        highlights = d && !/^download this release/i.test(d) ? d : COMING_SOON;
       }
       byKey.set(tag, {
         version: tag,
@@ -399,10 +409,14 @@ async function main() {
     // Rebuild an existing page only if it is still an empty auto-generated page
     // and the release now has a changelog. Curated pages (with change sections)
     // are never overwritten, even when a tag is passed explicitly.
-    const shouldRefresh = exists && !hasChangeSections(file) && extractChanges(r.body).length > 0;
+    const bodyHasChanges = extractChanges(r.body).length > 0;
+    const hasComingSoon = exists && fs.readFileSync(file, 'utf8').includes(COMING_SOON);
+    const shouldRefresh = exists && !hasChangeSections(file) && (bodyHasChanges || !hasComingSoon);
     if (exists && !shouldRefresh) continue;
     if (!shouldRefresh && newestByChannel[channel] && cmpVersion(tag, newestByChannel[channel]) <= 0) continue; // not newer -> skip
-    if (shouldRefresh) refreshTags.add(tag);
+    // A page is being written (created or refreshed), so its index entry must
+    // be recomputed as well.
+    refreshTags.add(tag);
 
     // Keep the existing sidebar position when regenerating a page.
     let pos = minSidebarPosition(channel) - 1;

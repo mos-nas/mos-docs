@@ -1,7 +1,8 @@
 name: Sync Release Notes
 
 # Syncs MOS release notes from mos-nas/mos-releases into the docs and commits
-# them. The deploy itself is handled by deploy.yml (triggered by the push).
+# them. Pushes made with GITHUB_TOKEN do not trigger other workflows, so the
+# deploy workflow is dispatched explicitly afterwards.
 on:
   schedule:
     # Every 6 hours
@@ -15,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: sync-release-notes
@@ -64,3 +66,9 @@ jobs:
           git commit -m "chore(release-notes): auto-sync release notes ($STAMP)"
           git pull --rebase origin master
           git push
+
+      - name: Trigger deploy workflow
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref master

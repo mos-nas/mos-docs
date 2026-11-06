@@ -29,6 +29,7 @@ MOS Notify supports the following notification providers:
 | **Discord** | Webhook | Send notifications to a Discord channel via webhook |
 | **Gotify** | API | Send notifications to a self-hosted Gotify server |
 | **Pushbits** | API | Send notifications to a self-hosted Pushbits instance |
+| **ntfy** | API | Send notifications to a self-hosted ntfy server |
 
 :::info
 Multiple providers can be enabled simultaneously. If no external provider is configured, notifications will still be displayed inside the MOS WebUI.
@@ -41,11 +42,13 @@ flowchart LR
   Notify --> Discord[Discord]
   Notify --> Gotify[Gotify]
   Notify --> Pushbits[Pushbits]
+  Notify --> Ntfy[ntfy]
   Notify --> Custom[Custom provider]
   Email --> User[Recipient]
   Discord --> User
   Gotify --> User
   Pushbits --> User
+  Ntfy --> User
   Custom --> User
 ```
 
@@ -75,6 +78,7 @@ The Email provider sends notifications via SMTP.
 | **Receiver** | Text | — | Email address that receives the notifications |
 | **Subject** | Text | `{{.Title}}` | Email subject template (supports template variables) |
 | **Body** | Text | `{{.Message}}` | Email body template (supports template variables) |
+| **Notification Levels** | Select | All | Levels delivered by this provider: `normal`, `warning`, `alert` |
 | **Alert Mapping (JSON)** | JSON | `{}` | Maps alert types to specific notification behavior |
 
 :::tip
@@ -98,6 +102,7 @@ The Discord provider sends notifications to a Discord channel via a webhook URL.
 | **Method** | Dropdown | `POST` | HTTP method for the webhook request |
 | **Headers (JSON)** | JSON | — | Custom HTTP headers for the webhook request |
 | **Body (JSON)** | JSON | — | Request body payload (supports template variables) |
+| **Notification Levels** | Select | All | Levels delivered by this provider: `normal`, `warning`, `alert` |
 | **Alert Mapping (JSON)** | JSON | — | Maps alert types to specific notification behavior |
 | **Color Priority (JSON)** | JSON | — | Defines embed colors based on priority levels |
 | **Delete Provider** | Button | — | Removes this provider configuration |
@@ -119,6 +124,7 @@ The Gotify provider sends notifications to a self-hosted Gotify server.
 | **Method** | Dropdown | `POST` | HTTP method for the API request |
 | **Headers (JSON)** | JSON | — | Custom HTTP headers |
 | **Body (JSON)** | JSON | — | Request body payload (supports template variables) |
+| **Notification Levels** | Select | All | Levels delivered by this provider: `normal`, `warning`, `alert` |
 | **Alert Mapping (JSON)** | JSON | — | Maps alert types to specific notification behavior |
 | **Color Priority (JSON)** | JSON | — | Defines notification colors based on priority |
 | **Delete Provider** | Button | — | Removes this provider configuration |
@@ -140,6 +146,29 @@ The Pushbits provider sends notifications to a self-hosted Pushbits instance.
 | **Method** | Dropdown | `POST` | HTTP method for the API request |
 | **Headers (JSON)** | JSON | — | Custom HTTP headers |
 | **Body (JSON)** | JSON | — | Request body payload (supports template variables) |
+| **Notification Levels** | Select | All | Levels delivered by this provider: `normal`, `warning`, `alert` |
+| **Alert Mapping (JSON)** | JSON | — | Maps alert types to specific notification behavior |
+| **Color Priority (JSON)** | JSON | — | Defines notification colors based on priority |
+| **Delete Provider** | Button | — | Removes this provider configuration |
+
+### 📨 ntfy
+
+The ntfy provider sends notifications to a self-hosted [ntfy](https://ntfy.sh) server.
+
+![ntfy Provider](/img/settings/system-configuration/notify-ntfy.png)
+
+*ntfy provider configuration.*
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| **Enabled** | Toggle | Off | Enables or disables the ntfy provider |
+| **User** | Text | — | ntfy username |
+| **Token** | Text | — | ntfy access token |
+| **URL** | Text | — | ntfy server URL |
+| **Method** | Dropdown | `POST` | HTTP method for the API request |
+| **Notification Levels** | Select | All | Levels delivered by this provider: `normal`, `warning`, `alert` |
+| **Headers (JSON)** | JSON | — | Custom HTTP headers |
+| **Body (JSON)** | JSON | — | Request body payload (supports template variables) |
 | **Alert Mapping (JSON)** | JSON | — | Maps alert types to specific notification behavior |
 | **Color Priority (JSON)** | JSON | — | Defines notification colors based on priority |
 | **Delete Provider** | Button | — | Removes this provider configuration |
@@ -150,7 +179,7 @@ The Pushbits provider sends notifications to a self-hosted Pushbits instance.
 
 Custom providers can be added via the **+** (floating action button) in the bottom-right corner of the Notifications page.
 
-This allows you to configure additional webhook-based notification providers that follow the same field structure as Discord, Gotify, and Pushbits (User, Token, URL, Method, Headers, Body, Alert Mapping, Color Priority).
+This allows you to configure additional webhook-based notification providers that follow the same field structure as Discord, Gotify, Pushbits, and ntfy (User, Token, URL, Method, Headers, Body, Alert Mapping, Color Priority).
 
 :::tip
 If you have implemented a new provider and would like to share it, please open a Pull Request at: [github.com/mos-nas/mos-boot-files](https://github.com/mos-nas/mos-boot-files)
@@ -218,7 +247,7 @@ The Notify service provides flexible notification delivery for MOS system events
 
 Key points:
 
-- **Four built-in providers** — Email, Discord, Gotify, Pushbits
+- **Five built-in providers** — Email, Discord, Gotify, Pushbits, ntfy
 - **WebUI configuration** — all providers can be configured directly from the browser
 - **Custom providers** — add additional webhook-based providers via the + button
 - **Template variables** — use `{{.Title}}` and `{{.Message}}` in subject/body fields

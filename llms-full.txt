@@ -2704,6 +2704,22 @@ Allows files in the share to be executed with full execute permissions.
 This option is useful for shares that need to store and execute executable files (e.g., scripts, binaries).
 :::
 
+### Additional advanced options
+
+The advanced section also provides:
+
+| Option | Description |
+|--------|-------------|
+| **Create mask** | Unix permission mask applied to newly created files (default: `0664`) |
+| **Directory mask** | Unix permission mask applied to newly created directories |
+| **Force root access** | Access files as root instead of the connecting user |
+| **Inherit permissions** | Inherit permissions from the parent directory |
+| **Hide dot files** | Hide files starting with a dot in directory listings |
+| **Preserve case** | Preserve the case of file names |
+| **Case sensitive** | Treat file names as case-sensitive |
+
+---
+
 ## 📋 Managing Existing Shares
 
 The Shares overview displays all configured shares.
@@ -2740,20 +2756,6 @@ All data in the share directory will be permanently lost.
 :::
 
 ![Share Delete](/img/share/Share_Delete.png)
-
----
-
-## ✅ Summary
-
-To create your first share, follow these steps:
-
-1. Choose a clear **share name**
-2. Select a **pool**
-3. Define the **directory path** *(created automatically if missing)*
-4. Assign **read and write permissions**
-5. Adjust **advanced options** if required
-
-Shares are the primary way to expose storage to users and applications.
 
 ---
 

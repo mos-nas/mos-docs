@@ -5117,6 +5117,11 @@ Navigate to:
 
 Driver plugins are only shown if they are provided by one of the configured repositories.
 
+:::tip[First use]
+On a fresh installation the MOS Hub has no repositories loaded yet. Open **MOS Hub** and
+click **Update repositories** first; the template and driver lists appear afterwards.
+:::
+
 ![MOS Hub Plugins Drivers](/img/system/MOS_Hub_Plugins_Drivers.png)
 
 ---

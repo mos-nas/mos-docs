@@ -77,12 +77,6 @@ Once installed, it automatically applies the required host shim setup based on t
 
 ---
 
-## ✅ Summary
+---
 
-- The Host Shim is now delivered as a MOS plugin
-
-- Install via MOS Hub and select a release version
-
-- No Cron job and no manual scripts required
-
-- No configuration page (it works automatically once installed)
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

@@ -135,21 +135,4 @@ Port `3260` is the standard iSCSI port defined in RFC 3720. Only change it if yo
 
 ---
 
-## ✅ Summary
-
-The iSCSI Target feature enables MOS to serve block-level storage over the network.
-
-Key points:
-
-- **Block storage over network** — share disks/volumes via iSCSI protocol
-- **Portal configuration** — define listen address and port (default: `0.0.0.0:3260`)
-- **CHAP authentication** — optional username/password security
-- **LUNs** — multiple storage volumes per target
-- **Allowed Initiators** — restrict access to specific IQNs
-- **Standard port 3260** — default iSCSI port per RFC 3720
-
-iSCSI Target is ideal for providing storage to VMs, other servers, or any system that needs block-level access to MOS storage.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

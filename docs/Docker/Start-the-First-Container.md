@@ -399,19 +399,4 @@ MOS Hub is the **recommended starting point** for new users.
 
 ---
 
-## ✅ Summary
-
-To start your first container in MOS, follow these steps:
-
-1. Configure and enable the **Docker Service**
-2. Choose your deployment method:
-   - **MOS Hub** — easy template-based deployment *(recommended for beginners)*
-   - **Docker** — manual or advanced configuration
-3. Verify storage paths and network settings
-4. Start and manage containers from the Docker overview
-
-Once Docker is configured, MOS becomes a **powerful platform** for running applications and services.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

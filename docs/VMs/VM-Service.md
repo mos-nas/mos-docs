@@ -134,7 +134,7 @@ The VM Service settings define how virtual machines are managed on the system.
 **Key points:**
 - Enable or disable the VM service
 - Configure directories for VM configuration and virtual disks
-- Prepare for future VirtIO ISO management features
+- Manage VirtIO ISO downloads and huge page reservations
 
 Proper configuration ensures stable and efficient virtual machine operation.
 

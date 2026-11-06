@@ -335,20 +335,4 @@ The new VM will appear in the VMs overview with a **stopped** state.
 
 ---
 
-## ✅ Summary
-
-To create your first VM, follow these steps:
-
-1. Set a **Name** and configure **Memory**
-2. Choose **Machine Type** and **BIOS Type**
-3. Add a **Disk** and select format + bus type
-4. Add a **CD-ROM** with the OS installer ISO
-5. *(Windows only)* Attach the **VirtIO ISO**
-6. Add a **Network Adapter**
-7. Configure **Graphics** for remote access
-8. *(Optional)* Add **Host Devices** or **USB Devices**
-9. Click **Create** — your VM is ready!
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

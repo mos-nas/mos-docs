@@ -41,9 +41,9 @@ Once created, the token can be used for API access and automation.
 
 ---
 
-## 🌐 External Service Tokens
+## 🔑 Client Token
 
-External service tokens increase API limits and prevent download throttling when interacting with public repositories.
+Client tokens are stored centrally in MOS and increase API limits, preventing download throttling when interacting with public repositories.
 
 ---
 

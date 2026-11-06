@@ -91,14 +91,4 @@ Use this script carefully and keep it as minimal as possible.
 
 ---
 
-## ✅ Summary
-
-- Runs very early during system startup
-- Executed before pools and services
-- Intended for early system preparation
-- Cron jobs are preferred whenever possible
-- Part of the official MOS startup process
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

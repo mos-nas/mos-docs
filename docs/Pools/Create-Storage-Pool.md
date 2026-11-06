@@ -643,18 +643,4 @@ A balance operation can generate heavy I/O load. Avoid running it during peak us
 
 ---
 
-## ✅ Summary
-
-Choosing the correct pool type and filesystem is essential for a stable and reliable system.
-
-**Quick recommendations:**
-- `single + xfs` → Appdata, cache, downloads  
-- `multi + raid1` → Critical data  
-- `mergerfs + SnapRAID` → Media storage  
-- `mergerfs + nonraid` → Flexible parity-based storage (driver required)
-
-Plan your pool layout carefully before creating pools.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

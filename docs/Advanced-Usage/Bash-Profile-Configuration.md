@@ -111,13 +111,4 @@ alias resize='stty -a | grep -q "rows" && stty rows $((${LINES:-24}) columns $((
 
 ---
 
-## ✅ Summary
-
-- Create file at `/boot/config/system/bash_profile`
-- Reboot MOS to create symlink to `/root/.bash_profile`
-- Configure aliases, colors, and environment variables
-- Useful for SSH session customization
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

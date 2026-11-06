@@ -32,12 +32,6 @@ In advanced scenarios, this verification can be explicitly disabled.
 - Use this option only if you fully understand the implications
 :::
 
-## ✅ Summary
+---
 
-- MD5 verification can be disabled via a marker file
-
-- File path: /boot/config/system/md5check_disabled
-
-- File content is irrelevant
-
-- Recommended only for special scenarios
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

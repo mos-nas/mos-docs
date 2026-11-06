@@ -97,17 +97,4 @@ For each user you can:
 
 ---
 
-## ✅ Summary
-
-To create a user:
-
-1. Choose a username
-2. Set a password
-3. Assign the appropriate role
-4. Enable Samba access if required
-
-Use admin users sparingly and create separate users for file access where possible.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

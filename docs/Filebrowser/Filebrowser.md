@@ -197,21 +197,4 @@ For file management tasks (upload, download, rename, delete), consider using:
 
 ---
 
-## ✅ Summary
-
-The MOS Filebrowser provides a convenient way to browse the file system directly from the WebUI.
-
-Key points:
-
-- **Direct browser access** — no SSH or FTP client needed
-- **Full root access** — see all files and directories on the system
-- **Detailed file info** — name, path, size, owner, and permissions
-- **Hidden files toggle** — show or hide dotfiles
-- **Read-oriented** — ideal for inspection and verification
-- **System-wide access** — browse from `/` to any directory on the server
-
-The Filebrowser is perfect for quick file system inspection, verifying configurations, and navigating storage pools without leaving the MOS WebUI.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

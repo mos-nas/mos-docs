@@ -77,17 +77,4 @@ Need to pass a USB device to a Docker container? Use the Bus and Device number t
 
 ---
 
-## ✅ Summary
-
-The USB Devices page provides a quick overview of all connected USB hardware.
-
-Key points:
-
-- **Automatic detection** — all USB devices are listed without configuration
-- **Detailed identification** — vendor IDs, product IDs, bus and device numbers
-- **Read-only** — for inspection and troubleshooting only
-- **Useful for passthrough** — Vendor/Product IDs needed for VM and container device assignment
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

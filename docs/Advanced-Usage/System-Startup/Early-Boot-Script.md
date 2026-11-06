@@ -120,11 +120,4 @@ Use this script **only if you fully understand the MOS boot process and Linux sy
 
 ---
 
-## ✅ Summary
-
-- Executed at the earliest possible boot stage
-- Runs before drivers, networking, pools, and services
-- Only rootfs is available
-- Requires full paths to all commands
-- Intended for deep system-level customization
-- Located under **Advanced-Usage** for a reason
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

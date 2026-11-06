@@ -87,14 +87,4 @@ The script will be executed automatically as long as the file exists at the defi
 
 ---
 
-## ✅ Summary
-
-- Runs after all pools and services are available
-- Executed once during system startup
-- Intended for post-start initialization tasks
-- Cron jobs are preferred when possible
-- Part of the official MOS startup process
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

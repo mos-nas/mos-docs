@@ -573,28 +573,6 @@ The `repository` field should point to a repository that provides installation s
 
 ---
 
-## ✅ Summary
-
-Creating a MOS Hub repository allows you to:
-- Share Docker templates with the community
-- Maintain your own template collection
-- Provide specialized application configurations
-
-**Key steps:**
-1. Create a GitHub repository with the correct structure
-2. Build and test templates in MOS
-3. Export template JSON files from `/boot/config/system/docker/templates/`
-4. Edit templates to use standard paths and recommended PUID/PGID values
-5. Create plugin templates for drivers and utilities (optional)
-6. Upload templates, plugins, and icons to GitHub
-7. Add repository URL to MOS Hub settings
-
-Once configured, your templates and plugins will be available to all MOS users who add your repository to their Hub.
-
-Proper documentation and testing ensure a high-quality contribution to the MOS ecosystem.
-
----
-
 ## 📖 Example Repositories
 
 The following repositories provide excellent examples of MOS Hub structure:

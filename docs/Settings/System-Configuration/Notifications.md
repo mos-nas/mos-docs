@@ -247,22 +247,4 @@ This allows fine-grained control over how different types of alerts are delivere
 
 ---
 
-## ✅ Summary
-
-The Notify service provides flexible notification delivery for MOS system events.
-
-Key points:
-
-- **Five built-in providers** — Email, Discord, Gotify, Pushbits, ntfy
-- **WebUI configuration** — all providers can be configured directly from the browser
-- **Custom providers** — add additional webhook-based providers via the + button
-- **Template variables** — use `{{.Title}}` and `{{.Message}}` in subject/body fields
-- **Alert Mapping** — fine-grained control over alert types and priorities
-- **Multiple providers** — enable several providers simultaneously
-- **Manual config** — advanced configuration via `/boot/config/notify/providers/`
-
-Proper notification configuration ensures you stay informed about system events, disk warnings, backup status, and other important alerts.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

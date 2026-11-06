@@ -286,12 +286,4 @@ Edit the VM configuration to prioritize the boot disk:
 
 ---
 
-## 🧪 Summary
-
-- Use `mos_amd64.img.xz` to test MOS in a VM
-- Extract the image and attach it as a **USB device**
-- **UEFI boot is mandatory** — Secure Boot must be disabled
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

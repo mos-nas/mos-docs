@@ -280,6 +280,10 @@ function renderMdx({tag, channel, release, prevTag, position, highlights, import
     L.push('[📋 Release Notes Overview](../Overview)');
   }
   L.push('');
+  L.push('---');
+  L.push('');
+  L.push('_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._');
+  L.push('');
   return L.join('\n');
 }
 

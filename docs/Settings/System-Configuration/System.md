@@ -35,7 +35,7 @@ Defines the system hostname.
 Defines the system keyboard layout.
 
 **Default:**  
-- `de-latin1-nodeadkeys`
+- `us`
 
 **Use cases:**
 - Console access
@@ -48,7 +48,7 @@ Defines the system keyboard layout.
 Defines the system timezone.
 
 **Default:**  
-- `Europe/Vienna`
+- `Europe/London`
 
 :::note
 - Affects logs, cron jobs, and scheduled tasks
@@ -217,7 +217,7 @@ Automatically check for available MOS updates.
 Defines the cron schedule for automatic update checks.
 
 **Default:**
-- `0 1 * * *` (daily at 1:00 AM)
+- `15 9 * * *` (daily at 09:15)
 
 :::note
 Use standard cron syntax. For example:

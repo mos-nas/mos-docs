@@ -353,19 +353,19 @@ Source: https://docs.mos-official.net/docs/Installation/First-Walkthrough
 
 # 🚀 First Walkthrough
 
-After creating a bootable USB stick ([Create Bootable Media](./Create-Bootable-Media.md)) and starting the server for the first time, you will see the following on the screen:
+After creating the bootable media ([Create Bootable Media](./Create-Bootable-Media.md)) and starting the server for the first time, the console shows the IPv4 address assigned to the server:
 
 import Terminal, { TerminalCursor } from '@site/src/components/Terminal';
 
 <Terminal title="root@MOS:~">
-MOS running MOS 0.2.3-beta - built on Devuan GNU/Linux
+MOS running MOS 0.6.2-stable - built on Devuan GNU/Linux
 
       IPv4: 192.168.1.51
 
 MOS Login: <TerminalCursor />
 </Terminal>
 
-Once the system is fully booted, the initial setup wizard is accessible through the WebUI at `http://MOS-IP/`.
+No console login is required. Once the system is fully booted, open the WebUI at the displayed address, for example `http://192.168.1.51/`. The first start redirects to the setup wizard at `/firstSetup`.
 
 ---
 
@@ -398,15 +398,15 @@ Fill in the following fields:
 
 - **Username** — The WebUI administrator username
 - **Web Password** — Password for WebUI access
-- **Web Password** — Re-enter the same password for confirmation
+- **Confirm Web Password** — Re-enter the same password for confirmation
 
 Additional settings:
 
-- **Samba User** — Toggle to enable Samba user functionality
+- **Samba User** — Enable Samba access for this account (enabled by default)
 - **Language** — Select the display language (default: `English`)
 - **Byte unit** — Select byte unit format (default: `Binary`)
-- **Dark Mode** — Toggle to enable dark mode interface
-- **UI Color** — Choose the primary UI color from the color palette
+- **Theme** — Select the interface theme: `Auto`, `Light`, or `Dark` (default: `Auto`)
+- **UI Color** — Choose the primary UI color from the palette
 
 Click **Finish** to complete the initial setup.
 
@@ -441,6 +441,7 @@ The Dashboard displays the following information:
 
 - **OS** — System information including platform, name, version, hostname, uptime, architecture, MOS version, channel, build, kernel, frontend, and API version
 - **Processor** — CPU details including brand, architecture, cores, temperature, and current load
+- **System Load History** — Current, 1-minute, 5-minute, and 15-minute load averages with a history graph
 - **Pools** — Storage pool status (currently showing "No pools available")
 - **Network** — Network interface information including type, state, IPv4 address, speed, and MAC address with a traffic graph
 - **Memory** — Memory usage statistics showing installed, usable, used, and free memory with a visual bar
@@ -469,6 +470,7 @@ The Network Interfaces page allows you to configure:
 - **Type** — Select the interface type (`ethernet` or `bridged`)
 - **IPv4 DHCP** — Toggle automatic IP assignment via DHCP
 - **Enable IPv6** — Toggle IPv6 support
+- **VLAN** — Add VLAN interfaces with VLAN ID, MTU, and optional IPv4/IPv6 configuration
 
 :::warning[⚠️ Network Configuration Safety]
 
@@ -537,8 +539,8 @@ The System Settings page contains essential system configuration options. Naviga
 Configure basic system parameters:
 
 - **Hostname** — The system hostname (default: `MOS`)
-- **Keymap** — Keyboard layout for console access (default: `de-latin1-nodeadkeys`)
-- **Timezone** — System timezone (default: `Europe/Vienna`)
+- **Keymap** — Keyboard layout for console access (default: `us`)
+- **Timezone** — System timezone (default: `Europe/London`)
 - **CPU Governor** — CPU frequency scaling policy (default: `ondemand`; falls back to `performance` if the CPU does not support it)
 - **Global Spindown** — Disk idle time before spin-down in minutes (default: `20`)
 - **Persist History** — Toggle to preserve command history across reboots
@@ -652,6 +654,8 @@ When clicking **Install to Disk**, you can configure:
 - **Device** — The target disk where the bootloader will be installed
 - **Filesystem** — The filesystem for the boot installation (ext4 recommended for HDD/SSD/NVME)
 - **Extra Partition** — Optionally create an additional partition for storage pools, Docker data, or shares
+- **Set backup label on new device** — Write the MOS backup label to the new boot device
+- **Restore from file (MOS Backup)** — Restore the boot configuration from a MOS Backup file (requires the MOS Backup Plugin)
 
 For detailed information, refer to the [Boot](../Settings/Hardware/Boot.md) documentation.
 
@@ -665,22 +669,23 @@ The System Update option allows you to update the MOS firmware to a newer versio
 
 The update dialog displays:
 
-- **MOS Version** — Currently installed version (e.g., `0.2.3-beta`)
-- **MOS Channel** — Current update channel (e.g., `beta`)
-- **MOS Kernel** — Current kernel version (e.g., `6.18.20-mos`)
+- **MOS Version** — Currently installed version (e.g., `0.6.2-stable`)
+- **MOS Channel** — Current update channel (e.g., `stable`)
+- **MOS Kernel** — Current kernel version (e.g., `6.18.60-mos`)
 
 Select your target firmware:
 
 - **Channel** — Choose the update channel:
   - `alpha` — Early access releases
-  - `beta` — Pre-release versions (selected by default)
-  - `stable` — Production-ready releases
+  - `beta` — Pre-release versions
+  - `stable` — Production-ready releases (recommended)
 
 - **Release** — Select the specific version to install:
   - `latest` — Most recent version in the selected channel
-  - Or choose a specific version from the list (e.g., `0.2.3-beta`, `0.2.2-beta`, etc.)
+  - Or choose a specific version from the list (e.g., `0.6.2-stable`, `0.6.1-stable`, etc.)
 
 - **Update Kernel** — Toggle to include kernel updates with the firmware update
+- **Update Plugins** — Toggle to update installed plugins together with the firmware
 
 Click **Ok** to start the update process, or **Cancel** to close the dialog without updating.
 

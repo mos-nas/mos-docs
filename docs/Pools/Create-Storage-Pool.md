@@ -49,7 +49,7 @@ Available pool types:
 - `multi`
 - `mergerfs`
 - `nonraid` *(requires additional driver)*
-- `bcachefs`
+- `bcachefs` *(planned — not yet available)*
 
 Each type serves a different use case and offers different levels of redundancy and flexibility.
 
@@ -126,6 +126,19 @@ Temporary or non-critical data
 
 **Use case:**  
 Critical data, system pools, important shares
+
+---
+
+##### raid10
+**Mirrored striping**
+
+- Combines mirroring with striping across the devices
+- With two devices it behaves like a mirror; four or more devices provide the full layout
+- Higher throughput than raid1 with the same level of redundancy
+- Usable capacity is about 50% of the raw capacity
+
+**Use case:**  
+Performance-critical pools that still need redundancy
 
 ---
 
@@ -303,16 +316,18 @@ If mismatches are found, run **Correct** to update the parity disks accordingly.
 
 ### 🧬 bcachefs
 
-A bcachefs pool combines devices into one filesystem with built-in checksumming and
-optional replication, managed by bcachefs itself rather than by mergerfs or SnapRAID.
+:::note[Not yet available]
+bcachefs support is planned for a future MOS release. It is not available in the current
+version; this section describes the intended integration.
+:::
+
+The planned bcachefs pool type combines devices into one filesystem with built-in
+checksumming and optional replication, managed by bcachefs itself rather than by mergerfs
+or SnapRAID.
 
 **Use it when:**
 - you want per-block checksums and self-healing on replicated data
 - you want a single filesystem across multiple devices without a separate parity tool
-
-![Creating a bcachefs pool](/img/pools/bcachefs-create.png)
-
-*bcachefs is selected as the pool type; the filesystem is fixed to bcachefs.*
 
 **Characteristics:**
 - The pool is created through its own endpoint and always uses `bcachefs` as the filesystem
@@ -411,44 +426,39 @@ When enabled, MOS will skip the size validation check when creating a Mergerfs p
 
 ---
 
-## ⚠️ Usage Warning
+## ⚠️ Usage Alerts
 
-:::note
-**Note:** The translation for this feature is not yet finalized in the current MOS 0.4.8-beta release. The UI labels may still be in German and will be updated in a future release.
-:::
-
-The Usage Warning feature allows you to receive notifications when a storage pool reaches certain capacity thresholds. This helps you proactively manage storage space and avoid unexpected issues.
+Usage Alerts notify you when a storage pool reaches configured capacity thresholds.
 
 ### How It Works
 
-- The system checks pool usage **every 10 minutes**
-- When the pool reaches your configured threshold, you will receive a warning or alarm notification
-- Two threshold levels are available: **Warning** and **Alarm**
+- MOS checks pool usage periodically
+- Two threshold levels are available: **Warning** and **Alert**
+- When a threshold is crossed, MOS sends a notification to the configured providers
 
 ### Configuration
 
-To configure Usage Warning for a pool:
+To configure Usage Alerts for a pool:
 
 1. Navigate to **Pools**
-2. Select the pool you want to monitor
-3. Click the **three dots (•••)** menu
-4. Select **Usage Warning**
-5. Configure the thresholds:
-   - **Warning**: Percentage threshold for warning notifications
-   - **Alarm**: Percentage threshold for alarm notifications
+2. Open the **⋮** menu of the pool and select **Pool Settings**
+3. In the **Usage Alerts** section, set:
+   - **Warning**: Percentage threshold for warning notifications (default: `70`)
+   - **Alert**: Percentage threshold for alert notifications (default: `90`)
+4. Click **Save**
 
-![Usage Warning Menu](/img/pools/usage-warning-menu.png)
+![Pool menu](/img/pools/usage-warning-menu.png)
 
-*Location of the Usage Warning option in the pool menu*
+*The ⋮ menu, where Pool Settings is opened*
 
-![Usage Warning Settings](/img/pools/usage-warning-settings.png)
+![Usage Alerts](/img/pools/usage-warning-settings.png)
 
-*Usage Warning configuration dialog*
+*Usage Alerts configuration in the pool settings dialog*
 
 ### Threshold Recommendations
 
 - **Warning (70%)**: Receive a warning when the pool reaches this level
-- **Alarm (90%)**: Receive an alarm when the pool reaches this critical level
+- **Alert (90%)**: Receive an alert when the pool reaches this critical level
 
 ### Best Practices
 
@@ -467,12 +477,12 @@ Each pool in the Pools list has an action menu (•••) with the following op
 |--------|-------------|
 | **Unmount Pool** | Unmounts the pool without deleting it. The pool data remains intact and can be remounted later |
 | **Delete pool** | Permanently removes the pool and its configuration. Data on the disks is NOT deleted |
-| **Spin Up Pool** | Wakes up all disks in the pool from sleep/standby mode |
-| **Spin Down Pool** | Puts all disks in the pool into sleep/standby mode to save power and reduce noise |
-| **Usage Alerts** | Configure warning and alarm thresholds for pool capacity (see [Usage Warning](#️-usage-warning)) |
+| **Wake Up / Sleep** | Wakes all disks in the pool or puts them into sleep/standby mode |
+| **Btrfs operation** | Starts a scrub or balance on a btrfs pool (see **Btrfs Operations & Schedules** below) |
+| **Pool Settings** | Opens the pool settings: Btrfs schedules, Usage Alerts and per-disk Spindown |
 
 :::tip
-Use **Spin Down Pool** for pools that are not frequently accessed (e.g., backup pools) to reduce power consumption and disk wear. Use **Spin Up Pool** before accessing the pool to wake the disks.
+Use **Sleep** for pools that are not frequently accessed (e.g., backup pools) to reduce power consumption and disk wear. Use **Spin Up Pool** before accessing the pool to wake the disks.
 :::
 
 :::warning
@@ -525,8 +535,8 @@ These operations are **only available for btrfs pools** and can be scheduled to 
 The Btrfs operations and schedules are accessible from the pool list:
 
 1. Navigate to **Pools**
-2. Click the **three dots (•••)** menu on a btrfs pool
-3. Select **Btrfs Operations** or **Btrfs Schedules**
+2. Open the **⋮** menu on a btrfs pool and select **Btrfs operation** to run a scrub or balance
+3. Open **⋮ → Pool Settings** and use the **Btrfs schedules** section to schedule scrub and balance
 
 ![Btrfs Menu](/img/pools/Btrfs_Menu.png)
 
@@ -536,7 +546,7 @@ The Btrfs operations and schedules are accessible from the pool list:
 
 ### 📋 Btrfs Operations
 
-The Btrfs Operations dialog shows the available maintenance tasks for the selected pool.
+The Btrfs operation dialog lets you select the operation (`scrub` or `balance`), configure its options and run it with **Perform**.
 
 ![Btrfs Operations](/img/pools/Btrfs_operations.png)
 

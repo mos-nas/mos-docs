@@ -170,7 +170,7 @@ This is the official documentation for MOS. It covers installation, storage pool
 
 - **API Token**: A token created under Settings > Network > Token that authenticates requests to the MOS API from outside the WebUI.
 - **Appdata**: The directory where Docker containers keep their persistent configuration and data. It must live on a storage pool and should be backed up regularly.
-- **bcachefs**: A copy-on-write filesystem with checksums and optional replication, available as a MOS pool type.
+- **bcachefs**: A copy-on-write filesystem with checksums and optional replication. bcachefs pool support is planned for a future MOS release and is not yet available.
 - **Bond**: Combines two or more physical network interfaces into one logical interface for redundancy or throughput. The switch must be configured to match (LACP or static).
 - **Boot device**: The USB stick or internal disk MOS boots from. Persistent system configuration lives in /boot/config on this device.
 - **Bridge**: A virtual network switch that connects virtual machines and containers to the physical LAN. The recommended interface type for most MOS installations.

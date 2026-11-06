@@ -4,34 +4,48 @@
   "terms": [
     {
       "term": "API Token",
-      "aliases": ["Bearer token", "Admin API token"],
+      "aliases": [
+        "Bearer token",
+        "Admin API token"
+      ],
       "definition": "A token created under Settings > Network > Token that authenticates requests to the MOS API from outside the WebUI.",
       "documentation": {
         "path": "/docs/Settings/Network/Token",
         "label": "Token management"
       },
-      "relatedTerms": ["MOS API"],
+      "relatedTerms": [
+        "MOS API"
+      ],
       "autoLink": false
     },
     {
       "term": "Appdata",
-      "aliases": ["AppData", "Application data"],
+      "aliases": [
+        "AppData",
+        "Application data"
+      ],
       "definition": "The directory where Docker containers keep their persistent configuration and data. It must live on a storage pool and should be backed up regularly.",
       "documentation": {
         "path": "/docs/Docker/Docker-Service",
         "label": "Docker Service settings"
       },
-      "relatedTerms": ["Docker", "Pool"],
+      "relatedTerms": [
+        "Docker",
+        "Pool"
+      ],
       "autoLink": false
     },
     {
       "term": "bcachefs",
-      "definition": "A copy-on-write filesystem with checksums and optional replication, available as a MOS pool type.",
+      "definition": "A copy-on-write filesystem with checksums and optional replication. bcachefs pool support is planned for a future MOS release and is not yet available.",
       "documentation": {
         "path": "/docs/Pools/Create-Storage-Pool",
-        "label": "bcachefs pools"
+        "label": "Planned bcachefs support"
       },
-      "relatedTerms": ["Pool", "Scrub"],
+      "relatedTerms": [
+        "Pool",
+        "Scrub"
+      ],
       "autoLink": false
     },
     {
@@ -41,29 +55,45 @@
         "path": "/docs/Settings/Network/Network-Configuration",
         "label": "Network configuration"
       },
-      "relatedTerms": ["Bridge"],
+      "relatedTerms": [
+        "Bridge"
+      ],
       "autoLink": false
     },
     {
       "term": "Boot device",
-      "aliases": ["Boot stick", "Boot medium", "USB stick"],
+      "aliases": [
+        "Boot stick",
+        "Boot medium",
+        "USB stick"
+      ],
       "definition": "The USB stick or internal disk MOS boots from. Persistent system configuration lives in /boot/config on this device.",
       "documentation": {
         "path": "/docs/Installation/Create-Bootable-Media",
         "label": "Create bootable media"
       },
-      "relatedTerms": ["Diagnostics"],
+      "relatedTerms": [
+        "Diagnostics"
+      ],
       "autoLink": false
     },
     {
       "term": "Bridge",
-      "aliases": ["br0", "Bridged"],
+      "aliases": [
+        "br0",
+        "Bridged"
+      ],
       "definition": "A virtual network switch that connects virtual machines and containers to the physical LAN. The recommended interface type for most MOS installations.",
       "documentation": {
         "path": "/docs/Settings/Network/Network-Configuration",
         "label": "Network configuration"
       },
-      "relatedTerms": ["Bond", "VLAN", "KVM/QEMU", "LXC"],
+      "relatedTerms": [
+        "Bond",
+        "VLAN",
+        "KVM/QEMU",
+        "LXC"
+      ],
       "autoLink": false
     },
     {
@@ -73,7 +103,11 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "Pool filesystems"
       },
-      "relatedTerms": ["Snapshot", "Scrub", "Pool"],
+      "relatedTerms": [
+        "Snapshot",
+        "Scrub",
+        "Pool"
+      ],
       "autoLink": false
     },
     {
@@ -83,7 +117,10 @@
         "path": "/docs/Settings/Network/iSCSI-Target",
         "label": "iSCSI Target"
       },
-      "relatedTerms": ["iSCSI", "IQN"],
+      "relatedTerms": [
+        "iSCSI",
+        "IQN"
+      ],
       "autoLink": false
     },
     {
@@ -93,7 +130,9 @@
         "path": "/docs/Troubleshooting/Diagnostics",
         "label": "Create a diagnostics file"
       },
-      "relatedTerms": ["Boot device"],
+      "relatedTerms": [
+        "Boot device"
+      ],
       "autoLink": false
     },
     {
@@ -103,7 +142,9 @@
         "path": "/docs/Settings/Network/Network-Services",
         "label": "Network Services"
       },
-      "relatedTerms": ["Bridge"],
+      "relatedTerms": [
+        "Bridge"
+      ],
       "autoLink": false
     },
     {
@@ -113,40 +154,64 @@
         "path": "/docs/Docker/Docker-Service",
         "label": "Docker Service"
       },
-      "relatedTerms": ["Docker Template", "Docker Compose", "Appdata", "MOS Hub"],
+      "relatedTerms": [
+        "Docker Template",
+        "Docker Compose",
+        "Appdata",
+        "MOS Hub"
+      ],
       "autoLink": false
     },
     {
       "term": "Docker Compose",
-      "aliases": ["Compose", "Compose stack"],
+      "aliases": [
+        "Compose",
+        "Compose stack"
+      ],
       "definition": "A multi-container stack defined in a compose.yaml file. MOS Hub can deploy Compose stacks as a single app.",
       "documentation": {
         "path": "/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository",
         "label": "Compose templates"
       },
-      "relatedTerms": ["Docker", "Docker Template", "MOS Hub"],
+      "relatedTerms": [
+        "Docker",
+        "Docker Template",
+        "MOS Hub"
+      ],
       "autoLink": false
     },
     {
       "term": "Docker Template",
-      "aliases": ["Container template"],
+      "aliases": [
+        "Container template"
+      ],
       "definition": "A JSON file describing a container (image, ports, volumes, environment). MOS saves one automatically for every container you create.",
       "documentation": {
         "path": "/docs/Docker/Start-the-First-Container",
         "label": "Start the first container"
       },
-      "relatedTerms": ["Docker", "Docker Compose", "MOS Hub"],
+      "relatedTerms": [
+        "Docker",
+        "Docker Compose",
+        "MOS Hub"
+      ],
       "autoLink": false
     },
     {
       "term": "Firmware",
-      "aliases": ["MOS firmware", "System image"],
+      "aliases": [
+        "MOS firmware",
+        "System image"
+      ],
       "definition": "In MOS, the complete system image including the OS and kernel that is installed on the boot device and updated through Settings > System > Update System.",
       "documentation": {
         "path": "/docs/Settings/System/Update-System",
         "label": "Update System"
       },
-      "relatedTerms": ["Update channel", "Boot device"],
+      "relatedTerms": [
+        "Update channel",
+        "Boot device"
+      ],
       "autoLink": false
     },
     {
@@ -156,18 +221,28 @@
         "path": "/docs/Filebrowser/",
         "label": "Filebrowser"
       },
-      "relatedTerms": ["WebUI"],
+      "relatedTerms": [
+        "WebUI"
+      ],
       "autoLink": false
     },
     {
       "term": "Hub Repository",
-      "aliases": ["MOS Hub repository", "Template repository"],
+      "aliases": [
+        "MOS Hub repository",
+        "Template repository"
+      ],
       "definition": "A GitHub repository in the layout the MOS Hub expects (docker/, compose/, plugins/) that can be added as a template source.",
       "documentation": {
         "path": "/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository",
         "label": "Create your own repository"
       },
-      "relatedTerms": ["MOS Hub", "Docker Template", "Docker Compose", "Plugin"],
+      "relatedTerms": [
+        "MOS Hub",
+        "Docker Template",
+        "Docker Compose",
+        "Plugin"
+      ],
       "autoLink": false
     },
     {
@@ -177,7 +252,11 @@
         "path": "/docs/Settings/Network/iSCSI-Target",
         "label": "iSCSI Target"
       },
-      "relatedTerms": ["IQN", "LUN", "CHAP"],
+      "relatedTerms": [
+        "IQN",
+        "LUN",
+        "CHAP"
+      ],
       "autoLink": false
     },
     {
@@ -188,18 +267,30 @@
         "path": "/docs/Settings/Network/iSCSI-Target",
         "label": "Target IQN format"
       },
-      "relatedTerms": ["iSCSI", "LUN"],
+      "relatedTerms": [
+        "iSCSI",
+        "LUN"
+      ],
       "autoLink": false
     },
     {
       "term": "KVM/QEMU",
-      "aliases": ["QEMU", "KVM", "Virtual machine"],
+      "aliases": [
+        "QEMU",
+        "KVM",
+        "Virtual machine"
+      ],
       "definition": "The full-virtualization stack used for MOS virtual machines. VMs are enabled under Settings > Virtualization > VM Service.",
       "documentation": {
         "path": "/docs/VMs/VM-Service",
         "label": "VM Service"
       },
-      "relatedTerms": ["VirtIO", "OVMF", "PCI Passthrough", "Bridge"],
+      "relatedTerms": [
+        "VirtIO",
+        "OVMF",
+        "PCI Passthrough",
+        "Bridge"
+      ],
       "autoLink": false
     },
     {
@@ -210,7 +301,10 @@
         "path": "/docs/Settings/Network/iSCSI-Target",
         "label": "LUNs"
       },
-      "relatedTerms": ["iSCSI", "IQN"],
+      "relatedTerms": [
+        "iSCSI",
+        "IQN"
+      ],
       "autoLink": false
     },
     {
@@ -221,7 +315,11 @@
         "path": "/docs/LXC/LXC-Service",
         "label": "LXC Service"
       },
-      "relatedTerms": ["Snapshot", "Bridge", "Docker"],
+      "relatedTerms": [
+        "Snapshot",
+        "Bridge",
+        "Docker"
+      ],
       "autoLink": false
     },
     {
@@ -231,12 +329,20 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "mergerfs pools"
       },
-      "relatedTerms": ["SnapRAID", "Pool", "Virtual Pool"],
+      "relatedTerms": [
+        "SnapRAID",
+        "Pool",
+        "Virtual Pool"
+      ],
       "autoLink": false
     },
     {
       "term": "MFA",
-      "aliases": ["2FA", "Two-factor authentication", "TOTP"],
+      "aliases": [
+        "2FA",
+        "Two-factor authentication",
+        "TOTP"
+      ],
       "definition": "Multi-factor authentication using a TOTP app in addition to the password. Each account also gets recovery codes for when the app is unavailable.",
       "documentation": {
         "path": "/docs/Settings/User-Management/User-Profile",
@@ -251,18 +357,29 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "Pool configuration fields"
       },
-      "relatedTerms": ["Pool", "mergerfs", "nonraid"],
+      "relatedTerms": [
+        "Pool",
+        "mergerfs",
+        "nonraid"
+      ],
       "autoLink": false
     },
     {
       "term": "MOS API",
-      "aliases": ["REST API", "MOS Admin API"],
+      "aliases": [
+        "REST API",
+        "MOS Admin API"
+      ],
       "definition": "The REST API used by the WebUI and available for automation. Interactive documentation (Swagger UI) is served at /api-docs/ on the MOS IP.",
       "documentation": {
         "path": "/docs/API/MOS-API-Overview",
         "label": "API overview"
       },
-      "relatedTerms": ["API Token", "Rate limit", "WebUI"],
+      "relatedTerms": [
+        "API Token",
+        "Rate limit",
+        "WebUI"
+      ],
       "autoLink": false
     },
     {
@@ -272,7 +389,12 @@
         "path": "/docs/MOS-Hub/MOS-Hub-Settings",
         "label": "MOS Hub settings"
       },
-      "relatedTerms": ["Docker Template", "Docker Compose", "Plugin", "Hub Repository"],
+      "relatedTerms": [
+        "Docker Template",
+        "Docker Compose",
+        "Plugin",
+        "Hub Repository"
+      ],
       "autoLink": false
     },
     {
@@ -282,7 +404,9 @@
         "path": "/docs/Settings/Network/Network-Services",
         "label": "Network Services"
       },
-      "relatedTerms": ["Tailscale"],
+      "relatedTerms": [
+        "Tailscale"
+      ],
       "autoLink": false
     },
     {
@@ -293,7 +417,10 @@
         "path": "/docs/Settings/Network/Network-Services",
         "label": "Network Services"
       },
-      "relatedTerms": ["Share", "SMB"],
+      "relatedTerms": [
+        "Share",
+        "SMB"
+      ],
       "autoLink": false
     },
     {
@@ -303,7 +430,12 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "nonraid pools"
       },
-      "relatedTerms": ["Parity", "Resync", "Pool", "Plugin"],
+      "relatedTerms": [
+        "Parity",
+        "Resync",
+        "Pool",
+        "Plugin"
+      ],
       "autoLink": false
     },
     {
@@ -314,7 +446,10 @@
         "path": "/docs/Settings/Network/Network-Services",
         "label": "NUT configuration"
       },
-      "relatedTerms": ["UPS", "Spindown"],
+      "relatedTerms": [
+        "UPS",
+        "Spindown"
+      ],
       "autoLink": false
     },
     {
@@ -324,7 +459,10 @@
         "path": "/docs/VMs/Create-the-First-VM",
         "label": "Create the first VM"
       },
-      "relatedTerms": ["KVM/QEMU", "VirtIO"],
+      "relatedTerms": [
+        "KVM/QEMU",
+        "VirtIO"
+      ],
       "autoLink": false
     },
     {
@@ -334,29 +472,45 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "Parity setup"
       },
-      "relatedTerms": ["nonraid", "SnapRAID", "RAID", "Resync"],
+      "relatedTerms": [
+        "nonraid",
+        "SnapRAID",
+        "RAID",
+        "Resync"
+      ],
       "autoLink": false
     },
     {
       "term": "PCI Passthrough",
-      "aliases": ["GPU passthrough", "Device passthrough"],
+      "aliases": [
+        "GPU passthrough",
+        "Device passthrough"
+      ],
       "definition": "Giving a virtual machine exclusive access to a physical PCI device such as a GPU or controller. The host cannot use the device while the VM runs.",
       "documentation": {
         "path": "/docs/VMs/Create-the-First-VM",
         "label": "PCI passthrough"
       },
-      "relatedTerms": ["KVM/QEMU"],
+      "relatedTerms": [
+        "KVM/QEMU"
+      ],
       "autoLink": false
     },
     {
       "term": "Plugin",
-      "aliases": ["Driver Plugin", "MOS Plugin"],
+      "aliases": [
+        "Driver Plugin",
+        "MOS Plugin"
+      ],
       "definition": "An installable extension from the MOS Hub. Drivers are distributed as plugins, and some plugins add their own page to the WebUI.",
       "documentation": {
         "path": "/docs/Plugins/Drivers",
         "label": "Drivers and plugins"
       },
-      "relatedTerms": ["MOS Hub", "Hub Repository"],
+      "relatedTerms": [
+        "MOS Hub",
+        "Hub Repository"
+      ],
       "autoLink": false
     },
     {
@@ -366,7 +520,12 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "Create a storage pool"
       },
-      "relatedTerms": ["Share", "Virtual Pool", "RAID", "Parity"],
+      "relatedTerms": [
+        "Share",
+        "Virtual Pool",
+        "RAID",
+        "Parity"
+      ],
       "autoLink": false
     },
     {
@@ -387,18 +546,25 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "RAID levels"
       },
-      "relatedTerms": ["Parity", "Pool"],
+      "relatedTerms": [
+        "Parity",
+        "Pool"
+      ],
       "autoLink": false
     },
     {
       "term": "Rate limit",
-      "aliases": ["Rate limiting"],
+      "aliases": [
+        "Rate limiting"
+      ],
       "definition": "Protection that caps API requests at 20 per second by default. The defaults are tuned for stability and should not be changed.",
       "documentation": {
         "path": "/docs/API/Rate-Limits",
         "label": "API rate limits"
       },
-      "relatedTerms": ["MOS API"],
+      "relatedTerms": [
+        "MOS API"
+      ],
       "autoLink": false
     },
     {
@@ -408,7 +574,11 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "Parity maintenance"
       },
-      "relatedTerms": ["Parity", "nonraid", "SnapRAID"],
+      "relatedTerms": [
+        "Parity",
+        "nonraid",
+        "SnapRAID"
+      ],
       "autoLink": false
     },
     {
@@ -418,7 +588,10 @@
         "path": "/docs/Settings/User-Management/Users",
         "label": "User roles"
       },
-      "relatedTerms": ["Share", "SMB"],
+      "relatedTerms": [
+        "Share",
+        "SMB"
+      ],
       "autoLink": false
     },
     {
@@ -428,7 +601,11 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "Scrub"
       },
-      "relatedTerms": ["Btrfs", "bcachefs", "Snapshot"],
+      "relatedTerms": [
+        "Btrfs",
+        "bcachefs",
+        "Snapshot"
+      ],
       "autoLink": false
     },
     {
@@ -438,29 +615,45 @@
         "path": "/docs/Shares/Create-the-First-Shares",
         "label": "Create the first shares"
       },
-      "relatedTerms": ["SMB", "NFS", "Pool", "samba_only"],
+      "relatedTerms": [
+        "SMB",
+        "NFS",
+        "Pool",
+        "samba_only"
+      ],
       "autoLink": false
     },
     {
       "term": "SMB",
-      "aliases": ["Samba", "CIFS"],
+      "aliases": [
+        "Samba",
+        "CIFS"
+      ],
       "definition": "The Windows file-sharing protocol. MOS provides SMB shares through Samba.",
       "documentation": {
         "path": "/docs/Settings/Network/Network-Services",
         "label": "Samba"
       },
-      "relatedTerms": ["Share", "NFS", "samba_only"],
+      "relatedTerms": [
+        "Share",
+        "NFS",
+        "samba_only"
+      ],
       "autoLink": false
     },
     {
       "term": "SMART",
-      "aliases": ["S.M.A.R.T."],
+      "aliases": [
+        "S.M.A.R.T."
+      ],
       "definition": "Self-Monitoring, Analysis and Reporting Technology. Disk health data used for warnings and temperature limits.",
       "documentation": {
         "path": "/docs/Disks/SMART",
         "label": "S.M.A.R.T. settings"
       },
-      "relatedTerms": ["Spindown"],
+      "relatedTerms": [
+        "Spindown"
+      ],
       "autoLink": false
     },
     {
@@ -470,7 +663,11 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "SnapRAID parity"
       },
-      "relatedTerms": ["mergerfs", "Parity", "Resync"],
+      "relatedTerms": [
+        "mergerfs",
+        "Parity",
+        "Resync"
+      ],
       "autoLink": false
     },
     {
@@ -480,7 +677,11 @@
         "path": "/docs/LXC/LXC-Service",
         "label": "Backups and snapshots"
       },
-      "relatedTerms": ["Btrfs", "LXC", "KVM/QEMU"],
+      "relatedTerms": [
+        "Btrfs",
+        "LXC",
+        "KVM/QEMU"
+      ],
       "autoLink": false
     },
     {
@@ -490,7 +691,10 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "Spindown settings"
       },
-      "relatedTerms": ["SMART", "Pool"],
+      "relatedTerms": [
+        "SMART",
+        "Pool"
+      ],
       "autoLink": false
     },
     {
@@ -500,7 +704,10 @@
         "path": "/docs/Settings/System-Configuration/System",
         "label": "Swapfile settings"
       },
-      "relatedTerms": ["Zswap", "ZRAM"],
+      "relatedTerms": [
+        "Zswap",
+        "ZRAM"
+      ],
       "autoLink": false
     },
     {
@@ -510,18 +717,27 @@
         "path": "/docs/Settings/Network/Network-Services",
         "label": "Network Services"
       },
-      "relatedTerms": ["Netbird"],
+      "relatedTerms": [
+        "Netbird"
+      ],
       "autoLink": false
     },
     {
       "term": "Update channel",
-      "aliases": ["Release channel", "Stable", "Beta", "Alpha"],
+      "aliases": [
+        "Release channel",
+        "Stable",
+        "Beta",
+        "Alpha"
+      ],
       "definition": "The firmware track MOS follows: alpha (team testing only), beta (pre-release) or stable (recommended for production).",
       "documentation": {
         "path": "/docs/Settings/System/Update-System",
         "label": "Update System"
       },
-      "relatedTerms": ["Boot device"],
+      "relatedTerms": [
+        "Boot device"
+      ],
       "autoLink": false
     },
     {
@@ -532,18 +748,26 @@
         "path": "/docs/Settings/Network/Network-Services",
         "label": "NUT (UPS)"
       },
-      "relatedTerms": ["NUT", "Spindown"],
+      "relatedTerms": [
+        "NUT",
+        "Spindown"
+      ],
       "autoLink": false
     },
     {
       "term": "Virtual Pool",
-      "aliases": ["vpool"],
+      "aliases": [
+        "vpool"
+      ],
       "definition": "A pool built from existing directory paths (for example /mnt/main and /mnt/media) combined with mergerfs. No dedicated disks and no formatting required.",
       "documentation": {
         "path": "/docs/Pools/Virtual-Pools",
         "label": "Virtual Pools"
       },
-      "relatedTerms": ["mergerfs", "Pool"],
+      "relatedTerms": [
+        "mergerfs",
+        "Pool"
+      ],
       "autoLink": false
     },
     {
@@ -553,7 +777,10 @@
         "path": "/docs/VMs/Create-the-First-VM",
         "label": "VirtIO drivers"
       },
-      "relatedTerms": ["KVM/QEMU", "OVMF"],
+      "relatedTerms": [
+        "KVM/QEMU",
+        "OVMF"
+      ],
       "autoLink": false
     },
     {
@@ -563,18 +790,28 @@
         "path": "/docs/Settings/Network/Network-Configuration",
         "label": "VLAN configuration"
       },
-      "relatedTerms": ["Bridge", "Bond"],
+      "relatedTerms": [
+        "Bridge",
+        "Bond"
+      ],
       "autoLink": false
     },
     {
       "term": "WebUI",
-      "aliases": ["Web UI", "Frontend", "Web interface"],
+      "aliases": [
+        "Web UI",
+        "Frontend",
+        "Web interface"
+      ],
       "definition": "The MOS browser interface. It performs no direct system actions; every action goes through the MOS API.",
       "documentation": {
         "path": "/docs/Dashboard/WebUI-Overview",
         "label": "WebUI overview"
       },
-      "relatedTerms": ["MOS API", "FSNavigator"],
+      "relatedTerms": [
+        "MOS API",
+        "FSNavigator"
+      ],
       "autoLink": false
     },
     {
@@ -584,18 +821,27 @@
         "path": "/docs/Pools/Create-Storage-Pool",
         "label": "Pool filesystems"
       },
-      "relatedTerms": ["Pool", "mergerfs", "nonraid"],
+      "relatedTerms": [
+        "Pool",
+        "mergerfs",
+        "nonraid"
+      ],
       "autoLink": false
     },
     {
       "term": "ZFS",
-      "aliases": ["OpenZFS"],
+      "aliases": [
+        "OpenZFS"
+      ],
       "definition": "A copy-on-write filesystem with snapshots, checksums and RAID-Z. Available through the OpenZFS Driver plugin and currently CLI only.",
       "documentation": {
         "path": "/docs/Pools/ZFS",
         "label": "ZFS in MOS"
       },
-      "relatedTerms": ["Plugin", "Scrub"],
+      "relatedTerms": [
+        "Plugin",
+        "Scrub"
+      ],
       "autoLink": false
     },
     {
@@ -605,7 +851,10 @@
         "path": "/docs/Settings/Hardware/ZRAM",
         "label": "ZRAM settings"
       },
-      "relatedTerms": ["Zswap", "Swapfile"],
+      "relatedTerms": [
+        "Zswap",
+        "Swapfile"
+      ],
       "autoLink": false
     },
     {
@@ -615,7 +864,10 @@
         "path": "/docs/Settings/System-Configuration/System",
         "label": "Zswap settings"
       },
-      "relatedTerms": ["ZRAM", "Swapfile"],
+      "relatedTerms": [
+        "ZRAM",
+        "Swapfile"
+      ],
       "autoLink": false
     }
   ]

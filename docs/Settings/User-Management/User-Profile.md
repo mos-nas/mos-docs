@@ -22,7 +22,7 @@ Choose how the WebUI is displayed. The setting is stored per user.
 | **Light** | Always uses the light theme |
 | **Dark Mode** | Always uses the dark theme |
 
-New users start with **Light**. **Auto** follows the operating system and updates
+New users start with **Auto**. **Auto** follows the operating system and updates
 when the system theme changes; **Light** and **Dark Mode** override the system preference until you switch back to **Auto**.
 
 :::tip
@@ -72,7 +72,7 @@ Available options:
 
 Defines how long your WebUI session remains active before requiring re-authentication.
 
-- **Default:** 14 days
+- **Default:** 7 days
 - **Range:** Typically 1-30 days
 
 :::warning[Security Note]
@@ -190,6 +190,19 @@ Disabling MFA removes the additional security layer. Only disable MFA if absolut
 
 ---
 
+## 🧭 Menu Layout
+
+Defines how the main navigation is arranged.
+
+| Option | Description |
+|--------|-------------|
+| **Vertical menu** | Navigation is shown as a sidebar on the left (default) |
+| **Horizontal menu** | Navigation is placed in a bar at the top |
+
+The setting is stored per user.
+
+---
+
 ## 🧹 Hide Inactive Menus
 
 Controls the visibility of menu items for features that are not currently active or configured.
@@ -228,25 +241,6 @@ The color scheme affects:
 - Selection indicators
 
 Choose from the available color palette to personalize your interface.
-
----
-
-## ✅ Summary
-
-The User Profile settings allow you to customize your MOS experience:
-
-| Setting | Purpose |
-|---------|---------|
-| **Dark Mode** | Switch between light and dark themes |
-| **Language** | Set interface language |
-| **Byte Unit** | Choose decimal or binary size display |
-| **Session Expiry** | Control session timeout duration |
-| **MFA** | Enable/disable Multi-Factor Authentication |
-| **Hide Inactive Menus** | Show/hide menus for inactive features |
-| **Group Menus** | Organize navigation into groups |
-| **Color Scheme** | Personalize interface accent color |
-
-These settings are stored per-user and do not affect other users on the system.
 
 ---
 

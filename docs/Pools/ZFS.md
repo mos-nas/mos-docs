@@ -63,3 +63,7 @@ The OpenZFS Driver plugin must be installed for this behavior
 ## ℹ️ Notes
 
 ZFS is a powerful and flexible filesystem and is fully usable in MOS via the CLI.
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

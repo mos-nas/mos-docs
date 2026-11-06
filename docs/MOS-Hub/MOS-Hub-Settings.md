@@ -83,18 +83,4 @@ This means:
 
 ---
 
-## ✅ Summary
-
-The MOS Hub Settings allow you to control how and when the integrated application hub operates.
-
-**Key points:**
-- Enable or disable the MOS Hub globally
-- Perform an initial update on first use
-- Define a daily update schedule using cron syntax
-- Keeps Docker templates up to date and ready for deployment
-
-Proper configuration ensures a reliable and up-to-date application ecosystem within MOS.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

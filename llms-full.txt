@@ -343,7 +343,7 @@ While a USB stick is recommended, you can also use an external hard drive or car
 
 ---
 
-*Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information.*
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -982,14 +982,6 @@ Edit the VM configuration to prioritize the boot disk:
 
 - Hardware-specific features may be unavailable
 - GPU or PCI passthrough depends on the hypervisor
-
----
-
-## 🧪 Summary
-
-- Use `mos_amd64.img.xz` to test MOS in a VM
-- Extract the image and attach it as a **USB device**
-- **UEFI boot is mandatory** — Secure Boot must be disabled
 
 ---
 
@@ -2224,20 +2216,6 @@ A balance operation can generate heavy I/O load. Avoid running it during peak us
 
 ---
 
-## ✅ Summary
-
-Choosing the correct pool type and filesystem is essential for a stable and reliable system.
-
-**Quick recommendations:**
-- `single + xfs` → Appdata, cache, downloads  
-- `multi + raid1` → Critical data  
-- `mergerfs + SnapRAID` → Media storage  
-- `mergerfs + nonraid` → Flexible parity-based storage (driver required)
-
-Plan your pool layout carefully before creating pools.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -2437,24 +2415,6 @@ Virtual Pools do **not** provide data redundancy. If a path fails, all files sto
 
 ---
 
-## ✅ Summary
-
-Virtual Pools provide a flexible way to combine existing storage paths into a single logical pool using mergerfs.
-
-Key points:
-
-- **No dedicated disks needed** — uses existing directory paths
-- **13 Create Policies** — control how new files are distributed (default: `mspmfs`)
-- **5 Search Policies** — control how existing files are found (default: `ff`)
-- **No data movement** — files stay where they are, only the view is merged
-- **Automount and Sharing** — toggle on for automatic startup and network access
-- **No redundancy** — use SnapRAID or backups for data protection
-- **Ideal for consolidating** — combine media, shares, or data from multiple pools
-
-Virtual Pools are perfect for homelab and server setups where storage is spread across multiple pools and needs to be presented as a single unified directory.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -2528,6 +2488,10 @@ The OpenZFS Driver plugin must be installed for this behavior
 ## ℹ️ Notes
 
 ZFS is a powerful and flexible filesystem and is fully usable in MOS via the CLI.
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -2837,20 +2801,6 @@ This means:
 - Updates only run if the MOS Hub is enabled
 - Scheduled updates do not interrupt running containers
 - Network connectivity is required for updates to succeed
-
----
-
-## ✅ Summary
-
-The MOS Hub Settings allow you to control how and when the integrated application hub operates.
-
-**Key points:**
-- Enable or disable the MOS Hub globally
-- Perform an initial update on first use
-- Define a daily update schedule using cron syntax
-- Keeps Docker templates up to date and ready for deployment
-
-Proper configuration ensures a reliable and up-to-date application ecosystem within MOS.
 
 ---
 
@@ -3431,28 +3381,6 @@ The `repository` field should point to a repository that provides installation s
 
 ---
 
-## ✅ Summary
-
-Creating a MOS Hub repository allows you to:
-- Share Docker templates with the community
-- Maintain your own template collection
-- Provide specialized application configurations
-
-**Key steps:**
-1. Create a GitHub repository with the correct structure
-2. Build and test templates in MOS
-3. Export template JSON files from `/boot/config/system/docker/templates/`
-4. Edit templates to use standard paths and recommended PUID/PGID values
-5. Create plugin templates for drivers and utilities (optional)
-6. Upload templates, plugins, and icons to GitHub
-7. Add repository URL to MOS Hub settings
-
-Once configured, your templates and plugins will be available to all MOS users who add your repository to their Hub.
-
-Proper documentation and testing ensure a high-quality contribution to the MOS ecosystem.
-
----
-
 ## 📖 Example Repositories
 
 The following repositories provide excellent examples of MOS Hub structure:
@@ -3702,21 +3630,6 @@ Automatic updates may restart containers.
 - Schedule updates during low-usage hours
 - Use `ipvlan` unless `macvlan` is explicitly required
 - Keep Docker storage on fast disks
-
----
-
-## ✅ Summary
-
-The Docker Service settings define how Docker operates system-wide.
-
-**Key points:**
-- Enable or disable the Docker daemon
-- Configure storage and filesystem options
-- Select the appropriate network mode
-- Define startup behavior and daemon parameters
-- Control automated update checks and updates
-
-Proper configuration ensures stable, secure, and efficient container operation.
 
 ---
 
@@ -4325,19 +4238,6 @@ Snapshots require a filesystem that supports them (e.g., btrfs or ZFS). On other
 
 ---
 
-## ✅ Summary
-
-The LXC Service settings define how Linux Containers operate on the system.
-
-**Key points:**
-- Enable or disable the LXC service
-- Control bridge-based container networking
-- Define the storage location for LXC containers
-
-Proper configuration ensures stable and predictable LXC container operation.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -4466,19 +4366,6 @@ available to the rest of the system until you disable huge pages again.
 If a VM fails to start after enabling huge pages, check **Free Huge Pages** first.
 A VM whose memory exceeds the free reservation cannot be started.
 :::
-
----
-
-## ✅ Summary
-
-The VM Service settings define how virtual machines are managed on the system.
-
-**Key points:**
-- Enable or disable the VM service
-- Configure directories for VM configuration and virtual disks
-- Manage VirtIO ISO downloads and huge page reservations
-
-Proper configuration ensures stable and efficient virtual machine operation.
 
 ---
 
@@ -5416,7 +5303,7 @@ This step is required — the workflow will fail without it.
 
 ---
 
-*Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information.*
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -5556,22 +5443,6 @@ See [Network Services](../Settings/Network/Network-Services) for instructions on
 - **Check logs regularly** — Use `tail -f /var/log/syslog` or `journalctl -f` to monitor system activity
 - **Keep commands documented** — Note down important commands and configurations for future reference
 - **Close the terminal when done** — Although sessions end automatically, it's good practice to close the page when finished
-
----
-
-## ✅ Summary
-
-The MOS Web Terminal provides a convenient way to access the system shell directly from the browser.
-
-Key points:
-
-- **Direct browser access** — no SSH client needed
-- **Full root shell** — complete system control
-- **Instant connection** — click Open and start typing
-- **All commands available** — same as a regular SSH session
-- **Session ends on page close** — use `tmux` or `screen` for persistent sessions
-
-The Web Terminal is ideal for quick administrative tasks, troubleshooting, and system management without leaving the MOS WebUI.
 
 ---
 
@@ -5773,23 +5644,6 @@ For file management tasks (upload, download, rename, delete), consider using:
 - **Check `/boot/config` for MOS settings** — All MOS configurations are stored here persistently
 - **Toggle hidden files** — Enable "Hidden files" to see dotfiles and configuration files that are normally invisible
 - **Verify paths** — Use the Path column to confirm exact file locations for scripts, cron jobs, or Docker volume mounts
-
----
-
-## ✅ Summary
-
-The MOS Filebrowser provides a convenient way to browse the file system directly from the WebUI.
-
-Key points:
-
-- **Direct browser access** — no SSH or FTP client needed
-- **Full root access** — see all files and directories on the system
-- **Detailed file info** — name, path, size, owner, and permissions
-- **Hidden files toggle** — show or hide dotfiles
-- **Read-oriented** — ideal for inspection and verification
-- **System-wide access** — browse from `/` to any directory on the server
-
-The Filebrowser is perfect for quick file system inspection, verifying configurations, and navigating storage pools without leaving the MOS WebUI.
 
 ---
 
@@ -6067,19 +5921,6 @@ The Users overview lists all configured users.
 For each user you can:
 - **Edit** the password, role, or Samba access
 - **Delete** the user
-
----
-
-## ✅ Summary
-
-To create a user:
-
-1. Choose a username
-2. Set a password
-3. Assign the appropriate role
-4. Enable Samba access if required
-
-Use admin users sparingly and create separate users for file access where possible.
 
 ---
 
@@ -6774,20 +6615,6 @@ Optionally, you can redirect stdout and stderr to a dedicated log file by defini
 
 ---
 
-## ✅ Summary
-
-Cron Jobs provide a powerful and flexible way to automate system tasks.
-
-**Key points:**
-- Create scheduled tasks using commands or scripts
-- Easily start, stop, edit, or delete jobs
-- Use clear naming and predictable schedules
-- Essential for maintenance, backups, and automation
-
-Proper use of cron jobs ensures a reliable and self-maintaining system.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -6883,20 +6710,6 @@ Defines how many lines of the selected log file are displayed.
 - The maximum size of this `tmpfs` is configured under
   [Settings → System Configuration → System](/docs/Settings/System-Configuration/System#max-log-directory-size)
 - When the `tmpfs` is full, services can no longer write log output
-
----
-
-## ✅ Summary
-
-The Logs menu offers a convenient and safe way to inspect system log files.
-
-**Key points:**
-- View logs from `/var/log` and subdirectories
-- Select specific log files to inspect
-- Control the number of displayed lines
-- Ideal for debugging and system monitoring
-
-Proper use of log inspection is essential for maintaining a stable and secure system.
 
 ---
 
@@ -7148,24 +6961,6 @@ This allows fine-grained control over how different types of alerts are delivere
 - **Enable multiple providers** — Use Email for important alerts and Discord/Gotify for real-time notifications
 - **Use Alert Mapping** — Configure different behavior for warnings vs. critical alerts
 - **Check logs** — If notifications aren't working, check `/var/log/notify` or Settings → Logs
-
----
-
-## ✅ Summary
-
-The Notify service provides flexible notification delivery for MOS system events.
-
-Key points:
-
-- **Five built-in providers** — Email, Discord, Gotify, Pushbits, ntfy
-- **WebUI configuration** — all providers can be configured directly from the browser
-- **Custom providers** — add additional webhook-based providers via the + button
-- **Template variables** — use `{{.Title}}` and `{{.Message}}` in subject/body fields
-- **Alert Mapping** — fine-grained control over alert types and priorities
-- **Multiple providers** — enable several providers simultaneously
-- **Manual config** — advanced configuration via `/boot/config/notify/providers/`
-
-Proper notification configuration ensures you stay informed about system events, disk warnings, backup status, and other important alerts.
 
 ---
 
@@ -7675,19 +7470,6 @@ Need to pass a USB device to a Docker container? Use the Bus and Device number t
 
 ---
 
-## ✅ Summary
-
-The USB Devices page provides a quick overview of all connected USB hardware.
-
-Key points:
-
-- **Automatic detection** — all USB devices are listed without configuration
-- **Detailed identification** — vendor IDs, product IDs, bus and device numbers
-- **Read-only** — for inspection and troubleshooting only
-- **Useful for passthrough** — Vendor/Product IDs needed for VM and container device assignment
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -7800,20 +7582,6 @@ When configuring PCI passthrough for VMs, you need the full slot address (e.g., 
 :::warning
 Do not attempt to remove or disable PCI devices from the system while it is running. Hardware changes should be made with the system powered off.
 :::
-
----
-
-## ✅ Summary
-
-The PCI Devices page provides a comprehensive overview of all PCI hardware on the system.
-
-Key points:
-
-- **Automatic detection** — all PCI/PCIe devices are listed without configuration
-- **Detailed identification** — slot addresses, class codes, vendor and device IDs
-- **Read-only** — for inspection and troubleshooting only
-- **Essential for passthrough** — slot addresses needed for VM PCI passthrough configuration
-- **Driver troubleshooting** — verify hardware detection before installing drivers
 
 ---
 
@@ -8045,24 +7813,6 @@ ZRAM uses RAM for compressed data. If you configure a very large ZRAM device, th
 
 ---
 
-## ✅ Summary
-
-ZRAM provides compressed swap and RAM disk capabilities, allowing your MOS system to make more efficient use of available memory.
-
-Key points:
-
-- **Two types** — `swap` (compressed swap in RAM) and `ramdisk` (compressed RAM disk)
-- **Six compression algorithms** — `zstd` (default), `lz4`, `lz4hc`, `lzo`, `deflate`, `842`
-- **Three filesystems** — `ext4` (default), `xfs`, `btrfs` (ramdisk only)
-- **Toggle on/off** — simple enable/disable per device from the WebUI
-- **Ideal for limited RAM** — great for servers running many containers
-- **Monitor with `zramctl`** — check compression ratio and usage from the terminal
-- **No hibernation support** — ZRAM swap is volatile by design
-
-ZRAM is an excellent memory optimization for homelab servers and systems running Docker, LXC, and VMs with limited physical RAM.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -8247,18 +7997,6 @@ This opens the visibility configuration dialog.
 - Use meaningful names for dashboard readability
 
 - Verify units and scaling (multiplier/divisor) carefully
-
----
-
-## ✅ Summary
-
-- Sensors provide real-time hardware and system metrics
-
-- Sensors are managed via Settings → Hardware → Sensors
-
-- Custom sensors can be created from unmapped system data
-
-- Configured sensors can be displayed on the Dashboard
 
 ---
 
@@ -8594,20 +8332,6 @@ Typical scenarios include:
 - Keep **bridged networking** enabled for container and VM support
 - Configure reliable DNS servers
 - Avoid changing network settings remotely without console access
-
----
-
-# ✅ Summary
-
-MOS networking supports:
-
-- Multiple network interfaces
-- Bridge networking
-- VLAN configuration
-- Static or DHCP networking
-- IPv4 and IPv6
-
-Network changes are protected by a **60-second rollback mechanism** to prevent accidental loss of connectivity.
 
 ---
 
@@ -9456,6 +9180,10 @@ VNC ports (5900+) should not be exposed to the public Internet. Use a VPN or SSH
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # Token
 
 Source: https://docs.mos-official.net/docs/Settings/Network/Token
@@ -9573,20 +9301,6 @@ Replace `USERNAME` with your Docker Hub username and `TOKEN` with the generated 
 - Tokens are used in read-only mode for both public and private repositories
 - Never share tokens with untrusted users
 - Revoke and regenerate tokens if they are compromised
-
----
-
-## ✅ Summary
-
-The Token menu centralizes authentication credentials for MOS and external services.
-
-**Key points:**
-- Create MOS Admin API Tokens for administrative access
-- Store GitHub tokens to increase API limits
-- Store Docker Hub tokens to avoid pull rate limits
-- Use read-only permissions for maximum security
-
-Proper token management ensures reliable and uninterrupted access to external resources.
 
 ---
 
@@ -9746,19 +9460,6 @@ This ensures consistent behavior between:
 
 ---
 
-## ✅ Summary
-
-The MOS API is the central control layer of the system.
-
-- The WebUI is a client of the API
-- All system actions are exposed via REST endpoints
-- The API documentation provides full visibility and control
-- API tokens enable secure automation and integration
-
-For advanced users, the API unlocks the full potential of MOS.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -9799,6 +9500,10 @@ This reference is regenerated automatically from the
 ## Endpoints
 
 <ApiExplorer />
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -9979,12 +9684,7 @@ MOS itself preserves its configuration — but user-created data must be stored 
 
 ---
 
-## 🧪 Summary
-
-- MOS runs in RAM
-- The USB stick stores MOS configuration and system data
-- Non-persistent paths are reset on reboot
-- Always use mounted storage or pools
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -10103,15 +9803,9 @@ In advanced scenarios, this verification can be explicitly disabled.
 - Use this option only if you fully understand the implications
 :::
 
-## ✅ Summary
+---
 
-- MD5 verification can be disabled via a marker file
-
-- File path: /boot/config/system/md5check_disabled
-
-- File content is irrelevant
-
-- Recommended only for special scenarios
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -10235,17 +9929,6 @@ This is because MOS reconstructs the root filesystem from the compressed base im
 
 ---
 
-## ✅ Summary
-
-- **Persistent packages** go to `/boot/optional/packages`
-- Use **`apt download`** to fetch `.deb` files
-- **Reboot** to apply installations
-- Direct **`apt install`** does **not** persist
-
-For system packages that must survive reboots, always use `/boot/optional/packages`.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -10352,12 +10035,7 @@ Custom modprobe configurations are commonly needed on ARM boards to:
 
 ---
 
-## ✅ Summary
-
-- **Persistent modprobe configs** go to `/boot/optional/modprobe.d/`
-- Files must have the **`.conf`** extension
-- **Reboot** to apply configurations
-- Configs are loaded **during early boot** before drivers initialize
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -10469,15 +10147,6 @@ alias resize='stty -a | grep -q "rows" && stty rows $((${LINES:-24}) columns $((
 - Connect via SSH and check `/root/.bash_profile` for errors
 - Use `bash -n /root/.bash_profile` to validate syntax
 - Temporarily rename the file to `/boot/config/system/bash_profile.bak` to disable it
-
----
-
-## ✅ Summary
-
-- Create file at `/boot/config/system/bash_profile`
-- Reboot MOS to create symlink to `/root/.bash_profile`
-- Configure aliases, colors, and environment variables
-- Useful for SSH session customization
 
 ---
 
@@ -10605,14 +10274,7 @@ Use this script **only if you fully understand the MOS boot process and Linux sy
 
 ---
 
-## ✅ Summary
-
-- Executed at the earliest possible boot stage
-- Runs before drivers, networking, pools, and services
-- Only rootfs is available
-- Requires full paths to all commands
-- Intended for deep system-level customization
-- Located under **Advanced-Usage** for a reason
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -10704,16 +10366,6 @@ As long as the script file exists at the correct path, MOS will execute it autom
 :::warning
 Use this script carefully and keep it as minimal as possible.
 :::
-
----
-
-## ✅ Summary
-
-- Runs very early during system startup
-- Executed before pools and services
-- Intended for early system preparation
-- Cron jobs are preferred whenever possible
-- Part of the official MOS startup process
 
 ---
 
@@ -10813,16 +10465,6 @@ Use this script carefully and keep it as minimal as possible.
 
 ---
 
-## ✅ Summary
-
-- Runs after storage is mounted but before services start
-- Executed between Post-Start Script and service startup
-- Intended for storage-dependent pre-service tasks
-- Cron jobs are preferred whenever possible
-- Part of the official MOS startup process
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
@@ -10911,16 +10553,6 @@ The script will be executed automatically as long as the file exists at the defi
 - Long-running commands may delay system readiness
 - Errors in this script can affect dependent services
 - Keep execution time short and predictable
-
----
-
-## ✅ Summary
-
-- Runs after all pools and services are available
-- Executed once during system startup
-- Intended for post-start initialization tasks
-- Cron jobs are preferred when possible
-- Part of the official MOS startup process
 
 ---
 
@@ -11017,16 +10649,6 @@ The script will be executed automatically as long as the file exists at the corr
 - Other pools or services may not be available yet
 - Errors in a pool script may affect dependent workflows
 - Keep scripts focused and pool-specific
-
----
-
-## ✅ Summary
-
-- Executed after a specific pool is mounted
-- One script per pool
-- Pool name determines execution
-- Ideal for pool-dependent initialization
-- Part of the official MOS startup and storage lifecycle
 
 ---
 
@@ -11635,6 +11257,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.6.1-stable
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Stable/0.6.1-stable
@@ -11707,6 +11333,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 ---
 
 [📋 Release Notes Overview](../Overview) | **[Previous: 0.6.0-stable ←](../Stable/0.6.0-stable)**
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -11870,6 +11500,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.5.8-stable
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.8-stable
@@ -11960,6 +11594,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.5.6-stable
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.6-stable
@@ -11997,6 +11635,10 @@ If you are using IPv6 and want to use SLAAC, please **disable DHCP for IPv6** be
 ---
 
 [📋 Release Notes Overview](../Overview) | **[Next: 0.5.8-stable →](../Stable/0.5.8-stable)**
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -12121,6 +11763,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.5.0-stable
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Stable/0.5.0-stable
@@ -12214,6 +11860,10 @@ The plugin will be **removed automatically** after you update to MOS 0.5.0-stabl
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.4.10-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.10-beta
@@ -12232,6 +11882,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 ---
 
 **← [Previous: 0.4.11-beta](./0.4.11-beta)** | [📋 Release Notes Overview](../Overview) | **[Next: 0.4.9-beta →](./0.4.9-beta)**
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -12274,6 +11928,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 ---
 
 [📋 Release Notes Overview](../Overview) | **[Next: 0.4.10-beta →](./0.4.10-beta)**
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -12330,6 +11988,10 @@ Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.5-beta
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.4.6-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.6-beta
@@ -12368,6 +12030,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 ---
 
 **← [Previous: 0.4.7-beta](./0.4.7-beta)** | [📋 Release Notes Overview](../Overview) | **[Next: 0.4.5-beta →](./0.4.5-beta)**
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -12429,6 +12095,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.4.8-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.8-beta
@@ -12473,6 +12143,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 ---
 
 **← [Previous: 0.4.9-beta](./0.4.9-beta)** | [📋 Release Notes Overview](../Overview) | **[Next: 0.4.7-beta →](./0.4.7-beta)**
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -12547,6 +12221,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.4.4-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.4-beta
@@ -12609,6 +12287,10 @@ Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.4-beta
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.4.3-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.3-beta
@@ -12662,6 +12344,10 @@ This release fixes a critical **dirty frag exploit** vulnerability. All users ar
 ---
 
 **← [Previous: 0.4.4-beta](./0.4.4-beta)** | [📋 Release Notes Overview](../Overview) | **[Next: 0.4.2-beta →](./0.4.2-beta)**
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -12744,6 +12430,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.4.1-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.1-beta
@@ -12822,6 +12512,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.4.0-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.4.0-beta
@@ -12895,6 +12589,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 ---
 
 **← [Previous: 0.4.1-beta](./0.4.1-beta)** | [📋 Release Notes Overview](../Overview) | **[Next: 0.3.0-beta →](./0.3.0-beta)**
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 
@@ -13010,6 +12708,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.2.4-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.2.4-beta
@@ -13072,6 +12774,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 
 ---
 
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
+
+---
+
 # 0.2.3-beta
 
 Source: https://docs.mos-official.net/docs/Release-Notes/Beta/0.2.3-beta
@@ -13112,6 +12818,10 @@ Download this release on the [GitHub Releases](https://github.com/mos-nas/mos-re
 ---
 
 **← [Previous: 0.2.4-beta](./0.2.4-beta)** | [📋 Release Notes Overview](../Overview)
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._
 
 ---
 

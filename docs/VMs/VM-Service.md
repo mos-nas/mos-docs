@@ -121,17 +121,4 @@ A VM whose memory exceeds the free reservation cannot be started.
 
 ---
 
-## ✅ Summary
-
-The VM Service settings define how virtual machines are managed on the system.
-
-**Key points:**
-- Enable or disable the VM service
-- Configure directories for VM configuration and virtual disks
-- Manage VirtIO ISO downloads and huge page reservations
-
-Proper configuration ensures stable and efficient virtual machine operation.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

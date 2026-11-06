@@ -146,17 +146,4 @@ This ensures consistent behavior between:
 
 ---
 
-## ✅ Summary
-
-The MOS API is the central control layer of the system.
-
-- The WebUI is a client of the API
-- All system actions are exposed via REST endpoints
-- The API documentation provides full visibility and control
-- API tokens enable secure automation and integration
-
-For advanced users, the API unlocks the full potential of MOS.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

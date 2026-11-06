@@ -103,9 +103,4 @@ MOS itself preserves its configuration — but user-created data must be stored 
 
 ---
 
-## 🧪 Summary
-
-- MOS runs in RAM
-- The USB stick stores MOS configuration and system data
-- Non-persistent paths are reset on reboot
-- Always use mounted storage or pools
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

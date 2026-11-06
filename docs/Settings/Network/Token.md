@@ -114,18 +114,4 @@ Replace `USERNAME` with your Docker Hub username and `TOKEN` with the generated 
 
 ---
 
-## ✅ Summary
-
-The Token menu centralizes authentication credentials for MOS and external services.
-
-**Key points:**
-- Create MOS Admin API Tokens for administrative access
-- Store GitHub tokens to increase API limits
-- Store Docker Hub tokens to avoid pull rate limits
-- Use read-only permissions for maximum security
-
-Proper token management ensures reliable and uninterrupted access to external resources.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

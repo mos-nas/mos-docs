@@ -160,17 +160,4 @@ Snapshots require a filesystem that supports them (e.g., btrfs or ZFS). On other
 
 ---
 
-## ✅ Summary
-
-The LXC Service settings define how Linux Containers operate on the system.
-
-**Key points:**
-- Enable or disable the LXC service
-- Control bridge-based container networking
-- Define the storage location for LXC containers
-
-Proper configuration ensures stable and predictable LXC container operation.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

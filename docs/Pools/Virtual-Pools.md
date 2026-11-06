@@ -189,22 +189,4 @@ Virtual Pools do **not** provide data redundancy. If a path fails, all files sto
 
 ---
 
-## ✅ Summary
-
-Virtual Pools provide a flexible way to combine existing storage paths into a single logical pool using mergerfs.
-
-Key points:
-
-- **No dedicated disks needed** — uses existing directory paths
-- **13 Create Policies** — control how new files are distributed (default: `mspmfs`)
-- **5 Search Policies** — control how existing files are found (default: `ff`)
-- **No data movement** — files stay where they are, only the view is merged
-- **Automount and Sharing** — toggle on for automatic startup and network access
-- **No redundancy** — use SnapRAID or backups for data protection
-- **Ideal for consolidating** — combine media, shares, or data from multiple pools
-
-Virtual Pools are perfect for homelab and server setups where storage is spread across multiple pools and needs to be presented as a single unified directory.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

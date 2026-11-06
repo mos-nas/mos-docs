@@ -216,19 +216,4 @@ Automatic updates may restart containers.
 
 ---
 
-## ✅ Summary
-
-The Docker Service settings define how Docker operates system-wide.
-
-**Key points:**
-- Enable or disable the Docker daemon
-- Configure storage and filesystem options
-- Select the appropriate network mode
-- Define startup behavior and daemon parameters
-- Control automated update checks and updates
-
-Proper configuration ensures stable, secure, and efficient container operation.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

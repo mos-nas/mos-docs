@@ -105,18 +105,4 @@ Do not attempt to remove or disable PCI devices from the system while it is runn
 
 ---
 
-## ✅ Summary
-
-The PCI Devices page provides a comprehensive overview of all PCI hardware on the system.
-
-Key points:
-
-- **Automatic detection** — all PCI/PCIe devices are listed without configuration
-- **Detailed identification** — slot addresses, class codes, vendor and device IDs
-- **Read-only** — for inspection and troubleshooting only
-- **Essential for passthrough** — slot addresses needed for VM PCI passthrough configuration
-- **Driver troubleshooting** — verify hardware detection before installing drivers
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

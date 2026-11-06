@@ -218,22 +218,4 @@ ZRAM uses RAM for compressed data. If you configure a very large ZRAM device, th
 
 ---
 
-## ✅ Summary
-
-ZRAM provides compressed swap and RAM disk capabilities, allowing your MOS system to make more efficient use of available memory.
-
-Key points:
-
-- **Two types** — `swap` (compressed swap in RAM) and `ramdisk` (compressed RAM disk)
-- **Six compression algorithms** — `zstd` (default), `lz4`, `lz4hc`, `lzo`, `deflate`, `842`
-- **Three filesystems** — `ext4` (default), `xfs`, `btrfs` (ramdisk only)
-- **Toggle on/off** — simple enable/disable per device from the WebUI
-- **Ideal for limited RAM** — great for servers running many containers
-- **Monitor with `zramctl`** — check compression ratio and usage from the terminal
-- **No hibernation support** — ZRAM swap is volatile by design
-
-ZRAM is an excellent memory optimization for homelab servers and systems running Docker, LXC, and VMs with limited physical RAM.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

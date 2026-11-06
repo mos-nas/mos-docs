@@ -133,20 +133,4 @@ See [Network Services](../Settings/Network/Network-Services) for instructions on
 
 ---
 
-## ✅ Summary
-
-The MOS Web Terminal provides a convenient way to access the system shell directly from the browser.
-
-Key points:
-
-- **Direct browser access** — no SSH client needed
-- **Full root shell** — complete system control
-- **Instant connection** — click Open and start typing
-- **All commands available** — same as a regular SSH session
-- **Session ends on page close** — use `tmux` or `screen` for persistent sessions
-
-The Web Terminal is ideal for quick administrative tasks, troubleshooting, and system management without leaving the MOS WebUI.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

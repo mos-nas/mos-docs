@@ -23,7 +23,7 @@ After Installation you can find it in the Plugins section.
 2. Locate the **Backup** plugin card
 3. Click **Open** to access the plugin settings
 
-The plugin version is displayed in the top-right corner of the plugin card (e.g., `v0.6.3`).
+The plugin version is displayed in the top-right corner of the plugin card (e.g., `v0.7.0`).
 
 ---
 
@@ -193,23 +193,6 @@ When the retention limit is reached, the oldest backup is automatically deleted 
 - **Exclude unnecessary directories** — Skip containers with ephemeral or cache data to reduce backup size and time
 - **Test your backups** — Periodically verify that backups can be restored successfully
 - **Set appropriate retention** — Balance storage usage with backup history needs
-
----
-
-## ✅ Summary
-
-The Backup Plugin provides a centralized interface for managing system backups in MOS.
-
-Key points:
-
-- **Four backup types**: Backup All, Boot, Appdata, and Libvirt
-- **Flexible scheduling** with individual cron expressions per backup type
-- **Compression** support via `.tar.gz` archives
-- **Retention control** with configurable backup count limits
-- **Container management** — stop and restart containers around backups
-- **Directory exclusion** — skip specific appdata directories from backups
-
-Proper backup configuration ensures data safety and system recoverability for your MOS installation.
 
 ---
 

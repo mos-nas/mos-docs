@@ -110,7 +110,7 @@ Best suited for workloads that require a full OS.
 
 ### 👤 Users
 
-User and permission management. Allows you to:
+User and permission management is available under **Settings → System Configuration → Users**. It allows you to:
 
 - Create and manage user accounts
 - Assign access rights
@@ -118,11 +118,12 @@ User and permission management. Allows you to:
 
 ### 🔧 Tools
 
-Provides tools for MOS:
+The sidebar provides:
 
-- Power Management (Reboot and Shutdown)
-- Terminal
-- Filebrowser
+- **Terminal** — browser-based root shell
+- **Filebrowser** — file system browser
+
+**Reboot** and **Shutdown** are located under **Settings → System**.
 
 ### 👨‍💻 User Settings
 
@@ -154,6 +155,7 @@ The Dashboard displays multiple information panels providing a real-time system 
 |---|---|
 | **OS Panel** | Displays operating system details, MOS version, kernel, uptime and hostname |
 | **Processor Panel** | Shows CPU model, architecture, temperature, load and per-core utilization |
+| **System Load History** | Current, 1-minute, 5-minute and 15-minute load averages with a history graph |
 | **Memory Panel** | Visual overview of RAM usage, including system processes, Docker, LXC, cache and free memory |
 | **Network Panel** | Displays real-time network traffic for active interfaces |
 | **Pools Panel** | Shows storage pool usage and capacity |
@@ -280,20 +282,6 @@ The notification list only shows events that were delivered to MOS. Which events
 are sent, and to which providers, is configured under
 [Settings → Notifications](/docs/Settings/System-Configuration/Notifications).
 :::
-
----
-
-## ✅ Summary
-
-The MOS WebUI is designed to provide:
-
-- Immediate visibility into system health
-- Clear separation of storage, services and virtualization
-- Scalability from simple setups to advanced server configurations
-
-For most users, daily interaction will focus on:
-
-**Dashboard → Pools → Shares → Docker → Settings**
 
 ---
 

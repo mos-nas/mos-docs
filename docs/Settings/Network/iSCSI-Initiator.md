@@ -137,21 +137,4 @@ Once connected, the remote iSCSI storage appears as a local block device (e.g., 
 
 ---
 
-## ✅ Summary
-
-The iSCSI Initiator enables MOS to connect to remote iSCSI targets and access their block storage.
-
-Key points:
-
-- **Initiator IQN** — auto-generated, identifies this server to targets
-- **Target connections** — add remote targets with IQN, address, and port
-- **Test connection** — verify connectivity before adding
-- **Automount** — automatically connect on system boot
-- **Default port 3260** — standard iSCSI port
-- **Block device** — connected storage appears as a local block device
-
-iSCSI Initiator is ideal for extending MOS storage with remote block devices from SANs, NAS, or other MOS servers.
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

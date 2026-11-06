@@ -132,18 +132,4 @@ If a plugin does not provide a configuration page, it simply installs and manage
 
 ---
 
-## ✅ Summary
-
-- Drivers in MOS are managed as plugins
-
-- Installation is done via the MOS Hub
-
-- Plugins may be driver-only or include configuration pages
-
-- Installed drivers are managed under Plugins
-
-- Functionality depends on the plugin maintainer
-
----
-
 _Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

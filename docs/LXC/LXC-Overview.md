@@ -25,3 +25,7 @@ The **LXC** page lists all containers on the system and their current state.
 
 The calculator button in the **Storage** column queries the root filesystem size on
 demand; the value is not refreshed automatically.
+
+---
+
+_Parts of this documentation were created with the assistance of AI tools. All AI-generated content has undergone review, but it may still contain inaccuracies, omissions, or outdated information._

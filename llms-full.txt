@@ -2288,15 +2288,15 @@ Regular pools (Create pool) and Virtual Pools (Create Virtual Pool) are separate
 
 ![Create Virtual Pool Dialog](/img/pools/virtual-pool-create-dialog.png)
 
-*The Create Virtual Pool dialog with default values.*
+*The Create Virtual Pool dialog with two paths selected.*
 
 ### Configuration Fields
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
 | **Name** | Text | — | Name of the Virtual Pool. Used for the mount point (e.g., `vpool` → `/mnt/vpool`). |
-| **Paths** | Text + Add | — | One or more existing directory paths to combine (e.g., `/mnt/main`, `/mnt/media`). Click **Add** to add multiple paths. |
-| **Comment** | Text | `mspmfs` | Optional comment or description for the pool. |
+| **Paths** | Directory picker + Add | — | One or more existing directory paths to combine (e.g., `/mnt/main`, `/mnt/media`). Click **Add** to open the directory picker. |
+| **Comment** | Text | — | Optional comment or description for the pool. |
 | **Create Policy** | Dropdown | `mspmfs` | mergerfs policy for distributing new files across paths — see [Create Policy](#create-policy). |
 | **Search Policy** | Dropdown | `ff` | mergerfs policy for finding existing files across paths — see [Search Policy](#search-policy). |
 | **Automount** | Toggle | On | Automatically mount the Virtual Pool during system startup. |
@@ -2307,9 +2307,10 @@ Regular pools (Create pool) and Virtual Pools (Create Virtual Pool) are separate
 
 The **Paths** field is the core of a Virtual Pool. You add existing directories that should be combined:
 
-1. Enter a path (e.g., `/mnt/main`)
-2. Click **Add** to add it to the list
-3. Repeat for additional paths (e.g., `/mnt/media`, `/mnt/backup`)
+1. Click **Add** to open the directory picker
+2. Navigate to the directory (double-click a folder) and select it
+3. Click **Select** to add the path to the list
+4. Repeat for additional paths (e.g., `/mnt/media`, `/mnt/backup`)
 
 All files from all added paths will appear as a single unified directory structure under the Virtual Pool mount point.
 
@@ -2329,11 +2330,11 @@ mergerfs uses **policies** to determine how files are distributed and found acro
 
 ### Create Policy
 
-The **Create Policy** determines which path receives a **new file** when it is written to the Virtual Pool. MOS offers 20 policies, including:
+The **Create Policy** determines which path receives a **new file** when it is written to the Virtual Pool. MOS offers 13 policies:
 
-- **Non-path-preserving** (`pfrd`, `rand`, `mfs`, `ff`, `lfs`, `lup`, `lus`, `all`, `newest`) — consider all paths regardless of existing directory structure
+- **Non-path-preserving** (`mfs`, `ff`, `lfs`, `lup`, `lus`, `all`) — consider all paths regardless of existing directory structure
 - **Path-preserving (msp)** (`msppfrd`, `mspmfs`, `msplfs`, `msplus`) — prefer paths where the target directory already exists
-- **Existing path (ep)** (`eppfrd`, `epmfs`, `eprand`, `epff`, `eplfs`, `eplus`, `epall`) — strictly require the target directory to exist on a path
+- **Existing path (ep)** (`eppfrd`, `epmfs`, `eprand`) — strictly require the target directory to exist on a path
 
 Default: `mspmfs` (Most Similar Path, Most Free Space)
 
@@ -2361,7 +2362,6 @@ For a complete description of all available mergerfs policies, their behavior, a
 
 | Use Case | Recommended Policy | Why |
 |----------|-------------------|-----|
-| **General use** | `pfrd` | Even distribution, no path overload |
 | **Keep related files together** | `mspmfs` (default) | Path-preserving + most free space |
 | **Maximize capacity** | `mfs` | Always uses the path with most space |
 | **Simple, predictable** | `ff` | First path in order |
@@ -2456,7 +2456,7 @@ Virtual Pools provide a flexible way to combine existing storage paths into a si
 Key points:
 
 - **No dedicated disks needed** — uses existing directory paths
-- **20 Create Policies** — control how new files are distributed (default: `mspmfs`)
+- **13 Create Policies** — control how new files are distributed (default: `mspmfs`)
 - **5 Search Policies** — control how existing files are found (default: `ff`)
 - **No data movement** — files stay where they are, only the view is merged
 - **Automount and Sharing** — toggle on for automatic startup and network access

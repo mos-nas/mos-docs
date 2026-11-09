@@ -2308,6 +2308,11 @@
             "description": "Pool type",
             "example": "btrfs"
           },
+          "external": {
+            "type": "boolean",
+            "description": "True for pools managed outside pools.json (native ZFS pools via openzfs plugin) - read-only, cannot be mounted/unmounted/modified through the API",
+            "example": false
+          },
           "automount": {
             "type": "boolean",
             "description": "Whether pool is automatically mounted",
@@ -17327,7 +17332,7 @@
     "/pools/order": {
       "put": {
         "summary": "Update order of all pools",
-        "description": "Update the display order for multiple pools at once by providing an array of pool IDs with their new index values (admin only)",
+        "description": "Update the display order for multiple pools at once by providing an array of pool IDs with their new index values (admin only). External pools (type zfs, flag external) are managed outside pools.json and cannot be reordered",
         "tags": [
           "Pools"
         ],
@@ -17515,6 +17520,11 @@
                       "type": "string",
                       "example": "Successfully created single device pool 'data_pool'"
                     },
+                    "warning": {
+                      "type": "string",
+                      "description": "Only present if the pool was created but automount failed",
+                      "example": "Automount failed: mount: unknown filesystem type 'bcachefs'"
+                    },
                     "pool": {
                       "type": "object",
                       "description": "Created pool object"
@@ -17661,6 +17671,10 @@
                     "message": {
                       "type": "string",
                       "example": "Successfully created multi-device BTRFS pool 'data_raid1' with raid1 configuration"
+                    },
+                    "warning": {
+                      "type": "string",
+                      "description": "Only present if the pool was created but automount failed"
                     },
                     "pool": {
                       "type": "object",
@@ -18049,6 +18063,11 @@
                     "message": {
                       "type": "string",
                       "example": "Successfully created bcachefs pool 'tank' with 3 data device(s) and 1 cache device(s)"
+                    },
+                    "warning": {
+                      "type": "string",
+                      "description": "Only present if the pool was created but automount failed",
+                      "example": "Automount failed: mount.bcachefs: Mount failed for /dev/sdb1: source /dev/sdc1: Multiple sources"
                     },
                     "pool": {
                       "type": "object",
@@ -47660,9 +47679,9 @@
       }
     }
   },
-  "x-synced-from": "8051d78cb975d19a4065e08969e78dc6093493d4",
+  "x-synced-from": "ff26b5b13778805ea1be7cf5c10ce759cae93dc3",
   "x-synced-ref": "master",
-  "x-synced-trigger": "manual",
-  "x-synced-at": "2026-11-04T13:22:36.544Z",
-  "x-synced-at-display": "04.11.2026, 14:22 GMT+1"
+  "x-synced-trigger": "schedule",
+  "x-synced-at": "2026-11-09T00:36:39.556Z",
+  "x-synced-at-display": "09.11.2026, 01:36 GMT+1"
 }

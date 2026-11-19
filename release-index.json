@@ -1,5 +1,12 @@
 [
   {
+    "version": "0.6.3-stable",
+    "channel": "Stable",
+    "badge": "🎉 Stable",
+    "highlights": "Recommended Kernel 6.18.64, Update Docker v29.29.10.1, Update mos-notify 0.5.3, Docker compose update uses --remove-orphans and prunes dangling images…",
+    "date": "2026-11-19T17:50:16Z"
+  },
+  {
     "version": "0.6.2-stable",
     "channel": "Stable",
     "badge": "🎉 Stable",
